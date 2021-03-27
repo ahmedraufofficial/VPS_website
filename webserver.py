@@ -868,8 +868,9 @@ def project(community, project):
         result = c.fetchone()
         details = ['Abu Dhabi',community,project]
         amenities = []
-                    
+        
         images = result[3].split(',')
+ 
         conn.close()
         
         with open("virtual_tour.json", "r") as x:
@@ -900,13 +901,19 @@ def project(community, project):
         
         with open(r"floorplans.json", "r") as read_file:
             data = json.load(read_file)
-
+        
         if community in data:
             floorplans=data[community]['floorplans']
             floorplans_1 =data[community]['floorplans_1']
             floorplans_2 =data[community]['floorplans_2']
             floorplans_3 =data[community]['floorplans_3']
             floorplans_4=data[community]['floorplans_4']
+        elif project in data:
+            floorplans=data[project]['floorplans']
+            floorplans_1 =data[project]['floorplans_1']
+            floorplans_2 =data[project]['floorplans_2']
+            floorplans_3 =data[project]['floorplans_3']
+            floorplans_4=data[project]['floorplans_4']
 
         else:
             floorplans=""
@@ -916,7 +923,6 @@ def project(community, project):
             floorplans_4=""
 
         try:
-            print(floorplans)
             return render_template("project.html",  url=name, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project, vt = vt)
         except: 
             try:
