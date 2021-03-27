@@ -1,0 +1,311 @@
+{% extends "base.html" %}
+
+{% block metacontent %} 
+<meta name="description" content="UHPAE's Real Estate team provides an analysis of the future supply and demand for residential,
+land, villa, and townhouses properties.">
+<meta name="keywords" content="abu dhabi reports, real estate reports , trends and reports, property reports">
+<meta name="title" content="Report ands Trends | UHPAE">
+<meta property="og:title" content="Report ands Trends | UHPAE" />
+<meta property="og:url" content="www.uhpae.com/abu-dhabi/property-market-insights" />
+<meta property="og:image" content="https://uhpae.com/static/images/reports_whats.jpeg" />                        
+<title>TRENDS AND REPORTS</title>
+{% endblock %}
+
+{% block content %}
+<div style="background-color: #F8F8F8;">
+    <div class="container ">
+      <div class="row" style="padding-top: 2vh" >
+        <div class="col">
+        <h2 class="nfont" ><b>TRENDS AND REPORTS</b></h2>
+          </div>       
+  </div>
+  </div>
+  </div>
+
+
+<div class="container">
+<div class="row">
+<div class="col-4" style="font-family: 'Roboto'; margin-top: 30px;">
+  UHP’s purpose is to provide business with factual and important real estate knowledge so that our customers can have a clear perspective of what they are up against, and what are the possible fluctuations in the real estate supply and demand.
+
+  Our research is mainly done on properties within Abu Dhabi, UAE. All data is gathered from various sources and is filtered to provide data sets with minimum outliers and errors. Data sets are generated every week and are used to the shift in demand and supply from one month to another. All reports also focus on the most concentrated Area and Type of housing.
+</div>
+<div class="col-8" style="margin-top: 30px;">
+<div class="row">
+  <div class="col">
+    <h2 class="nfont" ><b>ABU DHABI PROPERTY MARKET INSIGHTS</b></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <img src="/static/images/reportscaption.png" width="100%" alt="">
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div style="width:100%;height:5px;border-bottom:4px solid #144A86;"></div>
+    </div>
+    <div class="col-2 text-right">
+    <select onchange="get_sale_rep()" class="readmorebtn" name="date" id="select_id">
+      <option value="">Filter</option>
+      <option value="Feb_Mar_21_S.pdf">Feb/Mar 21'</option>
+      <option value="Jan_Feb_21_S.pdf">Jan/Feb 21'</option>
+    </select>
+    </div>
+    </div>
+</div>
+<br>
+<div class="container" style="background-color: #DBCBAB;">
+<div class="row">
+<div class="col"  style="margin-top: 40px;">
+<h2 class="nfont" style="color:black;">MONTHLY</h2>
+<h2 class="nfont">SALES</h2>
+<h2 class="nfont">REPORT</h2>
+<form method="post" autocomplete="off" name="report-1">
+<h6><input type="text" name="name" placeholder="Your Name" style="font-family: Roboto;" required></h6>
+<h6><input type="text" name="email" placeholder="Your Email Address" style="font-family: Roboto;" required></h6>
+<button class="readmorebtn" style="font-family: Roboto;" type="submit">Submit to Download</button>
+</form>
+<h6 style="font-family: Roboto;"><label id="sales_label"></label></h6>
+<a href="#" onclick="check_sale()" id="sales_rep" style="font-family: Roboto;">Download</a>
+</div>
+<div class="col-4">
+<img src="/static/images/reportsicon2.png" width="100%" alt="">
+</div>
+</div>
+</div>
+
+<div id="bring" class="container" style="margin-top: 20px;">
+  
+<iframe src="https://blogs.uhpae.com/Jan_Feb_21_S.pdf" style="width: 100%;height: 400px;border: none;"></iframe>
+</div>
+
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div style="width:100%;height:5px;border-bottom:4px solid #144A86;"></div>
+    </div>
+    <div class="col-2 text-right">
+    <select onchange="get_rent_rep()" class="readmorebtn" name="date" id="select_id_2">
+      <option value="">Filter</option>
+      <option value="Feb_Mar_21_R.pdf">Feb/Mar 21'</option>
+      <option value="Jan_Feb_21_R.pdf">Jan/Feb 21'</option>
+    </select>
+    </div>
+    </div>
+</div>
+<br>
+<div class="container" style="background-color: #DBCBAB;">
+<div class="row">
+<div class="col" style="margin-top: 40px;">
+<h2 class="nfont" style="color:black;">MONTHLY</h2>
+<h2 class="nfont">RENT</h2>
+<h2 class="nfont">REPORT</h2>
+<form method="post" autocomplete="off" name="report-2">
+<h6><input type="text" name=name placeholder="Your Name" style="font-family: Roboto;"></h6>
+<h6><input type="text" name="email" placeholder="Your Email Address" style="font-family: Roboto;"></h6>
+<button class="readmorebtn" style="font-family: Roboto;" type="submit">Submit to Download</button>
+</form>
+<h6 style="font-family: Roboto;"><label id="rent_label"></label></h6>
+<a href="#" onclick="check_rent()" id="rent_rep" style="font-family: Roboto;">Download</a>
+</div>
+<div class="col-4">
+<img src="/static/images/reportsicon1.png" width="100%" alt="">
+</div>
+</div>
+</div>
+
+
+
+<div class="modal-bg" id="signup">
+  <div class="modalthis">
+      <form method="post" autocomplete="off" name="google-sheet">
+        <div class="container" style="background-color: white;">
+          <div class="row">
+              <div class="col" style="position: relative;">
+                <div class="row">
+                  <div class="col">
+                    <h3 style="font-family: 'Roboto';">
+                      Subscribe to View Full Report
+                    </h3>
+                  </div>
+                </div>
+                  <div class="row" style="margin-top: 5px;">
+                      <div class="col text-center">
+                        <form action="">
+                          <input type="hidden" id="strReferrer" name="strReferrer" />
+                          <div class="row">
+                              <div class="col-md-6 col-lg-6 col-sm-12">
+                                   <input type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" style="width: 100%;" id="email" name="email" placeholder="Email">
+                              </div>
+                          
+                              <div class="col-md-6 col-lg-6 col-sm-12">
+                                  <input type="tel" pattern='[\+]\d{3}\d{2}\d{7}' title='Phone Number (Format: +971009999999)' style="width: 100%;" id="phonenumber" name="phonenumber" placeholder="or Phone No.">
+                              </div>
+                              
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <button class="readmorebtn" style="font-family: Roboto;" type="submit">Submit to Download</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                  </div>
+              </div>
+          </div>  
+          
+
+            <div class="row">
+                <div class="col"><p class="simple" style="display: inline;">Close Ad in </p>
+                  <span id="countdown" class="simple" style="display: inline;">12</span>
+                    <span id="close" class="modalclose simple" style="font-weight: bold;float: right;">Close</span>
+                </div>
+            </div>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+
+{% endblock %}
+{% block scripts %}
+ <script>
+    document.getElementById("sales_rep").style.display = "none"
+ </script>
+
+
+<script>
+  function check_rent(){
+    console.log(document.getElementById("rent_rep").href)
+    if(document.getElementById("rent_rep").href == window.location.href)
+    { alert("Please choose a date from Filter option")}
+  }
+  function check_sale(){
+    console.log(document.getElementById("sales_rep").href)
+    if(document.getElementById("sales_rep").href == window.location.href)
+    { alert("Please choose a date from Filter option")}
+  }
+</script>
+
+
+<script>
+  
+  function get_sale_rep() {
+      d = document.getElementById("select_id").value;
+      document.getElementById('sales_label').innerHTML = d;
+      h = "/download/" + d
+      document.getElementById("sales_rep").href= h; 
+  }
+  function get_rent_rep() {
+      g = document.getElementById("select_id_2").value;
+      document.getElementById('rent_label').innerHTML = g;
+      i = "/download/" + g
+      document.getElementById("rent_rep").href= i; 
+  }
+</script>
+
+
+
+<script>
+  var modalbg = document.querySelector('.modal-bg');
+  var modalclose = document.getElementById('close')
+  modalclose.style.display = "none"
+  var seconds = 12, $seconds = document.querySelector('#countdown');
+  (function countdown() {
+      $seconds.textContent = seconds + ' second' + (seconds == 1 ?  '' :  's')
+      if (seconds==0)
+      {
+          modalclose.style.display=""
+      }
+      if(seconds --> 0)
+      {setTimeout(countdown, 1000);}
+      
+  })();
+  
+  $(document).ready(function(){
+  $("#bring").mouseover(function(){
+    setTimeout(function(){
+        modalbg.classList.add('bg-active');
+       },2000);
+  });})
+  
+  
+    
+  
+  modalclose.addEventListener('click',function(){
+      modalbg.classList.remove('bg-active');
+      sessionStorage.setItem('#signup', 'true');
+  });
+  </script>
+
+
+
+<script>
+    
+    $(document).ready(function(){
+        if (sessionStorage.getItem('#sales_rep') == 'true' || sessionStorage.getItem('#rent_rep') == 'true'){
+       setTimeout(function(){
+        document.getElementById("sales_rep").style.display = ""
+       },1000);
+       
+    }
+    });
+</script>
+
+
+
+
+
+
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+  const form = document.forms['google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")).then(sessionStorage.setItem('#sales_rep', 'true')).then(location.reload())
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+<script>
+ 
+  const form2 = document.forms['report-1']
+
+  form2.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form2)})
+      .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")).then(sessionStorage.setItem('#sales_rep', 'true')).then(location.reload())
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
+<script>
+  
+  const form3 = document.forms['report-2']
+
+  form3.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form3)})
+      .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")).then(sessionStorage.setItem('#rent_rep', 'true')).then(location.reload())
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+{% endblock %}

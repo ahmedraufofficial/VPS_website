@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+
+{% block metacontent %}
+
+ <title>UHPAE Team</title>
+
+{% endblock %}
+{% block content %}
+
+<div style="background-color: #F8F8F8; ">
+  <div class="container ">
+    <div class="row" style="padding-top: 2vh" >
+      <div class="col">
+      <h2 class="nfont" ><b>OUR TEAM</b></h2>
+        </div>
+
+          
+</div>
+</div>
+</div>
+<div class="container" style="margin-top:40px;">
+  <div class="row">
+    <div class="col">
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('team')}}"> Team </a>
+</p>
+  </div>
+  </div>
+</div>
+<div class="container" style="margin-top: 4%;">
+    <div class="row justify-content-center">   
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/eEJI2O7RD6A?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="container" style="text-align: justify;">
+    <br>
+    <h2 class="nfont">MEET OUR TEAM</h2>
+    <h6 class="simple" style="display: inline;">
+        Our strongest asset is the young, dynamic, professional team. Our clients need the best people,
+         and new blood in the property market, to start driving your property forward. You need experts
+          who can create focused real estate strategies that align with your goals, who can infuse their
+           creativity into groundbreaking solutions, and who can analyze data to optimize every tactic 
+           along the way. Staff commitment and passion have always been hallmarks of UHP, and we are delighted
+            to continue bringing outstanding and diverse teams of dedicated experts on board, to deliver the 
+            best for all parties involved.</h6>
+        <h6 class="simple" style="display: inline;">All Unique Homes Properties
+         staff members are highly-educated professionals with a passion for real estate
+         and a love of learning new skills. They embody our Core Values and are dedicated to helping our stake holders
+          in every way possible, and continue to be at the forefront of the marketplace with advice from some of the
+           most experienced and highly trained staff members in Abu Dhabi.
+    </h6>
+    <br>
+           <br>
+    </div>
+
+<br>
+<div class="container" style="margin-bottom: 40px;">
+<div class="row justify-content-center">
+<button class="teambtn" onclick="SenFunction()">Senior Management Team</button>
+<button class="teambtn" onclick="MarFunction()">Marketing Team</button>
+<button class="teambtn" onclick="LisFunction()">Listing Team</button>
+<button class="teambtn" onclick="SalFunction()">Sales Team</button>
+<button class="teambtn" onclick="AdmFunction()">Admin Team</button>
+</div>
+</div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title simple">To contact kindly give the following details</h4>
+        </div>
+        <div class="modal-body">
+          Kindly reach out to our email: uhpaeworldwide@gmail.com
+
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+
+
+<div class="container" id="sen">
+    <div class="row justify-content-around">
+        
+        <div class="card" style="width: 20rem; margin-top: 20px;">
+            <div class="cardimg">
+            <img class="card-img-top teamimg"   src="../static/team/boss.jpg" alt="">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title searchfont2" style="font-size: 18pt;">Mohammed Al Jbour</h5>
+              <p class="card-text searchfont2" style="font-size: 12pt; float:left;">General Manager</p>
+              <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+            </div>
+          </div>
+        
+      
+    
+</div>
+</div> 
+
+<div class="container" id="mar">
+    <div class="row justify-content-around">
+      <div class="card" style="width: 20rem; margin-top: 20px;">
+        <div class="cardimg">
+        <img class="card-img-top teamimg"   src="../static/team/bashar.jpg" alt="">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title searchfont2" style="font-size: 18pt;">Bashar Jarrah</h5>
+          <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Marketing Manager</p>
+        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+        
+  
+        
+    <div class="card" style="width: 20rem; margin-top: 20px;">
+        <img class="card-img-top teamimg"   src="../static/team/nur.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title searchfont2" style="font-size: 18pt;">Noor Al-Douri</h5>
+            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Graphic Designer</p>
+            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+    
+</div>
+    <div class="row justify-content-around" style="margin-top:20px;">
+      <div class="card" style="width: 20rem; margin-top: 20px;">
+        <img class="card-img-top teamimg"   src="../static/team/mac.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title searchfont2" style="font-size: 18pt;">Mac Rome Galimba</h5>
+            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Photographer</p>
+            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+         
+        
+        
+        
+    <div class="card" style="width: 20rem; margin-top: 20px;">
+        <img class="card-img-top teamimg" src="../static/team/me.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title searchfont2" style="font-size: 18pt;">Ahmed Rauf</h5>
+            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Web Developer</p>
+            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+    
+</div>
+</div>
+
+<div class="container" id="lis">
+    <div class="row justify-content-around">
+      <div class="card" style="width: 20rem; margin-top: 20px;">
+        <div class="cardimg">
+        <img class="card-img-top teamimg"   src="../static/team/noor2.jpg" alt="">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title searchfont2" style="font-size: 18pt;">Nour Martini</h5>
+          <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Agent</p>
+        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+    
+      <div class="card" style="width: 20rem; margin-top: 20px;">
+        <img class="card-img-top teamimg"   src="../static/team/rou.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title searchfont2" style="font-size: 18pt;">Roua Almasoud</h5>
+            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Manager</p>
+            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+        
+  
+</div>
+<div class="row justify-content-around " style="margin-top:20px;">
+         
+  <div class="card" style="width: 20rem; margin-top: 20px;">
+    <img class="card-img-top teamimg"   src="../static/team/khloud.jpg" alt="">
+    <div class="card-body">
+        <h5 class="card-title searchfont2" style="font-size: 18pt;">Khloud Ismail</h5>
+        <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Agent</p>
+        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+    </div>
+  </div>
+   
+          
+  
+  <div class="card" style="width: 20rem; margin-top: 20px;">
+    <img class="card-img-top teamimg"   src="../static/team/Abdullah.jpg" alt="">
+    <div class="card-body">
+        <h5 class="card-title searchfont2" style="font-size: 18pt;">Abdullah Elhofi</h5>
+        <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Agent</p>
+        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+    </div>
+  </div>
+
+
+
+</div>
+
+</div>
+
+<div class="container" id="sal">
+    <div class="row justify-content-around">
+        
+        
+      <div class="card" style="width: 20rem; margin-top: 20px;">
+        <img class="card-img-top teamimg"   src="../static/team/fadal.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title searchfont2" style="font-size: 18pt;">Fadel Mohammaed</h5>
+            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">VIP Sales</p>
+            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        </div>
+      </div>
+          <div class="card" style="width: 20rem; margin-top: 20px;">
+            <img class="card-img-top teamimg"   src="../static/team/laila.jpg" alt="">
+            <div class="card-body">
+                <h5 class="card-title searchfont2" style="font-size: 18pt;">Laila Harb</h5>
+                <p class="card-text searchfont2" style="font-size: 12pt; float:left;">VIP Sales</p>
+                <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+            </div>
+          </div>
+  
+    
+</div>
+<div class="row justify-content-around" style="margin-top:20px;">
+        
+    
+  <div class="card" style="width: 20rem; margin-top: 20px;">
+    <div class="cardimg">
+    <img class="card-img-top teamimg"   src="../static/team/doha.jpg" alt="">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title searchfont2" style="font-size: 18pt;">Doha Alami</h5>
+      <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Sales Agent</p>
+    <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+    </div>
+  </div>
+  
+  <div class="card" style="width: 20rem; margin-top: 20px;">
+    <div class="cardimg">
+    <img class="card-img-top teamimg"   src="../static/team/oussama.jpg" alt="">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title searchfont2" style="font-size: 18pt;">Oussama Zanzoune</h5>
+      <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Sales Agent</p>
+    <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+    </div>
+  </div>
+
+
+
+</div>
+
+</div>
+
+<div class="container" id="adm">
+<div class="row justify-content-around">
+  <div class="card" style="width: 20rem; margin-top: 20px;">
+    <img class="card-img-top teamimg"   src="../static/team/april.jpg" alt="">
+    <div class="card-body">
+        <h5 class="card-title searchfont2" style="font-size: 18pt;">April Gomez</h5>
+        <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Administrator</p>
+        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+    </div>
+  </div>
+
+  <div class="card" style="width: 20rem; margin-top: 20px;">
+    <img class="card-img-top teamimg"   src="../static/team/joel.jpg" alt="">
+    <div class="card-body">
+        <h5 class="card-title searchfont2" style="font-size: 18pt;">Geraldine Munoz</h5>
+        <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Office Assistant</p>
+        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+  document.getElementById('mar').style.display="none";
+  document.getElementById('lis').style.display="none";
+  document.getElementById('sal').style.display="none";
+  document.getElementById('adm').style.display="none";
+  document.getElementById('sen').style.display="";
+  function SenFunction(){
+      document.getElementById('mar').style.display="none";
+      document.getElementById('lis').style.display="none";
+      document.getElementById('sal').style.display="none";
+      document.getElementById('sen').style.display="";
+      document.getElementById('adm').style.display="none";
+  }
+
+  function MarFunction(){
+      document.getElementById('mar').style.display="";
+      document.getElementById('lis').style.display="none";
+      document.getElementById('sal').style.display="none";
+      document.getElementById('sen').style.display="none"; 
+      document.getElementById('adm').style.display="none";  
+  }
+  function LisFunction(){
+      document.getElementById('mar').style.display="none";
+      document.getElementById('lis').style.display="";
+      document.getElementById('sal').style.display="none";
+      document.getElementById('sen').style.display="none"; 
+      document.getElementById('adm').style.display="none";    
+  }
+  function SalFunction(){
+      document.getElementById('mar').style.display="none";
+      document.getElementById('lis').style.display="none";
+      document.getElementById('sal').style.display="";
+      document.getElementById('sen').style.display="none";
+      document.getElementById('adm').style.display="none";
+  }
+  function AdmFunction(){
+      document.getElementById('mar').style.display="none";
+      document.getElementById('lis').style.display="none";
+      document.getElementById('sal').style.display="none";
+      document.getElementById('sen').style.display="none";
+      document.getElementById('adm').style.display="";
+  }
+
+
+  $('#my_modal').on('show.bs.modal', function(e) {
+
+//get data-id attribute of the clicked element
+var bookId = $(e.relatedTarget).data('book-id');
+
+//populate the textbox
+$(e.currentTarget).find('input[name="bookId"]').val(bookId);
+});
+
+</script>
+{% endblock %}

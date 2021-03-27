@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block metacontent %}
+
+ <title>About BLOOM</title>
+ <meta property="og:image" content="https://www.uhpae.com/static/images/bloom.jpg" /> 
+ <meta property="og:title" content="Our Partner - BLOOM">
+ <meta property="og:description" content="Since our establishment in 2007, Bloom Holding has risen with bold momentum.">
+{% endblock %}
+{% block content %}
+
+
+
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col">
+            <p class="nfont" style="display: inline; margin-left: 20px;"><b>BLOOM</b></p>
+        </div>
+        <div class="col text-right">
+            <img class="partners" src="/static/images/bloom.jpg" alt="" style="display: inline; ">
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 50px">
+    <div class="row justify-content-center">
+        <div class="col shadow" style="text-align: justify;">
+            <p class="simple"><b>Growing together everyday</b></p>
+            <p class="simple">
+As one of the UAE’s foremost companies, we are committed to developing premium real estate and enriching the lives of our customers through our excellence in managing and operating our communities, schools and hotels. Over the years, our team has grown and our strategies have evolved, yet an essential aspect remains unchanged – the driving force of our success: our people’s passion.
+Our transparent internal communication and strong sense of belonging naturally extends outward to our customers. We are keen to address your needs before they arise.
+With that sentiment in our hearts, we have witnessed a rapid pace of development: Over 3,500 properties were delivered in 2019 and there are 6,000 more in the pipeline, including a leasing portfolio of 769 premium residential units in key locations in Abu Dhabi and Dubai, 630 hotel rooms, Grade A office spaces, 7 schools and 1 nursery.
+</p><p class="simple">
+Since our establishment in 2007, Bloom Holding has risen with bold momentum. Bloom entered the market during a relatively volatile period, poised for challenges and enduring stiff competition. Fuelled by team spirit, openness, and transparency, our distinguished product quality and service set us apart.
+Bloom Properties has grown and launched multiple new projects, both in Dubai and Abu Dhabi, since 2015. This has established Bloom Properties as being one of the few Abu Dhabi developers to venture successfully into Dubai with mid-market offerings.
+</p><p class="simple">
+Our development philosophy reflects that of our customers. We are highly selective in our decision-making centred on creating returns by capitalizing on opportunities that contribute to the economic potential of markets and added value to communities.
+</p><p class="simple">
+Simultaneously, Bloom Education supports the development of future generations through our education partnerships with best-in-class international schools and by serving the national community through Abu Dhabi’s Charter Schools programme. Bloom Education’s growth rate doubled from 2018 to 2019, with a current total of 8 teaching establishments across the emirates.
+Hospitality offers internationally recognized five-star hotels and luxury hotel apartments in association with Marriott International, with 630 guest rooms including 128 executive apartments.
+bfm has continued to grow as a subsidiary of Bloom Holding, where it was awarded four ISO quality standards for its operations, processes and management in 2019. Most recently, Bloomscape, with extensive landscaping and contracting services, has been an exciting new addition to our expansive list of services.
+</p><p class="simple">
+International growth and presence are key factors in our upcoming projects. With tremendous opportunities in the region we have set our sights on regional diversification into untapped markets.
+In Education, we partnered with premium brands such as Brighton College, Dwight School and MindChamps Nursery across Abu Dhabi, Dubai and Al Ain.
+In Hospitality, we partnered with renowned operators offering lavish experiences. We boast over 630 guest rooms including 128 executive apartments in the UAE capital, including the Abu Dhabi EDITION and the Marriott Hotel Downtown Abu Dhabi.
+</p>
+<p class="simple"><b>
+Values</b>
+</p>
+<ul class="simple">
+    <li>
+Passion
+    </li>
+    <li>
+Inspiration
+    </li>
+    <li>
+Ambition
+    </li>
+    <li>
+Integrity
+    </li>
+    <li>
+Togetherness
+    </li>
+    <li>
+Caring
+    </li>
+</ul>
+
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col">
+            <h2 class="nfont"><b>Related Properties</b></h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+<div class="container-property" id="dispprop">
+
+</div>
+</div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+    var b = JSON.parse('{{ queryRes | tojson | safe}}');
+    var data ='';
+    
+    
+    $.each(b, function(key, value){var area = value.area;
+      var newarea = area.replace(/\s/g, '-')
+      var property = value.property;
+      var newproperty = property.replace(/\s/g, '-')
+                  if (value.units == "rent"){
+                      var units = "Rent";
+                      var cosmo = "Discover";
+                      var x = "background-color: #0e4a88 !important;";
+                      var y = "color: #0e4a88; font-family: 'Roboto'";
+                      var z = "#0e4a88";
+                      var color = "gold-"
+                      ;
+                      }
+                  else if (value.units == "buy"){
+                      var units = "Buy";
+                      var cosmo = "Details"
+                      var x = "background-color: #A57D2D !important;";
+                      var y = "color: #A57D2D; font-family: 'Roboto'";
+                      var z = "#A57D2D";
+                      var color = "";
+                      }
+                  else {var x = "" }
+                  data += '<div class="card" style="width: 18rem; margin: 5px; position:relative;">'
+                  data += '<img class="card-img-top1" src="'+value.image+'" alt="'+value.property+'" style="height: 250px;">'
+                  data += '<div class="card-img-overlay" style="z-index:0;"><div class="labeldesc" style=" background-color: '+z+'; width:20%; text-align:center; color:white;" >'+units+'</div></div>'
+                  data += '<div class="card-body" style="z-index:2">'
+                  data += '<h5 class="card-title" style =  "'+ y +'">'+value.property+'</h5>'
+                  data += '<p class="card-text card-desc" >'+value.type+', '+value.area+'</p>'
+                  data += '<p class="card-text card-desc" style="color: #8e8a8a !important;">'+value.title+'</p>'
+                  data += '<p class="card-text">'+'<img src="/static/icons/bed.svg" width="20px">'+'  '+value.beds+'  '+'<img  src="/static/icons/bath.svg" width="20px"  style="margin-left:7px;">'+'  '+value.baths+'  '+'<img  src="/static/icons/squares.svg" width="15px"  style="margin-left:7px;">'+'  '+value.size+' Sqft'+'</p>'
+                  data += '<div class="row"><p style = " margin-left:15px;'+ y +'" ><b>AED '+value.price+'</b></p></div>'
+                  data += '<div class="row" style="margin-left:3px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'" style="text-decoration: none;color:'+z+';border-radius: 25px; border: 1px solid '+z+'; height: 28px; width: 80px; margin-right: 5px; padding-right: 1px;padding-left: 1px;  font-size:10pt; text-align:center;"><p style="font-family:"Roboto";" >'+cosmo+'</p></a>'
+                   data += '<a href="tel:+97126439099"><img class="ikon" src="/static/icons/001-'+color+'phone-call.svg"></a>'
+                  data += '<a data-toggle="modal" data-id="'+value.ref_no+ '" title="Add this item" class="open-AddBookDialog" href="#addBookDialog"><img class="ikon" src="/static/icons/email.svg"></a>'
+                  data += '<a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20'+value.ref_no+'%20property%20for%20sale.%20Link-%20http://uhpae.com/property/'+value.ref_no+'%20"><img class="ikon" src="/static/icons/003-whatsapp.svg"></a>'
+                  data += '</div>'
+                  data += '</div>'
+                  data += '</div>'
+                  
+    })
+    $('#dispprop').append(data);
+</script>
+<script>
+  
+    $(".container-property").flickity({
+      
+      contain: true,
+      imagesLoaded: true,
+      pageDots: true,
+      prevNextButtons: true,
+    }); 
+    </script>{% endblock %}

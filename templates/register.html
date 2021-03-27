@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block metacontent %}
+
+ <title>Register For Daily Updates!</title>
+ <meta name="title" content="Register For Daily Updates!">
+ <meta name="description" content="Register and get property details, daily reports and much more!">
+ <meta name="keywords" content="contact, real estate, number, email">
+
+ <meta property="og:url" content="https://www.uhpae.com/register">
+ <meta property="og:title" content="Register For Daily Updates!">
+ <meta property="og:image" content="https://www.uhpae.com/static/images/Logo2.jpg" /> 
+ <meta property="og:description" content="Register and get property details, daily reports and much more!">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<div class="modal-content" style="padding: 4%; font-family: Roboto;">
+    <span class="close">&times;</span>
+    <div class="row justify-content-center">
+      <h4>Kindly enter your details to Register!</h4>
+    </div>
+    <form method="post" autocomplete="off" name="report-2">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="text" name="name" rows="1" style="width: 100%;" placeholder="Email" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Contact Number</label>
+        <input type="text" name="phonenumber" rows="1" style="width: 100%;"  placeholder="Phone/ Mobile Number" required>
+      </div>
+      <div class="row"><div class="col"><button type="submit" class="btn btn-primary">Submit</button></div>
+   
+    </form>
+  </div>
+  </div>
+
+  <br>
+  <hr>
+
+  <script>
+  
+    const form3 = document.forms['report-2']
+  
+    form3.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form3)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  
+
+{% endblock %}

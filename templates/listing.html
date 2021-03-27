@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+{% block metacontent %}
+<meta name="title" content="List your property with the best Real Estate Company in Abu Dhabi">
+<meta name="description" content="UHP Listing team is the artery for the sales and leasing teams, as they act as advocates for landlords and property owners by considering a high level of confidentiality">
+<meta name="keywords" content="List, Property, email, name, leasing, listing">
+<title>List your property with the best Real Estate Company, UHPAE in Abu Dhabi</title>
+<meta property="og:image" content="https://www.uhpae.com/static/images/propertymk.jpg" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta property="og:url" content="https://www.uhpae.com/services">
+<meta property="og:title" content="List your property with the best Real Estate Company in Abu Dhabi">
+<meta property="og:description" content="UHP Listing team is the artery for the sales and leasing teams, as they act as advocates for landlords and property owners by considering a high level of confidentiality">
+{% endblock %}
+
+{% block content %}
+
+<div style="background-color: #F8F8F8;">
+    <div class="container ">
+      <div class="row" style="padding-top: 2vh" >
+        <div class="col">
+        <h2 class="nfont" ><b>PROPERTY LISTING</b></h2>
+          </div>
+
+</div>
+</div>
+</div>
+<div class="container" style="margin-top:40px;">
+    <div class="row">
+      <div class="col">
+        <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('team')}}"> Team </a>
+  </p>
+    </div>
+    </div>
+  </div>
+<div class="container">
+<div class="row" style="margin-top: 7%;">
+    <div class="col">
+    <div class="row"><div class="col">
+        <h1 class="nfontchanged mblview grow" style="display: inline;">THINK</h1><h3 class="nfontchanged mblview less" style="margin-left: 5px; display: inline;"> LESS</h3>
+    </div></div>
+    <div class="row"><div class="col">
+        <h3 class="nfontchanged mblview less" style="display: inline;">GROW</h3><h1 class="nfontchanged mblview rich" style="margin-left: 5px; display: inline; "> RICH</h1>
+    </div></div>
+    <div class="row">
+        <div class="col">
+            
+                <p class="simple" style="text-align: justify; font-family: 'Roboto';">
+                UHP Listing team is the artery for the sales and leasing teams,
+                as they act as advocates for landlords and property owners by 
+                considering a high level of confidentiality, while getting maximum 
+                exposure for their property using the most advanced technologies 
+                form CRM our free web portals to paid portals.The team is aligned 
+                with the overall strategy, so it’s very important to work cross 
+                functionally with other teams such as Sales, Leasing, and Marketing
+                to arrange Photo shooting sessions for the properties, liaise with
+                landlords for viewings, and virtual tours for the property.
+                </p>
+            </div>          
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col">
+            <h2 class="nfont" >WHY LIST WITH US?</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="simple" style="text-align: justify;">Unique Homes Worldwide Properties (UHP) was established in 2018 to continue to be an active member and one of the leading real estate companies in the UAE.
+                Committed to provide diverse and complete real estate solutions, equipped with the knowledge and skills in many different dimensions including but not limited to Off-Plan properties (Land, Villas & Apartments), Ready Properties (Commercial & Residential), and Resale in Abu Dhabi & Dubai.
+                Maintaining the growth level over years, created new opportunities to undertake in multiple markets, and allowed us to provide new services to our clients.</p>
+        </div>
+    </div>
+
+
+</div>
+<div class="col-sm-12 col-lg-6 col-md-6" >
+    <form method="post" autocomplete="off" name="google-sheet" style=" background-color: white;-webkit-box-shadow: 0px 5px 11px -6px rgba(0,0,0,0.65);
+    -moz-box-shadow: 0px 5px 11px -6px rgba(0,0,0,0.65);
+    box-shadow: 0px 5px 11px -6px rgba(0,0,0,0.65); z-index: 20; padding:20px; " class="listform">
+            <div class="form-group" style='font-family: "Roboto";'>
+                <div class="row " style="margin-top: 20px;">
+                    <div class="col" style="text-align: center;">
+                <p style="font-family: 'Audrey'; font-weight: bold; color:  rgb(14, 74, 136,0.9); font-size: 3vh;">HOW TO LIST YOUR PROPERTY WITH US ?</p>
+                </div>
+                </div>
+            
+
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col">
+                <input type="text" class="form-control inpsize simple" id="sendername" name="name" placeholder="Full name" required>
+                </div>
+                </div>
+            
+            <div class="row" style="margin-top: 20px;">
+                    <div class="col">
+              <input type="text" class="form-control inpsize simple" name="email" aria-describedby="emailHelp" placeholder="Email" required>
+            </div></div>
+            <div class="row" style="margin-top: 20px;">
+                    <div class="col">
+                <input type="text" class="form-control inpsize simple" name="phonenumber" placeholder="Phone Number" required>
+              </div></div>
+            <div class="row" style="margin-top: 20px;">
+                    <div class="col">
+              <input type="text" class="form-control inpsize simple" name="type" aria-describedby="emailHelp" placeholder="Property Type" required>
+            </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                    <div class="col">
+                <input type="text" class="form-control inpsize simple" name="location" placeholder="Location" required>
+              </div></div>
+            
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="col">
+             <input type="date" class="form-control inpsize simple" name="meeting_date" required>
+            </div>  
+            </div>
+            
+            <div class="row" style="margin-top: 20px;">
+                <div class="col">
+                    <select name="time" class="custom-select inpsize" required>
+                        <option value="">Available Time</option>
+                        <option value="8am">8:00 AM</option>
+                        <option value="9am">9:00 AM</option>
+                        <option value="10am">10:00 AM</option>
+                        <option value="11am">11:00 AM</option>
+                        <option value="12pm">12:00 PM</option>
+                        <option value="1pm">1:00 PM</option>
+                        <option value="anytime">Anytime</option>
+                      </select>
+            </div>  
+            </div>
+
+            <div class="row justify-content-center" style="margin-top: 20px;">
+                <div class="col" style="text-align: center;">
+                    <input type="hidden" id="strReferrer" name="strReferrer" />
+                <input type="submit" value="Submit" class="btn inpsize" style="background-color: #A57D2D; width: 100%;">
+                    </div>
+            </div>
+        </div>
+        
+    </form>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <div class="container">
+                    <div class="row carheight" style="border: 2px solid#e8e8e8;">
+                        <div class="col-md-1 col-sm-0 col-lg-1"></div>
+                        <div class="col">
+                            <h2 class="footerheader" style="margin-top: 30px">PROPERTY MARKETING</h2>
+                            <ul class="listt" style="margin-top: 20px;font-family: 'Roboto';">
+                                <li>
+                                    Property Videos
+                                </li>
+                                <li>
+                                    Property Virtual Tour
+                                </li>
+                                <li>
+                                    Property Photography
+                                </li>
+                                <li>
+                                    Advertising On Company Website & Social Media
+                                </li>
+                                <li>
+                                    Reaching Huge Real Estate Database
+                                </li>
+                                <li>
+                                    Exposure To Many Real Estate Portals
+                                </li>
+                                <li>
+                                    Online/ Offline Marketing
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4" >
+                            <img src="../static/images/propertymk.jpg" class="imgmrg" style="width: 95%;" alt="">
+
+                        </div>
+                        <div class="col-md-1 col-sm-0 col-lg-1"></div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="carousel-item">
+                    
+                    <div class="container"><div class="row carheight" style="border: 2px solid#e8e8e8;">
+                        <div class="col-md-1 col-sm-0 col-lg-1"></div>
+                        <div class="col">
+                            <h2 class="footerheader" style="margin-top: 30px">PROPERTY MANAGEMENT</h2>
+                            <ul class="listt" style="margin-top: 20px;font-family: 'Roboto';">
+                                <li>
+                                    Property Pricing Strategies
+                                </li>
+                                <li>
+                                    Unique Results
+                                </li>
+                                <li>
+                                    New Home's In House Marketing
+                                </li>
+                                <li>
+                                    Property Buying Strategies
+                                </li>
+                                <li>
+                                    Market Ready & Destined To Sell
+                                </li>
+                                <li>
+                                    Exclusive Tips & Reports
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <img src="../static/images/propmanagement.png" class="imgmrg" style="width: 95%;" alt="">
+
+                        </div>
+                        <div class="col-md-1 col-sm-0 col-lg-1"></div>
+                    </div>
+                  </div></div>
+                  <div class="carousel-item">
+                    
+                    <div class="container">
+                        
+                        <div class="row carheight" style="border: 2px solid #e8e8e8;">
+                            <div class="col-md-1 col-sm-0 col-lg-1"></div>
+                        <div class="col">
+                            <h2 class="footerheader" style="margin-top: 30px">PROPERTY MAINTAINENCE</h2>
+                            <ul class="listt" style="margin-top: 20px;font-family: 'Roboto';">
+                                <li>
+                                    Property Inspection
+                                </li>
+                                <li>
+                                    Property Snagging and Pre-snagging
+                                </li>
+                                <li>
+                                    Property Handover
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <img src="../static/images/propmaintainence.png" class="imgmrg" style="width: 95%;" alt="">
+
+                        </div>
+                        <div class="col-md-1 col-sm-0 col-lg-1"></div>
+                    </div>
+                  </div></div>
+                  
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" style="background-color:black !important;border-radius: 20px;" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" style="background-color:black !important;border-radius: 20px;" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container"  style="margin-top: 50px">
+
+
+    <div class="row">
+        
+            <div class="col">
+        <h2 class="nfont" style="margin-bottom: 50px">WHY CHOOSE US?</h2>
+            </div>
+        </div>
+<div class="row justify-content-center">
+<div class="col" style="text-align: center;">
+      
+<div class="shadow" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
+    <p style="font-size: 40pt; color: #A57D2D; font-family: 'Roboto'; position: absolute; margin-top: -60px;">1</p>  
+<img src="{{url_for('static', filename='/icons/experience.svg')}}" class="listingicons" width="100px">
+<p class="simple">Unique Experiences</p>
+</div></div>
+<div class="col" style="text-align: center;"><div class="shadow" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
+    <p style="font-size: 40pt; color: #A57D2D; font-family: 'Roboto'; position: absolute; margin-top: -60px;">2</p> 
+<img src="{{url_for('static', filename='/icons/mission.svg')}}" class="listingicons" width="100px">
+<p class="simple">Excellent Reputation</p>
+</div></div>
+
+<div class="col" style="text-align: center;"><div class="shadow" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
+    <p style="font-size: 40pt; color: #A57D2D; font-family: 'Roboto'; position: absolute; margin-top: -60px;">3</p> 
+<img src="{{url_for('static', filename='/icons/project-management.svg')}}" class="listingicons" width="100px">
+<p class="simple">Latest Technology</p>
+</div></div>
+<div class="col" style="text-align: center;">
+    <div class="shadow bruhh" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
+    <p style="font-size: 40pt; color: #A57D2D; font-family: 'Roboto'; position: absolute; margin-top: -60px;">4</p> 
+<img src="{{url_for('static', filename='/icons/digital-marketing.svg')}}" class="listingicons" width="100px">
+<p class="simple">Industry Knowledge</p>
+</div>
+</div>
+
+<div class="col" style="text-align: center;">
+    <div class="shadow bruhh" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
+    <p style="font-size: 40pt; color: #A57D2D; font-family: 'Roboto'; position: absolute; margin-top: -60px;">5</p> 
+<img src="{{url_for('static', filename='/icons/date.svg')}}" class="listingicons" width="100px">
+<p class="simple">Commitment</p>
+</div>
+</div>
+
+</div>
+
+</div>
+  
+
+
+
+{% endblock %}
+{% block scripts %}
+<script>
+    document.getElementById('strReferrer').value = window.location.href;
+   </script>
+   
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+  const form = document.forms['google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>{% endblock %}

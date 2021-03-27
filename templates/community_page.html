@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block metacontent %}
+<meta property="og:image" content="https://www.uhpae.com/static/communities/{{area}}.webp" /> 
+<meta property="og:title" content="{{area}} Properties">
+<meta property="og:description" content="Go through a wide range of Properties available in {{area}} communities">
+<meta name="keyword" content="{{area}} Properties, {{area}} communities, {{area}} apartments"/>
+<meta name="title" content="{{area}} Properties">
+<meta name="description" content="Go through a wide range of Properties available in {{area}} communities, {{area}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col">
+        <div class="dropdown">
+            <button type="button" class="btn" data-toggle="dropdown" style="font-family:'Roboto'; color: white;background-color: #0e4a88; border-radius: 50px;">
+          Filter by ▼
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" onclick=sale() style="cursor: pointer;">Sale</a>
+            <a class="dropdown-item" onclick=rent() style="cursor: pointer;">Rent</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id = "sale" style="margin-top: 20px;">
+      <div class="col justify-content-around" >
+          
+        {% for item in rooms %}
+        
+        
+        <a href={{url_for('search', beds=item[2], area=area, units = 'buy')}} style="margin: 10px; margin-left: 0px; font-family: 'Roboto'; color: #A57D2D; background-color: #E8E8E8; font-size: 12pt; padding: 5px; border: 1px solid #e8E8E8;"><p style="display: inline;">{{item[1]}}</p><p style="display: inline;">({{item[0]}})</p></a>
+        {% endfor %}
+    </div>
+    </div>
+    <div class="row" id="rent" style="margin-top: 20px;">
+        <div class="col">
+             
+        {% for item in rent_rooms %}
+        <a href={{url_for('search', beds=item[2], area=area, units = 'rent')}} style="margin: 10px; margin-left: 0px; font-family: 'Roboto'; color: #0e4a88; background-color: #E8E8E8; font-size: 12pt; padding: 5px; border: 1px solid #e8E8E8;"><p style="display: inline;">{{item[1]}}</p><p style="display: inline;">({{item[0]}})</p></a>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 30px;">
+    <div class="row">
+{% for item in result %}
+<div class="col" style="margin-top: 20px;">
+    <div class="card h-100" style="width: 20rem;border: 1px solid transparent;">
+        <a href="/communities/{{item[1]}}/{{item[0]}}">
+            <img class="card-img-top" src="../static/communities/{{item[0]}}.jpg" style="object-fit: cover; width: 18rem; margin-left: 1rem;">
+        </a>
+        <div class="card-body">
+      <h5 class="card-title-1">{{item[0]}}</h5>
+      <p class="card-text-1" style="text-align: justify">{{item[2]|truncate(100)}}</p>
+      <div class="row" style="margin-top: auto;"><div class="col">
+        <a href={{url_for('search', property = item[3], units = 'buy')}} class="card-text-1" style="background-color:#144A86; color: white; padding: 3px; float: left; ">Units for Sale</a> </div><div class="col">
+        <a href={{url_for('search', property = item[3], units = 'rent')}} class="card-text-1" style="background-color:#A57D2D; color: white;  padding: 3px; float: right;  margin-top: auto;">Units for Rent</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+
+</div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+<script>
+    var sales = document.getElementById("sale");
+    var rents = document.getElementById("rent");
+    sales.style.display = "none";
+    rents.style.display = "none";
+  
+    function sale(){
+        if (rents.style.display = "none"){
+          sales.style.display = ""
+        }
+        else if (rents.style.display = ""){
+          rents.style.display = "none";
+          sales.style.display = "";
+        }
+      }
+  
+      function rent(){
+        if (sales.style.display = "none"){
+          rents.style.display = ""
+        }
+        else if (sales.style.display = ""){
+          sales.style.display = "none";
+          rents.style.display = "";
+        }
+      }
+  
+  </script>
+ {% endblock %}

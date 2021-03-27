@@ -1,0 +1,628 @@
+{% extends "base.html" %}
+
+{% block metacontent %} <meta name="title" content="{{result[4]}} BR {{result[28]}} in {{result[3]}} for {{result[30]}}">
+<meta property="og:title" content="{{result[4]}} BR {{result[28]}} in {{result[3]}} for {{result[30]}}" />
+<meta property="og:url" content="https://www.uhpae.com/communities/{{result[31]|replace(' ','-')}}/{{result[27]|replace(' ','-')}}/{{result[7]}}" />
+<meta property="og:image" content="{{images[0]}}" />                        
+<title>{{result[4]}} BR {{result[28]}} in {{result[3]}} for {{result[30]}}</title>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div id="scrdisp" style="width: 100%;border-bottom: 1px solid #000;position: fixed; top: 0px;z-index: 100; background-color: white;">
+  <div class="container">
+<br>
+    <div class="row">
+      <div class="col">
+      <h2 style="font-family: 'Audrey'; color: #144A86;font-size: 12pt;"><b>{{result[27]}}</b></h2>
+      </div>
+      <div class="col">
+      <h2 style="font-family: 'Audrey'; color: #144A86;font-size: 12pt; margin-left: auto;"><b>AED {{result[29]}}</b></h2>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+      <h2 style="font-family: 'Roboto', sans-serif; font-size: 11pt;"><u>{{result[3]}}</u></h2>
+     </div>
+     <div class="col">
+     <button onclick="drop()" style="background-color:  #0e4e88;; color: white; 
+      border: hidden; width: 120px; height: 20px; font-family: 'Roboto'; border-radius: 5px; margin-left: auto; margin-right: 10px; margin-top: 2px;font-size: 10pt;">Book Viewing</button>
+  <button onclick="mapdrop()" style="background-color:  #0e4e88;; color: white; 
+  border: hidden; width: 120px; height: 20px; font-family: 'Roboto'; border-radius: 5px;margin-top: 2px; font-size: 10pt;">Find Location</button>
+  </div>  
+  </div>
+  <div class="row"><div class="col"><p style = "font-family: 'Roboto', sans-serif; font-size: 11pt;">{{result[2]}}</p></div>
+  </div>
+</div>
+<div class="container" >
+  <div class="row">
+    <div class="col-11"></div>
+    <div class="col-1">
+      <div  style="position: fixed; bottom: 0;z-index: 50; margin-bottom: 20px;">
+        <div class="row" style="margin-bottom: 7px; ">
+  <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20"><img class = "ikon2" style="cursor: pointer;" src="/static/icons/003-whatsapp.svg"></a>
+  </div><div class="row">
+  <a href="tel:+97126439099"><img class="ikon2" style="cursor: pointer; background-color: white; border-radius: 25px;" src="/static/icons/001-phone-call.svg"></a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    
+    <div class="dropdown dropdownedit">
+      <form class="form-inline" action="{{ url_for('search') }}" method="POST">
+      
+      
+        <select name="units" class="custom-select wantobtn">
+        <option value="">I Want to..</option>
+        <option value="buy">I'm Buying</option>
+        <option value="rent">I'm Renting</option>
+      </select>
+      
+      
+      <input type="text" name="keyword" class="keysearch" placeholder="Enter Keyword or Ref#" >
+      
+      
+      
+      <button class="btn btn-secondary filterbtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <span>See More</span> <img src="/static/icons/filter.png" alt="" class="fltrimg">
+      </button>
+      
+
+      <div class="dropdown-menu dropsearchpos" aria-labelledby="dropdownMenu2">
+        <div class="container dropsearch" >
+          <div class="row">
+              <div class="col" style="text-align: right;">
+              <input type="reset" class = "searchfont2" style="border: hidden;" value="Reset">
+              </div>
+          </div>
+         
+          <div class="row justify-content-center dropmrg">
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Contract</b></p>
+        <select name="contract" class="custom-select searchfont2" style="width: 120px;">
+          <option value="">Any</option>
+          <option value="residential">Residential</option>
+          <option value="commercial">Commercial</option>
+          </select>
+          </div>
+          <div class="col">
+            <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>City</b></p>
+            <select name="city" class="custom-select searchfont2" style="width: 120px;">
+              <option value="">Any</option>
+              <option value="Abu Dhabi">Abu Dhabi</option>
+              <option value="Dubai">Dubai</option>
+              <option value="Alain">Al ain</option>
+              </select>
+                </div>
+          <div class="col">
+            <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Min Price</b></p>
+        <input type="number" name="pricefrom" placeholder="Min" class="searchfont2" style="width: 120px; height: 38px;">   
+            </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Max Price</b></p>
+        <input type="number" name="priceto" placeholder="Max" class="searchfont2" style="width: 120px; height: 38px;" >   
+              </div>
+                
+          </div>
+
+          <div class="row justify-content-center dropmrg">
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bedrooms</b></p>
+          <select  name="beds" class="custom-select searchfont2" style="width: 120px;" >
+            <option value="">Any</option>
+            <option value="ST">Studio</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+            <option value="6">Six</option>
+            </select>
+            </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bathrooms</b></p>
+            <select name="baths" class="custom-select searchfont2" style="width: 120px;">
+            
+              <option value="">Any</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">Five</option>
+              <option value="6">Six</option>
+              <option value="7">Seven</option>
+              </select>
+            </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Property Type</b></p>
+              <select  name="propertytype" class="custom-select searchfont2" style="width: 120px;">
+              <option value="">Any</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Compound">Compound</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Land Residential">Land Residential</option>
+              <option value="Office">Office</option>
+              </select>
+            </div>
+          <div class="col">  
+            <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Location</b></p>
+            <select  name="area" class="custom-select searchfont2" style="width: 120px;">
+              <option value="">Any</option>
+              <option value="Al Reem Island">Reem Island</option>
+              <option value="Yas Island">Yas Island</option>
+              <option value="Al Raha Beach">Al Raha</option>
+              <option value="Saadiyat Island">Al Saadiyat</option>
+              <option value="Al Reef">Al Reef</option>
+              <option value="Khalifa City A">Khalifa City</option>
+              </select>
+    </div>
+    </div>
+    <div class="row justify-content-center dropmrg">
+    <div class="col">
+    <input name="offplan" type="checkbox" value="offplan" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Offplan</p>
+    
+    <input name="ready" type="checkbox" value="ready" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Ready</p>
+    
+  </div>
+    </div>
+    <div class="row dropmrg" >
+      <div class="col">
+
+        <p class="searchfont2" style="color:#0e4a88; display: inline;"><b>Features</b></p>
+        
+      </div>
+    </div>
+    <div class="row justify-content-center amedropmrgin">
+      <div class="col">
+      <input name="balcony" type="checkbox" value="Balcony" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Balcony</p>
+      </div>
+      <div class="col">
+        <input name="bparking" type="checkbox" value="Basement parking" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Basement Parking</p>
+        </div>
+        <div class="col">
+          <input name="wardrobes" type="checkbox" value="Built in wardrobes" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Wardrobes</p>
+          </div>
+          <div class="col">
+            <input name="cac" type="checkbox" value="Central air conditioning" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Air Conditioning</p>
+            </div>
+
+          </div>
+          <div class="row justify-content-center amedropmrgin">
+            <div class="col">
+              <input name="ch" type="checkbox" value="Central heating" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Central Heating</p>
+              </div>
+              <div class="col">
+                <input name="view" type="checkbox" value="Community View" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Community View</p>
+                </div>
+                <div class="col">
+                  <input name="sat" type="checkbox" value="Satellite/Cable TV" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Satellite/Cable</p>
+                  </div>
+                  <div class="col">
+                    <input name="kitchen" type="checkbox" value="Fully fitted kitchen" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Fitted Kitchen</p>
+                    </div>
+    </div>
+
+    <div class="row amedropmrgin" style="margin-bottom: 5px;">
+      <div class="col" style="text-align: right;">
+      <button class="searchfont2" style=" border: hidden;" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Hide</button>
+    </div>
+    <div>
+      <button  class="searchfont2" style=" border: hidden;" type="submit" formmethod="get|post"><b>Search</b></button>
+    </div>
+    </div>
+      </div>
+      </div>
+
+
+      <button class="searchbtn" type="submit" formmethod="get|post"><b>Search</b></button>
+    
+    </form>
+    </div>
+  </div>
+
+
+</div>
+        
+
+
+<div class="container" style="margin-top:40px;">
+  <div class="row">
+    <div class="col">
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('search', units='all')}}"> Abu Dhabi ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('communities')}}"> Communities ></a>
+    <a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="/communities/{{loc | replace (' ', '-')}}"> {{ loc }} ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('search', property = result[27] )}}"> {{result[27]}} ></a>
+    <a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('search', beds = result[4], area=loc)}}">{{result[4]}} Bedroom APT></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="#"> Property ID {{result[7]}}</a></p>
+  </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+    <h2 class = "propcap" style="font-family: 'Audrey'; color: #144A86;"><b>{{result[27]}}</b></h2>
+        </div>
+        </div>
+  </div>
+    <div class="col respbook" style="text-align: right;">
+      <button onclick="drop()" style="background-color:  #0e4e88;; color: white; 
+      border: hidden; width: 120px; height: 23px; font-family: 'Roboto'; margin-bottom: 2px;">Book Viewing</button>
+    
+    <button onclick="mapdrop()" style="background-color:  #0e4e88; color: white; 
+    border: hidden; width: 120px; height: 23px; font-family: 'Roboto'; margin-bottom: 2px;">Find Location</button>
+    
+  </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+    <h2 class="proploc" style="font-family: 'Roboto', sans-serif;"><u>{{result[3]}}</u></h2>
+        </div>
+  </div>
+      <div class="row">
+        <div class="col">
+        <p class="proptitle" style = "font-family: 'Roboto', sans-serif;">{{result[2]}}</p>
+          </div>
+      </div>
+    </div>
+  <div class="col text-right">
+    
+    <a href="tel:+97126439099" class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Roboto', sans-serif; display: inline; "><img style="width: 15px; margin-right: 2px;" src="/static/icons/phonecall.png">Contact</a>
+        <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20" class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Roboto', sans-serif; display: inline;  "><img style="width: 15px; margin-right: 2px;" src="/static/icons/whatsapp.png">Whatsapp</a>
+</div>
+</div>
+  <br>
+</div>
+<div style="background-color: #F8F8F8;">
+<div class="container ">
+  <div class="row" style="padding-top: 2vh" >
+    <div class="col">
+      <h2 class="proploc" style="font-family: 'Roboto'; color: #144A86; "><b>AED {{result[29]}}</b></h2>
+        </div> 
+<div class="col text-right slimshady" style=" display: inline;">
+  <h6 class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Roboto', sans-serif;  "><img class="propico" src="/static/icons/bed.png">  {{result[4]}} Beds</h6>
+      
+      
+  <h6 class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Roboto', sans-serif;"><img class="propico" src="/static/icons/bathtub.png">  {{result[5]}} Baths</h6>
+
+
+  <h6 class="saaa3" style="margin-left:5px; color: #8e8a8a;font-family: 'Roboto', sans-serif;"><img class="propico" src="/static/icons/select.png">   {{result[6]}} Sqft</h6>
+  </div>
+      <!--div class="col text-right" style="margin-top: -2px;">
+        <a href="tel:+97126439099" class="saaa" style="margin-left:5px;color: #8e8a8a;font-family: 'Roboto', sans-serif; display: inline; "><img style="width: 15px; margin-right: 2px;" src="/static/icons/phonecall.png">Contact</a>
+        <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20" class="saaa" style="margin-left:5px;color: #8e8a8a;font-family: 'Roboto', sans-serif; display: inline;  "><img style="width: 15px; margin-right: 2px;" src="/static/icons/whatsapp.png">Whatsapp</a>
+      </div-->
+
+
+  </div>
+</div>
+</div>
+
+
+<br><br>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      
+<div id="imgcarousel" class="container-property">
+  
+
+</div>
+</div>
+</div>
+<br>
+<br>
+
+</div>
+
+
+
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col">
+    <h2 class= "proploc" style="font-family: 'Roboto', sans-serif;">Description</h2></div>
+  </div>
+  <br>
+    <div class="row">
+      <div class="col">
+    
+    <p class="simple">{{desc | safe}}</p>
+    </div>
+    
+
+
+    
+    
+  
+
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col">
+    <h2 class = "proploc" style="font-family: 'Roboto', sans-serif;">Amenities</h2>
+      </div>
+  </div> 
+  <br>
+<div class="row">
+  <!--ul style ="list-style-type: none;"-->
+  {% for item in features %}
+  {% if item == 'Balcony' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/balcony.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Basement parking' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/basement-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Built in wardrobes' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/wardrobe.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Central air conditioning' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/ac.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Central heating' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/heating.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Community View' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/comview.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Covered parking' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/indoor-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Maids room' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maid.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Satellite/Cable TV' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/satellite.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Gymnasium' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/gym.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Shared swimming pool' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/swimmer.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Fully furnished' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/couch.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Fully fitted kitchen' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/kitchen.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == '24 hours Maintenance' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maintenance.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  {% if item == 'Laundry/washing room' %}
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/washing-machine.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Roboto', sans-serif; opacity: 70%; margin-left: 10px; font-size:12pt;">{{item}}</h4></li></div>
+  {% endif %}
+  
+
+
+  
+  
+    {% endfor %}
+<!--/ul-->  </div>
+
+  
+    <br><br>
+    <div class="row">
+      <div class="col">
+      <h2 class="proploc" style="font-family: 'Roboto', sans-serif;">Map</h2></div>
+    </div>
+    <div class="row justify-content-center" id="map">
+      <div class="col">
+    {{temp | safe}}
+      </div>
+</div>
+<div class="row p_mrg">
+  <div class="col-4">
+  <div class="row">
+      <div class="col">
+   
+          <p onclick="loc('schools')" class="p_button" style="cursor: pointer;" >Schools near {{url}}  <img src="/static/icons/plus.svg" style="margin-left: 50%;" width="18px" alt=""></p>
+      </div>
+  </div>
+      <div class="row">
+          <div class="col" >
+              <div id = "schools" class="simple shadow">
+                  {% for item in schools %}
+                  <p class="ldec" style="display: block;"> - {{item}}</p>
+                  {% endfor %} 
+              </div>
+          </div>
+  
+  
+  </div>
+  </div>
+  <div class="col-4">
+      <div class="row">
+          <div class="col">
+
+              <p onclick="loc('hospitals')" class="p_button" style="cursor: pointer;">Hospitals near {{url}} <img src="/static/icons/plus.svg" style="margin-left: 50%;" width="18px" alt=""></p>
+          </div>
+      </div>
+          <div class="row">
+              <div class="col" >
+                <div id="hospitals"  class="simple shadow" >
+                      {% for item in hospitals %}
+                      <p class="ldec" style="display: block;"> - {{item}}</p>
+                      {% endfor %} 
+                </div>
+              </div>
+      
+      
+      </div>
+      </div>
+      <div class="col-4">
+          <div class="row">
+              <div class="col">
+
+                  <p onclick="loc('landmarks')" class="p_button" style="cursor: pointer;">Landmarks near {{url}} <img src="/static/icons/plus.svg" style="margin-left: 50%;" width="18px" alt=""></p>
+              </div>
+          </div>
+              <div class="row">
+                  <div class="col" >
+                    <div id="landmarks" class="simple shadow">
+                          {% for item in landmarks %}
+                          <p class="ldec" style="display: block;"> - {{item}}</p>
+                          {% endfor %} 
+                    </div>
+                  </div>
+          
+          
+          </div>
+          </div>
+  </div>
+</div>
+<!--vt-->
+{% if vt != "" %}
+<div class="container">
+  <div class="row p_mrg">
+    <div class="col">
+    <h4 class="p_overview" id="floorplans">Virtual Tour</h4>
+    </div>
+    <div class="col text-right">
+      <a href="{{vt}}" title="{{vt}}" class="p_button" style="cursor: pointer; padding: 3px;">View in Fullscreen</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <iframe src="{{vt}}" frameborder="0" width="100%" height="500px"></iframe>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+<div class="container" id="drop">
+  <hr>
+  
+  <br><div class="row"> 
+    <div class="col"><h2 class = "proploc" style="font-family: 'Roboto', sans-serif;">Book a Viewing</h2></div></div>
+  <br>
+  <form method="post" autocomplete="off" name="google-sheet" class="simple">
+    <div class="row justify-content-center">
+      <div class="col">
+    <textarea rows="3" style="width: 100%;" type="text" name="message">Hello! The property '{{result[3]}}' with an ID of {{result[7]}} has caught my eye and I'm wondering when will it available for viewing? Thanks.
+    </textarea>
+    </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col">
+    <textarea type="text" name="name" rows="1" style="width: 100%;" placeholder="Your Name" required></textarea>
+    </div></div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col">
+    <textarea type="text" name="email" rows="1" style="width: 100%;" placeholder="Email address" required></textarea>
+    </div></div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col">
+    <textarea type="text" name="phonenumber" rows="1" style="width: 100%;"  placeholder="Phone/ Mobile Number" required></textarea>
+    </div></div>
+    <br>
+    <div class="row">
+      
+    <input type="submit" value="I'm Booking" style="background-color:#0e4a88; color: white; font-family: 'Roboto'; margin-left: 3.4%; border: hidden;">
+    <input type="hidden" id="strReferrer" name="strReferrer" />
+
+    </div>
+  </form>
+
+</div>
+ 
+
+
+
+
+
+<script>
+ document.getElementById('strReferrer').value = window.location.href;
+</script>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+  const form = document.forms['google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
+
+{% endblock %}
+{% block scripts %}
+<script>
+  document.getElementById('hospitals').style.display = "none"
+  document.getElementById('schools').style.display = "none"
+  document.getElementById('landmarks').style.display = "none"
+  function loc(s){
+    if (document.getElementById(s).style.display == "none")
+    {document.getElementById(s).style.display = ""}
+    else{document.getElementById(s).style.display = "none"}
+  }
+</script>
+<script type = 'text/javascript'>
+  function mapdrop() {
+    var elmnt = document.getElementById("map");
+    elmnt.scrollIntoView();
+  }
+  function drop() {
+    var elmnt = document.getElementById("drop");
+    elmnt.scrollIntoView();
+  }
+  document.getElementById('scrdisp').style.display="none";
+  window.onscroll = function() {scr()};
+  
+  function scr() {
+    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1100) {
+    document.getElementById('scrdisp').style.display="";
+    }
+    else{
+      document.getElementById('scrdisp').style.display="none";
+    }
+    
+  }
+   
+    var x = {{ images|tojson }}
+    var imagedata = '';
+    for (i = 0; i < x.length; i++) {
+      imagedata += '<div class="imagescell">'
+      imagedata += '<img src="' + x[i] + '">'
+      imagedata += '</div>'
+      }
+      $('#imgcarousel').append(imagedata);
+    
+      
+  
+  </script>
+  
+<script>
+  
+  $(".container-property").flickity({
+    wrapAround:true,
+    contain: true,
+    imagesLoaded: true,
+    pageDots: true,
+    prevNextButtons: true,
+  }); 
+  </script>
+  {% endblock %}

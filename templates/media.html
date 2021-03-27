@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block metacontent %}
+<meta name="title" content="UHPAE Video Gallery">
+<meta name="description" content="Watch us participate in the real estate community through our Youtube videos">
+<meta name="keywords" content="media, youtube, sales, corporate,events">
+ <title>UHPAE Video Gallery</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta property="og:url" content="https://www.uhpae.com/media">
+<meta property="og:image" content="https://www.uhpae.com/static/images/marketingsales.jpg" /> 
+<meta property="og:title" content="UHPAE Video Gallery">
+<meta property="og:description" content="Watch us participate in the real estate community through our Youtube videos">
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<br>
+<div style="background-color: #F8F8F8;">
+  <div class="container ">
+    <div class="row" style="padding-top: 2vh" >
+      <div class="col">
+      <h2 class="nfont" ><b>OUR MEDIA</b></h2>
+        </div>
+
+          
+</div>
+</div>
+</div>
+<div class="container" style="margin-top:40px;">
+  <div class="row">
+    <div class="col">
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('media')}}"> Media </a>
+</p>
+  </div>
+  </div>
+</div>
+
+<div class="container" style="margin-bottom: 40px;">
+  <div class="row justify-content-center">
+  <button class="teambtn" onclick="all()">All</button>
+  <button class="teambtn" onclick="sales()">Sales</button>
+  <button class="teambtn" onclick="corp()">Corporate</button>
+  <button class="teambtn" onclick="events()">Events</button>
+  <a class="teambtn" href="https://blogs.uhpae.com" >Blogs</a>
+  </div>
+  </div>
+
+
+
+<div class="container" style="margin-top: 30px;">
+  
+    <div class="row">
+        <div class="col">
+          <iframe width="100%" class="videoheight sales" src="https://www.youtube.com/embed/agSDoJ3QAhg?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col">
+          <iframe width="100%"  class="videoheight events" src="https://www.youtube.com/embed/2XhsEj8_wWA?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    
+        <div class="col">
+          <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/zIG1JBqc264?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+          <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/clDyCnEvzSY?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col">
+        <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/eEJI2O7RD6A?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col">
+      <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/DqieIFMFkTA?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+    
+      </div>  
+      <div class="row">
+        <div class="col">
+            <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/oXJYURiDU0k?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col">
+          <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/rPro6OP5zw0?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col">
+        <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/MxVHHrGS4w4?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+      
+        </div> 
+    
+
+    
+</div>
+
+
+{% endblock %}
+{% block scripts %}{% endblock %}

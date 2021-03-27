@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block metacontent %}
+
+ <title>Apply for a Position!</title>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<form action="{{ url_for('upload_file') }}" method="POST" onsubmit=alertuser() enctype="multipart/form-data">
+    
+        <br>
+        <div class="row">
+            <div class="col">
+                <h2 class="nfont" style="font-size: 18pt;font-family: 'Roboto';">TELL US SOMETHING ABOUT YOURSELF</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center"><div class="col">
+        <textarea class="simple" type="text" name="name" rows="1" style="width: 100%;" placeholder="Your Name" required></textarea>
+        </div></div>
+        <br>
+        <div class="row justify-content-center"><div class="col">
+        <textarea class="simple" type="text" name="email" rows="1"style="width: 100%;"  placeholder="Email address" required></textarea>
+        </div></div>
+        <br>
+        <div class="row justify-content-center"><div class="col">
+        <textarea class="simple" type="text" name="phone" rows="1" style="width: 100%;"  placeholder="Phone/ Mobile Number" required></textarea>
+        </div></div>
+        <br>
+        <div class="row">
+        <div class="col">
+            <h2 class="nfont" style="font-size: 18pt;font-family: 'Roboto';">COVER LETTER</h2>
+        </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col">
+            <textarea class="simple" rows="4" style="width: 100%;" type="text" name="message" placeholder="Cover Letter">
+            </textarea>
+            </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h2 class="nfont" style="font-size: 18pt;font-family: 'Roboto';">UPLOAD CV</h2>
+                </div>
+            </div>
+    <div class="row " >
+        <div class="col">
+    <p class="simple"><input type="file" name="file"></p></div></div>
+        <br>
+    <div class="row justify-content-around" >
+        <div class="col">
+    <p class="simple"><input type="submit" value="Submit"></p>
+    </div></div>
+  </form>
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}

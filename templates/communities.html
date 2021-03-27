@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block metacontent %}
+<meta name="title" content="Commercial Properties For You">
+<meta name="description" content="Find properties in Reem Island, Yas Island, Saadiyat, Al Reef and many more!">
+<meta name="keywords" content="reem, saadiyat, yas, Raha, Island, Al reef, Al Ghadeer,buy, sell, rent, communities, real estate">
+ <title>Commercial Properties For You</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta property="og:image" content="https://www.uhpae.com/static/images/highlight.jpeg" /> 
+<meta property="og:url" content="https://www.uhpae.com/communities">
+<meta property="og:title" content="Commercial Properties For You">
+<meta property="og:description" content="Find properties in Reem Island, Yas Island, Saadiyat, Al Reef and many more!">
+{% endblock %}
+{% block content %}
+<div style="background-color: #F8F8F8; margin-top: 30px;">
+  <div class="container ">
+    <div class="row" style="padding-top: 2vh" >
+      <div class="col">
+      <h2 class="nfont" ><b>COMMUNITIES</b></h2>
+        </div>
+
+          
+</div>
+</div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    {% for item in x %}
+    <div class="col-4" style="margin-bottom: 20px;">
+      <img src="/static/communities/{{item}}.jpg" alt="" width="100%" height="100%">
+      <a href="/communities/{{item}}" style="z-index: 50;">
+        
+          <div class="texty1" style="background-color: rgb(222, 184, 135,0.5);">{{ item | replace('-',' ') }}</div>
+        
+        </a>   </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

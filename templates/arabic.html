@@ -1,0 +1,648 @@
+{% extends "arabicbase.html" %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&display=swap" rel="stylesheet"> 
+<style>
+    body{
+        text-align: right;     
+    }
+    h4 {
+        font-family: 'Cairo' !important;
+    }
+    p {
+        font-family: 'Cairo' !important;
+    }
+</style>
+
+<div class="searchbg">
+  <div class="container ">
+    <div class="row justify-content-center">
+      
+      <div class="dropdown dropdownedit">
+        <form class="form-inline" action="{{ url_for('search') }}" method="POST">
+        
+        
+          <select name="units" class="custom-select wantobtn">
+          <option value="">I Want to..</option>
+          <option value="buy">I'm Buying</option>
+          <option value="rent">I'm Renting</option>
+        </select>
+        
+        
+        <input type="text" name="keyword" class="keysearch" placeholder="Enter Keyword or Ref#" >
+        
+        
+        
+        <button class="btn btn-secondary filterbtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()">
+         <span>See More</span> <img src="/static/icons/filter.png" alt="" class="fltrimg">
+        </button>
+        
+  
+        <div class="dropdown-menu dropsearchpos" aria-labelledby="dropdownMenu2">
+          <div class="container dropsearch" >
+            <div class="row">
+                <div class="col" style="text-align: right;">
+                <input type="reset" class = "searchfont2" style="border: hidden;" value="Reset">
+                </div>
+            </div>
+           
+            <div class="row justify-content-center dropmrg">
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Contract</b></p>
+          <select name="contract" class="custom-select searchfont2" style="width: 120px;">
+            <option value="">Any</option>
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+            </select>
+            </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>City</b></p>
+              <select name="city" class="custom-select searchfont2" style="width: 120px;">
+                <option value="">Any</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Alain">Al ain</option>
+                </select>
+                  </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Min Price</b></p>
+          <input type="number" name="pricefrom" placeholder="Min" class="searchfont2" style="width: 120px; height: 38px;">   
+              </div>
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Max Price</b></p>
+          <input type="number" name="priceto" placeholder="Max" class="searchfont2" style="width: 120px; height: 38px;" >   
+                </div>
+                  
+            </div>
+  
+            <div class="row justify-content-center dropmrg">
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bedrooms</b></p>
+            <select  name="beds" class="custom-select searchfont2" style="width: 120px;" >
+              <option value="">Any</option>
+              <option value="ST">Studio</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">Five</option>
+              <option value="6">Six</option>
+              </select>
+              </div>
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bathrooms</b></p>
+              <select name="baths" class="custom-select searchfont2" style="width: 120px;">
+              
+                <option value="">Any</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+                <option value="7">Seven</option>
+                </select>
+              </div>
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Property Type</b></p>
+                <select  name="propertytype" class="custom-select searchfont2" style="width: 120px;">
+                <option value="">Any</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Villa">Villa</option>
+                <option value="Compound">Compound</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Land Residential">Land Residential</option>
+                <option value="Office">Office</option>
+                </select>
+              </div>
+            <div class="col">  
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Location</b></p>
+              <select  name="area" class="custom-select searchfont2" style="width: 120px;">
+                <option value="">Any</option>
+                <option value="Al Reem Island">Reem Island</option>
+                <option value="Yas Island">Yas Island</option>
+                <option value="Al Raha Beach">Al Raha</option>
+                <option value="Saadiyat Island">Al Saadiyat</option>
+                <option value="Al Reef">Al Reef</option>
+                <option value="Khalifa City A">Khalifa City</option>
+                </select>
+      </div>
+      </div>
+      <div class="row justify-content-center dropmrg">
+      <div class="col">
+      <input name="offplan" type="checkbox" value="offplan" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Offplan</p>
+      
+      <input name="ready" type="checkbox" value="ready" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Ready</p>
+      
+    </div>
+      </div>
+      <div class="row dropmrg" >
+        <div class="col">
+  
+          <p class="searchfont2" style="color:#0e4a88; display: inline;"><b>Features</b></p>
+          
+        </div>
+      </div>
+      <div class="row justify-content-center amedropmrgin">
+        <div class="col">
+        <input name="balcony" type="checkbox" value="Balcony" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Balcony</p>
+        </div>
+        <div class="col">
+          <input name="bparking" type="checkbox" value="Basement parking" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Basement Parking</p>
+          </div>
+          <div class="col">
+            <input name="wardrobes" type="checkbox" value="Built in wardrobes" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Wardrobes</p>
+            </div>
+            <div class="col">
+              <input name="cac" type="checkbox" value="Central air conditioning" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Air Conditioning</p>
+              </div>
+  
+            </div>
+            <div class="row justify-content-center amedropmrgin">
+              <div class="col">
+                <input name="ch" type="checkbox" value="Central heating" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Central Heating</p>
+                </div>
+                <div class="col">
+                  <input name="view" type="checkbox" value="Community View" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Community View</p>
+                  </div>
+                  <div class="col">
+                    <input name="sat" type="checkbox" value="Satellite/Cable TV" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Satellite/Cable</p>
+                    </div>
+                    <div class="col">
+                      <input name="kitchen" type="checkbox" value="Fully fitted kitchen" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Fitted Kitchen</p>
+                      </div>
+      </div>
+  
+      <div class="row dropmrg" style="margin-bottom: 5px;">
+        <div class="col" style="text-align:left;">
+          <button  class="searchfont2" style=" border: hidden; background-color: #144A86; color: white;" type="submit" formmethod="get|post"><b>Search</b></button>
+        </div>
+        <div class="col" style="text-align: right;">
+        <button class="searchfont2" style=" border: hidden;" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()" >Hide</button>
+      </div>
+      
+      </div>
+        </div>
+        </div>
+  
+  
+        <button class="searchbtnar" type="submit" formmethod="get|post"><b>Search</b></button>
+      
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+
+  <div id="carouselExampleControls" class="carousel slide mrgfirstsection" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active " style="position: relative;">
+        <img class="d-block w-100" src="/static/images/Insta copy.webp" alt="First slide">
+        <div class="bannerbtn"style="position: absolute; top: 80%;">
+        <div class="row">
+          <div class="col">
+            <a href="/ar/communities/Saadiyat-Island/Mamsha-Al-Saadiyat">
+            <div class="banner-rec">
+            </div>
+              </a>
+  
+  </div>
+  <div class="col">
+    <a href="/ar/communities/Al-Ghadeer/Al-Ghadeer-Community">
+      <div class="banner-rec">
+      </div>
+        </a>
+  
+  </div>
+  <div class="col">
+    <a href="/ar/communities/Yas-Island/Water'S-Edge">
+      <div class="banner-rec">
+      </div>
+        </a>
+  
+  </div>
+        </div>
+  
+  
+  
+        </div>
+      </div>
+      <div class="carousel-item" style="position: relative;">
+        <img class="d-block w-100" src="/static/images/saadiyatfront.webp" alt="Second slide">
+        <div class="textthis" style="position: absolute; top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);">
+        <div class="row justify-content-center">
+          <p class="arabic" style="width: 100%; z-index: 5;"> أرض وفيـــــلا في جزيرة الســعديات  </p></div>
+          <div class="row justify-content-center">
+          <p class="npricevalue" style="font-family: 'myFirstFont'; display: inline;">درهم إماراتي فــــقـــــــط</p>
+        <h1 class="pricevalue" style="color: #9E9079; font-family: 'myFirstFont'; margin-left: 3px; margin-right: 3px; display: inline;">2,750,000</h1>
+          <p class="npricevalue" style="font-family: 'myFirstFont'; display: inline;"> تبــدأ منــــ </p>
+          </div>
+          <div class="row justify-content-center">
+          <p class="npricevalue1" style="font-family: 'myFirstFont'; margin-top: -4px;"> فترة حصرية ومحدودة لغاية 31 ديسمبر 2020</p></div>
+          <div class="row justify-content-center">
+            <a href="https://saadiyatreserve.uhpae.com" style="background-color:  #9E9079; width: 80px; height: 25px; text-align: center; font-family: 'myFirstFont'; font-size:14pt; margin-top:10px; text-decoration: none; color: black;">للمزيد</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" >
+        <a href={{url_for('search', tag="hot", property="West Yas" )}}><img class="d-block w-100" src="/static/images/westyascarousel.webp" alt="First slide"></a>
+  
+      </div>
+      <div class="carousel-item" >
+        <a href={{url_for('search', tag="hot", property="Yas Acres")}}><img class="d-block w-100" src="/static/images/yasacrescarousel.webp" alt="First slide"></a>
+        
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+  <div class="modal-bg" id="signup">
+    <div class="modalthis">
+        <form method="post" autocomplete="off" name="google-sheet">
+          <div class="container" style="background-color: white;">
+            <div class="row">
+                <div class="col" style="position: relative;">
+                    <img src="../../static/images/Popup.webp" alt="" style="width: 100%;position: relative;">
+                    <div class="row adrow" style="position: absolute;">
+                        <div class="col" >
+                            <button class="adrectangle" onclick="red('Yas-Island','Water\'S-Edge')" style=" margin-left: 10px;" type="submit">
+                            
+                            </button>
+                        </div>
+                        <div class="col" >
+                                <button class="adrectangle" onclick="red('Al-Ghadeer','Al-Ghadeer-Community')" style="" type="submit">
+                            
+                            </button>
+                        </div>
+                        <div class="col" >
+                            
+                                <button class="adrectangle" onclick="red('Saadiyat-Island','Mamsha-Al-Saadiyat')" style=" margin-right: 10px;" type="submit">
+                            
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col text-center">
+                            <input type="hidden" id="strReferrer" name="strReferrer" />
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                     <input type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" style="width: 100%;" id="email" name="email" placeholder="Email">
+                                </div>
+                            
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <input type="tel" pattern='[\+]\d{3}\d{2}\d{7}' title='Phone Number (Format: +971009999999)' style="width: 100%;" id="phonenumber" name="phonenumber" placeholder="or Phone No.">
+                                </div>
+                            </div>
+                              <div class="row">
+                                <div class="col text-center">
+                                      <p class="simple">اختر أي عقار أعلاه!</p>
+                                </div>
+                              </div>
+                                    
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            
+  
+              <div class="row">
+                  <div class="col"><p class="simple" style="display: inline;">إغلاق الإعلان في </p>
+                    <span id="countdown" class="simple" style="display: inline;">12</span>
+                      <span id="close" class="modalclose simple" style="font-weight: bold;float: right;">Close</span>
+                  </div>
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>
+  
+  
+
+  
+  <!--Search-->
+  
+  <div class="container" style="margin-top: 100px;">
+    <div class="row">
+      <div class="col">
+        <h2 class="nfont" style="text-align: right;">العقارات المميزة</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 30px;">
+      <div class="col" style="text-align: center;">
+        <a href={{url_for('search', hot='rent')}} style="text-decoration: none;border: hidden;border-left: 4px solid#0e4e88; border-right: 4px solid #0e4e88; color: black; text-shadow: 2px 2px #e8e8e8;" class="hotbtn">Hot Properties For Rent</a>
+      </div>
+      <div class="col" style="text-align: center;">
+        <a href={{url_for('search', hot='buy')}} style=" text-decoration: none;border: hidden;border-left: 4px solid #A57D2D;border-right: 4px solid #A57D2D; color: black; text-shadow: 2px 2px #e8e8e8;" class="hotbtn">Hot Properties For Sale</a>
+      </div>
+    </div>
+  
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center" id="hotproperties" style="margin-top: 20px;">
+      
+        
+    </div>
+  </div>
+  
+  
+  <!--Communities-->
+  <div class="container mrgsecondsection">
+    <div class="row">
+      <div class="col">
+        <h2 class="nfont" style="text-align: right;">مجتمعاتنا</h2>
+      </div>
+        <div class="col" style="text-align: left;"><a href="/ar/communities" class="seeallbtn" style="padding: 5px; border-radius: 0px;">اظهار الكل
+        </a></div>
+     
+      
+    </div>
+    
+    <!--COMMUNITITES-->
+    <div class="row gap" >
+      <div class="col-md-7 col-lg-7 col-sm-12">
+        <img src="/static/communities/Al Reem Island.webp" class="imgres" alt="" width="100%" height="100%">
+        <a href="/communities/Al-Reem-Island" style="z-index: 50;">
+          <div class="overlay">
+            <div class="texty">جزيرة الريم</div>
+          </div>
+          </a>
+      </div>
+      <div class="col-md-5 col-lg-5 col-sm-12">
+        <img src="/static/communities/Al Raha Beach.webp" class="imgres" alt="" width="100%" height="100%">
+        <a href="/communities/Al-Raha-Beach" style="z-index: 50;">
+          <div class="overlay1">
+            <div class="texty">الراحة</div>
+          </div>
+          </a>
+      </div>
+    </div>
+  
+    <div class="row gap" >
+      <div class="col-md-5 col-lg-5 col-sm-12">
+        <img src="/static/communities/reef.jpg" class="imgres" alt="" width="100%" height="100%">
+        <a href="/communities/Al-Reef" style="z-index: 50;">
+          <div class="overlay1">
+            <div class="texty">الريف</div>
+          </div>
+          </a>
+      </div>
+      <div class="col-md-7 col-lg-7 col-sm-12">
+        <img src="/static/communities/Al Ghadeer.webp" class="imgres" alt="" width="100%" height="100%">
+        <a href="/communities/Al-Ghadeer" style="z-index: 50;">
+          <div class="overlay">
+            <div class="texty">الغدير</div>
+          </div>
+          </a>
+      </div>
+    </div>
+  
+    <div class="row gap" >
+      <div class="col-md-7 col-lg-7 col-sm-12">
+        <img src="/static/communities/Yas Island.webp" class="imgres" alt="" width="100%" height="100%">
+        <a href="/communities/Yas-Island" style="z-index: 50;">
+          <div class="overlay">
+            <div class="texty">جزيرة ياس</div>
+          </div>
+          </a>
+      </div>
+      <div class="col-md-5 col-lg-5 col-sm-12">
+        <img src="/static/communities/Saadiyat Island.webp" class="imgres" alt="" width="100%" height="100%">
+        <a href="/communities/Saadiyat-Island" style="z-index: 50;">
+          <div class="overlay1">
+            <div class="texty" >السعديات</div>
+          </div>
+          </a>
+      </div>
+    </div>
+  
+  </div>
+    
+  
+  <!--Media-->
+  <div class="container mrgthirdsection">
+    <div class="row">
+      <div class="col">
+        <h2 class="nfont" style="text-align: right;">وسائطنا</h2>
+      </div>
+        <div class="col" style="text-align: left;"><a href="/media" class="seeallbtn" style="padding: 5px; border-radius: 0px;">اظهار الكل
+        </a></div>
+      
+      
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <iframe width="100%" class="videoheight" src="https://www.youtube.com/embed/agSDoJ3QAhg?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-4">
+        <iframe width="100%" class="videoheight"  src="https://www.youtube.com/embed/2XhsEj8_wWA?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-4">
+      <iframe width="100%" class="videoheight" src="https://www.youtube.com/embed/eEJI2O7RD6A?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+  
+  
+    </div>  
+  
+  
+  </div>
+  
+  <!--Our Partners-->
+  <div class="container mrgthirdsection">
+    <div class="row">
+      <div class="col">
+        <h2 class="nfont" style="text-align: right;">شركاؤنا</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="searchfont2" style="text-align: right;">نحن نعمل فقط مع أفضل الشركات حول العالم</p>
+      </div>
+    </div>
+    <div class="row justify-content-center partnersgap">
+      <div class="col" style="text-align: center;">
+        <a href="{{url_for('aldar')}}"><img class="partners" src="/static/images/aldar.jpg" alt=""></a>
+      </div>
+      <div class="col" style="text-align: center;">
+        <a href="{{url_for('imkan')}}"><img class="partners" src="/static/images/imkan.jpg" style="margin-top: 10px;"  alt=""></a>
+      </div>
+      <div class="col" style="text-align: center;">
+        <a href="{{url_for('bloom')}}"><img class="partners" src="/static/images/bloom.jpg" style="margin-top: 10px;"  alt=""></a>
+      </div>
+      <div class="col" style="text-align: center;">
+        <a href="{{url_for('emaar')}}"><img class="partnersemaar" src="/static/images/emaar.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script>
+    function get_hp(){
+       $.ajax({
+                  method:"post",
+                  url:"/hotproperties",
+                  data:{},
+                  success:function(b){
+                    $('#hotproperties').empty();
+                    var data ='';
+      var op = 1
+      var looper = 1
+      var buy_looper = 1
+      $.each(b, function(key, value){var area = value.area;
+      var newarea = area.replace(/\s/g, '-')
+      var property = value.property;
+      var newproperty = property.replace(/\s/g, '-')
+                    if (op == 5)
+                    {return false;}
+                
+                    if (value.units == "rent" && op < 3){
+                        var units = "Rent";
+                        var cosmo = "Discover";
+                        var x = "background-color: #0e4a88 !important;";
+                        var y = "color: #0e4a88; font-family: 'Roboto'";
+                        var z = "#0e4a88";
+                        var color = "gold-"; 
+                        looper = looper + 1;  
+                      }
+                    else if (value.units == "rent" && looper == 3){
+                    return;
+                    }
+                    else if (value.units == "buy" && op >= 3){
+                        var units = "Buy";
+                        var cosmo = "Details"
+                        var x = "background-color: #A57D2D !important;";
+                        var y = "color: #A57D2D; font-family: 'Roboto'";
+                        var z = "#A57D2D";
+                        var color = "";
+                        }
+                    else if (value.units == "buy" && buy_looper == 3){
+                    return;
+                    }
+                    else {return;}
+                    data += '<div class="card" style="width: 18rem; margin: 5px; position:relative;">'
+                    data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 250px;">'
+                    data += '<div class="card-img-overlay" style="z-index:0;"><div class="labeldesc" style=" background-color: '+z+'; width:20%; text-align:center; color:white;" >'+units+'</div></div>'
+                    data += '<div class="card-body" style="z-index:2">'
+                    data += '<h5 class="card-title" style =  "'+ y +'">'+value.property+'</h5>'
+                    data += '<p class="card-text card-desc" >'+value.type+', '+value.area+'</p>'
+                    data += '<p class="card-text card-desc" style="color: #8e8a8a !important;">'+value.title+'</p>'
+                    data += '<p class="card-text">'+'<img src="/static/icons/bed.svg" width="20px">'+'  '+value.beds+'  '+'<img  src="/static/icons/bath.svg" width="20px"  style="margin-left:7px;">'+'  '+value.baths+'  '+'<img  src="/static/icons/squares.svg" width="15px"  style="margin-left:7px;">'+'  '+value.size+' Sqft'+'</p>'
+                    data += '<div class="row"><p style = " margin-left:15px;'+ y +'" ><b>AED '+value.price+'</b></p></div>'
+                    data += '<div class="row" style="margin-left:3px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'" style="text-decoration: none;color:'+z+';border-radius: 25px; border: 1px solid '+z+'; height: 28px; width: 80px; margin-right: 5px; padding-right: 1px;padding-left: 1px;  font-size:10pt; text-align:center;"><p style="font-family:"Roboto";" >'+cosmo+'</p></a>'
+                    data += '<a href="tel:+97126439099"><img class="ikon" src="/static/icons/001-'+color+'phone-call.svg"></a>'
+                    data += '<a data-toggle="modal" data-id="'+value.ref_no+ '" title="Add this item" class="open-AddBookDialog" href="#addBookDialog"><img class="ikon" src="/static/icons/email.svg"></a>'
+                    data += '<a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20'+value.ref_no+'%20property%20for%20sale.%20Link-%20http://uhpae.com/property/'+value.ref_no+'%20"><img class="ikon" src="/static/icons/003-whatsapp.svg"></a>'
+                    data += '</div>'
+                    data += '</div>'
+                    data += '</div>'
+                    op = op + 1
+      })
+      $('#hotproperties').append(data);}})}
+      get_hp();
+  
+      setInterval(get_hp, 10000);
+      document.getElementById("showdiv").style.display="none";
+      function showdiv() {
+        var elmnt = document.getElementById("showdiv");
+        
+  
+        if (document.getElementById("showdiv").style.display == "none")
+            {document.getElementById("showdiv").style.display="";
+            elmnt.scrollIntoView();}
+        else if (document.getElementById("showdiv").style.display == "")
+            {document.getElementById("showdiv").style.display="none";}
+      } 
+      
+  </script>
+  <script>
+    var modalbg = document.querySelector('.modal-bg');
+    var modalclose = document.getElementById('close')
+    modalclose.style.display = "none"
+    var seconds = 12, $seconds = document.querySelector('#countdown');
+    (function countdown() {
+        $seconds.textContent = seconds + ' second' + (seconds == 1 ?  '' :  's')
+        if (seconds==0)
+        {
+            modalclose.style.display=""
+        }
+        if(seconds --> 0)
+        {setTimeout(countdown, 1000);}
+        
+    })();
+    
+    
+    
+    $(document).ready(function(){
+          if (sessionStorage.getItem('#signup') !== 'true'){
+         setTimeout(function(){
+          modalbg.classList.add('bg-active');
+         },2000);
+         
+      }
+      });
+      
+    
+    modalclose.addEventListener('click',function(){
+        modalbg.classList.remove('bg-active');
+        sessionStorage.setItem('#signup', 'true');
+    });
+    </script>
+  <script>
+    function cherry(){
+      modalbg.classList.add('bg-active');
+    }
+  </script>
+  
+  
+  
+    <script>
+      function red(a,b){
+      path = "/ar/communities/"+a+"/"+b;
+      }
+      function your_func(){
+          window.location.href = path;
+      }
+  
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+      const form = document.forms['google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        var x = document.forms["google-sheet"]["email"].value;
+        var p = document.forms["google-sheet"]["phonenumber"].value;
+      if (x == "" && p == "") {
+      alert("Kindly Fill in your name or number, then click on either of the 3 Properties given");
+      return false;}
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")).then(sessionStorage.setItem('#signup', 'true')).then(setTimeout(function() { your_func(); }, 5000))
+          .catch(error => console.error('Error!', error.message))
+      })
+  
+    </script>
+    
+  
+  
+  
+{% endblock %}

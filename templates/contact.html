@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block metacontent %}
+
+ <title>Contact Us!</title>
+ <meta name="title" content="Contact UHPAE for further details">
+ <meta name="description" content="Contact UHPAE to book appointments, get details, daily reports and much more!">
+ <meta name="keywords" content="contact, real estate, number, email">
+
+ <meta property="og:url" content="https://www.uhpae.com/contact">
+ <meta property="og:title" content="Contact UHPAE for further details">
+ <meta property="og:image" content="https://www.uhpae.com/static/images/Logo2.jpg" /> 
+ <meta property="og:description" content="Contact UHPAE to book appointments, get details, daily reports and much more!">
+ 
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="modal-content" style="padding: 4%; font-family: Roboto;">
+      <span class="close">&times;</span>
+      <div class="row justify-content-center">
+        <h4><b>Kindly Enter</b> your detalils so we can get in touch with you as soon as possible!</h4>
+      </div>
+      <form method="post" autocomplete="off" name="report-2">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" name="name" rows="1" style="width: 100%;" placeholder="Email" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contact Number</label>
+          <input type="text" name="phonenumber" rows="1" style="width: 100%;"  placeholder="Phone/ Mobile Number" required>
+        </div>
+        <div class="row"><div class="col"><button type="submit" class="btn btn-primary">Submit</button></div>
+     
+      </form>
+    </div>
+    </div>
+  
+    <br>
+    <hr>
+  
+    <script>
+    
+      const form3 = document.forms['report-2']
+    
+      form3.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form3)})
+          .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+    
+  
+  <br>
+  <hr>
+<div class="map">
+    <div class="container">
+        <div class="row justify-content-center">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.585237393159!2d54.38263891451571!3d24.46517136701256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e675cd7963a9b%3A0xfdbd8a2ee9f241e3!2sUnique%20Homes%20Worldwide%20Properties%20L.L.C!5e0!3m2!1sen!2sae!4v1606572916763!5m2!1sen!2sae" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div></div></div>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block metacontent %} 
+<title>About UHPAE</title>
+<meta name="title" content="About UHPAE">
+<meta name="description" content="Learn and Discover more about us and our company profile">
+<meta name="keywords" content="about, team, careers">
+<meta property="og:image" content="https://www.uhpae.com/static/images/Logo2.jpg" /> 
+<meta property="og:url" content="https://www.uhpae.com/about">
+<meta property="og:title" content="About UHPAE">
+<meta property="og:description" content="Learn and Discover more about us and our company profile">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:40px;">
+    <div class="row">
+      <div class="col">
+        <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Roboto', sans-serif;" class="sizelink" href="{{url_for('about')}}"> About Us </a>
+  </p>
+    </div>
+    </div>
+  </div>
+
+<div class="container">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col" style="text-align: justify;">
+            <div class="row"><div class="col">
+            <h2 class="nfont" ><b>GM MESSAGE</b></h2> </div><div class="col" style="text-align: right;">
+                <a href="portfolio.pdf" download="portfolio.pdf">
+                <button style="border-radius: 0px; height: 40px; width: 180px; font-family: 'Roboto';background-color: #144a86; color: white;">Company Profile</button>
+                </a>
+            </div></div>
+            
+                <p style="margin-top: 20px;" class="simple">Unique Homes Worldwide Properties(UHP) was established in 2018 to continue to be an active member and one of the leading real estate companies in the UAE.</p>
+                <p class="simple">Committed to provide diverse and complete real estate solutions, equipped with the knowledge and skills in many different dimensions including but not limited to Off-Plan properties (Land, Villas & Apartments), Ready Properties (Commercial & Residential), and Resale in Abu Dhabi & Dubai.
+                Maintaining the growth level over years, created new opportunities to undertake in multiple markets, and allowed us to provide new services to our clients.</p>
+                <p class="simple">UHP as a young ambitious brand succeeded in gaining the trust of our staff, partners, and clients by taking informed decisions based on market insights through monitoring and deeply analyzing the market variables, client needs, and by coping with the continuously shifting trends.
+                We strive to provide the best solutions to our clients, so investing in hiring skilled and experienced talents and latest technologies along with adopting integrity became a necessity, and it is what makes us different.
+                Success is not an easy task as it takes huge efforts and collaboration; it also requires commitment and a lot of hard work to set ourselves apart, but we are on the right track. We are ready for the next challenge and have full trust in our future.</p>
+                <br>
+            </div>
+        
+        
+    </div>
+    <div class="row simple" style="font-family: 'Roboto'; color: #144a86; "><div class="col">
+        General Manager
+    </div></div>
+    <div class="row simple" style="font-family: 'Roboto'; color: #144a86; "><div class="col">
+        Mohammed Al Jbour
+    </div></div>
+</div>
+<div style=" margin-top: 60px;">
+    <div class="container">
+    <div class="row justify-content-center">
+        <br>
+        
+        <div class="col">
+            <br>
+            <h2 class="nfont"><b>OUR MISSION & VISION</b></h2>
+            <p class="simple" style="margin-top: 20px;">Reshaping the real-estate experience, by providing the most</p><p class="simple" style="margin-top: -2%;">innovative solutions for every owner, buyer, and tenant.</p>
+        
+        </div>
+        <div class="col">
+            <br>
+            <h2 class="nfont"><b>OUR VALUES (EPIC)</b></h2>
+            <ul class="simple" style="margin-top: 20px;">
+                <li>
+                    Excellence
+                </li>
+                <li>
+                    Passion and quality
+                </li>
+                <li>
+                    Integrity
+                </li>
+                <li>
+                    Creativity
+                </li>
+
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+    document.getElementById('show').style.display="none";
+    function book() {
+  if (document.getElementById('show').style.display=="none") {
+  document.getElementById('show').style.display="";
+  }
+  else{
+    document.getElementById('show').style.display="none";
+  }
+  
+}
+</script>
+{% endblock %}

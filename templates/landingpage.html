@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block metacontent %}
+
+ <title>UHPAE: Ad</title>
+ <meta property="og:image" content="https://www.uhpae.com/static/images/Popup.webp" /> 
+{% endblock %}
+
+{% block content %}
+<form method="post" autocomplete="off" name="google-sheet">
+    <div class="container" style="background-color: white;">
+      <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8 col-sm-12" style="position: relative;">
+              <img src="../../static/images/Popup.webp" alt="" style="width: 100%;position: relative;">
+              <div class="row adrow_ad" style="position: absolute;">
+                  <div class="col" >
+                      <button onclick="red('Saadiyat-Island','Mamsha-Al-Saadiyat')" class="ad_select" style="margin-left: 3vw; margin-top: -1vw;" type="submit">
+                      
+                      </button>
+                  </div>
+                  <div class="col" >
+                          <button onclick="red('Al-Ghadeer','Al-Ghadeer-Community')" class="ad_select" style="margin-left: -1vw;margin-right: -1vw;margin-top: -1vw;" type="submit">
+                      
+                      </button>
+                  </div>
+                  <div class="col" >
+                      
+                          <button  onclick="red('Yas-Island','Water\'S-Edge')" class="ad_select" style="margin-top: -1vw;" type="submit">
+                      
+                      </button>
+                  </div>
+                  
+              </div>
+              <div class="row" style="margin-top: 5px;">
+                  <div class="col text-center">
+                      <input type="hidden" id="strReferrer" name="strReferrer" />
+                      <div class="row">
+                          <div class="col-md-6 col-lg-6 col-sm-12">
+                              <p class="simple">Email: <input type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" id="email" name="email">
+                          </div>
+                      
+                          <div class="col col-md-6 col-lg-6 col-sm-12">
+                              <p class="simple">Phone: <input type="tel" pattern='[\+]\d{3}\d{2}\d{7}' title='Phone Number (Format: +971009999999)' id="phonenumber" name="phonenumber">
+                          </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-6 col-sm-12">
+                            <p class="simple">Name: <input type="text" id="name" name="name">
+                        </div>  
+                        <div class="col-md-6 col-lg-6 col-sm-12">
+                            <input disabled type="submit" value="Choose any Property above!"></p>
+                          </div>
+                      </div>   
+                          
+                  </div>
+              </div>
+          </div>
+      </div>  
+      
+      </div>
+  </form>
+{% endblock %}
+
+
+
+{% block scripts %}
+<script>
+    document.getElementById('strReferrer').value = window.location.href;
+   </script>
+   
+
+<script>
+
+    function red(a,b){
+    path = "/communities/"+a+"/"+b;
+    }
+    function your_func(){
+        window.location.href = path;
+    }
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      var x = document.forms["google-sheet"]["email"].value;
+      var p = document.forms["google-sheet"]["phonenumber"].value;
+      var n = document.forms["google-sheet"]["name"].value;
+    if (x == "" || p == "" || n == "") {
+    alert("Kindly Fill in your name or number, then click on either of the 3 Properties given");
+    return false;}
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")).then(sessionStorage.setItem('#signup', 'true')).then(setTimeout(function() { your_func(); }, 5000))
+        .catch(error => console.error('Error!', error.message))
+    })
+
+  </script>
+
+
+
+{% endblock %}
