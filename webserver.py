@@ -214,7 +214,6 @@ def prop(area,propertyname,propertyid):
     string = ('SELECT description, image, title, location, beds, baths, size, ref_no, agent, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area FROM properties WHERE ref_no=:ref_no')
     c.execute(string,{'ref_no':propertyid})
     result = c.fetchone()
-
     conn.commit()
     conn.close()
     loc = result[3].split(',')
@@ -232,7 +231,17 @@ def prop(area,propertyname,propertyid):
     string = ('SELECT description FROM dproperties WHERE ref_no=:ref_no')
     c.execute(string,{'ref_no':propertyid})
     desc = c.fetchone()
-    
+    p = int(result[29])
+    price_range = [(p - (p*0.3)), (p + (p+0.3))]
+    a = []
+    c.row_factory = sqlite3.Row
+    c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=? AND price BETWEEN ? AND ?',(result[4], result[30],result[28], price_range[0], price_range[1]))
+    suggest = c.fetchall()
+    for r in suggest:
+        r = dict(r)
+        a.append(r)
+    suggestions = a[0:6]
+
     conn.commit()
     conn.close()
 
@@ -262,8 +271,10 @@ def prop(area,propertyname,propertyid):
     f.close()
 
     
-    return render_template("property.html", result = result, images = images, loc=loc, features = features, desc = desc[0], temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
+    return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = desc[0], temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
     
+
+
 @app.route('/developers')
 def developer():
     return render_template("developers.html")
