@@ -59,11 +59,11 @@ def downloadreport (filename):
 def newsletter():
     return render_template('newsletter.html')
 
-@app.route('/newsletter/campaign')
+@app.route('/newsletter/Reports-and-Trends')
 def campaign():
     return render_template('campaign.html')
 
-@app.route('/newsletter/campaign2')
+@app.route('/newsletter/Aldar-Hounour-Awards')
 def campaign2():
     return render_template('campaign2.html')
 
@@ -609,6 +609,7 @@ def communities():
     c =   conn.cursor()
     c.execute('SELECT DISTINCT area FROM community')
     result = c.fetchall()
+    conn.close()
     x = []
     for i in result:
         x.append(i[0].replace(' ','-'))
@@ -844,21 +845,33 @@ def get_community(name, project):
 
 @app.route('/communities/<community>/<project>')
 def project(community, project):
+    suggested_communities = ['Al-Reem-Island', 'Hydra-Village','Al-Reef-Villas', 'Al-Ghadeer', 'Yas-Island','Saadiyat-Island', 'Al-Raha-Gardens', 'Al-Raha-Golf-Gardens', 'Al-Reef', 'Al-Raha-Beach']
+    with open("virtual_tour.json", "r") as x:
+            data = json.load(x)
+            try:
+                vt = data[project]
+            except:
+                vt = ""
+            x.close()
+    
+
+
+
     if project == "Mamsha-Al-Saadiyat" and community=="Saadiyat-Island":   
         getcomm = get_community('Mamsha-Al-Saadiyat','mamsha')
-        return render_template("project.html", url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community = "saadiyat",folder = "mamsha")
+        return render_template("project.html", url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community = "saadiyat",folder = "mamsha",vt = vt)
 
     if project == "Water'S-Edge" and community=="Yas-Island":
         getcomm = get_community('Water ’s Edge','Water\'S Edge')
-        return render_template("project.html", url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community="yas",folder = "watersedge")
+        return render_template("project.html", url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community="yas",folder = "watersedge",vt = vt)
 
     if project == "Al-Ghadeer-Community" and community=="Al-Ghadeer":
         getcomm = get_community('Al Ghadeer','ghadeer')
-        return render_template("project.html",  url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community="ghadeer",folder = "ghadeer")
+        return render_template("project.html",  url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community="ghadeer",folder = "ghadeer",vt = vt)
 
     if project == "Nudra" and community=="Saadiyat-Island":
         getcomm = get_community('Nudra','nudra')
-        return render_template("project.html",  url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community = "saadiyat",folder = "nudra")
+        return render_template("project.html",  url=getcomm[0], overview=getcomm[1],details=getcomm[2], amenities=getcomm[3], images=getcomm[4],schools=getcomm[5],hospitals=getcomm[6],landmarks=getcomm[7],maparea=getcomm[8],floorplans=getcomm[9],floorplans_1 =getcomm[10],floorplans_2 =getcomm[11],floorplans_3 =getcomm[12],floorplans_4=getcomm[13],sale=getcomm[14],rent=getcomm[15], community = "saadiyat",folder = "nudra",vt = vt)
 
     else:
         project = project.replace('-', " ")
@@ -884,13 +897,7 @@ def project(community, project):
  
         conn.close()
         
-        with open("virtual_tour.json", "r") as x:
-            data = json.load(x)
-            try:
-                vt = data[project]
-            except:
-                vt = ""
-            x.close()
+        
 
         with open("test.json", "r") as f:
             data = json.load(f)
@@ -934,10 +941,10 @@ def project(community, project):
             floorplans_4=""
 
         try:
-            return render_template("project.html",  url=name, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project, vt = vt)
+            return render_template("project.html",x= suggested_communities,  url=name, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project, vt = vt)
         except: 
             try:
-                return render_template("project.html",  url=project, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project ,vt = vt)  
+                return render_template("project.html",x= suggested_communities,  url=project, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project ,vt = vt)  
             except:
                 return render_template("404.html")
     return render_template("404.html")

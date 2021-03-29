@@ -688,6 +688,48 @@
 </div>
 
 
+<div class="container">
+
+  <div class="row">
+    {% for item in x %}
+    <div class="col-3">
+      <div class="content">
+         <a href="/communities/{{item}}">
+              <div class="content-overlay" style="border-radius: 5px;"></div> 
+              <img class="content-image" style="box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+              border-radius: 5px; height: 150px; width: 100%;" src="/static/communities/{{item}}.jpg">
+              <div class="content-details fadeIn-bottom">
+                  <h6 class="content-title">{{ item | replace('-',' ') }}</h6>
+                  <p class="content-text"><i class="fa fa-map-marker"></i> ^</p>
+              </div>
+          </a> 
+        </div>
+  </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+
+<!--div class="carousel" data-flickity>
+  {% for item in x %}
+  <div class="carousel-cell">
+    <div class="content">
+      <a href="/communities/{{item}}">
+           <div class="content-overlay" style="border-radius: 5px;"></div> 
+           <img class="content-image" style="box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+           border-radius: 5px; height: 150px; width: 100%;" src="/static/communities/{{item}}.jpg">
+           <div class="content-details fadeIn-bottom">
+               <h6 class="content-title">{{ item | replace('-',' ') }}</h6>
+               <p class="content-text"><i class="fa fa-map-marker"></i> ^</p>
+           </div>
+       </a> 
+     </div>
+  </div>
+  {% endfor %}
+</div-->
+
+
 
 
 
