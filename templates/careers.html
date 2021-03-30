@@ -30,13 +30,15 @@
 <div class="row">
     <div class="col">
         <div class="card">
-            <h5 class="card-header" style="font-family: Audrey; color: #A57D2D;">DESIRED POSITION</h5>
+            <h5 class="card-header" style="font-family: Audrey; color: #A57D2D;">SALES POSITION</h5>
             <div class="card-body">
               <!--h5 class="card-title" style="font-family: Audrey; color: #A57D2D;">Desired Position</h5-->
-              <p class="card-text simple">We don't have any current openings at the moment! However, feel free to submit your CV and we will reach out to you soon as we find a suitable position!</p>
+              <p class="card-text simple">“The award winning Abu Dhabi based Unique Homes Worldwide Properties LLC is looking for qualified candidates to join our professional Sales team. Candidates with real estate experience has the advantage.</p>
               <div class="row">
                   <div class="col" style="text-align: right;">
-              <a href={{url_for('submitcv')}} style="padding: 10px; right: 0; " >Apply Now</a>
+                    <button type="button" class="btn btn-secondary simple" data-toggle="modal" data-target="#exampleModal">
+                      Read All/ Apply
+                    </button>
               </div>
               </div>
             </div>
@@ -47,6 +49,87 @@
     </div>
     
 </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title simple" id="exampleModalLabel">Apply Now</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="simple">
+        The candidate for this position will excel at creating and closing new opportunities. By using a consultative approach to selling, this person will use their expertise to identify and qualify leads, leading to sales opportunities with both new and existing customers. 
+</p>
+ 
+<p class="simple">
+  Responsibilities
+</p>
+<ul class="simple">
+  <li>
+    Meet and exceed sales targets
+  </li>
+  <li>
+    Successfully create business from new and existing customer accounts
+  </li>
+  <li>  
+    Manage complex negotiations with senior-level executives
+  </li>
+  <li>
+    Build rapport and establish long term relationships with customers
+  </li>
+ </ul>
+<p class="simple">
+Qualifications
+</p>
+<ul class="simple">
+  <li>
+    2-5 years' quota carrying sales experience
+    </li>
+    <li>
+   Experience and working knowledge of CRM systems
+</li>
+   <li>
+    Demonstrable track record of over-achieving quota
+</li>
+    <li>
+    Strong written and verbal communication skills
+  </li>   
+  </ul>
+  <p class="simple">
+   <b>Other requirements:</b>
+    </p>
+    <ul class="simple">
+      <li>
+        Own car and driving license
+        </li>
+        <li>
+          Own visa
+    </li>
+        <li>
+          Fluency in Both Arabic & English
+      </li>   
+      </ul>
+    
+
+
+
+
+
+
+  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary simple" data-dismiss="modal">Close</button>
+        <a href="mailto:hr@uhpae.com?subject=Sales%20Position%20application
+        &body=Attach%20CV%20and%20Write%20cover%20below" class="simple">Apply</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

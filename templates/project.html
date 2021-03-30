@@ -114,7 +114,7 @@
 </div>
 </div>
     <div class="row">
-    <div class="col">
+    <div class="col-8">
         <p class="simple" style="text-align: justify;">{{overview | safe}}</p>
     </div>
     </div>
@@ -688,37 +688,21 @@
 </div>
 
 
+
 <div class="container">
-
+  <br>
+  <br>
   <div class="row">
-    {% for item in x %}
-    <div class="col-3">
-      <div class="content">
-         <a href="/communities/{{item}}">
-              <div class="content-overlay" style="border-radius: 5px;"></div> 
-              <img class="content-image" style="box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
-              border-radius: 5px; height: 150px; width: 100%;" src="/static/communities/{{item}}.jpg">
-              <div class="content-details fadeIn-bottom">
-                  <h6 class="content-title">{{ item | replace('-',' ') }}</h6>
-                  <p class="content-text"><i class="fa fa-map-marker"></i> ^</p>
-              </div>
-          </a> 
-        </div>
-  </div>
-    {% endfor %}
-  </div>
-
-</div>
-
-
-<!--div class="carousel" data-flickity>
+    <div class="col">
+ 
+<div class="carousel" data-flickity ='{ "freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false , "wrapAround" : true}'>
   {% for item in x %}
   <div class="carousel-cell">
     <div class="content">
       <a href="/communities/{{item}}">
-           <div class="content-overlay" style="border-radius: 5px;"></div> 
+           <div class="content-overlay"></div> 
            <img class="content-image" style="box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
-           border-radius: 5px; height: 150px; width: 100%;" src="/static/communities/{{item}}.jpg">
+            height: 250px; width: 250px;" src="/static/communities/{{item}}.jpg">
            <div class="content-details fadeIn-bottom">
                <h6 class="content-title">{{ item | replace('-',' ') }}</h6>
                <p class="content-text"><i class="fa fa-map-marker"></i> ^</p>
@@ -727,13 +711,11 @@
      </div>
   </div>
   {% endfor %}
-</div-->
-
-
-
-
-
-
+</div>
+     
+</div>
+</div>
+</div>
 
 
 

@@ -209,6 +209,7 @@ def upload_file():
 
 @app.route('/communities/<area>/<propertyname>/<propertyid>')
 def prop(area,propertyname,propertyid):
+    
     conn = sqlite3.connect('main.db')
     c = conn.cursor()
     string = ('SELECT description, image, title, location, beds, baths, size, ref_no, agent, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area FROM properties WHERE ref_no=:ref_no')
@@ -240,7 +241,7 @@ def prop(area,propertyname,propertyid):
     for r in suggest:
         r = dict(r)
         a.append(r)
-    suggestions = a[0:6]
+    suggestions = a
 
     conn.commit()
     conn.close()
@@ -269,9 +270,14 @@ def prop(area,propertyname,propertyid):
                     except:
                         temp = 'Not Available'
     f.close()
+    r_all = len(desc[0])
+    r_half = r_all/2
+    overview = desc[0]
+    overview = overview[0:int(r_half)] + "<span id='dots'>...</span><span id='more'>" + overview[int(r_half):int(r_all)] + "</span>"
+    overview = overview.replace('<div class = "container">','')
+    overview = overview.replace("</div></span>",'</span>')
 
-    
-    return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = desc[0], temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
+    return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
     
 
 
@@ -939,12 +945,17 @@ def project(community, project):
             floorplans_2 =""
             floorplans_3 =""
             floorplans_4=""
+        
+        overview = result[2]
+        r_all = len(result[2])
+        r_half = r_all/2
+        overview = overview[0:int(r_half)] + "<span id='dots'>...</span><span id='more'>" + overview[int(r_half):int(r_all)] + "</span>"
 
         try:
-            return render_template("project.html",x= suggested_communities,  url=name, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project, vt = vt)
+            return render_template("project.html",x= suggested_communities,  url=name, overview=overview,details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project, vt = vt)
         except: 
             try:
-                return render_template("project.html",x= suggested_communities,  url=project, overview=result[2],details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project ,vt = vt)  
+                return render_template("project.html",x= suggested_communities,  url=project, overview=overview,details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project ,vt = vt)  
             except:
                 return render_template("404.html")
     return render_template("404.html")
