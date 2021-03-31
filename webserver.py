@@ -276,7 +276,7 @@ def prop(area,propertyname,propertyid):
     overview = overview[0:int(r_half)] + "<span id='dots'>...</span><span id='more'>" + overview[int(r_half):int(r_all)] + "</span>"
     overview = overview.replace('<div class = "container">','')
     overview = overview.replace("</div></span>",'</span>')
-
+    overview = overview.replace("h3",'p')
     return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
     
 

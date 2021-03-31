@@ -339,7 +339,7 @@
   <div class="row">
     <div class="col-lg-12">
       
-<div id="imgcarousel" class="container-property">
+<div id="imgcarousel">
   
 
 </div>
@@ -677,7 +677,7 @@
     }
     
   }
-   
+   /*
     var x = {{ images|tojson }}
     var imagedata = '';
     for (i = 0; i < x.length; i++) {
@@ -686,8 +686,25 @@
       imagedata += '</div>'
       }
       $('#imgcarousel').append(imagedata);
-    
+    */
       
+    var x = {{images|tojson}}
+    var imagedata = '';
+    imagedata += '<div class="carousel  carousel-main" data-flickity>'
+    for (i = 0; i < x.length; i++) {
+      imagedata += '<div class="carousel-cell" >'
+      imagedata += '<img class="carousel-cell-image" style="left:50%;" src="' + x[i] + '">'
+      imagedata += '</div>'
+      }
+      imagedata += '</div>'
+      imagedata += '<div class="carousel carousel-nav" '+"data-flickity='"+'{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "prevNextButtons": false}'+"'>"
+        for (i = 0; i < x.length; i++) {
+      imagedata += '<div class="carousel-cell">'
+      imagedata += '<img style="width: 100px;height: 100px;" src="' + x[i] + '">'
+      imagedata += '</div>'
+      }
+      imagedata += '</div>'
+        $('#imgcarousel').append(imagedata);
   
   </script>
   

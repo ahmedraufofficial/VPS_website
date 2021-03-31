@@ -9,6 +9,50 @@
   font-weight: 300;
   font-display: swap;
 }
+.carousel {
+  background: #FAFAFA;
+  margin-bottom: 40px;
+}
+
+.carousel-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 480px;
+width: 100%;
+
+}
+
+.carousel-cell-image {
+  display: block;
+  max-height: 100%;
+}
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.carousel-nav .carousel-cell {
+width: 100px;
+height: 100px;
+margin-left: 10px;
+}
+
+.carousel-nav .carousel-cell:before {
+  font-size: 50px;
+  line-height: 80px;
+}
+
+.carousel-nav .carousel-cell.is-nav-selected {
+opacity: 0.5;
+}
+
+
+
 
 .title {
   color: #1a1a1a;
@@ -920,6 +964,8 @@ font-weight: bold;
 }
 
  @media only screen and (max-width: 500px) {
+  .carousel-cell {height: 200px;}
+
    .vt{
      height: 300px;
    }
