@@ -7,7 +7,7 @@
 <title>UHPAE: A Real Estate to help you Buy, Sell and Rent Properties</title>
 <meta property="og:url" content="https://www.uhpae.com">
 <meta property="og:title" content="UHPAE: A Real Estate to help you Buy, Sell and Rent Properties">
-<meta property="og:image" content="https://www.uhpae.com/static/images/Logo2.jpg" /> 
+<meta property="og:image" content="https://www.uhpae.com/static/images/logo.png" /> 
 <meta property="og:description" content="Using our Portal, visit one of the largest real estate market to buy, sell, and rent apartments, land plots, villas and many more in Abu Dhabi">
 <meta property="twitter:title" content="UHPAE: A Real Estate to help you Buy, Sell and Rent Properties">
 <meta property="twitter:description" content="Using our Portal, visit one of the largest real estate market to buy, sell, and rent apartments, land plots, villas and many more in Abu Dhabi">
@@ -39,32 +39,239 @@
 
 {% endblock %}
 {% block content %}
-<button onclick="cherry()" style="position: fixed; right: 0; z-index: 100; background-color:transparent; border: hidden;">
+<!--button onclick="cherry()" style="position: fixed; right: 0; z-index: 100; background-color:transparent; border: hidden;">
   <img src="../static/icons/hot-deal.svg" alt="" width="48vw" >
-</button>
+</button-->
 
 <!--Search-->
-<div class="searchbg">
-<div class="container ">
+
+
+
+<!--Carousel-->
+
+<div class="hero-screen">
+  <!--div class="container" style="position: absolute;margin-top: 10%;">
+    <div class="row justify-content-center">
+      
+      <div class="dropdown dropdownedit">
+        <form id="my-form-id" class="form-inline" action="{{ url_for('search') }}" method="POST">
+        
+        
+          <select name="units" class="custom-select wantobtn">
+          <option value="" disabled selected>I Want to..</option>
+          <option value="buy">I'm Buying</option>
+          <option value="rent">I'm Renting</option>
+        </select>
+        
+        
+        <input type="text" id="commentary" name="keyword" class="keysearch" placeholder="Enter Keyword or Ref#" >
+        
+        
+        
+        <button class="btn btn-secondary filterbtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()">
+         <span>See More</span> <img src="/static/icons/filter.png" alt="" class="fltrimg">
+        </button>
+        
+  
+        <div class="dropdown-menu dropsearchpos" aria-labelledby="dropdownMenu2">
+          <div class="container dropsearch" >
+            <div class="row">
+                <div class="col" style="text-align: right;">
+                <input type="reset" class = "searchfont2" style="border: hidden;" value="Reset">
+                </div>
+            </div>
+           
+            <div class="row justify-content-center dropmrg">
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Contract</b></p>
+          <select name="contract" class="custom-select searchfont2" style="width: 120px;">
+            <option value="" disabled selected>Any</option>
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+            </select>
+            </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>City</b></p>
+              <select name="city" class="custom-select searchfont2" style="width: 120px;">
+                <option value="" disabled selected>Any</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Alain">Al ain</option>
+                </select>
+                  </div>
+            <div class="col">
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Min Price</b></p>
+          <input type="number" id="from" name="pricefrom" placeholder="Min" class="searchfont2" style="width: 120px; height: 38px;">   
+              </div>
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Max Price</b></p>
+          <input type="number" id="to" name="priceto" placeholder="Max" class="searchfont2" style="width: 120px; height: 38px;" >   
+                </div>
+                  
+            </div>
+  
+            <div class="row justify-content-center dropmrg">
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bedrooms</b></p>
+            <select  name="beds" class="custom-select searchfont2" style="width: 120px;" >
+              <option value="" disabled selected>Any</option>
+              <option value="ST">Studio</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">Five</option>
+              <option value="6">Six</option>
+              </select>
+              </div>
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bathrooms</b></p>
+              <select name="baths" class="custom-select searchfont2" style="width: 120px;">
+              
+                <option value="" disabled selected>Any</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+                <option value="7">Seven</option>
+                </select>
+              </div>
+              <div class="col">
+                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Property Type</b></p>
+                <select  name="propertytype" class="custom-select searchfont2" style="width: 120px;">
+                <option value="" disabled selected>Any</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Villa">Villa</option>
+                <option value="Compound">Compound</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Land Residential">Land Residential</option>
+                <option value="Office">Office</option>
+                </select>
+              </div>
+            <div class="col">  
+              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Location</b></p>
+              <select  name="area" class="custom-select searchfont2" style="width: 120px;">
+                <option value="" disabled selected>Any</option>
+                <option value="Al Reem Island">Reem Island</option>
+                <option value="Yas Island">Yas Island</option>
+                <option value="Al Raha Beach">Al Raha</option>
+                <option value="Saadiyat Island">Al Saadiyat</option>
+                <option value="Al Reef">Al Reef</option>
+                <option value="Khalifa City A">Khalifa City</option>
+                </select>
+      </div>
+      </div>
+      <div class="row justify-content-center dropmrg">
+      <div class="col">
+      <input name="offplan" type="checkbox" value="offplan" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Offplan</p>
+      
+      <input name="ready" type="checkbox" value="ready" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Ready</p>
+      
+    </div>
+      </div>
+      <div class="row dropmrg" >
+        <div class="col">
+  
+          <p class="searchfont2" style="color:#0e4a88; display: inline;"><b>Features</b></p>
+          
+        </div>
+      </div>
+      <div class="row justify-content-center amedropmrgin">
+        <div class="col">
+        <input name="balcony" type="checkbox" value="Balcony" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Balcony</p>
+        </div>
+        <div class="col">
+          <input name="bparking" type="checkbox" value="Basement parking" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Basement Parking</p>
+          </div>
+          <div class="col">
+            <input name="wardrobes" type="checkbox" value="Built in wardrobes" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Wardrobes</p>
+            </div>
+            <div class="col">
+              <input name="cac" type="checkbox" value="Central air conditioning" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Air Conditioning</p>
+              </div>
+  
+            </div>
+            <div class="row justify-content-center amedropmrgin">
+              <div class="col">
+                <input name="ch" type="checkbox" value="Central heating" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Central Heating</p>
+                </div>
+                <div class="col">
+                  <input name="view" type="checkbox" value="Community View" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Community View</p>
+                  </div>
+                  <div class="col">
+                    <input name="sat" type="checkbox" value="Satellite/Cable TV" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Satellite/Cable</p>
+                    </div>
+                    <div class="col">
+                      <input name="kitchen" type="checkbox" value="Fully fitted kitchen" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Fitted Kitchen</p>
+                      </div>
+      </div>
+  
+      <div class="row dropmrg" style="margin-bottom: 5px;">
+        <div class="col" style="text-align: left;">
+          <button class="searchfont2" style=" border: hidden;" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()" >Hide</button>
+        </div>
+        <div class="col" style="text-align:right;">
+          <button  class="searchfont2" style=" border: hidden; background-color: #144A86; color: white;" type="submit" formmethod="get|post"><b>Search</b></button>
+        </div>
+       
+      
+      </div>
+        </div>
+        </div>
+  
+  
+        <button class="searchbtn" type="submit" formmethod="get|post"><b>Search</b></button>
+      
+      </form>
+      <script>
+        $('#my-form-id').submit(function() {
+    var commentary = $('#commentary').val(); 
+    if (commentary === undefined || commentary === "") {
+      $('#commentary').removeAttr('name');
+    } else {
+      $('#commentary').attr('name', 'keyword');        
+    }
+    var to = $('#to').val(); 
+    if (to === undefined || to === "") {
+      $('#to').removeAttr('name');
+    } else {
+      $('#to').attr('name', 'priceto');        
+    }
+    var from = $('#from').val(); 
+    if (from === undefined || from === "") {
+      $('#from').removeAttr('name');
+    } else {
+      $('#from').attr('name', 'pricefrom');        
+    }
+  });
+      </script>
+      </div>
+    </div>
+  </div-->
+
+<div class="container" style="position: relative;">
+<div class="row" style="justify-content: center;">
+<div class="column" style="background-color: rgba(0, 0, 0, 0.5); position: absolute; width: auto; height: auto; padding: 20px; padding-left: 36px; padding-right: 36px; margin-top: 10%;">
   <div class="row justify-content-center">
-    
-    <div class="dropdown dropdownedit">
+      
+    <div class="dropdown">
       <form id="my-form-id" class="form-inline" action="{{ url_for('search') }}" method="POST">
       
       
-        <select name="units" class="custom-select wantobtn">
-        <option value="" disabled selected>I Want to..</option>
-        <option value="buy">I'm Buying</option>
-        <option value="rent">I'm Renting</option>
+      <select name="units" class="s_bar_btn" style="appearance: none; background: url(../static/icons/down_row.png) 90% / 10% no-repeat white;">
+        <option value="buy">Buy</option>
+        <option value="rent">Rent</option>
       </select>
       
       
-      <input type="text" id="commentary" name="keyword" class="keysearch" placeholder="Enter Keyword or Ref#" >
+      <input class="s_bar_btn" type="text" id="commentary" name="keyword" placeholder="Location / Community / Ref No" >
       
       
       
-      <button class="btn btn-secondary filterbtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()">
-       <span>See More</span> <img src="/static/icons/filter.png" alt="" class="fltrimg">
+      <button class="s_bar_btn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()">
+      See More
       </button>
       
 
@@ -217,7 +424,7 @@
       </div>
 
 
-      <button class="searchbtn" type="submit" formmethod="get|post"><b>Search</b></button>
+      <button class="s_bar_btn" type="submit" formmethod="get|post">Search</button>
     
     </form>
     <script>
@@ -246,7 +453,22 @@
   </div>
 </div>
 </div>
-<!--Carousel-->
+</div>
+
+  <div class="scroll-bottom" onclick="scrolldown()">
+    <div class="container">
+      <div class="row" style="justify-content: center; position: relative;">
+       
+          <img src="../static/icons/fast-forward.png" class="scrolldown" alt="" style="position: absolute;">
+        
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+
 <div id="carouselExampleControls" class="carousel slide mrgfirstsection" data-ride="carousel">
   <div class="carousel-inner">
     
@@ -290,25 +512,7 @@
 
                             </div>
                           </div>
-    <div class="carousel-item" style="position: relative;">
-      <img class="d-block w-100" src="/static/images/saadiyatfront.webp" alt="saadiyat island">
-      <div class="textthis" style="position: absolute; top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);">
-      <div class="row justify-content-center">
-        <p class="arabic" style="width: 100%; z-index: 5;"> أرض وفيـــــلا في جزيرة الســعديات  </p></div>
-        <div class="row justify-content-center">
-        <p class="npricevalue" style="font-family: 'myFirstFont'; display: inline;">درهم إماراتي فــــقـــــــط</p>
-      <h1 class="pricevalue" style="color: #9E9079; font-family: 'myFirstFont'; margin-left: 3px; margin-right: 3px; display: inline;">2,750,000</h1>
-        <p class="npricevalue" style="font-family: 'myFirstFont'; display: inline;"> تبــدأ منــــ </p>
-        </div>
-        <div class="row justify-content-center">
-        <p class="npricevalue1" style="font-family: 'myFirstFont'; margin-top: -4px;"> فترة حصرية ومحدودة لغاية 31 ديسمبر 2020</p></div>
-        <div class="row justify-content-center">
-          <a href="https://saadiyatreserve.uhpae.com" style="background-color:  #9E9079; width: 80px; height: 25px; text-align: center; font-family: 'myFirstFont'; font-size:14pt; margin-top:10px; text-decoration: none; color: black;">للمزيد</a>
-        </div>
-      </div>
-    </div>
+    
     <div class="carousel-item" >
       <a title="Hot properties in West Yas" href={{url_for('search', tag="hot", property="West Yas" )}}><img class="d-block w-100" src="/static/images/westyascarousel.webp" alt="west yas"></a>
 
@@ -340,7 +544,7 @@
 </div>
 
 <!--modal-->
-<div class="modal-bg" id="signup">
+<!--div class="modal-bg" id="signup">
   <div class="modalthis">
       <form method="post" autocomplete="off" name="google-sheet">
         <div class="container" style="background-color: white;">
@@ -400,7 +604,7 @@
           </div>
       </form>
   </div>
-</div>
+</div-->
 
 <!--hotprop-->
 
@@ -614,6 +818,15 @@ alt="" width="100%"/>
 {% endblock %}
 
 {% block scripts %}
+
+<script>
+  function scrolldown(){
+    var height = $(window).height();
+    window.scrollTo({top: height,behaviour:'smooth'})
+  }
+</script>
+
+
 <script>
   document.getElementById('strReferrer').value = window.location.href;
  </script>
@@ -696,7 +909,8 @@ alt="" width="100%"/>
     
     
 </script>
-<script>
+
+<!--script>
   var modalbg = document.querySelector('.modal-bg');
   var modalclose = document.getElementById('close')
   modalclose.style.display = "none"
@@ -707,7 +921,7 @@ alt="" width="100%"/>
       {
           modalclose.style.display=""
       }
-      if(seconds --> 0)
+      if(seconds --><!-- (ALERT) 0)
       {setTimeout(countdown, 1000);}
       
   })();
@@ -728,7 +942,8 @@ alt="" width="100%"/>
       modalbg.classList.remove('bg-active');
       sessionStorage.setItem('#signup', 'true');
   });
-  </script>
+  </script-->
+
 <script>
   function cherry(){
     modalbg.classList.add('bg-active');
@@ -737,7 +952,7 @@ alt="" width="100%"/>
 
 
 
-  <script>
+  <!--script>
     function red(a,b){
     path = "/communities/"+a+"/"+b;
     }
@@ -760,6 +975,6 @@ alt="" width="100%"/>
         .catch(error => console.error('Error!', error.message))
     })
 
-  </script>
+  </script-->
 
 {% endblock %}team

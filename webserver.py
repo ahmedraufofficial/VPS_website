@@ -363,6 +363,11 @@ def search():
         r = dict(r)
         a.append(r)
     conn.close()
+
+    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')
+
+
+    '''
     if len(list_bc) == 1:
         return redirect(url_for('units', unittype = request.args.get('units')))
     if len(list_bc) == 2:
@@ -370,15 +375,13 @@ def search():
     if len(list_bc) == 3:
         area = request.args.get('area').replace(' ','-')
         return redirect(url_for('areatype', unittype = request.args.get('units'), proptype = request.args.get('propertytype'), areatype = area))
-
-
-    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')
-
+    '''
 
 
 
-@app.route('/<unittype>')
-def units(unittype):
+@app.route('/rent')
+def rent():
+    unittype = "rent"
     queryRes = []
     conn = sqlite3.connect('main.db')
     c =   conn.cursor()
@@ -392,6 +395,28 @@ def units(unittype):
     conn.close()
     metatag = ['Property for '+unittype+' in Abu Dhabi | UHPAE', 'Search through a wide variety of properties to '+unittype+' within Abu Dhabi and get contact information of our Agents for any queries',['property for '+unittype+' in abu dhabi', 'house for '+unittype+' in abu dhabi', 'abu dhabi '+unittype, unittype+ ' abu dhabi']]
     return render_template("search.html", queryRes=queryRes, meta = metatag, search = 'property for '+unittype+' in abu dhabi', url = "https://www.uhpae.com/"+unittype)
+
+@app.route('/buy')
+def buy():
+    unittype = "buy"
+    queryRes = []
+    conn = sqlite3.connect('main.db')
+    c =   conn.cursor()
+    c.row_factory = sqlite3.Row
+    c.execute('SELECT rowid, * FROM properties WHERE units = ?',(unittype,))                   
+    result = c.fetchall()
+    for r in result:
+        r = dict(r)
+        queryRes.append(r)
+    conn.commit()
+    conn.close()
+    metatag = ['Property for '+unittype+' in Abu Dhabi | UHPAE', 'Search through a wide variety of properties to '+unittype+' within Abu Dhabi and get contact information of our Agents for any queries',['property for '+unittype+' in abu dhabi', 'house for '+unittype+' in abu dhabi', 'abu dhabi '+unittype, unittype+ ' abu dhabi']]
+    return render_template("search.html", queryRes=queryRes, meta = metatag, search = 'property for '+unittype+' in abu dhabi', url = "https://www.uhpae.com/"+unittype)
+
+
+
+'''
+
 
 @app.route('/<unittype>/<proptype>')
 def proptype(unittype, proptype):
@@ -426,7 +451,7 @@ def areatype(unittype, proptype, areatype):
     conn.close()
     metatag = [proptype+' for '+unittype+' in '+areatype+', Abu Dhabi | UHPAE', 'Search through a wide variety of '+proptype+' to '+unittype+' within '+areatype+',Abu Dhabi and get contact information of our Agents for any queries',[proptype+' for '+unittype+' in '+areatype+' abu dhabi',areatype +' abu dhabi', areatype]]
     return render_template("search.html", queryRes=queryRes, meta = metatag, search = proptype+' for '+unittype+' in '+areatype+' abu dhabi', url = "https://www.uhpae.com/"+unittype+'/'+proptype+'/'+areatype)    
-
+'''
 
 
 

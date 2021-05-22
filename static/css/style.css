@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Audrey";
-  src: url("/static/css/Audrey/Audrey/Audrey-Normal.otf") format("opentype");
+  font-family: "Poppins";
+  src: url("/static/css/Poppins/Poppins-Medium.ttf") format("opentype");
   font-display: swap;
 }
 @font-face {
@@ -9,9 +9,131 @@
   font-weight: 300;
   font-display: swap;
 }
+
+
+
+.s_bar_btn {
+  font-family: 'Poppins';
+  border: none;
+  min-width: 120px;
+  height: 40px;
+  margin: 1px;
+  background-color: white;
+  color: black;
+}
+
+.scrolldown{
+  width: 20px;
+  margin-top: 3%;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.bg-dark {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1031;
+}
+.scrolled header.bg-dark {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  animation-delay: 0.5s;
+}
+
+
+.scrolled header.bg-dark:hover, header.bg-dark:hover {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+
+}
+
+header .navbar {
+  max-width: calc(100% - 170px);
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+header .navbar {
+  transition: 0.5s;
+  position: unset;
+}
+
+.scrolled header.bg-dark * {
+
+    animation-delay: 0.5s;
+
+}
+
+.scroll-bottom {
+height: 85px;width: 100%;background-color: rgba(0, 0, 0, 0.5); position: absolute;bottom: 0;
+transition: 0.5s;
+}
+
+.scroll-bottom:hover{
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  transition: 0.5s;
+}
+.scroll-bottom:hover .scrolldown{
+  margin-top: 4%;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+
+.hero-screen{
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+            height: calc(var(--vh, 1vh) * 100);
+            background-image: url(/static/images/mainbg2.JPG);
+            background-repeat: no-repeat;
+            background-position: 77% 0;
+            background-size: cover;
+            position: relative;
+}
+
+header .navbar {
+
+    max-width: calc(100% - 170px);
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+
+}
+header .navbar {
+
+    transition: 0.5s;
+    position: unset;
+
+}
+.navbar-expand-lg {
+
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+
+}
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+}
+
 .carousel {
   background: #FAFAFA;
   margin-bottom: 40px;
+}
+
+header {
+  transition: 0.5s;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .carousel-cell {
@@ -50,8 +172,6 @@ margin-left: 10px;
 .carousel-nav .carousel-cell.is-nav-selected {
 opacity: 0.5;
 }
-
-
 
 
 .title {
@@ -218,7 +338,7 @@ opacity: 0.5;
 .texty1 {
   color: white;
   font-size: 30px;
-  font-family: 'Audrey';
+  font-family: 'Poppins';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -231,7 +351,7 @@ opacity: 0.5;
 .texty {
   color: white;
   font-size: 40px;
-  font-family: 'Audrey';
+  font-family: 'Poppins';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -242,7 +362,7 @@ opacity: 0.5;
 }
 
 .mediabtngold{
-  border-radius: 0px;  font-family: 'Audrey'; font-size: 14pt; font-weight: bold; border-top: hidden; border-right: hidden;border-bottom: hidden; border-left: 4px solid #A57D2D;color:#0e4e88;
+  border-radius: 0px;  font-family: 'Poppins'; font-size: 14pt; font-weight: bold; border-top: hidden; border-right: hidden;border-bottom: hidden; border-left: 4px solid #A57D2D;color:#0e4e88;
   background: linear-gradient(to right, #A57D2D 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
@@ -253,7 +373,7 @@ opacity: 0.5;
 }
 
 .mediabtnblue{
-  border-radius: 0px;  font-family: 'Audrey'; font-size: 14pt; font-weight: bold; border-top: hidden; border-right: hidden;border-bottom: hidden; border-left: 4px solid #0e4e88;color:#A57D2D;
+  border-radius: 0px;  font-family: 'Poppins'; font-size: 14pt; font-weight: bold; border-top: hidden; border-right: hidden;border-bottom: hidden; border-left: 4px solid #0e4e88;color:#A57D2D;
   background: linear-gradient(to right, #0e4e88 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
@@ -413,7 +533,7 @@ footer a:hover {
 .nfont {
   font-size: 22pt;
   color: #0e4a88;
-  font-family: 'Audrey';
+  font-family: 'Poppins';
 }
 .teambtn {
   border: hidden;
@@ -446,7 +566,7 @@ color: white;
 
 
 .card-font{
-  font-family: 'Audrey';
+  font-family: 'Poppins';
 }
 
 .btn-primary{
@@ -455,7 +575,7 @@ color: white;
 }
 
 .wfont{
-  font-family: Audrey;
+  font-family: Poppins;
   color: white;
 }
 
@@ -570,7 +690,7 @@ select:active, select:hover {
 
 .logoname {
   
-  width: 250px;
+  width: 80px;
 }
 
 .propcap{
@@ -794,7 +914,7 @@ height: 40px;
   font-size: 40pt;
 }
 .nfontchanged{
-  font-family: 'Audrey';
+  font-family: 'Poppins';
   color:  #0e4a88;
 }
 .videoheight{
@@ -844,7 +964,7 @@ display: none;
 }
 
 .p_header{
-font-family: 'Audrey';
+font-family: 'Poppins';
 font-size: 22pt;
 font-weight: bold;
 color:  #0e4a88;
