@@ -48,218 +48,17 @@
 
 
 <!--Carousel-->
-
-<div class="hero-screen">
-  <!--div class="container" style="position: absolute;margin-top: 10%;">
-    <div class="row justify-content-center">
-      
-      <div class="dropdown dropdownedit">
-        <form id="my-form-id" class="form-inline" action="{{ url_for('search') }}" method="POST">
-        
-        
-          <select name="units" class="custom-select wantobtn">
-          <option value="" disabled selected>I Want to..</option>
-          <option value="buy">I'm Buying</option>
-          <option value="rent">I'm Renting</option>
-        </select>
-        
-        
-        <input type="text" id="commentary" name="keyword" class="keysearch" placeholder="Enter Keyword or Ref#" >
-        
-        
-        
-        <button class="btn btn-secondary filterbtn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()">
-         <span>See More</span> <img src="/static/icons/filter.png" alt="" class="fltrimg">
-        </button>
-        
-  
-        <div class="dropdown-menu dropsearchpos" aria-labelledby="dropdownMenu2">
-          <div class="container dropsearch" >
-            <div class="row">
-                <div class="col" style="text-align: right;">
-                <input type="reset" class = "searchfont2" style="border: hidden;" value="Reset">
-                </div>
-            </div>
-           
-            <div class="row justify-content-center dropmrg">
-              <div class="col">
-                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Contract</b></p>
-          <select name="contract" class="custom-select searchfont2" style="width: 120px;">
-            <option value="" disabled selected>Any</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
-            </select>
-            </div>
-            <div class="col">
-              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>City</b></p>
-              <select name="city" class="custom-select searchfont2" style="width: 120px;">
-                <option value="" disabled selected>Any</option>
-                <option value="Abu Dhabi">Abu Dhabi</option>
-                <option value="Dubai">Dubai</option>
-                <option value="Alain">Al ain</option>
-                </select>
-                  </div>
-            <div class="col">
-              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Min Price</b></p>
-          <input type="number" id="from" name="pricefrom" placeholder="Min" class="searchfont2" style="width: 120px; height: 38px;">   
-              </div>
-              <div class="col">
-                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Max Price</b></p>
-          <input type="number" id="to" name="priceto" placeholder="Max" class="searchfont2" style="width: 120px; height: 38px;" >   
-                </div>
-                  
-            </div>
-  
-            <div class="row justify-content-center dropmrg">
-              <div class="col">
-                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bedrooms</b></p>
-            <select  name="beds" class="custom-select searchfont2" style="width: 120px;" >
-              <option value="" disabled selected>Any</option>
-              <option value="ST">Studio</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-              <option value="4">Four</option>
-              <option value="5">Five</option>
-              <option value="6">Six</option>
-              </select>
-              </div>
-              <div class="col">
-                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Bathrooms</b></p>
-              <select name="baths" class="custom-select searchfont2" style="width: 120px;">
-              
-                <option value="" disabled selected>Any</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">Four</option>
-                <option value="5">Five</option>
-                <option value="6">Six</option>
-                <option value="7">Seven</option>
-                </select>
-              </div>
-              <div class="col">
-                <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Property Type</b></p>
-                <select  name="propertytype" class="custom-select searchfont2" style="width: 120px;">
-                <option value="" disabled selected>Any</option>
-                <option value="Apartment">Apartment</option>
-                <option value="Villa">Villa</option>
-                <option value="Compound">Compound</option>
-                <option value="Townhouse">Townhouse</option>
-                <option value="Land Residential">Land Residential</option>
-                <option value="Office">Office</option>
-                </select>
-              </div>
-            <div class="col">  
-              <p class="searchfont2" style="color:#0e4a88; margin-bottom: 5px; "><b>Location</b></p>
-              <select  name="area" class="custom-select searchfont2" style="width: 120px;">
-                <option value="" disabled selected>Any</option>
-                <option value="Al Reem Island">Reem Island</option>
-                <option value="Yas Island">Yas Island</option>
-                <option value="Al Raha Beach">Al Raha</option>
-                <option value="Saadiyat Island">Al Saadiyat</option>
-                <option value="Al Reef">Al Reef</option>
-                <option value="Khalifa City A">Khalifa City</option>
-                </select>
-      </div>
-      </div>
-      <div class="row justify-content-center dropmrg">
-      <div class="col">
-      <input name="offplan" type="checkbox" value="offplan" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Offplan</p>
-      
-      <input name="ready" type="checkbox" value="ready" style="display: inline;" > <p class = "searchfont2" style="color:#0e4a88; display: inline;">Ready</p>
-      
-    </div>
-      </div>
-      <div class="row dropmrg" >
-        <div class="col">
-  
-          <p class="searchfont2" style="color:#0e4a88; display: inline;"><b>Features</b></p>
-          
-        </div>
-      </div>
-      <div class="row justify-content-center amedropmrgin">
-        <div class="col">
-        <input name="balcony" type="checkbox" value="Balcony" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Balcony</p>
-        </div>
-        <div class="col">
-          <input name="bparking" type="checkbox" value="Basement parking" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Basement Parking</p>
-          </div>
-          <div class="col">
-            <input name="wardrobes" type="checkbox" value="Built in wardrobes" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Wardrobes</p>
-            </div>
-            <div class="col">
-              <input name="cac" type="checkbox" value="Central air conditioning" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Air Conditioning</p>
-              </div>
-  
-            </div>
-            <div class="row justify-content-center amedropmrgin">
-              <div class="col">
-                <input name="ch" type="checkbox" value="Central heating" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Central Heating</p>
-                </div>
-                <div class="col">
-                  <input name="view" type="checkbox" value="Community View" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Community View</p>
-                  </div>
-                  <div class="col">
-                    <input name="sat" type="checkbox" value="Satellite/Cable TV" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Satellite/Cable</p>
-                    </div>
-                    <div class="col">
-                      <input name="kitchen" type="checkbox" value="Fully fitted kitchen" style="display: inline;"> <p class = "searchfont2" style="display: inline;">Fitted Kitchen</p>
-                      </div>
-      </div>
-  
-      <div class="row dropmrg" style="margin-bottom: 5px;">
-        <div class="col" style="text-align: left;">
-          <button class="searchfont2" style=" border: hidden;" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()" >Hide</button>
-        </div>
-        <div class="col" style="text-align:right;">
-          <button  class="searchfont2" style=" border: hidden; background-color: #144A86; color: white;" type="submit" formmethod="get|post"><b>Search</b></button>
-        </div>
-       
-      
-      </div>
-        </div>
-        </div>
-  
-  
-        <button class="searchbtn" type="submit" formmethod="get|post"><b>Search</b></button>
-      
-      </form>
-      <script>
-        $('#my-form-id').submit(function() {
-    var commentary = $('#commentary').val(); 
-    if (commentary === undefined || commentary === "") {
-      $('#commentary').removeAttr('name');
-    } else {
-      $('#commentary').attr('name', 'keyword');        
-    }
-    var to = $('#to').val(); 
-    if (to === undefined || to === "") {
-      $('#to').removeAttr('name');
-    } else {
-      $('#to').attr('name', 'priceto');        
-    }
-    var from = $('#from').val(); 
-    if (from === undefined || from === "") {
-      $('#from').removeAttr('name');
-    } else {
-      $('#from').attr('name', 'pricefrom');        
-    }
-  });
-      </script>
-      </div>
-    </div>
-  </div-->
-
+<!---->
+<!--div class="hero-screen">
 <div class="container" style="position: relative;">
 <div class="row" style="justify-content: center;">
-<div class="column" style="background-color: rgba(0, 0, 0, 0.5); position: absolute; width: auto; height: auto; padding: 20px; padding-left: 36px; padding-right: 36px; margin-top: 10%;">
+<div class="col" style="background-color: rgba(0, 0, 0, 0.5); position: absolute; width: auto; height: auto; padding: 20px; padding-left: 36px; padding-right: 36px; margin-top: 10%;">
   <div class="row justify-content-center">
       
     <div class="dropdown">
       <form id="my-form-id" class="form-inline" action="{{ url_for('search') }}" method="POST">
-      
-      
+      <div class="col">
+      <div class="row">
       <select name="units" class="s_bar_btn" style="appearance: none; background: url(../static/icons/down_row.png) 90% / 10% no-repeat white;">
         <option value="buy">Buy</option>
         <option value="rent">Rent</option>
@@ -270,10 +69,16 @@
       
       
       
-      <button class="s_bar_btn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()">
-      See More
-      </button>
-      
+ 
+
+
+
+      <button class="s_bar_btn" type="submit" formmethod="get|post">Search</button>
+    </div>
+    <div class="row justify-content-center">
+ 
+        <img src="../static/icons/down-arrow.svg" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()" alt="" style="width: 18px; position: absolute;cursor: pointer;opacity: 0.85;">
+     
 
       <div class="dropdown-menu dropsearchpos" aria-labelledby="dropdownMenu2">
         <div class="container dropsearch" >
@@ -423,10 +228,12 @@
       </div>
       </div>
 
-
-      <button class="s_bar_btn" type="submit" formmethod="get|post">Search</button>
-    
+    </div>
+    </div>
     </form>
+
+
+
     <script>
       $('#my-form-id').submit(function() {
   var commentary = $('#commentary').val(); 
@@ -464,7 +271,7 @@
       </div>
     </div>
   </div>
-</div>
+</div-->
  
 
 
