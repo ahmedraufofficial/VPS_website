@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col">
         <div class="dropdown">
-            <button type="button" class="btn" data-toggle="dropdown" style="font-family:'Roboto'; color: white;background-color: #0e4a88; border-radius: 50px;">
+            <button type="button" class="btn" data-toggle="dropdown" style="font-family:'Poppins-light'; color: white;background-color: #0e4a88; border-radius: 50px;">
           Filter by ▼
           </button>
           <div class="dropdown-menu">
@@ -30,7 +30,7 @@
         {% for item in rooms %}
         
         
-        <a href={{url_for('search', beds=item[2], area=area, units = 'buy')}} style="margin: 10px; margin-left: 0px; font-family: 'Roboto'; color: #A57D2D; background-color: #E8E8E8; font-size: 12pt; padding: 5px; border: 1px solid #e8E8E8;"><p style="display: inline;">{{item[1]}}</p><p style="display: inline;">({{item[0]}})</p></a>
+        <a href={{url_for('search', beds=item[2], area=area, units = 'buy')}} style="margin: 10px; margin-left: 0px; font-family: 'Poppins-light'; color: #A57D2D; background-color: #E8E8E8; font-size: 12pt; padding: 5px; border: 1px solid #e8E8E8;"><p style="display: inline;">{{item[1]}}</p><p style="display: inline;">({{item[0]}})</p></a>
         {% endfor %}
     </div>
     </div>
@@ -38,7 +38,7 @@
         <div class="col">
              
         {% for item in rent_rooms %}
-        <a href={{url_for('search', beds=item[2], area=area, units = 'rent')}} style="margin: 10px; margin-left: 0px; font-family: 'Roboto'; color: #0e4a88; background-color: #E8E8E8; font-size: 12pt; padding: 5px; border: 1px solid #e8E8E8;"><p style="display: inline;">{{item[1]}}</p><p style="display: inline;">({{item[0]}})</p></a>
+        <a href={{url_for('search', beds=item[2], area=area, units = 'rent')}} style="margin: 10px; margin-left: 0px; font-family: 'Poppins-light'; color: #0e4a88; background-color: #E8E8E8; font-size: 12pt; padding: 5px; border: 1px solid #e8E8E8;"><p style="display: inline;">{{item[1]}}</p><p style="display: inline;">({{item[0]}})</p></a>
         {% endfor %}
     </div>
     </div>

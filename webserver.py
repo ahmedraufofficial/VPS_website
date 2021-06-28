@@ -42,7 +42,7 @@ def site_map():
 @app.route('/sitemap.html')
 def site_map_html():
     return render_template('sitemap.html')
-@app.route('/ad')
+@app.route('/landing')
 def landingpage():
     return render_template('landingpage.html')
 @app.route('/privacy-policy')
@@ -307,7 +307,7 @@ def search():
         return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')   
     
     for i in request.args:
-
+        print(i)
         if i == 'units':
             list_bc.append(request.args.get(i))
         elif i == 'propertytype':
@@ -316,14 +316,12 @@ def search():
             list_bc.append(request.args.get(i))
         else:
             list_bc = ['','','','']
-        if i == 'priceto':
-            max_price = request.args.get(i)
-            int(max_price)
-            continue
+        '''
         if i == 'pricefrom':
             min_price = request.args.get(i)
             int(min_price)
             continue
+        '''
         if i == 'keyword':
             try:
                 int(request.args.get(i))
@@ -344,20 +342,12 @@ def search():
             z = 1
         else:
             args_rec += (' AND '+i+'='+'"'+request.args.get(i)+'"')
-    
-    if min_price != 0 or max_price != 999999999:
-        if z == 0:
-            args_rec += (' price BETWEEN '+str(min_price)+' AND '+str(max_price))
-            z = 1
-        else:
-            args_rec += ('AND price BETWEEN '+str(min_price)+' AND '+str(max_price))
+
     conn = sqlite3.connect('main.db')
     c =   conn.cursor()
-    c.row_factory = sqlite3.Row
-    try:
-        c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec)
-    except:
-        c.execute('SELECT rowid, * FROM properties')
+    c.row_factory = sqlite3.Row  
+    print(args_rec)  
+    c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec)
     result = c.fetchall()
     for r in result:
         r = dict(r)
@@ -415,206 +405,48 @@ def buy():
 
 
 
-'''
-
-
-@app.route('/<unittype>/<proptype>')
-def proptype(unittype, proptype):
-    queryRes = []
-    conn = sqlite3.connect('main.db')
-    c =   conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('SELECT rowid, * FROM properties WHERE units = ? AND type = ?',(unittype,proptype,))                   
-    result = c.fetchall()
-    for r in result:
-        r = dict(r)
-        queryRes.append(r)
-    conn.commit()
-    conn.close()
-    metatag = [proptype+' for '+unittype+' in Abu Dhabi | UHPAE', 'Search through a wide variety of '+proptype+' to '+unittype+' within Abu Dhabi and get contact information of our Agents for any queries',[proptype+' for '+unittype+' in abu dhabi', 'furnished '+proptype+' for '+unittype+' in abu dhabi', 'abu dhabi '+proptype+' for '+unittype]]
-    return render_template("search.html", queryRes=queryRes, meta = metatag, search = proptype+' for '+unittype+' in abu dhabi',  url = "https://www.uhpae.com/"+unittype+'/'+proptype)
-
-
-@app.route('/<unittype>/<proptype>/<areatype>')
-def areatype(unittype, proptype, areatype):
-    areatype = areatype.replace('-',' ')
-    queryRes = []
-    conn = sqlite3.connect('main.db')
-    c =   conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('SELECT rowid, * FROM properties WHERE units = ? AND type = ? AND area = ?',(unittype,proptype,areatype,))                   
-    result = c.fetchall()
-    for r in result:
-        r = dict(r)
-        queryRes.append(r)
-    conn.commit()
-    conn.close()
-    metatag = [proptype+' for '+unittype+' in '+areatype+', Abu Dhabi | UHPAE', 'Search through a wide variety of '+proptype+' to '+unittype+' within '+areatype+',Abu Dhabi and get contact information of our Agents for any queries',[proptype+' for '+unittype+' in '+areatype+' abu dhabi',areatype +' abu dhabi', areatype]]
-    return render_template("search.html", queryRes=queryRes, meta = metatag, search = proptype+' for '+unittype+' in '+areatype+' abu dhabi', url = "https://www.uhpae.com/"+unittype+'/'+proptype+'/'+areatype)    
-'''
-
-
-
 @app.route("/livesearch", methods=["POST", "GET"]) 
 def livesearch():
-    units = ''
-    area = ''
-    city = ''
-    contract = ''
-    price = ''
-    beds = ''
-    state = ''
-    balcony = ''
-    bparking = ''
-    wardrobes = ''
-    cac = ''
-    ch = ''
-    view = ''
-    sat = ''
-    kitchen = ''
-    baths = ''
-    propertytype = ''
-    a = []
-    head = []
-    seperator = ' AND '
+    if request.method == "POST":
+        srch = []
+        a = []
+        if request.form['byorsell'] != '':
+            srch.append(('units',request.form['byorsell']))
 
-    
-    
-    
+        if request.form['propertytype'] != '':
+            srch.append(('type',request.form['propertytype']))
 
-    city = request.form.get("text")
-    if len(city)!=0:
-        a.append(('city',city))
-    area = request.form.get("location")
-    if len(area)!=0:
-        a.append(('area',area))
-    units = request.form.get("rdbutton")
-    if len(units)!=0:
-        a.append(('units',units))
-    beds = request.form.get("selectbox")
-    if len(beds)!=0:
-        a.append(('beds',beds))
-    contract = request.form.get("contract")
-    if len(contract)!=0:
-        a.append(('contract',contract))
-    baths = request.form.get("baths")
-    if len(baths) > 0:
-        a.append(('baths',baths))
-    propertytype = request.form.get("propertytype")
-    if len(propertytype) > 0:
-        a.append(('type',propertytype))
-    
-    offplan = request.form.get("offplan")
-    ready = request.form.get("ready")
-    
-    if len(offplan) > len(ready):
-        a.append(('state', offplan))
-        state = offplan
-    elif len(offplan) < len(ready):
-        a.append(('state', ready))
-        state = ready
-    
-    pricefrom = request.form.get("pricefrom")
-    if len(pricefrom)==0:
-        pricefrom = 0
-    
-    priceto = request.form.get("priceto")
-    if len(priceto)==0:
-        priceto = 99999999
+        if request.form['keyword'] != '':
+            srch.append(('keyword',request.form['keyword']))
 
-    balcony = request.form.get("balcony")
-    if len(balcony)!=0:
-        a.append(('balcony',balcony))
-    
+        #if request.form['pricefrom'] != '':
+        #    srch.append(('price',request.form['pricefrom']))
 
-    
-    bparking = request.form.get("bparking")
-    if len(bparking)!=0:    
-        a.append(('basement_parking',bparking))
-    
-    wardrobes = request.form.get("wardrobes")
-    if len(wardrobes)!=0:   
-        a.append(('wardrobes',wardrobes))
-    
+        if request.form['location'] != '':
+            srch.append(('city',request.form['location']))
 
-    
-    cac = request.form.get("cac")
-    if len(cac)!=0:
-        a.append(('central_air_condition',cac))
-    
-    
-    ch = request.form.get("ch")
-    if len(ch)!=0:
-        a.append(('central_heating',ch))
-    
+        if request.form['selectbox'] != '':
+            srch.append(('beds',request.form['selectbox']))
 
-    
-    view = request.form.get("view")
-    if len(view)!=0:
-        a.append(('community_view',view))
-    
-        
+        args_rec = ''
+        z=0
+        for i in srch:
+            if z == 0:
+                args_rec += (i[0]+'='+'"'+i[1]+'"')
+                z = 1
+            else:
+                args_rec += (' AND '+i[0]+'='+'"'+i[1]+'"')
 
-    sat = request.form.get("sat")
-    if len(sat)!=0:
-        a.append(('satellite_or_cable',sat))
-    
-
-    kitchen = request.form.get("kitchen")
-    if len(kitchen)!=0:   
-        a.append(('fitted_kitchen',kitchen))
-
-
-    #todo: make query
-    queryRes = []
-
-    conn = sqlite3.connect('main.db')
-
-    c = conn.cursor()
-    
-
-    c.row_factory = sqlite3.Row
-
-    k = request.form.get("keyword")
-    
-    if len(k) > 0:
-        c.execute('''SELECT rowid,* FROM properties WHERE properties MATCH ?''',['{}'.format(k)])
-        result = c.fetchall()
-        for r in result:
-            queryRes.append(dict(r))
-            conn.close()
-        return jsonify(queryRes)
-
-
-
-
-    for var in a:
-        variable = var[0]+'=:'+var[0]
-        head.append(variable)
-    
-    variable = (seperator.join(head))
-    
-    try:
-        string = 'SELECT rowid, * FROM properties WHERE {}'.format(variable)
-        c.execute(string,{'units':'{}'.format(units), 'contract':'{}'.format(contract),'area':'{}'.format(area),'city':'{}'.format(city),'beds':'{}'.format(beds),'price':'{}'.format(price), 'property':'{}'.format(prop),'state':'{}'.format(state),'baths':'{}'.format(baths),'balcony':'{}'.format(balcony), 'basement_parking':'{}'.format(bparking), 'wardrobes':'{}'.format(wardrobes), 'central_air_condition':'{}'.format(cac), 'central_heating':'{}'.format(ch), 'community_view':'{}'.format(view),'satellite_or_cable':'{}'.format(sat), 'fitted_kitchen':'{}'.format(kitchen), 'type':'{}'.format(propertytype)})
+        conn = sqlite3.connect('main.db')
+        c =   conn.cursor()
+        c.row_factory = sqlite3.Row  
+        c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec)
         result = c.fetchall()
         for r in result:
             r = dict(r)
-            if r["price"] >= int(pricefrom) and r["price"] <= int(priceto): 
-                queryRes.append(r)
-    except:
-        string = 'SELECT rowid, * FROM properties'
-        c.execute(string)
-        result = c.fetchall()
-        for r in result:
-            r = dict(r)
-            if r["price"] >= int(pricefrom) and r["price"] <= int(priceto): 
-                queryRes.append(r)
-    
-
-    conn.commit()
-    conn.close()
-    return jsonify(queryRes)
+            a.append(r)
+        conn.close()
+        return jsonify(queryres=a)
    
 @app.route("/keysearch", methods=["POST", "GET"]) 
 def keysearch():

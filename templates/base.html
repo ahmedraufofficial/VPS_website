@@ -43,7 +43,7 @@
       <a title="UHPAE SnapChat" href="https://www.snapchat.com/add/uhpae"><img src="{{url_for('static', filename='icons/sc.jpg')}}" class ="iconhover"></a>       
       <a title="UHPAE Twitter" href="https://twitter.com/UHPAE1"><img src="{{url_for('static', filename='icons/twitter.jpg')}}" class ="iconhover"></a>    
       <a title="UHPAE Youtube Channel" href="https://www.youtube.com/channel/UC5Df3cOKL60FJaej0P9E3pg"><img src="{{url_for('static', filename='icons/utube.jpg')}}" class ="iconhover" ></a>
-      <a title="Contact Us" href="{{url_for('contact')}}" class="shadow" style="background-color:#A57D2D; padding: 5px; font-family: 'Roboto'; z-index: inherit; margin-right: 10px; text-decoration: none; cursor: pointer; color: white;">Get in touch</a>
+      <a title="Contact Us" href="{{url_for('contact')}}" class="shadow" style="background-color:#A57D2D; padding: 5px; font-family: 'Poppins-light'; z-index: inherit; margin-right: 10px; text-decoration: none; cursor: pointer; color: white;">Get in touch</a>
       <a title="Arabic" href="{{url_for('home_ar')}}"><img src="{{url_for('static', filename='icons/united-arab-emirates.svg')}}" class="iconhover"></a>
       
     </div>
@@ -51,15 +51,15 @@
     </div-->
   
 
-    <header class="bg-dark fixed-top">
+    <header id="header" class="bg-dark fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
     
-    <a href="{{url_for('home')}}" title="Home" class="navbar-brand" href="default.html"><img src="{{url_for('static', filename='images/logo.png')}}" class="logoname"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <a href="{{url_for('home')}}" title="Home" class="navbar-brand" href="default.html"><img src="{{url_for('static', filename='images/standalon_logo.png')}}" class="logoname"></a>
+    <button class="navbar-toggler" style="" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto" style="font-family: Poppins;">
+      <ul class="navbar-nav ml-auto" style="font-family: 'Poppins-light';">
         <li class="nav-item dropdown active">
           <a title="Buy Properties" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Buy
@@ -83,9 +83,6 @@
         </li>
         <li class="nav-item active">
           <a title="Communities" href="{{url_for('communities')}}" class="nav-link" >Communities</a>
-        </li>
-        <li class="nav-item active">
-          <a title="Services" class="nav-link" href={{url_for('service')}}>Services</a>
         </li>
         <li class="nav-item dropdown active">
           <a title="All Media"  class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -140,166 +137,117 @@
 
 
 {% block content %}{% endblock %}
-<div>
-  <img src="/static/images/Footer.png" class="fimg" style="width: 100%;z-index: 0; ">
-<div class="footer" style="z-index: 1;">
 
-    <footer class="mainfooter" role="contentinfo">
-      
-
-      
-      <div class="footer-middle" style="z-index: 5;">
-        
-          
-      
-      
-        <div class="container">
-          
-          <div class="row" >
-          <div class="col-md-5">
-            
-            <div class="row">
-              <div class="col">
-              <h4 class="footerheader" style="font-family: 'Roboto', sans-serif;">Get the latest property alerts!</h4>
-              </div>
-            </div>
-            <br>
-            <form method="post" autocomplete="off" name="base">
-              <div class="row">
-                <div class="col">
-                <input type="text" name="email" size="15" placeholder="Email address" required>
-                <input hidden type="text" name="message" value="Property Alerts">
-                </div>
-          </div>
-            
-          <div class="row" style="margin-top: 5px;">
-            <div class="col">
-            <h4 style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><input name="agree" type="checkbox" required> I authorize the use of my personal data by UHP LLC
-               <br>for correspondence in accordance with the Privacy Policy</h4>
-              </div>
-              </div>
-          <br>
-          <div class="row">
-            <div class="col">
-          <input value="Submit" type="submit" style="background-color: #A57D2D; color: white;
-          border: hidden; width: 70px; height: 30px; font-family:'Roboto', sans-serif; border-radius: 10px; margin-bottom: 25px;">
-          </div>  
-        </div>
-      </form>
-      
-        </div>
-
-          <div class="col-md-2 col-sm-6">
-            <!--Column1-->
-            <div class="footer-pad">
-              <ul class="list-unstyled">
-                <li class="footerheader" style="font-family: 'Roboto', sans-serif;"><a>About UHP</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href={{url_for('about')}}>Our Story</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="{{url_for('team')}}">Meet our team</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="{{url_for('listing')}}">Why choose us</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="{{url_for('site_map_html')}}">Site Map</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="{{url_for('privacypolicy')}}">Privacy & Team Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-2 col-sm-6">
-            <!--Column1-->
-            <div class="footer-pad">
-              <ul class="list-unstyled">
-                <li class="footerheader" style="font-family: 'Roboto', sans-serif;"><a>Useful Links</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="{{url_for('newsletter')}}">Newsletter</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="{{url_for('media')}}">Latest News</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href={{url_for('careers')}} style="z-index: 100;">Careers</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="https://blogs.uhpae.com">Blogs</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <!--Column1-->
-            <div class="footer-pad">
-              
-              <h4 class="footerheader" style="font-family: 'Roboto', sans-serif;">Contact us</h4>
-              <ul class="list-unstyled">
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="#">Phone - +97126439099</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="#">Email - welcome@uhpae.com</a></li>
-                <li style="font-size: 10pt; font-family: 'Roboto', sans-serif;"><a href="#">Office No. 1101, P.O.Box 29204 A.D University Tower, Al Nahyan</a></li>
-                <li>
-                  <a title="UHPAE Facebook" href="https://www.facebook.com/UHPAE/?ref=py_c"><img src="{{url_for('static', filename='icons/fb.jpg')}}" class="iconhoverfb" style="z-index: 100; cursor: pointer; margin-right: 10px;"></a>
-                  <a title="UHPAE Instagram" href="https://www.instagram.com/uhpae/"><img src="{{url_for('static', filename='icons/insta.jpg')}}" class ="iconhover"></a>
-                  <a title="UHPAE Linkedin" href="https://ae.linkedin.com/in/uhp"><img src="{{url_for('static', filename='icons/linkedin.jpg')}}" class ="iconhover"></a>
-                  <a title="UHPAE SnapChat" href="https://www.snapchat.com/add/uhpae"><img src="{{url_for('static', filename='icons/sc.jpg')}}" class ="iconhover"></a>       
-                  <a title="UHPAE Youtube Channel" href="https://www.youtube.com/channel/UC5Df3cOKL60FJaej0P9E3pg"><img src="{{url_for('static', filename='icons/utube.jpg')}}" class ="iconhover" style="margin-right: 5px;"></a></li>
-               
-                </ul>
-                <div id="maps">
-                 
-                </div>
-              
-            </div>
-            
-            
-          </div>
-          
-        </div>
- 
-        <br><br>
+<div style="height: auto;width: 100%;background-color: #001524">
+<section style="background-image: url(/static/images/world\ map.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100vh;">
+  <div class="container ">
+    <div class="row">
+      <div class="col" style="text-align: center; margin-top: 23%; margin-bottom: 15%;">
+        <h2 id="window_footer" class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">UHP & OUR PARTNERS</h2>
       </div>
-      <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          
-          <p class="text-center searchfont2" >&copy; Copyright 2020 - Unique Homes Properties.  All rights reserved.</p>
-        </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="row justify-content-center">
+      <div class="col text-left" style="">
+        <a style="position: absolute;bottom: 0;" href="{{url_for('aldar')}}"><img class="partners" src="/static/images/aldar.png" alt=""></a>
       </div>
-  
-    </div>
-  
-      
-    </div>
-    </footer>
+      <div class="col text-left" style=" ">
+        <a style="position: absolute;bottom: 0;" href="{{url_for('bloom')}}"><img class="partners" src="/static/images/bloom.png"  alt=""></a>
+      </div>
     
+      <div class="col text-left" style="">
+        <a style="position: absolute;bottom: 0;" href="{{url_for('aldar')}}"><img class="partners" src="/static/images/standalon_logo.png" alt=""></a>
+      </div>
+
+
+      <div class="col text-left" style="">
+        <a style="position: absolute;bottom: 0;" href="{{url_for('imkan')}}"><img class="partners" src="/static/images/imkan.png"   alt=""></a>
+      </div>
+
+      <div class="col text-left" style="">
+        <a style="position: absolute;bottom: 0;" href="{{url_for('emaar')}}"><img class="partners" src="/static/images/emaar.png" alt=""></a>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+  
+  <div style="margin-top: 20px;border-bottom: 1px solid rgba(255,255,255,.25);">
+
+  </div>
+
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <form method="post" autocomplete="off" name="base">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h4 class="footerheader">SUBSCRIBE</h4>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col">
+          <input type="text" name="email" size="15" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="margin-top: 10px;">
+          <h4 style="font-size: 6pt; color: white; font-family: 'Poppins-light';"><input name="agree" type="checkbox" required> I authorize the use of my personal data by UHP LLC
+            <br>for correspondence in accordance with the Privacy Policy</h4>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col text-center">
+      <ul class="list-unstyled">
+        <li class="footerheader"><a>ABOUT UHP</a></li>
+        <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('about')}}">Our Story</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('team')}}">Meet our team</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('listing')}}">Why choose us</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: white;"href="{{url_for('site_map_html')}}">Site Map</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('privacypolicy')}}">Privacy & Team Policy</a></li>
+      </ul>
+    </div>
+    <div class="col text-center">
+      <ul class="list-unstyled">
+        <li class="footerheader"><a>CONTACT US</a></li>
+        <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: white;" href="#">Phone - +97126439099</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="#">Email - welcome@uhpae.com</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('careers')}}" style="z-index: 100;">Careers</a></li>
+      </ul>
+    </div>
+    <div class="col text-center">
+      <ul class="list-unstyled">
+        <li class="footerheader"><a>VISIT US</a></li>
+        <li style="margin-top: 10px;" class="subfooterheader"><a style="font-family:'Poppins-light';text-decoration: none; color: white;" href="#">Office No. 1101, P.O.Box 29204 A.D University Tower, Al Nahyan</a></li>
+        </ul>
+    </div>
+    
+
+    </div>
+  </div>
+
+</section>
+<div style="border-bottom: 1px solid rgba(255,255,255,.25);"></div>
+<div class="container"style="padding-top: 10px;">
+  <div class="row">
+    <div class="col">
+      
+      <p style=" text-align: center;" class="subfooterheader" >&copy; Copyright 2020 - Unique Homes Properties.  All rights reserved.</p>
+      <ul style="display: inline; float: right; margin-top: -30px; margin-bottom: 1px;" class="list-unstyled">    
+      <li>
+          <a title="UHPAE Facebook" href="https://www.facebook.com/UHPAE/?ref=py_c"><img src="{{url_for('static', filename='icons/fb.jpg')}}" class="iconhover" style="z-index: 100;"></a>
+          <a title="UHPAE Instagram" href="https://www.instagram.com/uhpae/"><img src="{{url_for('static', filename='icons/insta.jpg')}}" class ="iconhover"></a>
+          <a title="UHPAE Linkedin" href="https://ae.linkedin.com/in/uhp"><img src="{{url_for('static', filename='icons/linkedin.jpg')}}" class ="iconhover"></a>
+          <a title="UHPAE SnapChat" href="https://www.snapchat.com/add/uhpae"><img src="{{url_for('static', filename='icons/sc.jpg')}}" class ="iconhover"></a>       
+          <a title="UHPAE Youtube Channel" href="https://www.youtube.com/channel/UC5Df3cOKL60FJaej0P9E3pg"><img src="{{url_for('static', filename='icons/utube.jpg')}}" class ="iconhover"></a>
+        </li>
+       </ul>
+
+    </div>
   </div>
 </div>
-  
-<div class="modal hide" id="addBookDialog" style="background-color: rgb(255, 255, 255,0.5);">
-  <div class="modal-header">
-     <button class="close" data-dismiss="modal">×</button>
-     <div class="container">
-       <div class="row justify-content-center">
-        <h3 style="color: #1f1f1f; font-weight: bold; font-family: 'Roboto';">Get to know more!</h3>
-       </div>
-       </div>
-   </div>
-     <div class="modal-body">
-       <div class="container">
-      <form onsubmit=alertuser() action="{{ url_for('sendmail') }}" method="post">
-        <div class="row justify-content-center">
-          <input type="text" name="message" id="bookId" value=""/>
-        </div>
-        <br>
-        <div class="row justify-content-center">
-        <textarea type="text" name="name" rows="1"  placeholder="Your Name" required></textarea>
-        </div>
-        <br>
-        <div class="row justify-content-center">
-        <textarea type="text" name="email" rows="1"  placeholder="Email address" required></textarea>
-        </div>
-        <br>
-        <div class="row justify-content-center">
-        <textarea type="text" name="phone" rows="1"   placeholder="Phone/ Mobile Number" required></textarea>
-        </div>
-        <br>
-        <div class="row justify-content-center">
-          
-        <input type="submit" value="Request Information" style="background-color:#0e4a88; color: white; font-family: 'Roboto'; border: hidden;">
-        <input type="hidden" id="strReferrer" name="strReferrer" />
-    
-        </div>
-      </form>
-         </div>
-     </div>
- </div>
-
+</div>
 
 
 
