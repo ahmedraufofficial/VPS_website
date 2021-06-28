@@ -12,9 +12,11 @@
 <meta property="og:description" content="Find properties in Reem Island, Yas Island, Saadiyat, Al Reef and many more!">
 {% endblock %}
 {% block content %}
-<div style="background-color: #F8F8F8; margin-top: 30px;">
+<section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+<div style="background-color: rgb(0, 2, 22); margin-top: 30px;">
   <div class="container ">
-    <div class="row" style="padding-top: 2vh" >
+    <div class="row" style="padding-top: 90px" >
       <div class="col">
       <h2 class="nfont" ><b>COMMUNITIES</b></h2>
         </div>
@@ -44,6 +46,13 @@
   </div>
 
 </div>
+</div>
+</section>
 
+<script>
+      var element = document.getElementById("header");
+    element.classList.remove("bg-dark");
+    element.classList.add("bg-dark-const");
+</script>
 
 {% endblock %}

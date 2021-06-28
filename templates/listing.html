@@ -13,10 +13,11 @@
 {% endblock %}
 
 {% block content %}
-
-<div style="background-color: #F8F8F8;">
+<section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+    <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+<div style="background-color: rgb(0, 2, 22)">
     <div class="container ">
-      <div class="row" style="padding-top: 2vh" >
+      <div class="row" style="padding-top: 90px" >
         <div class="col">
         <h2 class="nfont" ><b>PROPERTY LISTING</b></h2>
           </div>
@@ -27,7 +28,7 @@
 <div class="container" style="margin-top:40px;">
     <div class="row">
       <div class="col">
-        <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('team')}}"> Team </a>
+        <p class="simple" style="color:white;"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('team')}}"> Team </a>
   </p>
     </div>
     </div>
@@ -44,7 +45,7 @@
     <div class="row">
         <div class="col">
             
-                <p class="simple" style="text-align: justify; font-family: 'Poppins-light';">
+                <p class="simple" style="text-align: justify; font-family: 'Poppins-light'; color: white;">
                 UHP Listing team is the artery for the sales and leasing teams,
                 as they act as advocates for landlords and property owners by 
                 considering a high level of confidentiality, while getting maximum 
@@ -64,7 +65,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <p class="simple" style="text-align: justify;">Unique Homes Worldwide Properties (UHP) was established in 2018 to continue to be an active member and one of the leading real estate companies in the UAE.
+            <p class="simple" style="text-align: justify; color: white;">Unique Homes Worldwide Properties (UHP) was established in 2018 to continue to be an active member and one of the leading real estate companies in the UAE.
                 Committed to provide diverse and complete real estate solutions, equipped with the knowledge and skills in many different dimensions including but not limited to Off-Plan properties (Land, Villas & Apartments), Ready Properties (Commercial & Residential), and Resale in Abu Dhabi & Dubai.
                 Maintaining the growth level over years, created new opportunities to undertake in multiple markets, and allowed us to provide new services to our clients.</p>
         </div>
@@ -288,24 +289,24 @@
 <div class="shadow" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
     <p style="font-size: 40pt; color: #A57D2D; font-family: 'Poppins-light'; position: absolute; margin-top: -60px;">1</p>  
 <img src="{{url_for('static', filename='icons/experience.svg')}}" class="listingicons" width="100px">
-<p class="simple">Unique Experiences</p>
+<p class="simple" style="color:white;">Unique Experiences</p>
 </div></div>
 <div class="col" style="text-align: center;"><div class="shadow" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
     <p style="font-size: 40pt; color: #A57D2D; font-family: 'Poppins-light'; position: absolute; margin-top: -60px;">2</p> 
 <img src="{{url_for('static', filename='icons/mission.svg')}}" class="listingicons" width="100px">
-<p class="simple">Excellent Reputation</p>
+<p class="simple" style="color:white;">Excellent Reputation</p>
 </div></div>
 
 <div class="col" style="text-align: center;"><div class="shadow" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
     <p style="font-size: 40pt; color: #A57D2D; font-family: 'Poppins-light'; position: absolute; margin-top: -60px;">3</p> 
 <img src="{{url_for('static', filename='icons/project-management.svg')}}" class="listingicons" width="100px">
-<p class="simple">Latest Technology</p>
+<p class="simple" style="color:white;">Latest Technology</p>
 </div></div>
 <div class="col" style="text-align: center;">
     <div class="shadow bruhh" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
     <p style="font-size: 40pt; color: #A57D2D; font-family: 'Poppins-light'; position: absolute; margin-top: -60px;">4</p> 
 <img src="{{url_for('static', filename='icons/digital-marketing.svg')}}" class="listingicons" width="100px">
-<p class="simple">Industry Knowledge</p>
+<p class="simple" style="color:white;">Industry Knowledge</p>
 </div>
 </div>
 
@@ -313,7 +314,7 @@
     <div class="shadow bruhh" style="padding-top: 20px; padding-bottom: 20px; position: relative;">
     <p style="font-size: 40pt; color: #A57D2D; font-family: 'Poppins-light'; position: absolute; margin-top: -60px;">5</p> 
 <img src="{{url_for('static', filename='icons/date.svg')}}" class="listingicons" width="100px">
-<p class="simple">Commitment</p>
+<p class="simple" style="color:white;">Commitment</p>
 </div>
 </div>
 
@@ -321,13 +322,17 @@
 
 </div>
   
-
+</div>
+</section>
 
 
 {% endblock %}
 {% block scripts %}
 <script>
     document.getElementById('strReferrer').value = window.location.href;
+    var element = document.getElementById("header");
+    element.classList.remove("bg-dark");
+    element.classList.add("bg-dark-const");
    </script>
    
 <script>
