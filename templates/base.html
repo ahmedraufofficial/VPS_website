@@ -55,28 +55,20 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     
     <a href="{{url_for('home')}}" title="Home" class="navbar-brand" href="default.html"><img src="{{url_for('static', filename='images/standalon_logo.png')}}" class="logoname"></a>
-    <button class="navbar-toggler" style="" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto" style="font-family: 'Poppins-light';">
         <li class="nav-item dropdown active">
-          <a title="Buy Properties" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a title="Buy Properties" class="nav-link" href="{{ url_for('search', units='buy')}}">
             Buy
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">  
-            <a title="Buy Residential Properties" class="dropdown-item" href="/buy">Residential</a>
-            <a title="Buy Commercial Properties" class="dropdown-item" href="/buy">Commercial</a>
-          </div>
         </li>
         <li class="nav-item dropdown active">
-          <a title="Rent Properties"  class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a title="Rent Properties"  class="nav-link"  href="{{ url_for('search', units='rent')}}">
             Rent
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a title="Rent Residential Properties" class="dropdown-item" href="/rent">Residential</a>
-            <a title="Rent Commercial Properties" class="dropdown-item" href="/rent">Commercial</a>
-          </div>
         </li>
         <li class="nav-item active">
           <a title="Property Listing" class="nav-link" href="{{url_for('listing')}}">Property Listing</a>
@@ -96,9 +88,7 @@
         <li class="nav-item active">
           <a title="Blogs" class="nav-link" href="https://blogs.uhpae.com">Blog</a>
         </li>
-        <li class="nav-item active">
-          <a title="Communities" href="{{url_for('reports')}}" class="nav-link" >Reports</a>
-        </li>
+  
         <li class="nav-item dropdown active">
           <a title="About Us" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             About Us
@@ -228,6 +218,7 @@
   </div>
 
 </section>
+
 <div style="border-bottom: 1px solid rgba(255,255,255,.25);"></div>
 <div class="container"style="padding-top: 10px;">
   <div class="row">

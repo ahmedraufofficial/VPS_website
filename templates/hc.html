@@ -50,7 +50,7 @@
 <div class="hero-screen">
 <div class="container" style="position: relative;">
 <div class="row" style="justify-content: center;">
-<div class="col-8 search_transparent_bg">
+<div class="col-9 search_transparent_bg">
   <div class="row justify-content-center">
       
     <div class="dropdown">
@@ -59,52 +59,50 @@
       <div class="col">
         <div class="row">
 
-        <div class="col text-center"> <h4 style="color: white; font-family: 'Poppins'; ">UNIQUE HOMES WORLDWIDE PROPERTIES</h4></div>
+        <div class="col text-center"> <h4 style="color: white; font-family: 'Poppins-bold'; letter-spacing: 6px; font-size:16pt; padding-top: 5px;">UNIQUE HOMES WORLDWIDE PROPERTIES</h4></div>
      
         </div>
       <div class="row justify-content-center">
-      <select name="units" class="s_bar_btn" style="appearance: none; background: url(../static/icons/down_row.png) 90% / 10% no-repeat white;">
+      <select name="units" class="custom-select s_bar_btn"  style="text-align: center;">
         <option value="buy">Buy</option>
         <option value="rent">Rent</option>
       </select>
       
       
-      <input class="s_bar_btn" type="text" id="commentary" name="keyword" placeholder="Location / Community / Ref No" >
+      <input class="s_bar_btn_key" type="text" id="commentary" name="keyword" placeholder="Location / Community / Ref No" style="text-align: center;" >
       
-      <button class="s_bar_btn" type="submit" formmethod="get|post">Search</button>
+      <button class="s_bar_btn" type="submit" formmethod="get|post" style="color: white;background-color: #001524;" >Search</button>
+
+
 
     </div>
-    <div class="row justify-content-center">
- <div class="col text-center">
-        <img src="../static/icons/down-arrow.svg" class="dropdownbtn" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="showdiv()" alt="" style="">
-   
-      
-      <div class="dropdown-menu dropsearchpos" aria-labelledby="dropdownMenu2">
-      <div class="container">
-       <div class="row justify-content-center">
 
-          
-      <select name="contract" class="custom-select s_bar_btn">
+    <div class="row justify-content-around" >
+      <select name="contract" class="custom-select s_bar_btn_drop">
         <option value="" disabled selected>Status</option>
         <option value="residential">Residential</option>
         <option value="commercial">Commercial</option>
         </select>
    
         
-          <select name="city" class="custom-select s_bar_btn">
+          <select name="city" class="custom-select s_bar_btn_drop">
             <option value="" disabled selected>Emirate</option>
             <option value="Abu Dhabi">Abu Dhabi</option>
             <option value="Dubai">Dubai</option>
             <option value="Alain">Al ain</option>
             </select>
 
-      <input type="number" id="from" name="pricefrom" placeholder="   Price" class="s_bar_btn">   
-      
-    
+            <select name="city" class="custom-select s_bar_btn_drop">
+              <option value="" disabled selected>Emirate</option>
+              <option value="Abu Dhabi">Abu Dhabi</option>
+              <option value="Dubai">Dubai</option>
+              <option value="Alain">Al ain</option>
+              </select>
     </div>
-  <div class="row justify-content-center">
 
-<select  name="beds" class="custom-select s_bar_btn" >
+    <div class="row justify-content-center">
+
+<select  name="beds" class="custom-select s_bar_btn_drop" >
   <option value="" disabled selected>Beds</option>
   <option value="ST">Studio</option>
   <option value="1">One</option>
@@ -116,7 +114,7 @@
   </select>
 
 
-    <select  name="propertytype" class="custom-select s_bar_btn" >
+    <select  name="propertytype" class="custom-select s_bar_btn_drop" >
     <option value="" disabled selected>Type</option>
     <option value="Apartment">Apartment</option>
     <option value="Villa">Villa</option>
@@ -127,7 +125,7 @@
     </select>
  
   
-  <select  name="area" class="custom-select s_bar_btn" >
+  <select  name="area" class="custom-select s_bar_btn_drop" >
     <option value="" disabled selected>Location</option>
     <option value="Al Reem Island">Reem Island</option>
     <option value="Yas Island">Yas Island</option>
@@ -136,11 +134,13 @@
     <option value="Al Reef">Al Reef</option>
     <option value="Khalifa City A">Khalifa City</option>
     </select>
-  </div>
+    </div>
 
-</div>
 
-      </div>
+
+    <div class="row justify-content-center">
+ <div class="col text-center">
+        <img src="../static/icons/down-arrow.svg" id="dropbtn" class="dropdownbtn flip" style="margin-top: -3px;" onclick="showdiv()" alt="">
       </div>
     </div>
     
@@ -197,7 +197,7 @@
 <!--hotprop-->
 
 <section style="background-color: #001524; height:100%; padding-bottom: 12%;">
-
+  
   <div class="container">
   <div class="row">
     <div class="col" style="text-align: center; margin-top: 10%;">
@@ -215,13 +215,14 @@
   </div>
 
 </div>
+<div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);padding-top:4px;padding-bottom: 15px;margin-top: 20px;">
 <div class="container">
   <div class="row justify-content-center" id="hotproperties" style="margin-top: 20px;">
     
       
   </div>
 </div>
-
+</div>
 </section>
 
 
@@ -485,6 +486,15 @@ $(window).scroll(function() {
  </script>
  
 <script>
+  window.onload =  $('#dropbtn').removeClass( "flip" )
+  window.onload  = $( ".s_bar_btn_drop" ).hide();
+  function showdiv(){
+    $( ".s_bar_btn_drop" ).toggle();
+    $('#dropbtn').toggleClass("flip");
+  }
+</script>
+
+<script>
   function get_hp(){
      $.ajax({
                 method:"post",
@@ -527,12 +537,13 @@ $(window).scroll(function() {
                       }
 
                   data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 10px;">'
-                  data += '<div class="card" style="width: 17rem;  position:relative; border-radius:0px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 180px; object-fit:cover;">'
+                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
+                  data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 160px; object-fit:cover;">'
                   data += '<div class="card-img-overlay" style="z-index:0;"><div class="card-content"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><button class="viewmore">'+value.title+'</button></a></div></div>'
                   data += '<div class="card-body" style="z-index:2; border-radius: 0px;">'
-                  data += '<div class="row"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 9pt;">'+value.property+'</h5><p style ="float:right;'+ y +'font-size: 9pt; margin-top:4px;" >AED '+value.price+'</p></div></div>'
-                  data += '<div class="row"><div class="col"><h5 class="card-title" style =  "'+ y +'">'+value.type+', '+value.area+'</h5><p class="card-text" style ="margin-top:4px;float:right;'+ y +'">'+value.beds+' Bed</p></div></div>'
+                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;">'+value.property+'</h5></div></div>'
+                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 7.5pt;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;margin-top:7px;">'+value.beds+' Bed</p></div></div>'
+                  data += '<div class="row" style="margin-top:-9px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;margin-top:7px;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:4px;" >AED '+value.price+'</p></div></div>'
                   data += '</div>'
                   data += '</div>'
                   data += '</div>'

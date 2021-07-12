@@ -286,7 +286,7 @@ def developer():
     return render_template("developers.html")
 
 
-@app.route('/search')
+@app.route('/search', methods=["POST", "GET"])
 def search():
     a = []
     args_rec = ''
@@ -353,8 +353,8 @@ def search():
         r = dict(r)
         a.append(r)
     conn.close()
-
-    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')
+    a = a[:20]
+    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '',units=request.args.get('units'))
 
 
     '''
@@ -410,6 +410,10 @@ def livesearch():
     if request.method == "POST":
         srch = []
         a = []
+        page = range(0,700,20)
+        if request.form['page'] != '':  
+            ep = page[int(request.form['page'])] 
+            sp = page[int(request.form['page'])-1]
         if request.form['byorsell'] != '':
             srch.append(('units',request.form['byorsell']))
 
@@ -445,6 +449,7 @@ def livesearch():
         for r in result:
             r = dict(r)
             a.append(r)
+        a = a[sp:ep]
         conn.close()
         return jsonify(queryres=a)
    

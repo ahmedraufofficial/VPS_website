@@ -22,10 +22,12 @@
 .viewmore {
   display: none;
 }
-
+.nav-item {
+  font-size: 9pt;  text-transform: uppercase; font-family: "Poppins-light"; letter-spacing: 2px;
+}
 .card:hover .card-content {
   background-image: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,1));
-  width:16rem; margin-left:-20px; height:180px; margin-top: -20px;
+  width:16rem; margin-left:-20px; height:160px; margin-top: -20px;
   position: relative;
 }
 
@@ -57,14 +59,52 @@ text-transform: uppercase;
 }
 
 .s_bar_btn {
-  font-family: 'Poppins';
+  font-family: 'Poppins-light';
   border-radius: 0px;
   border: none;
-  width: 150px !important;
-  height: 40px;
-  margin: 1px;
+  width: 190px !important;
+  height: 30px;
+  margin: 2px;
   background-color: white;
   color: black;
+  font-size: 8pt;
+  letter-spacing: 2px;
+}
+
+.s_bar_btn_key {
+  font-family: 'Poppins-light';
+  border-radius: 0px;
+  border: none;
+  width: 440px !important;
+  height: 30px;
+  margin: 2px;
+
+  background-color: white;
+  color: black;
+  font-size: 8pt;
+  letter-spacing: 2px;
+}
+
+.s_bar_btn_drop {
+  font-family: 'Poppins-light';
+  border-radius: 0px;
+  border: none;
+  width: 272.6px !important;
+  height: 30px;
+  margin: 2.5px;
+  background-color: white;
+  color: black;
+  font-size: 8pt;
+  letter-spacing: 2px;
+  
+}
+
+.flip{
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .scrolldown{
@@ -136,7 +176,7 @@ transition: 0.5s;
 .hero-screen{
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
             height: calc(var(--vh, 1vh) * 100);
-            background-image: url(/static/images/mainbg2.JPG);
+            background-image: url(/static/images/mainbg.JPG);
             background-repeat: no-repeat;
             background-position: 77% 0;
             background-size: cover;
@@ -241,9 +281,8 @@ header {
    position: absolute;
     width: 100%;
      height: auto;
-      padding-top: 20px;
-       padding-bottom: 20px;
-        margin-top: 10%;
+
+        margin-top: 26.1%;
 }
 
 .carousel-cell {
@@ -735,7 +774,9 @@ select:active, select:hover {
 
 .logoname {
   
-  width: 80px;
+  width:70px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .propcap{
@@ -959,7 +1000,7 @@ height: 40px;
 }
 .nfontchanged{
   font-family: 'Poppins';
-  color:  #0e4a88;
+  color:  white;
 }
 .videoheight{
   height: 300px;
@@ -1140,7 +1181,7 @@ h4 {
 
  @media only screen and (max-width: 500px) {
   .card:hover .card-content{
-    width: 17rem;
+    width: 18rem;
   }
    
    .viewmore {
@@ -1157,12 +1198,16 @@ width: 17rem;
   .carousel-cell {height: 200px;}
 
   .search_transparent_bg {
-
-          margin-top: 20%;
+          margin-top: 25%;
   }
 .s_bar_btn{
 font-size: 8pt;
 width: 25% !important;
+}
+
+.s_bar_btn_key {
+  font-size: 8pt;
+  width: 25% !important;
 }
 
 h4 {
