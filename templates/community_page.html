@@ -9,12 +9,13 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="container" style="margin-top: 50px;">
+<section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+<div class="container" style="padding-top: 90px;">
     <div class="row">
       <div class="col">
         <div class="dropdown">
-            <button type="button" class="btn" data-toggle="dropdown" style="font-family:'Poppins-light'; color: white;background-color: #0e4a88; border-radius: 50px;">
+            <button type="button" class="s_bar_btn" data-toggle="dropdown">
           Filter by ▼
           </button>
           <div class="dropdown-menu">
@@ -47,32 +48,46 @@
 <div class="container" style="margin-top: 30px;">
     <div class="row">
 {% for item in result %}
-<div class="col" style="margin-top: 20px;">
-    <div class="card h-100" style="width: 20rem;border: 1px solid transparent;">
-        <a href="/communities/{{item[1]}}/{{item[0]}}">
-            <img class="card-img-top" src="../static/communities/{{item[0]}}.jpg" style="object-fit: cover; width: 18rem; margin-left: 1rem;">
-        </a>
-        <div class="card-body">
-      <h5 class="card-title-1">{{item[0]}}</h5>
-      <p class="card-text-1" style="text-align: justify">{{item[2]|truncate(100)}}</p>
-      <div class="row" style="margin-top: auto;"><div class="col">
-        <a href={{url_for('search', property = item[3], units = 'buy')}} class="card-text-1" style="background-color:#144A86; color: white; padding: 3px; float: left; ">Units for Sale</a> </div><div class="col">
-        <a href={{url_for('search', property = item[3], units = 'rent')}} class="card-text-1" style="background-color:#A57D2D; color: white;  padding: 3px; float: right;  margin-top: auto;">Units for Rent</a> </div>
-      </div>
-    </div>
-  </div>
+
+<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 10px;">
+<div class="card" style="width: 18rem; height: 350px; position:relative; border-radius:0px; margin-top:20px; border:none;">
+<img class="card-img-top1" src="../static/communities/{{item[0]}}.jpg" onerror="imgError(this);" style="height: 160px; object-fit:cover;">
+<div class="card-img-overlay" style="z-index:0;"><div class="card-content"><a href="/communities/{{item[1]}}/{{item[0]}}">
+<button class="viewmore">VIEW MORE</button></a></div></div>
+<div class="card-body" style="z-index:2; border-radius: 0px;">
+<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "font-family: 'Poppins-light';font-size: 11pt;text-transform: uppercase;">{{item[0]}}</h5></div></div>
+<div class="row" style="margin-top:-9px;"><div class="col"><p style ="font-family: 'Poppins-light'; font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;" >{{item[2]|truncate(100)}}</p></div></div>
+<div class="row" style=" position: absolute; bottom: 0;">
+<div class="col"><a href="{{url_for('search', property = item[3], units = 'buy')}}" class="s_bar_btn" style="float: left;">Units for Sale</a></div>
+<div class="col"><a href="{{url_for('search', property = item[3], units = 'rent')}}" class="s_bar_btn" style="float: left;">Units for Rent</a> </div>
 </div>
+</div>
+</div>
+</div>
+
+
+
 
 {% endfor %}
 </div>
 
 </div>
 
+</div>
+</section>
+<script>
+  function imgError(image) {
+    image.onerror = "";
+    image.src = "/static/images/alt_sub_community.jpg";
+    return true;}
+</script>
 
 
 
 {% endblock %}
 {% block scripts %}
+
+
 <script>
     var sales = document.getElementById("sale");
     var rents = document.getElementById("rent");

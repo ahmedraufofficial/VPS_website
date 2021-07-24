@@ -542,7 +542,7 @@
                     }
                     else {return;}
                     data += '<div class="card" style="width: 18rem; margin: 5px; position:relative;">'
-                    data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 250px;">'
+                    data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 250px;">'
                     data += '<div class="card-img-overlay" style="z-index:0;"><div class="labeldesc" style=" background-color: '+z+'; width:20%; text-align:center; color:white;" >'+units+'</div></div>'
                     data += '<div class="card-body" style="z-index:2">'
                     data += '<h5 class="card-title" style =  "'+ y +'">'+value.property+'</h5>'

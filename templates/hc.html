@@ -48,7 +48,7 @@
 
 
 <div class="hero-screen">
-<div class="container" style="position: relative;">
+<div class="container" style="position: relative;" >
 <div class="row" style="justify-content: center;">
 <div class="col-9 search_transparent_bg">
   <div class="row justify-content-center">
@@ -92,12 +92,15 @@
             <option value="Alain">Al ain</option>
             </select>
 
-            <select name="city" class="custom-select s_bar_btn_drop">
-              <option value="" disabled selected>Emirate</option>
-              <option value="Abu Dhabi">Abu Dhabi</option>
-              <option value="Dubai">Dubai</option>
-              <option value="Alain">Al ain</option>
-              </select>
+            <select name="price" class="custom-select s_bar_btn_drop">
+              <option value="" disabled selected>Max Price</option>
+              <option value="0">50,000</option>
+              <option value="1">100,000</option>
+              <option value="2">200,000</option>
+              <option value="3">300,000</option>
+              <option value="4">400,000</option>
+              <option value="5">+400,000</option>
+            </select>
     </div>
 
     <div class="row justify-content-center">
@@ -114,7 +117,7 @@
   </select>
 
 
-    <select  name="propertytype" class="custom-select s_bar_btn_drop" >
+    <select  name="type" class="custom-select s_bar_btn_drop" >
     <option value="" disabled selected>Type</option>
     <option value="Apartment">Apartment</option>
     <option value="Villa">Villa</option>
@@ -225,11 +228,6 @@
 </div>
 </section>
 
-
-
-
-
-
 <!--communities-->
 <section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
 <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
@@ -299,11 +297,6 @@
   
 </section>
 
-
-
-
-
-
 <!--Media-->
 <section style="background-color: #001524; background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%; padding-bottom: 12%;">
 
@@ -359,7 +352,6 @@ $('.play-youtube-video2').on('click', function(){video_wrapper2.html('<iframe al
 
 </script>
 
-
 <!--services-->
 <section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
   <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
@@ -372,33 +364,36 @@ $('.play-youtube-video2').on('click', function(){video_wrapper2.html('<iframe al
       </div>
     <div class="row"> 
       <div class="col-lg-2 col-md-2 col-sm-12 text-center">
+        <img src="/static/icons/real-estate (2) (white).png" class="listingicons" alt="">
         <div class="card cardzoom">
           <a href="/services/property-sales" style="text-decoration: none; color: black;">
           <div class="card-body">
             <h5 class="card-title proploc" style="font-family: 'Poppins-light'; letter-spacing: 2px; color: black;">PROPERTY SALES</h5>
-            <p class="card-text simple">The sales team at UHP acts as an advocate for property buyers, by advising property buyers on market conditions  ...</p>
+            <p class="card-text simple" style=" font-size: 8pt;">The sales team at UHP acts as an advocate for property buyers, by advising property buyers on market conditions  ...</p>
           </div>
           </a>
         </div>
       </div>
 
       <div class="col-lg-2 col-md-2 col-sm-12 text-center text-center">
+        <img src="/static/icons/house (white).png" class="listingicons" alt="">
         <div class="card cardzoom">
           <a href="/services/property-leasing" style="text-decoration: none; color: black;">
           <div class="card-body">
             <h5 class="card-title proploc" style="font-family: 'Poppins-light'; letter-spacing: 2px; color:black;">PROPERTY LEASING</h5>
-            <p class="card-text simple"> Our property leasing is the connection with clients on behalf of landlords, they make sure to exceed the ...</p>
+            <p class="card-text simple" style=" font-size: 8pt;"> Our property leasing is the connection with clients on behalf of landlords, they make sure to exceed the clients ex...</p>
           </div>
         </a>
         </div>
       </div>
 
       <div class="col-lg-2 col-md-2 col-sm-12 text-center text-center">
+        <img src="/static/icons/real-estate (1) (white).png" class="listingicons" alt="">
         <div class="card cardzoom">
           <a href="/services/property-listing" style="text-decoration: none; color: black;">
           <div class="card-body">
             <h5 class="card-title proploc" style="font-family: 'Poppins-light'; letter-spacing: 2px;color:black;">PROPERTY LISTING</h5>
-            <p class="card-text simple">UHP Listing team is the artery for the sales and leasing teams, as they act as advocates for landlords and property owners...</p>
+            <p class="card-text simple" style=" font-size: 8pt;">UHP Listing team is the artery for the sales and leasing teams, as they act as advocates for landlords an...</p>
           </div>
           </a>
         </div>
@@ -406,33 +401,36 @@ $('.play-youtube-video2').on('click', function(){video_wrapper2.html('<iframe al
 
       
       <div class="col-lg-2 col-md-2 col-sm-12 text-center text-center">
+        <img src="/static/icons/real-estate (4) (white).png" class="listingicons" alt="">
         <div class="card cardzoom">
           <a href="/services/property-marketing" style="text-decoration: none; color: black;">
           <div class="card-body">
             <h5 class="card-title proploc" style="font-family: 'Poppins-light'; letter-spacing: 2px; color:black;">PROPERTY MARKETING</h5>
-          <p class="card-text simple"> Because we understand the importance of marketing, we at UHP made sure to have a marketing team ...</p>
+          <p class="card-text simple" style=" font-size: 8pt;"> Because we understand the importance of marketing, we at UHP made sure to have a marketing team ...</p>
         </div>
         </a>
       </div>
     </div>
     
     <div class="col-lg-2 col-md-2 col-sm-12 text-center text-center">
+      <img src="/static/icons/real-estate (white).png" class="listingicons" alt="">
       <div class="card cardzoom">
         <a href="/services/property-management" style="text-decoration: none; color: black;">
         <div class="card-body">
           <h5 class="card-title proploc" style="font-family: 'Poppins-light'; letter-spacing: 2px; color:black;">PROPERTY MANAGEMENT</h5>
-          <p class="card-text simple">Advertising the property, handle tenant inquiries, screen applicants, select suitable candidates draw  ...</p>
+          <p class="card-text simple" style=" font-size: 8pt;">Advertising the property, handle tenant inquiries, screen applicants, select suitable candidates draw  ...</p>
         </div>
       </a>
       </div>
     </div>
 
       <div class="col-lg-2 col-md-2 col-sm-12 text-center text-center">
+        <img src="/static/icons/real-estate-agent (white).png" class="listingicons" alt="">
         <div class="card cardzoom">
           <a href="/services/property-advisory" style="text-decoration: none; color: black;">
           <div class="card-body">
             <h5 class="card-title proploc" style="font-family: 'Poppins-light'; letter-spacing: 2px; color: black;">FINANCIAL & ADVISORY</h5>
-          <p class="card-text simple">Over years UHP managed to build and sustain strong partnerships with the many financial providers in the UAE ...</p>
+          <p class="card-text simple" style=" font-size: 8pt;">Over years UHP managed to build and sustain strong partnerships with the many financial providers in the UAE ...</p>
         </div>
         </a>
       </div>
@@ -463,7 +461,7 @@ $('.play-youtube-video2').on('click', function(){video_wrapper2.html('<iframe al
     var height = $(window).height();
     window.scrollTo({top: height,behaviour:'smooth'})
   }
-$(window).scroll(function() {
+/*$(window).scroll(function() {
    var hT = $('#window_footer').offset().top,
        hH = $('#window_footer').outerHeight(),
        wH = $(window).height(),
@@ -477,14 +475,10 @@ $(window).scroll(function() {
     element.classList.add("bg-dark");
    }
 });
-
+*/
 </script>
 
 
-<script>
-  document.getElementById('strReferrer').value = window.location.href;
- </script>
- 
 <script>
   window.onload =  $('#dropbtn').removeClass( "flip" )
   window.onload  = $( ".s_bar_btn_drop" ).hide();
@@ -536,15 +530,20 @@ $(window).scroll(function() {
                       var color = "";
                       }
 
+                  if (value.beds == "ST"){
+                    beds = ''}
+                  else {
+                    beds = ' Bed'
+                  }
                   data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 10px;">'
                   data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 160px; object-fit:cover;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><div class="card-content"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><button class="viewmore">'+value.title+'</button></a></div></div>'
-                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;">'
-                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;">'+value.property+'</h5></div></div>'
-                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 7.5pt;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;margin-top:7px;">'+value.beds+' Bed</p></div></div>'
-                  data += '<div class="row" style="margin-top:-9px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;margin-top:7px;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:4px;" >AED '+value.price+'</p></div></div>'
-                  data += '</div>'
+                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
+                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
+                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
+                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
+                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
+                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
+                  data += '</a></div>'
                   data += '</div>'
                   data += '</div>'
                   
@@ -625,4 +624,4 @@ $(window).scroll(function() {
 
   </script-->
 
-{% endblock %}team
+{% endblock %}

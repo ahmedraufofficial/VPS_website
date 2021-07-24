@@ -14,7 +14,8 @@
 
 {% block content %}
 
-  <div style="background-color: #F8F8F8;">
+<section style="background-image: url(/static/images/office.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
     <div class="container ">
       <div class="row" style="padding-top: 2vh" >
         <div class="col">
@@ -28,7 +29,7 @@
 <div class="container" style="margin-top:40px;">
   <div class="row">
     <div class="col">
-      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('search', units='all')}}"> Services </a>
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', units='all')}}"> Services </a>
 </p>
   </div>
   </div>
@@ -148,7 +149,7 @@
 
 </div>
 
-
+</section>
 
 
    {% endblock %}

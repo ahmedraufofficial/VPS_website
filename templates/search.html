@@ -23,7 +23,6 @@
 <meta property="og:title" content="{{meta[0]}}">
 <meta property="og:description" content="{{meta[1]}}">
 {% endif %}
-
 {% endblock %}
 {% block content %}
 
@@ -32,65 +31,58 @@
 
 
   <section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-    <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+    <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);">
   
 
-
+<div class="search_transparent_bg" style=" margin-top: 0px;position: relative; padding-bottom: 4px;">
   <div class="container">
-    <div class="row" style="justify-content: center;">
-    <div class="col-9 search_transparent_bg" style="margin-top: 100px;position: relative;">
-      <div class="row justify-content-center">
-          
-        <div class="dropdown">
-      
-          <form id="my-form-id" class="form-inline">
-          <div class="col">
-            <div class="row">
-    
-            <div class="col text-center"> <h4 style="color: white; font-family: 'Poppins-bold'; letter-spacing: 6px; font-size:16pt; padding-top: 5px;">UNIQUE HOMES WORLDWIDE PROPERTIES</h4></div>
-         
-            </div>
-          <div class="row justify-content-center">
-          <select id="byorsell" name="units" class="custom-select s_bar_btn"  style="text-align: center;">
+
+      <form id="my-form-id" class="form-inline" style="padding-top: 80px;position: relative;">
+      <div class="row justify-content-between">
+          <div class="col-lg-3 col-md-3 col-sm-12">
+          <select style="width: 100%;" id="units" name="units" class="custom-select s_bar_btn_drop"  style="text-align: center; margin-left: 0;">
+            <option value="" disabled selected>Buy / Sell</option>
             <option value="buy">Buy</option>
             <option value="rent">Rent</option>
           </select>
-          
-          
-          <input id="keywordaddss" class="s_bar_btn_key" type="text" id="commentary" name="keyword" placeholder="Location / Community / Ref No" style="text-align: center;" >
-          
-          <button type="button" class="s_bar_btn" onclick="myFunction('1')" formmethod="get|post" style="color: white;background-color: #001524;" >Search</button>
-    
-    
-    
-        </div>
-    
-        <div class="row justify-content-around" >
-          <select id="contract" name="contract" class="custom-select s_bar_btn_drop">
+          </div>
+<div class="col-lg-3 col-md-3 col-sm-12">
+          <select id="contract" name="contract" class="custom-select s_bar_btn_drop" style="width: 100%;">
             <option value="" disabled selected>Status</option>
             <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
             </select>
-       
-            
-              <select id="city" name="city" class="custom-select s_bar_btn_drop">
-                <option value="" disabled selected>Emirate</option>
-                <option value="Abu Dhabi">Abu Dhabi</option>
-                <option value="Dubai">Dubai</option>
-                <option value="Alain">Al ain</option>
-                </select>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12">
+            <select style="width: 100%;" id="city" name="city" class="custom-select s_bar_btn_drop">
+              <option value="" disabled selected>Emirate</option>
+              <option value="Abu Dhabi">Abu Dhabi</option>
+              <option value="Dubai">Dubai</option>
+              <option value="Alain">Al ain</option>
+              </select>
     
-                <select id="pricefrom" name="city" class="custom-select s_bar_btn_drop">
-                  <option value="" disabled selected>Emirate</option>
-                  <option value="Abu Dhabi">Abu Dhabi</option>
-                  <option value="Dubai">Dubai</option>
-                  <option value="Alain">Al ain</option>
-                  </select>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-12">
+          <button style="width: 100%; background-color: #001524;color: white;" type="button" class="s_bar_btn_drop" onclick="myFunction('1')" formmethod="get|post">Search</button>
+         
         </div>
-    
-        <div class="row justify-content-center">
-    
-    <select id="bedrooms" name="beds" class="custom-select s_bar_btn_drop" >
+      </div>
+        <div class="row justify-content-center" >
+         
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            
+          <select style="width: 100%;" id="price" name="price" class="custom-select s_bar_btn_drop">
+            <option value="" disabled selected>Max Price</option>
+            <option value="0">50,000</option>
+            <option value="1">100,000</option>
+            <option value="2">200,000</option>
+            <option value="3">300,000</option>
+            <option value="4">400,000</option>
+            <option value="5">+400,000</option>
+          </select>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12">
+    <select style="width: 100%;" id="beds" name="beds" class="custom-select s_bar_btn_drop" >
       <option value="" disabled selected>Beds</option>
       <option value="ST">Studio</option>
       <option value="1">One</option>
@@ -101,8 +93,9 @@
       <option value="6">Six</option>
       </select>
     
-    
-        <select id="propertytype" name="propertytype" class="custom-select s_bar_btn_drop" >
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12">
+        <select style="width: 100%;" id="type" name="propertytype" class="custom-select s_bar_btn_drop" >
         <option value="" disabled selected>Type</option>
         <option value="Apartment">Apartment</option>
         <option value="Villa">Villa</option>
@@ -111,9 +104,9 @@
         <option value="Land Residential">Land Residential</option>
         <option value="Office">Office</option>
         </select>
-     
-      
-      <select id="location" name="area" class="custom-select s_bar_btn_drop" >
+    </div> 
+    <div class="col-lg-3 col-md-3 col-sm-12"> 
+      <select style="width: 100%;" id="area" name="area" class="custom-select s_bar_btn_drop" >
         <option value="" disabled selected>Location</option>
         <option value="Al Reem Island">Reem Island</option>
         <option value="Yas Island">Yas Island</option>
@@ -125,12 +118,7 @@
         </div>
     
     
-    
-        <div class="row justify-content-center">
-     <div class="col text-center">
-            <img src="../static/icons/down-arrow.svg" id="dropbtn" class="dropdownbtn flip" style="margin-top: -3px;" onclick="showdiv()" alt="">
-          </div>
-        </div>
+
         
         </div>
     
@@ -139,11 +127,10 @@
     
     
  
+  
     </div>
     </div>
-    </div>
-    </div>
-    </div>
+  
 
 <div class="container">
   <div class="row">
@@ -155,11 +142,22 @@
 <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);padding-top:15px;padding-bottom: 15px;margin-top: 20px;">
 <div class="container">
 
-  <div class="row">
-    <div class="col">
+
+
+  <div class="row justify-content-center" id="display">
+   
+    
+  </div>
+
+
+
+</div>
+<div class="container">
+  <div class="row justify-content-center" style="margin-top: 20px;">
+    
       
         <ul class="pagination">
-    
+          <li class="page-item"><button style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="myFunction('1')" class="page-link" >Prev</button></li>
           <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('1')" class="page-link" >1</button></li>
           <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('2')" class="page-link" >2</button></li>
           <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('3')" class="page-link" >3</button></li>
@@ -167,18 +165,11 @@
           <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('5')" class="page-link" >5</button></li>
           <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('6')" class="page-link" >6</button></li>
           <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('7')" class="page-link" >7</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('8')" class="page-link" >8</button></li>
-
+          <li class="page-item"><button style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="myFunction('1')" class="page-link" >Next</button></li>
+         
         </ul>
       
-    </div>
-  </div>
-
-
-
-  <div class="row justify-content-center" id="display">
    
-    
   </div>
 
 </div>
@@ -188,10 +179,14 @@
 
 
 
-
 {% endblock %}
 {% block scripts %}
 
+{% for item in pl %}
+<script>
+document.getElementById('{{item[0]}}').value='{{item[1]}}' 
+</script>
+{% endfor %}
 
 
 <script>
@@ -228,16 +223,21 @@
                       var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
                       var color = "";
                       }
-                  
-                  data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 10px;">'
-                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px;margin-top:20px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 160px; object-fit:cover;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><div class="card-content"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><button class="viewmore">'+value.title+'</button></a></div></div>'
-                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;">'
-                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;">'+value.property+'</h5></div></div>'
-                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 7.5pt;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;margin-top:7px;">'+value.beds+' Bed</p></div></div>'
-                  data += '<div class="row" style="margin-top:-9px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;margin-top:7px;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:4px;" >AED '+value.price+'</p></div></div>'
-                  data += '</div>'
+
+                      if (value.beds == "ST"){
+                    beds = ''}
+                  else {
+                    beds = ' Bed'
+                  }
+                  data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 15px;margin-top:15px;">'
+                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
+                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
+                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
+                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
+                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
+                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
+                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
+                  data += '</a></div>'
                   data += '</div>'
                   data += '</div>'
                   
@@ -249,22 +249,17 @@
 
                 })
 
-    document.getElementById('byorsell').value='{{units}}'  
-    
 
     $('#display').append(data);
-
     
+
+
         function Scrolldown() {
      window.scroll(0,100); 
 }
 
 window.onload = Scrolldown;
 var script = $('<script type="application/ld+json">[ {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","name":"For '+window.location.href+'","item":" '+window.location.href+'","position":1}],"numberOfItems":1},'+script_properties.slice(0,-1)+']</' + 'script>').appendTo(document.head);
-  var element = document.getElementById("header");
-  element.classList.remove("bg-dark");
-  element.classList.add("bg-dark-const");
-
 
 
 </script>
@@ -273,21 +268,20 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
     
     
   function myFunction(x){
-      byorsell = $("#byorsell").val();
-      propertytype = $("#propertytype").val();
-      keyword1 = $("#keywordaddss").val();
-      pricefrom = $("#pricefrom").val();
+      units = $("#units").val();
+      propertytype = $("#type").val();
+      pricefrom = $("#price").val();
       textinlivebox = $("#city").val();
-      textinlocation = $("#location").val();
-      select = $("#bedrooms").val();
+      textinlocation = $("#area").val();
+      select = $("#beds").val();
       contract = $("#contract").val();
       page = x
           $.ajax({
               method:"post",
               url:"/livesearch",
-              data:{byorsell:byorsell,text:textinlivebox, location:textinlocation, 
+              data:{units:units,text:textinlivebox, location:textinlocation, 
               selectbox:select, contract:contract,
-              pricefrom:pricefrom,  keyword:keyword1, page:page,
+              pricefrom:pricefrom,  page:page,
               propertytype:propertytype},
               success:function(res){
                 $('#display').empty();
@@ -311,16 +305,21 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
                       var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
                       var color = "";
                       }
-                  
-                      data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 10px;">'
-                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative;margin-top:20px; border-radius:0px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'" alt="" style="height: 160px; object-fit:cover;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><div class="card-content"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><button class="viewmore">'+value.title+'</button></a></div></div>'
-                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;">'
-                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;">'+value.property+'</h5></div></div>'
-                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 7.5pt;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;margin-top:7px;">'+value.beds+' Bed</p></div></div>'
-                  data += '<div class="row" style="margin-top:-9px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;margin-top:7px;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:4px;" >AED '+value.price+'</p></div></div>'
-                  data += '</div>'
+
+                      if (value.beds == "ST"){
+                    beds = ''}
+                  else {
+                    beds = ' Bed'
+                  }
+                  data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 15px;margin-top:15px;">'
+                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
+                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
+                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
+                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
+                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
+                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
+                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
+                  data += '</a></div>'
                   data += '</div>'
                   data += '</div>'
    
@@ -334,13 +333,6 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
 
  
 </script>
-<script>
-  window.onload =  $('#dropbtn').removeClass( "flip" )
-  window.onload  = $( ".s_bar_btn_drop" ).hide();
-  function showdiv(){
-    $( ".s_bar_btn_drop" ).toggle();
-    $('#dropbtn').toggleClass("flip");
-  }
-</script>
+
 
 {% endblock %}

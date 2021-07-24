@@ -14,25 +14,23 @@
 
 {% block content %}
 
-
-
-
-<br>
-<div style="background-color: #F8F8F8;">
+<section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
   <div class="container ">
-    <div class="row" style="padding-top: 2vh" >
-      <div class="col">
-      <h2 class="nfont" ><b>OUR MEDIA</b></h2>
+    <div class="row" style="padding-top: 90px" >
+      <div class="col text-center">
+      <h2 class="nfont" ><b>MEDIA</b></h2>
         </div>
 
           
 </div>
 </div>
-</div>
-<div class="container" style="margin-top:40px;">
+
+
+<div class="container" >
   <div class="row">
     <div class="col">
-      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('media')}}"> Media </a>
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('media')}}"> Media </a>
 </p>
   </div>
   </div>
@@ -40,11 +38,10 @@
 
 <div class="container" style="margin-bottom: 40px;">
   <div class="row justify-content-center">
-  <button class="teambtn" onclick="all()">All</button>
-  <button class="teambtn" onclick="sales()">Sales</button>
-  <button class="teambtn" onclick="corp()">Corporate</button>
-  <button class="teambtn" onclick="events()">Events</button>
-  <a class="teambtn" href="https://blogs.uhpae.com" >Blogs</a>
+  <button class="s_bar_btn" onclick="all()">All</button>
+  <button class="s_bar_btn" onclick="sales()">Sales</button>
+  <button class="s_bar_btn" onclick="corp()">Corporate</button>
+  <button class="s_bar_btn" onclick="events()">Events</button>
   </div>
   </div>
 
@@ -52,7 +49,7 @@
 
 <div class="container" style="margin-top: 30px;">
   
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
         <div class="col">
           <iframe width="100%" class="videoheight sales" src="https://www.youtube.com/embed/agSDoJ3QAhg?autoplay=1" frameborder="0" allowfullscreen></iframe>
       </div>
@@ -63,11 +60,12 @@
         <div class="col">
           <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/zIG1JBqc264?autoplay=1" frameborder="0" allowfullscreen></iframe>
       </div>
-    </div>
-    <div class="row">
       <div class="col">
-          <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/clDyCnEvzSY?autoplay=1" frameborder="0" allowfullscreen></iframe>
-      </div>
+        <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/clDyCnEvzSY?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px;">
+    
       <div class="col">
         <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/eEJI2O7RD6A?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -75,14 +73,14 @@
       <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/DqieIFMFkTA?autoplay=1" frameborder="0" allowfullscreen></iframe>
   </div>
     
-      </div>  
-      <div class="row">
         <div class="col">
             <iframe width="100%"  class="videoheight sales" src="https://www.youtube.com/embed/oXJYURiDU0k?autoplay=1" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col">
           <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/rPro6OP5zw0?autoplay=1" frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
+    <div class="row">
       <div class="col">
         <iframe width="100%"  class="videoheight corp" src="https://www.youtube.com/embed/MxVHHrGS4w4?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -92,6 +90,8 @@
 
     
 </div>
+</div>
+</section>
 
 
 {% endblock %}

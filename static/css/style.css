@@ -30,7 +30,10 @@
   width:16rem; margin-left:-20px; height:160px; margin-top: -20px;
   position: relative;
 }
-
+ 
+a:hover{
+  text-decoration: none !important;
+}
 .card:hover .viewmore{
   display: block;
   margin: 0 auto;
@@ -66,6 +69,13 @@ text-transform: uppercase;
   height: 30px;
   margin: 2px;
   background-color: white;
+  color: black;
+  font-size: 8pt;
+  letter-spacing: 2px;
+}
+
+.dropdown-menu {
+  border-radius: 0px;
   color: black;
   font-size: 8pt;
   letter-spacing: 2px;
@@ -127,12 +137,15 @@ text-transform: uppercase;
 .scrolled header.bg-dark {
   background-color: rgba(0, 0, 0, 0.1) !important;
   animation-delay: 0.5s;
+  backdrop-filter: blur(5px)
 }
 
 .bg-dark-const {
-  background-color: rgb(0, 2, 22) !important;
+  background-color: #001524 !important;
   animation-delay: 0.5s;
 }
+
+
 
 .scrolled header.bg-dark:hover, header.bg-dark:hover {
   background-color: rgba(0, 0, 0, 0.85) !important;
@@ -210,8 +223,6 @@ header .navbar {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-      padding-right: 1rem;
-      padding-left: 1rem;
 }
 
 .imgres{
@@ -266,9 +277,16 @@ header .navbar {
 }
 
 .carousel {
-  background: #FAFAFA;
-  margin-bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
+
+.carousel-nav {
+background-color:#001524;;
+margin-bottom: 10px;
+}
+
 
 header {
   transition: 0.5s;
@@ -280,9 +298,7 @@ header {
   background-color: rgba(0, 0, 0, 0.5);
    position: absolute;
     width: 100%;
-     height: auto;
-
-        margin-top: 26.1%;
+    margin-top: 43vh;
 }
 
 .carousel-cell {
@@ -297,6 +313,7 @@ width: 100%;
 .carousel-cell-image {
   display: block;
   max-height: 100%;
+  left:50%;  height:400px; width:600px;object-fit:cover;
 }
 /* cell number */
 .carousel-cell:before {
@@ -331,16 +348,17 @@ opacity: 0.5;
 
 .content {
   position: relative;
-  width: 90%;
+  width:100%;
   max-width: 400px;
   margin: auto;
-  overflow: hidden
+  overflow: hidden;
+
 }
 
 .content .content-overlay {
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
-  height: 99%;
+  height: 100%;
   width: 100%;
   left: 0;
   top: 0;
@@ -624,29 +642,31 @@ footer a:hover {
   font-family: 'Poppins';
 }
 .teambtn {
-  border: hidden;
-  background-color: rgb(198,173,120,0.5);
-  color: #0e4a88;
   font-family: 'Poppins-light';
-  font-size: 15pt;
-  padding-left: 2%;
-  padding-right: 2%;
+  border-radius: 0px;
+  border: none;
+  width: 190px !important;
+  height: 30px;
+  margin: 2px;
+  background-color: white;
+  color: black;
+  font-size: 8pt;
+  letter-spacing: 2px;
 }
 .teambtn:hover {
-background-color: #0e4a88;
+background-color: rgba(0, 0, 0, 0.75);;
 color: white;
 }
 
 .teambtn::after {
-  background-color: #0e4a88;
+  background-color: rgba(0, 0, 0, 0.75);;
   color: white;
 }
 .teambtn:focus {
-  background-color: #0e4a88;
+  background-color: rgba(0, 0, 0, 0.75);;
   color: white;
 }
 
-/*            dasdasdasd sadsa              */
 
 .icons{
   width: 15px;
@@ -694,7 +714,7 @@ html {
 
 .simple{
 font-family: 'Poppins-light';
-color: black;
+color: #4b4b4b;
 font-size: 9pt;
 }
 
@@ -784,11 +804,12 @@ font-size: 22pt;
 }
 .proploc{
 color: white;
-font-size: 12pt;
+font-size: 10pt;
 }
 .proptitle{
-color: #686868;
-font-size: 10pt;
+color: white;
+font-family: 'Poppins-light';
+font-size: 8pt;
 }
 
 .ikon2{
@@ -875,11 +896,13 @@ font-size: 10pt;
   font-size: 9pt;
   font-family: 'Poppins-light';
   color: white;
+  text-align: left;
 }
 .subfooterheader{
   font-size: 6pt;
   font-family: 'Poppins-light';
   color: white;
+  text-align: left;
 }
 
 .btn-secondary:hover {
@@ -933,7 +956,7 @@ margin-bottom: 50px;
   font-size: 15pt;
 }
 .teamimg{
-  height: 29vw;object-fit: cover; width: 18rem; margin-left: 1rem; margin-top: 1rem;
+ width: 18rem;
 }
 
 .readmorebtn {
@@ -959,7 +982,7 @@ margin-bottom: 50px;
 }
 
 .iconhover{
-  width:30px; height: 30px;z-index: 100; cursor: pointer; margin-right: 5px;
+  width:30px; height: 30px;z-index: 100; cursor: pointer; margin-right: 1px;
   -webkit-transition: all .1s ease-in-out;
   border-radius: 25px;
 }
@@ -1003,7 +1026,7 @@ height: 40px;
   color:  white;
 }
 .videoheight{
-  height: 300px;
+  height: 200px;
 }
 .adib {
   margin-top: 15px;
@@ -1180,6 +1203,10 @@ h4 {
 }
 
  @media only screen and (max-width: 500px) {
+  .carousel-cell-image {
+   height:300px; width:300px;
+  }
+
   .card:hover .card-content{
     width: 18rem;
   }
@@ -1219,7 +1246,6 @@ h4 {
   height: auto;
   width: 100%;
 }
-
 
    .vt{
      height: 300px;
@@ -1277,9 +1303,6 @@ h4 {
     width: 100%;
     
     margin-top: 0px;
-  }
-  .sizelink{
-    font-size: 10pt !important;
   }
   .p_header{
     font-size: 15pt;
@@ -1347,12 +1370,7 @@ display: none;
   .basenavmrg{
   margin-bottom: 0px;
 }
-  .iconhover {
-    width: 25px; margin-right: 5px;
-  }
-  .iconhoverfb {
-    width: 23px;margin-right: 5px;
-  }
+
   .listform{
     margin-top: 10px;
   }
@@ -1400,9 +1418,7 @@ display: none;
     margin-top: 0px;
   }
   
-   .teamimg{
-     height: 75%;
-   }
+
   .simple{
     font-size: 8pt;
   }
@@ -1547,8 +1563,8 @@ font-style: none;}
   object-fit: cover;
   object-position: bottom;
  }
- 
 
+ 
  .logoname {
   width: 70px;
 }
@@ -1562,10 +1578,7 @@ font-style: none;}
   .proploc{
   font-size: 10pt;
   }
-  .proptitle{
-  font-size: 10pt;
-  }
-  
+ 
   .imagescell img {
     margin-left: 20px;
     height: 240px;

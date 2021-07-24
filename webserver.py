@@ -291,9 +291,7 @@ def search():
     a = []
     args_rec = ''
     z = 0
-    min_price = 0
-    max_price = 999999999
-    list_bc = []
+    pl = []
     if not request.args:
         conn = sqlite3.connect('main.db')
         c =   conn.cursor()
@@ -307,101 +305,46 @@ def search():
         return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')   
     
     for i in request.args:
-        print(i)
-        if i == 'units':
-            list_bc.append(request.args.get(i))
-        elif i == 'propertytype':
-            list_bc.append(request.args.get(i))
-        elif i == 'area':
-            list_bc.append(request.args.get(i))
-        else:
-            list_bc = ['','','','']
-        '''
-        if i == 'pricefrom':
-            min_price = request.args.get(i)
-            int(min_price)
+        if i == 'price':
+            y = [(0,50000),(50000,100000),(100000,200000),(200000,300000),(300000,400000),(400000,10000000)]
+            z = int(request.args.get(i))
+            p = y[z]
+            if z == 0:
+                args_rec += (' price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
+                z = 1
+            else:
+                args_rec += (' AND price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
             continue
-        '''
+
         if i == 'keyword':
-            try:
-                int(request.args.get(i))
-                if z == 0:
-                    args_rec += (' ref_no MATCH '+'"'+request.args.get(i)+'"')
-                    z = 1
-                else:
-                    args_rec += (' AND ref_no MATCH '+'"'+request.args.get(i)+'"')
-            except:
-                if z == 0:
-                    args_rec += (' properties MATCH '+'"'+request.args.get(i)+'"')
-                    z = 1
-                else:
-                    args_rec += (' AND properties MATCH '+'"'+request.args.get(i)+'"')
+            if z == 0:
+                args_rec += (' ref_no MATCH '+'"'+request.args.get(i)+'"')
+                z = 1
+            else:
+                args_rec += (' AND ref_no MATCH '+'"'+request.args.get(i)+'"')
             continue
+
+        
         if z == 0:
             args_rec += (i+'='+'"'+request.args.get(i)+'"')
             z = 1
         else:
             args_rec += (' AND '+i+'='+'"'+request.args.get(i)+'"')
+        pl.append((i,request.args.get(i)))
+
 
     conn = sqlite3.connect('main.db')
     c =   conn.cursor()
     c.row_factory = sqlite3.Row  
     print(args_rec)  
-    c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec)
+    c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec+';')
     result = c.fetchall()
     for r in result:
         r = dict(r)
         a.append(r)
     conn.close()
     a = a[:20]
-    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '',units=request.args.get('units'))
-
-
-    '''
-    if len(list_bc) == 1:
-        return redirect(url_for('units', unittype = request.args.get('units')))
-    if len(list_bc) == 2:
-        return redirect(url_for('proptype', unittype = request.args.get('units'), proptype = request.args.get('propertytype')))
-    if len(list_bc) == 3:
-        area = request.args.get('area').replace(' ','-')
-        return redirect(url_for('areatype', unittype = request.args.get('units'), proptype = request.args.get('propertytype'), areatype = area))
-    '''
-
-
-
-@app.route('/rent')
-def rent():
-    unittype = "rent"
-    queryRes = []
-    conn = sqlite3.connect('main.db')
-    c =   conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('SELECT rowid, * FROM properties WHERE units = ?',(unittype,))                   
-    result = c.fetchall()
-    for r in result:
-        r = dict(r)
-        queryRes.append(r)
-    conn.commit()
-    conn.close()
-    metatag = ['Property for '+unittype+' in Abu Dhabi | UHPAE', 'Search through a wide variety of properties to '+unittype+' within Abu Dhabi and get contact information of our Agents for any queries',['property for '+unittype+' in abu dhabi', 'house for '+unittype+' in abu dhabi', 'abu dhabi '+unittype, unittype+ ' abu dhabi']]
-    return render_template("search.html", queryRes=queryRes, meta = metatag, search = 'property for '+unittype+' in abu dhabi', url = "https://www.uhpae.com/"+unittype)
-
-@app.route('/buy')
-def buy():
-    unittype = "buy"
-    queryRes = []
-    conn = sqlite3.connect('main.db')
-    c =   conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('SELECT rowid, * FROM properties WHERE units = ?',(unittype,))                   
-    result = c.fetchall()
-    for r in result:
-        r = dict(r)
-        queryRes.append(r)
-    conn.commit()
-    conn.close()
-    metatag = ['Property for '+unittype+' in Abu Dhabi | UHPAE', 'Search through a wide variety of properties to '+unittype+' within Abu Dhabi and get contact information of our Agents for any queries',['property for '+unittype+' in abu dhabi', 'house for '+unittype+' in abu dhabi', 'abu dhabi '+unittype, unittype+ ' abu dhabi']]
-    return render_template("search.html", queryRes=queryRes, meta = metatag, search = 'property for '+unittype+' in abu dhabi', url = "https://www.uhpae.com/"+unittype)
+    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '',pl = pl)
 
 
 
@@ -410,37 +353,51 @@ def livesearch():
     if request.method == "POST":
         srch = []
         a = []
+        
         page = range(0,700,20)
         if request.form['page'] != '':  
             ep = page[int(request.form['page'])] 
             sp = page[int(request.form['page'])-1]
-        if request.form['byorsell'] != '':
-            srch.append(('units',request.form['byorsell']))
+        if request.form['units'] != '':
+            srch.append(('units',request.form['units']))
 
         if request.form['propertytype'] != '':
             srch.append(('type',request.form['propertytype']))
 
-        if request.form['keyword'] != '':
-            srch.append(('keyword',request.form['keyword']))
+        if request.form['pricefrom'] != '':
+            srch.append(('price',request.form['pricefrom']))
 
-        #if request.form['pricefrom'] != '':
-        #    srch.append(('price',request.form['pricefrom']))
+        if request.form['text'] != '':
+            srch.append(('city',request.form['text']))
 
         if request.form['location'] != '':
-            srch.append(('city',request.form['location']))
+            srch.append(('area',request.form['location']))
 
         if request.form['selectbox'] != '':
             srch.append(('beds',request.form['selectbox']))
 
+        if request.form['contract'] != '':
+            srch.append(('contract',request.form['contract']))
+
+   
         args_rec = ''
         z=0
         for i in srch:
+            if i[0] == 'price':
+                y = [(0,50000),(50000,100000),(100000,200000),(200000,300000),(300000,400000),(400000,10000000)]
+                p = y[int(i[1])]
+                if z == 0:
+                    args_rec += (' price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
+                    z = 1
+                else:
+                    args_rec += (' AND price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
+                continue
             if z == 0:
                 args_rec += (i[0]+'='+'"'+i[1]+'"')
                 z = 1
             else:
                 args_rec += (' AND '+i[0]+'='+'"'+i[1]+'"')
-
+    
         conn = sqlite3.connect('main.db')
         c =   conn.cursor()
         c.row_factory = sqlite3.Row  
@@ -452,24 +409,7 @@ def livesearch():
         a = a[sp:ep]
         conn.close()
         return jsonify(queryres=a)
-   
-@app.route("/keysearch", methods=["POST", "GET"]) 
-def keysearch():
-    queryRes = []
-    keyword = request.form.get("keyword")
-    conn = sqlite3.connect('main.db')
-    c = conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('''SELECT rowid,* FROM properties WHERE property MATCH ?''',['{}'.format(keyword)])
-    result = c.fetchall()
-    for r in result:
-        queryRes.append(dict(r))
-    
-    conn.commit()
 
-    conn.close()
-    
-    return jsonify(queryRes)
 
 @app.route('/communities')
 def communities():   
@@ -820,7 +760,6 @@ def project(community, project):
                 return render_template("project.html",x= suggested_communities,  url=project, overview=overview,details=details, amenities=amenities, images=images,schools=schools,hospitals=clinic,landmarks=restaurant,maparea=location,floorplans=floorplans,floorplans_1 =floorplans_1,floorplans_2 =floorplans_2,floorplans_3 =floorplans_3,floorplans_4=floorplans_4,sale=sale,rent=rent, community = community,folder = project ,vt = vt)  
             except:
                 return render_template("404.html")
-    return render_template("404.html")
 
 
 

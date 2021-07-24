@@ -9,7 +9,8 @@
 
 {% block content %}
 
-
+<section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
 
 <div id="scrdisp" style="width: 100%;border-bottom: 1px solid #000;position: fixed; top: 10%;z-index: 100; background-color: white;">
   <div class="container">
@@ -53,123 +54,166 @@
 </div>
 </div>
 
-        
-<section style="background-color: #001524; background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%; padding-top:200px; ">
 
-<div class="container" style="margin-top:40px;">
+
+<div class="container" style="padding-top: 90px;">
   <div class="row">
     <div class="col">
-      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light';" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('search', units='all')}}"> Abu Dhabi ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('communities')}}"> Communities ></a>
-    <a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="/communities/{{loc | replace (' ', '-')}}"> {{ loc }} ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('search', property = result[27] )}}"> {{result[27]}} ></a>
-    <a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('search', beds = result[4], area=loc)}}">{{result[4]}} Bedroom APT></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="#"> Property ID {{result[7]}}</a></p>
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light';"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', units='all')}}"> Abu Dhabi ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('communities')}}"> Communities ></a>
+    <a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="/communities/{{loc | replace (' ', '-')}}"> {{ loc }} ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', property = result[27] )}}"> {{result[27]}} ></a>
+    <a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', beds = result[4], area=loc)}}">{{result[4]}} Bedroom APT></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="#"> Property ID {{result[7]}}</a></p>
   </div>
   </div>
 </div>
 
-<br>
 
-<div class="container">
+
+
+  <div class="container ">
+    <div class="row" style="padding-top: 2vh; padding-bottom: 2vh" >
+      <div class="col-lg-8 col-md-8 col-sm-12">
+      
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+    <h2 class="nfont" style="text-transform: uppercase;">{{result[27]}}</h2>
+        </div>
+        </div>
+  </div>
+
+
+
+    <!--div class="col respbook" style="text-align: right;">
+      <button onclick="drop()" class="s_bar_btn">Book Viewing</button>
+    
+    <button onclick="mapdrop()" class="s_bar_btn">Find Location</button>
+    
+  </div-->
+  </div>
 
   <div class="row">
     <div class="col">
       <div class="row">
         <div class="col">
-    <h2 class = "propcap" style="font-family: 'Poppins'; color: #144A86;"><b>{{result[27]}}</b></h2>
-        </div>
-        </div>
-  </div>
-    <div class="col respbook" style="text-align: right;">
-      <button onclick="drop()" style="background-color:  #0e4e88;; color: white; 
-      border: hidden; width: 120px; height: 23px; font-family: 'Poppins-light'; margin-bottom: 2px;">Book Viewing</button>
-    
-    <button onclick="mapdrop()" style="background-color:  #0e4e88; color: white; 
-    border: hidden; width: 120px; height: 23px; font-family: 'Poppins-light'; margin-bottom: 2px;">Find Location</button>
-    
-  </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="row">
-        <div class="col">
-    <h2 class="proploc" style="font-family: 'Poppins-light', sans-serif;"><u>{{result[3]}}</u></h2>
+    <h2 class="proploc" style="font-family: 'Poppins-light'; text-transform: uppercase;">{{result[3]}}</h2>
         </div>
   </div>
       <div class="row">
         <div class="col">
-        <p class="proptitle" style = "font-family: 'Poppins-light', sans-serif;">{{result[2]}}</p>
+        <p class="proptitle">{{result[2]}}</p>
           </div>
       </div>
     </div>
-  <div class="col text-right">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <h2 class="proploc" style="font-family: 'Poppins-light'; color: white; text-align: right;">AED {{result[29]}}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+       <h6 class="proptitle" style="text-align: right;">*{{result[4]}} Beds  *{{result[5]}} Baths  *{{result[6]}} Sqft</h6>
+        </div>
+      </div>
+    </div>
+  <!--div class="col text-right">
     
     <a href="tel:+97126439099" class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif; display: inline; "><img style="width: 15px; margin-right: 2px;" src="/static/icons/phonecall.png">Contact</a>
         <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20" class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif; display: inline;  "><img style="width: 15px; margin-right: 2px;" src="/static/icons/whatsapp.png">Whatsapp</a>
-</div>
-</div>
-  <br>
+</div-->
 </div>
 
-
-
-
-
-
-<div style="background-color: #F8F8F8;">
-<div class="container ">
-  <div class="row" style="padding-top: 2vh" >
-    <div class="col">
-      <h2 class="proploc" style="font-family: 'Poppins-light'; color: #144A86; "><b>AED {{result[29]}}</b></h2>
-        </div> 
-<div class="col text-right slimshady" style=" display: inline;">
-  <h6 class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif;  "><img class="propico" src="/static/icons/bed.png">  {{result[4]}} Beds</h6>
+      <div class="row">
+        <div class="col">
+          
+    <div id="imgcarousel">
       
-      
-  <h6 class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"><img class="propico" src="/static/icons/bathtub.png">  {{result[5]}} Baths</h6>
+    
+    </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-between">
+        <button onclick="scrolltodiv('description')" class="s_bar_btn" style="border: hidden;">Description</button>
+    
+        <button onclick="scrolltodiv('amenities')" class="s_bar_btn" style="border: hidden;">Amenities</button>
+     
+        <button onclick="scrolltodiv('map')" class="s_bar_btn" style="border: hidden;">Map</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-between">
+        <button onclick="scrolltodiv('nearby')" class="s_bar_btn" style="border: hidden;">Nearby</button>
 
+        <button onclick="scrolltodiv('drop')" class="s_bar_btn" style="border: hidden;">Book Viewing</button>
+   
+        <button onclick="scrolltodiv('suggestion')" class="s_bar_btn" style="border: hidden;">Suggestion</button>
+      </div>
+    </div>
+      </div>
 
-  <h6 class="saaa3" style="margin-left:5px; color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"><img class="propico" src="/static/icons/select.png">   {{result[6]}} Sqft</h6>
+  <div class="col">
+    
   </div>
-      <!--div class="col text-right" style="margin-top: -2px;">
-        <a href="tel:+97126439099" class="saaa" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif; display: inline; "><img style="width: 15px; margin-right: 2px;" src="/static/icons/phonecall.png">Contact</a>
-        <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20" class="saaa" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif; display: inline;  "><img style="width: 15px; margin-right: 2px;" src="/static/icons/whatsapp.png">Whatsapp</a>
-      </div-->
-
-
+      <div class="col-lg-3 col-md-3 col-sm-12" >
+        
+  <form method="post" autocomplete="off" name="google-sheet" class="simple">
+    <div class="row"> 
+      <div class="col text-center"><h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">Book a Viewing</h2></div>
+    </div>
+  <div style="background-color:rgba(0, 0, 0, 0.8); padding-bottom:10px; padding-top:10px;">
+    <div class="row justify-content-center" >
+      <div class="col text-center">
+    <textarea rows="3" style="width: 90%;" type="text" name="message">Hello! The property '{{result[3]}}' with an ID of {{result[7]}} has caught my eye and I'm wondering when will it available for viewing? Thanks.
+    </textarea>
+    </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+    <textarea type="text" name="name" rows="1" style="width: 90%;" placeholder="Your Name" required></textarea>
+    </div></div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+    <textarea type="text" name="email" rows="1" style="width: 90%;" placeholder="Email address" required></textarea>
+    </div></div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+    <textarea type="text" name="phonenumber" rows="1" style="width: 90%;"  placeholder="Phone/ Mobile Number" required></textarea>
+    </div>
   </div>
-</div>
-</div>
-<div style="background-color: #F8F8F8;">
-  <div class="container ">
-    <div class="row" style="padding-top: 2vh; padding-bottom: 2vh" >
-      <div class="col-md-9 col-lg-9 projnav">
-      <button onclick="scrolltodiv('description')" class="p_button overview" style="border: hidden;">Description</button>
-      <button onclick="scrolltodiv('amenities')" class="p_button" style="border: hidden;">Amenities</button>
-      <button onclick="scrolltodiv('map')" class="p_button" style="border: hidden;">Map</button>
-      <button onclick="scrolltodiv('nearby')" class="p_button" style="border: hidden;">Nearby</button>
-      <button onclick="scrolltodiv('drop')" class="p_button" style="border: hidden;">Book Viewing</button>
-      <button onclick="scrolltodiv('suggestion')" class="p_button" style="border: hidden;">Suggestion</button>
-        </div>
- 
-</div>
-</div>
-</div>
-
-<br><br>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      
-<div id="imgcarousel">
+    <br>
+    <div class="row">
+      <div class="col text-center">
+          <input type="submit" value="I'm Booking" class="s_bar_btn">
+          <input type="hidden" id="strReferrer" name="strReferrer" />
+      </div>
+    </div>
+  </div>
+  </form>
+  <div class="row" style="margin-top: 20px;">
+    <div class="col text-center"><h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;display: inline;">Similar Properties</h2></div>
+  </div>
+  <div style="background-color:rgba(0, 0, 0, 0.8); padding-bottom:10px; padding-top:10px;">
+  <div class="row justify-content-center" id="display">
   
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <button onclick="suggestions()" class="s_bar_btn">Refresh</button>
+    </div>
+  </div>
+</div>
+      </div>
 
-</div>
-</div>
-</div>
-<br>
-<br>
 
+
+
+
+  </div>
 </div>
 
 
@@ -186,53 +230,62 @@
   <br>
     <div class="row" >
      
-      <div class="col simple" style="text-align: justify; color: #8e8a8a;">
-        {{desc | safe}}
-           </div>
-    <div class="col-4">
-      <table>
-        <tr>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px;">Property Type</div>
-          </td>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px; background-color: #F8F8F8;color: #686868;">{{result[28]}}</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px;">Community</div>
-          </td>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px; background-color: #F8F8F8;color: #686868;">{{loc}}</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px;">Sub Community</div>
-          </td>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px; background-color: #F8F8F8;color: #686868;">{{result[27]}}</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px;">Status</div>
-          </td>
-          <td>
-            <div class="p_button" style="border:hidden; padding: 2px; background-color: #F8F8F8;color: #686868;">Available</div>
-          </td>
-        </tr>
-      </table>
+      <div class="col simple" style="text-align: justify; color: white;">
+        <div class="row">
+          <div class="col">
+            {{desc | safe}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+       
+                  <button class="s_bar_btn" style="border:hidden" onclick="readmore()" id="readmore">Read more</button>
+         
+          </div>
+        </div>
+      </div>
+
+
+    <div class="col-lg-5 col-md-5 col-sm-12">
+     <div class="row">
+       <div class="col">
+        <div class="s_bar_btn" style="width: 100% !important;"><p style="text-align:center;margin-top:5px;">Property Type</p></div>
+       </div>
+       <div class="col">
+        <div class="s_bar_btn" style="color: #686868;width: 100% !important;"><p style="text-align:center;margin-top:5px">{{result[28]}}</p></div>
+       </div>
+     </div>
+    <div class="row">
+      <div class="col">
+        <div class="s_bar_btn" style="width: 100% !important;"><p style="text-align:center;margin-top:5px">Community</p></div>
+      </div>
+      <div class="col">
+        <div class="s_bar_btn" style="color: #686868; width: 100% !important;"><p style="text-align:center;margin-top:5px">{{loc}}</p></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="s_bar_btn" style="width: 100% !important;" ><p style="text-align:center;margin-top:5px">Sub Community</p></div>
+      </div>
+      <div class="col">
+        <div class="s_bar_btn" style="color:  #686868;width: 100% !important;"><p style="text-align:center;margin-top:5px">{{result[27]}}</p></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="s_bar_btn" style="width: 100% !important;"><p style="text-align:center;margin-top:5px">Status</p></div>
+      </div>
+      <div class="col">
+        <div class="s_bar_btn" style="color: #686868;width: 100% !important;"><p style="text-align:center;margin-top:5px">Available</p></div>
+      </div>
+    </div>
+
+
     </div>
 
     </div>
     
-    <div class="row">
-      <div class="col">
-          <button class="p_button" style="border:hidden" onclick="readmore()" id="readmore">Read more</button>
-      </div>
-</div>
+
 </div>
 
 
@@ -248,49 +301,49 @@
   <!--ul style ="list-style-type: none;"-->
   {% for item in features %}
   {% if item == 'Balcony' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/balcony.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/balcony.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Basement parking' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/basement-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/basement-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Built in wardrobes' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/wardrobe.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/wardrobe.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Central air conditioning' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/ac.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/ac.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Central heating' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/heating.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/heating.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Community View' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/comview.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/comview.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Covered parking' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/indoor-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/indoor-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Maids room' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maid.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maid.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Satellite/Cable TV' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/satellite.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/satellite.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Gymnasium' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/gym.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/gym.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Shared swimming pool' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/swimmer.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/swimmer.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Fully furnished' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/couch.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/couch.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Fully fitted kitchen' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/kitchen.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/kitchen.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == '24 hours Maintenance' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maintenance.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maintenance.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Laundry/washing room' %}
-  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/washing-machine.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: #8e8a8a; letter-spacing:0px;">{{item}}</h4></li></div>
+  <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/washing-machine.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   
 
@@ -315,16 +368,15 @@
 <div class="row p_mrg" >
   <div class="col-4">
   <div class="row">
-      <div class="col">
-   
-          <p onclick="loc('schools')" class="p_button" style="cursor: pointer;" >Schools near {{url}}  <img src="/static/icons/plus.svg" style="margin-left: 50%;" width="18px" alt=""></p>
+      <div class="col text-center">
+          <button onclick="loc('schools')" class="s_bar_btn" style="cursor: pointer; width: 100% !important;" >Schools near {{url}}</button>
       </div>
   </div>
       <div class="row">
           <div class="col" >
               <div id = "schools" class="simple shadow">
                   {% for item in schools %}
-                  <p class="ldec" style="display: block;"> - {{item}}</p>
+                  <p class="ldec" style="display: block;text-align: center;">{{item}}</p>
                   {% endfor %} 
               </div>
           </div>
@@ -334,16 +386,16 @@
   </div>
   <div class="col-4">
       <div class="row">
-          <div class="col">
+          <div class="col text-center">
 
-              <p onclick="loc('hospitals')" class="p_button" style="cursor: pointer;">Hospitals near {{url}} <img src="/static/icons/plus.svg" style="margin-left: 50%;" width="18px" alt=""></p>
+              <button onclick="loc('hospitals')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Hospitals near {{url}}</button>
           </div>
       </div>
           <div class="row">
               <div class="col" >
                 <div id="hospitals"  class="simple shadow" >
                       {% for item in hospitals %}
-                      <p class="ldec" style="display: block;"> - {{item}}</p>
+                      <p class="ldec" style="display: block;text-align: center;">{{item}}</p>
                       {% endfor %} 
                 </div>
               </div>
@@ -353,16 +405,15 @@
       </div>
       <div class="col-4">
           <div class="row">
-              <div class="col">
-
-                  <p onclick="loc('landmarks')" class="p_button" style="cursor: pointer;">Landmarks near {{url}} <img src="/static/icons/plus.svg" style="margin-left: 50%;" width="18px" alt=""></p>
+              <div class="col text-center">
+                  <button onclick="loc('landmarks')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Landmarks near {{url}}</button>
               </div>
           </div>
               <div class="row">
                   <div class="col" >
                     <div id="landmarks" class="simple shadow">
                           {% for item in landmarks %}
-                          <p class="ldec" style="display: block;"> - {{item}}</p>
+                          <p class="ldec" style="display: block; text-align: center;">{{item}}</p>
                           {% endfor %} 
                     </div>
                   </div>
@@ -380,7 +431,7 @@
     <h4 class="p_overview" id="floorplans">Virtual Tour</h4>
     </div>
     <div class="col text-right">
-      <a href="{{vt}}" title="{{vt}}" class="p_button" style="cursor: pointer; padding: 3px;">View in Fullscreen</a>
+      <a href="{{vt}}" title="{{vt}}" class="s_bar_btn" style="cursor: pointer; padding: 3px;">View in Fullscreen</a>
     </div>
   </div>
   <div class="row">
@@ -393,13 +444,9 @@
 <!--Suggestions-->
 <div id="suggestion" class="container">
   <br><hr><br>
-  <div class="row">
-    <div class="col"><h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;display: inline;">Similar Properties</h2><img src="/static/icons/refresh.svg" style="width: 20px;display: inline; cursor: pointer; margin-left: 10px; margin-bottom: 5px;" onclick="suggestions()" alt=""></div></div>
-
+ 
   <br>
-  <div class="row justify-content-center" id="display">
-  
-  </div>
+
 
 
 
@@ -407,45 +454,7 @@
 
 
 
-<div class="container" id="drop">
-  <hr>
-  
-  <br><div class="row"> 
-    <div class="col"><h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">Book a Viewing</h2></div></div>
-  <br>
-  <form method="post" autocomplete="off" name="google-sheet" class="simple">
-    <div class="row justify-content-center">
-      <div class="col">
-    <textarea rows="3" style="width: 100%;" type="text" name="message">Hello! The property '{{result[3]}}' with an ID of {{result[7]}} has caught my eye and I'm wondering when will it available for viewing? Thanks.
-    </textarea>
-    </div>
-    </div>
-    <br>
-    <div class="row justify-content-center">
-      <div class="col">
-    <textarea type="text" name="name" rows="1" style="width: 100%;" placeholder="Your Name" required></textarea>
-    </div></div>
-    <br>
-    <div class="row justify-content-center">
-      <div class="col">
-    <textarea type="text" name="email" rows="1" style="width: 100%;" placeholder="Email address" required></textarea>
-    </div></div>
-    <br>
-    <div class="row justify-content-center">
-      <div class="col">
-    <textarea type="text" name="phonenumber" rows="1" style="width: 100%;"  placeholder="Phone/ Mobile Number" required></textarea>
-    </div></div>
-    <br>
-    <div class="row">
-      
-    <input type="submit" value="I'm Booking" style="background-color:#0e4a88; color: white; font-family: 'Poppins-light'; margin-left: 3.4%; border: hidden;">
-    <input type="hidden" id="strReferrer" name="strReferrer" />
-
-    </div>
-  </form>
-
 </div>
-
 </section>
 
 <script>
@@ -488,8 +497,8 @@
     elmnt.scrollIntoView();
   }
   document.getElementById('scrdisp').style.display="none";
-  window.onscroll = function() {scr()};
-  
+  /*window.onscroll = function() {scr()};
+    
   function scr() {
     if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1100) {
     document.getElementById('scrdisp').style.display="";
@@ -499,7 +508,7 @@
     }
     
   }
-   /*
+ 
     var x = {{ images|tojson }}
     var imagedata = '';
     for (i = 0; i < x.length; i++) {
@@ -514,8 +523,8 @@
     var imagedata = '';
     imagedata += '<div class="carousel  carousel-main" data-flickity>'
     for (i = 0; i < x.length; i++) {
-      imagedata += '<div class="carousel-cell" >'
-      imagedata += '<img class="carousel-cell-image" style="left:50%;" src="' + x[i] + '">'
+      imagedata += '<div class="carousel-cell" style="height:400px;">'
+      imagedata += '<img class="carousel-cell-image" src="' + x[i] + '">'
       imagedata += '</div>'
       }
       imagedata += '</div>'
@@ -543,9 +552,7 @@
 
 <script>
 
-var element = document.getElementById("header");
-  element.classList.remove("bg-dark");
-  element.classList.add("bg-dark-const");
+
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -572,58 +579,50 @@ function shuffle(array) {
   
   function suggestions(){
   $('#display').empty();
-  c = shuffle(b).slice(0,4)
+  c = shuffle(b).slice(0,1)
   var data ='';
   $.each(c, function(key, value){
     var area = value.area;
-    var newarea = area.replace(/\s/g, '-')
-    var property = value.property;
-    if (value.property == "")
-    {value.property = "no name"} 
-    var newproperty = property.replace(/\s/g, '-')
-                 if (value.tag == "hot")
-                { var f = "display:block;"}
-                else 
-                {var f = "display:none;"}
-                if (value.units == "rent"){
-                    var units = "Rent";
-                    var cosmo = "Discover";
-                    var x = "background-color: #0e4a88 !important;";
-                    var y = "color: #0e4a88; font-family: 'Poppins-light';font-size:12pt !important;";
-                    var z = "#0e4a88";
-                    var color = "gold-"
-                    ;
+      var newarea = area.replace(/\s/g, '-')
+      var property = value.property;
+      if (value.property == "")
+      {value.property = "no name"} 
+      var newproperty = property.replace(/\s/g, '-')
+                   if (value.tag == "hot")
+                  { var f = "display:block;"}
+                  else 
+                  {var f = "display:none;"}
+                  if (value.units == "rent"){
+                      var units = "Rent";
+                      var cosmo = "Discover";
+                      var x = "background-color: #0e4a88 !important;";
+                      var y =  "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var color = "gold-"; 
                     }
-                else if (value.units == "buy"){
-                    var units = "Buy";
-                    var cosmo = "Details"
-                    var x = "background-color: #A57D2D !important;";
-                    var y = "color: #A57D2D; font-family: 'Poppins-light';font-size:12pt !important; display:inline;";
-                    var z = "#A57D2D";
-                    var color = "";
-                    }
-                else {var x = "" }
-                
-
-
-
-                data += '<div class="card" style="width: 16rem; margin: 5px; position:relative; border-radius:10px;box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);">'
-                data += '<img class="card-img-top1" src="'+value.image+'" alt="'+value.property+'" style="height: 200px;border-top-left-radius:10px;border-top-right-radius:10px; ">'
-                data += '<div class="card-img-overlay" style="z-index:0;">'
-                data += '<div class="container"><div class="row">'
-                data += '<div class="col" style="text-align:left; color:white;" ><p style="background-color: '+z+';text-align:center; width: 42px;padding:2px;font-family:"Roboto";" >'+units+'</p></div>'
-                data += '<div class="col text-right" style="margin-left:40px;"><img src="/static/icons/hot.png" width="70px" style="'+f+'"></div>'
-                data += '</div></div></div>'
-                data += '<div class="card-body" style="z-index:2">'
-                data += '<h8 class="card-title" style =  "'+ y +'">'+value.property+'</h8>'
-                data += '<p class="card-text card-desc" style="font-size:11pt;" >'+value.type+', '+value.area+'</p>'
-
-                data += '<p class="card-text" style="font-size:10pt !important;">'+'<img src="/static/icons/bed.svg" width="20px">'+'  '+value.beds+'  '+'<img  src="/static/icons/bath.svg" width="20px"  style="margin-left:0px;">'+'  '+value.baths+'  '+'<img  src="/static/icons/squares.svg" width="15px"  style="margin-left:0px;">'+'  '+Math.floor(value.size)+''+'</p>'
-                data += '<div class="container"><div class="row"><p style = "'+ y +'" ><b>AED '+value.price+'</b></p><p style="'+y+'border-radius: 25px; border: 1px solid'+z+';padding: 3px; margin-left:40px; margin-top:-5px"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'" style="text-decoration: none; color:'+z+'; ">Details</a></p></div></div>'
-                data += '</div>'
-                data += '</div>'
-                
-        
+                  else if (value.units == "buy"){
+                      var units = "Buy";
+                      var cosmo = "Details"
+                      var x = "background-color: #A57D2D !important;";
+                      var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var color = "";
+                      }
+                      if (value.beds == "ST"){
+                    beds = ''}
+                  else {
+                    beds = ' Bed'
+                  }
+                  
+                  data += '<div class="col d-flex justify-content-center" style="margin-bottom: 10px;">'
+                    data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
+                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
+                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
+                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
+                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
+                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
+                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
+                  data += '</a></div>'
+                  data += '</div>'
+                  data += '</div>'
               })
               $('#display').append(data);
             }

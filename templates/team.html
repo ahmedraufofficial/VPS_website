@@ -6,33 +6,31 @@
 
 {% endblock %}
 {% block content %}
+<section style="background-image: url(/static/images/office.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+    <div class="container ">
+      <div class="row" style="padding-top: 90px" >
+        <div class="col text-center">
+        <h2 class="nfont" ><b>OUR TEAM</b></h2>
+          </div>
+  
+            
+  </div>
+  </div>
+  
 
-<div style="background-color: #F8F8F8; ">
-  <div class="container ">
-    <div class="row" style="padding-top: 2vh" >
-      <div class="col">
-      <h2 class="nfont" ><b>OUR TEAM</b></h2>
-        </div>
-
-          
-</div>
-</div>
-</div>
 <div class="container" style="margin-top:40px;">
   <div class="row">
     <div class="col">
-      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('team')}}"> Team </a>
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('team')}}"> Team </a>
 </p>
   </div>
   </div>
 </div>
-<div class="container" style="margin-top: 4%;">
-    <div class="row justify-content-center">   
-        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/eEJI2O7RD6A?autoplay=1" frameborder="0" allowfullscreen></iframe>
-    </div>
-</div>
 
 <div class="container" style="text-align: justify;">
+  <div class="row">
+    <div class="col">
     <br>
     <h2 class="nfont">MEET OUR TEAM</h2>
     <h6 class="simple" style="display: inline;">
@@ -50,17 +48,20 @@
            most experienced and highly trained staff members in Abu Dhabi.
     </h6>
     <br>
-           <br>
-    </div>
+    </div>    
+  </div>
+</div>
 
 <br>
 <div class="container" style="margin-bottom: 40px;">
 <div class="row justify-content-center">
-<button class="teambtn" onclick="SenFunction()">Senior Management Team</button>
+  <div class="col">
+<button class="teambtn" onclick="SenFunction()">Management Team</button>
 <button class="teambtn" onclick="MarFunction()">Marketing Team</button>
 <button class="teambtn" onclick="LisFunction()">Listing Team</button>
 <button class="teambtn" onclick="SalFunction()">Sales Team</button>
 <button class="teambtn" onclick="AdmFunction()">Admin Team</button>
+</div>
 </div>
 </div>
 
@@ -90,139 +91,208 @@
 
 
 <div class="container" id="sen">
-    <div class="row justify-content-around">
-        
-        <div class="card" style="width: 20rem; margin-top: 20px;">
-            <div class="cardimg">
-            <img class="card-img-top teamimg"   src="../static/team/boss.jpg" alt="">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title searchfont2" style="font-size: 18pt;">Mohammed Al Jbour</h5>
-              <p class="card-text searchfont2" style="font-size: 12pt; float:left;">General Manager</p>
-              <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-            </div>
+  <div class="row justify-content-around">
+    <div class="col-12">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <img class="teamimg"   src="../static/team/boss.jpg" alt="">
+                      </div>
+                      <div class="col">
+                        <h5 class="card-title nfont">Mohammed Al Jbour</h5>
+                        <p class="card-text simple">General Manager</p>
+                      </div>
+                    </div>
+                  </div>
+
+
+              </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-        
-      
-    
-</div>
+        </div>
+        </div>
 </div> 
+</div>
 
 <div class="container" id="mar">
-    <div class="row justify-content-around" style="margin-top:20px;">
-      <div class="card" style="width: 20rem; margin-top: 20px;">
-        <img class="card-img-top teamimg"   src="../static/team/mac.jpg" alt="">
-        <div class="card-body">
-            <h5 class="card-title searchfont2" style="font-size: 18pt;">Mac Rome Galimba</h5>
-            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Photographer</p>
-            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+<div class="row justify-content-around">
+<div class="col-12">
+      <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <img class="teamimg" src="../static/team/mac.jpg" alt="">
+                  </div>
+                  <div class="col">
+                    <h5 class="card-title nfont">Mac Rome Galimba</h5>
+                    <p class="card-text simple">Photographer / Graphic Designer</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <img class="teamimg" src="../static/team/me.jpg" alt="">
+                </div>
+                <div class="col">
+                  <h5 class="card-title nfont">Ahmed Rauf</h5>
+                  <p class="card-text simple">Full Stack Developer</p>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-         
-        
-        
-        
-    <div class="card" style="width: 20rem; margin-top: 20px;">
-        <img class="card-img-top teamimg" src="../static/team/me.jpg" alt="">
-        <div class="card-body">
-            <h5 class="card-title searchfont2" style="font-size: 18pt;">Ahmed Rauf</h5>
-            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Web Developer</p>
-            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    
 </div>
 </div>
+</div>
+
 
 <div class="container" id="lis">
-    <div class="row justify-content-around">
-      <div class="card" style="width: 20rem; margin-top: 20px;">
-        <div class="cardimg">
-        <img class="card-img-top teamimg"   src="../static/team/noor2.jpg" alt="">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title searchfont2" style="font-size: 18pt;">Nour Martini</h5>
-          <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Agent</p>
-        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-        </div>
-      </div>
-    
-          
-      <div class="card" style="width: 20rem; margin-top: 20px;">
-        <img class="card-img-top teamimg"   src="../static/team/khloud.jpg" alt="">
-        <div class="card-body">
-            <h5 class="card-title searchfont2" style="font-size: 18pt;">Khloud Ismail</h5>
-            <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Agent</p>
-            <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-        </div>
-      </div>
-       
-              
-        
-  
-</div>
-<div class="row justify-content-around " style="margin-top:20px;">
-
-  
-  <div class="card" style="width: 20rem; margin-top: 20px;">
-    <img class="card-img-top teamimg"   src="../static/team/Abdullah.jpg" alt="">
-    <div class="card-body">
-        <h5 class="card-title searchfont2" style="font-size: 18pt;">Abdullah Elhofi</h5>
-        <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Listing Agent</p>
-        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-    </div>
-  </div>
-
-
-
-</div>
 
 </div>
 
 <div class="container" id="sal">
-    <div class="row justify-content-around">
-        
-        
-      <div class="card" style="width: 20rem; margin-top: 20px;">
-        <div class="cardimg">
-        <img class="card-img-top teamimg"   src="../static/team/doha.jpg" alt="">
+  <div class="row justify-content-around">
+    <div class="col-12">
+          <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <img class="teamimg" src="../static/team/doha.jpg" alt="">
+                      </div>
+                      <div class="col">
+                        <h5 class="card-title nfont">Doha Alami</h5>
+                        <p class="card-text simple">Sales Agent</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <div class="carousel-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <img class="teamimg" src="../static/team/laila.jpg" alt="">
+                    </div>
+                    <div class="col">
+                      <h5 class="card-title nfont">Laila Harb</h5>
+                      <p class="card-text simple">Sales Agent</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <img class="teamimg" src="../static/team/majed.jpg" alt="">
+                  </div>
+                  <div class="col">
+                    <h5 class="card-title nfont">Majed Qublan</h5>
+                    <p class="card-text simple">Sales Agent</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <img class="teamimg" src="../static/team/new.jpg" alt="">
+                </div>
+                <div class="col">
+                  <h5 class="card-title nfont">Mohammed Tarik</h5>
+                  <p class="card-text simple">Sales Agent</p>
+                </div>
+              </div>
+            </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title searchfont2" style="font-size: 18pt;">Doha Alami</h5>
-          <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Sales Agent</p>
-        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-        </div>
-      </div>
-      
-          <div class="card" style="width: 20rem; margin-top: 20px;">
-            <img class="card-img-top teamimg"   src="../static/team/laila.jpg" alt="">
-            <div class="card-body">
-                <h5 class="card-title searchfont2" style="font-size: 18pt;">Laila Harb</h5>
-                <p class="card-text searchfont2" style="font-size: 12pt; float:left;">VIP Sales</p>
-                <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <img class="teamimg" src="../static/team/mohammed.jpg" alt="">
+              </div>
+              <div class="col">
+                <h5 class="card-title nfont">Mohammad Ziyad</h5>
+                <p class="card-text simple">Sales Agent</p>
+              </div>
             </div>
           </div>
-  
-    
-</div>
-
-
+      </div>
+          </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </div>
+    </div>
 </div>
 
 <div class="container" id="adm">
-<div class="row justify-content-around">
-  <div class="card" style="width: 20rem; margin-top: 20px;">
-    <img class="card-img-top teamimg"   src="../static/team/april.jpg" alt="">
-    <div class="card-body">
-        <h5 class="card-title searchfont2" style="font-size: 18pt;">April Gomez</h5>
-        <p class="card-text searchfont2" style="font-size: 12pt; float:left;">Administrator</p>
-        <button type="button" class="readmorebtn" style="float: right;" data-toggle="modal" data-target="#myModal">Get in Touch!</button>
-    </div>
-  </div>
+  <div class="row justify-content-around">
+    <div class="col-12">
+          <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <img class="teamimg" src="../static/team/april.jpg" alt="">
+                      </div>
+                      <div class="col">
+                        <h5 class="card-title nfont">April Gomez</h5>
+                        <p class="card-text simple">Administrator</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        </div>
+</div> 
+
 
 </div>
-</div>
-
+</section>
 
 
 

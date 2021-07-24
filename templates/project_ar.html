@@ -78,7 +78,7 @@
 <div class="container">
 <div class="row">
     <div class="col">
-    <a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink">Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('search', units='all')}}"> Abu Dhabi ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('communities')}}"> Communities ><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="/communities/{{community}}"> {{community}} ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;" class="sizelink" href="{{url_for('search', area = 'Al Ghadeer' )}}"> {{url}}</a>
+    <a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', units='all')}}"> Abu Dhabi ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('communities')}}"> Communities ><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="/communities/{{community}}"> {{community}} ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', area = 'Al Ghadeer' )}}"> {{url}}</a>
 </div>
 </div>
 
@@ -91,15 +91,15 @@
     <div class="container ">
       <div class="row" style="padding-top: 2vh; padding-bottom: 2vh;" >
         <div class="col-md-9 col-lg-9">
-        <button onclick="scrolltodiv('over')" class="p_button" style="border: hidden; margin-right: 10px; font-family: 'Cairo';">نظرة عامة</button>
-        <button onclick="scrolltodiv('features')" class="p_button" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">المميزات</button>
-        <button onclick="scrolltodiv('unitsforsale')" class="p_button" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">وحدات للبيع</button>
-        <button onclick="scrolltodiv('unitsforrent')" class="p_button" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">وحدات للايجار</button>
-        <button onclick="scrolltodiv('floorplans')" class="p_button" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">خطط المبنى</button>
-        <button onclick="scrolltodiv('location')" class="p_button" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">موقعك</button>
+        <button onclick="scrolltodiv('over')" class="s_bar_btn" style="border: hidden; margin-right: 10px; font-family: 'Cairo';">نظرة عامة</button>
+        <button onclick="scrolltodiv('features')" class="s_bar_btn" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">المميزات</button>
+        <button onclick="scrolltodiv('unitsforsale')" class="s_bar_btn" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">وحدات للبيع</button>
+        <button onclick="scrolltodiv('unitsforrent')" class="s_bar_btn" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">وحدات للايجار</button>
+        <button onclick="scrolltodiv('floorplans')" class="s_bar_btn" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">خطط المبنى</button>
+        <button onclick="scrolltodiv('location')" class="s_bar_btn" style="border: hidden;margin-right: 10px; font-family: 'Cairo';">موقعك</button>
           </div>
        <div class="col">
-        <a href="{{url_for('listing')}}" class="p_button" style=" font-family: 'Cairo';border: hidden;margin-right: 10px; background-color:#A57D2D; text-decoration: none; padding: 2px;">قائمة الممتلكات الخاصة بك</a>
+        <a href="{{url_for('listing')}}" class="s_bar_btn" style=" font-family: 'Cairo';border: hidden;margin-right: 10px; background-color:#A57D2D; text-decoration: none; padding: 2px;">قائمة الممتلكات الخاصة بك</a>
        </div>
             
   </div>
@@ -401,7 +401,7 @@
 <div class="row">
     <div class="col">
         <img src="../../../static/projects/p1.jpg" alt="" width="100%">
-        <p class="p_button" style="font-size: 12pt;">{{url}} المدارس القريبة</p>
+        <p class="s_bar_btn" style="font-size: 12pt;">{{url}} المدارس القريبة</p>
     </div>
 </div>
     <div class="row">
@@ -420,7 +420,7 @@
     <div class="row">
         <div class="col">
             <img src="../../../static/projects/p2.jpg" alt="" width="100%">
-            <p class="p_button" style="font-size: 12pt;">{{url}} المستشفيات القريبة</p>
+            <p class="s_bar_btn" style="font-size: 12pt;">{{url}} المستشفيات القريبة</p>
         </div>
     </div>
         <div class="row">
@@ -439,7 +439,7 @@
         <div class="row">
             <div class="col">
                 <img src="../../../static/projects/p3.jpg" alt="" width="100%">
-                <p class="p_button" style="font-size: 12pt;">{{url}} معالم قريبة من</p>
+                <p class="s_bar_btn" style="font-size: 12pt;">{{url}} معالم قريبة من</p>
             </div>
         </div>
             <div class="row">
