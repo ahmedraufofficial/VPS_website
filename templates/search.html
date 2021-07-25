@@ -39,21 +39,21 @@
 
       <form id="my-form-id" class="form-inline" style="padding-top: 80px;position: relative;">
       <div class="row justify-content-between">
-          <div class="col-lg-3 col-md-3 col-sm-12">
+          <div class="col-lg-3 col-md-3 col-sm-12 text-center">
           <select style="width: 100%;" id="units" name="units" class="custom-select s_bar_btn_drop"  style="text-align: center; margin-left: 0;">
             <option value="" disabled selected>Buy / Sell</option>
             <option value="buy">Buy</option>
             <option value="rent">Rent</option>
           </select>
           </div>
-<div class="col-lg-3 col-md-3 col-sm-12">
+<div class="col-lg-3 col-md-3 col-sm-12 text-center">
           <select id="contract" name="contract" class="custom-select s_bar_btn_drop" style="width: 100%;">
             <option value="" disabled selected>Status</option>
             <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
             </select>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-12">
+    <div class="col-lg-3 col-md-3 col-sm-12 text-center">
             <select style="width: 100%;" id="city" name="city" class="custom-select s_bar_btn_drop">
               <option value="" disabled selected>Emirate</option>
               <option value="Abu Dhabi">Abu Dhabi</option>
@@ -62,14 +62,21 @@
               </select>
     
 </div>
-<div class="col-lg-3 col-md-3 col-sm-12">
-          <button style="width: 100%; background-color: #001524;color: white;" type="button" class="s_bar_btn_drop" onclick="myFunction('1')" formmethod="get|post">Search</button>
-         
+<div class="col-lg-3 col-md-3 col-sm-12 text-center">
+          <select style="width: 100%;" id="area" name="area" class="custom-select s_bar_btn_drop" >
+            <option value="" disabled selected>Location</option>
+            <option value="Al Reem Island">Reem Island</option>
+            <option value="Yas Island">Yas Island</option>
+            <option value="Al Raha Beach">Al Raha</option>
+            <option value="Saadiyat Island">Al Saadiyat</option>
+            <option value="Al Reef">Al Reef</option>
+            <option value="Khalifa City A">Khalifa City</option>
+            </select>
         </div>
       </div>
         <div class="row justify-content-center" >
          
-          <div class="col-lg-3 col-md-3 col-sm-12">
+          <div class="col-lg-3 col-md-3 col-sm-12 text-center">
             
           <select style="width: 100%;" id="price" name="price" class="custom-select s_bar_btn_drop">
             <option value="" disabled selected>Max Price</option>
@@ -81,7 +88,7 @@
             <option value="5">+400,000</option>
           </select>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-12">
+    <div class="col-lg-3 col-md-3 col-sm-12 text-center">
     <select style="width: 100%;" id="beds" name="beds" class="custom-select s_bar_btn_drop" >
       <option value="" disabled selected>Beds</option>
       <option value="ST">Studio</option>
@@ -94,7 +101,7 @@
       </select>
     
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-12">
+    <div class="col-lg-3 col-md-3 col-sm-12 text-center">
         <select style="width: 100%;" id="type" name="propertytype" class="custom-select s_bar_btn_drop" >
         <option value="" disabled selected>Type</option>
         <option value="Apartment">Apartment</option>
@@ -105,16 +112,8 @@
         <option value="Office">Office</option>
         </select>
     </div> 
-    <div class="col-lg-3 col-md-3 col-sm-12"> 
-      <select style="width: 100%;" id="area" name="area" class="custom-select s_bar_btn_drop" >
-        <option value="" disabled selected>Location</option>
-        <option value="Al Reem Island">Reem Island</option>
-        <option value="Yas Island">Yas Island</option>
-        <option value="Al Raha Beach">Al Raha</option>
-        <option value="Saadiyat Island">Al Saadiyat</option>
-        <option value="Al Reef">Al Reef</option>
-        <option value="Khalifa City A">Khalifa City</option>
-        </select>
+    <div class="col-lg-3 col-md-3 col-sm-12 text-center"> 
+      <button style="width: 100%; background-color: #001524;color: white;" type="button" class="s_bar_btn_drop" onclick="myFunction('1')" formmethod="get|post">Search</button>
         </div>
     
     

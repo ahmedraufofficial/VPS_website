@@ -292,6 +292,7 @@ def search():
     args_rec = ''
     z = 0
     pl = []
+    pl1 = []
     if not request.args:
         conn = sqlite3.connect('main.db')
         c =   conn.cursor()
@@ -331,7 +332,10 @@ def search():
         else:
             args_rec += (' AND '+i+'='+'"'+request.args.get(i)+'"')
         pl.append((i,request.args.get(i)))
-
+        if i == "beds":
+            pl1.append(str(request.args.get(i))+ ' Bed')
+            continue
+        pl1.append(request.args.get(i))
 
     conn = sqlite3.connect('main.db')
     c =   conn.cursor()
@@ -344,7 +348,7 @@ def search():
         a.append(r)
     conn.close()
     a = a[:20]
-    return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '',pl = pl)
+    return render_template("search.html", queryRes=a,meta = '', search='Properties for '+",".join(pl1), url = '',pl = pl)
 
 
 
