@@ -152,8 +152,58 @@
         <button onclick="scrolltodiv('suggestion')" class="s_bar_btn" style="border: hidden;">Suggestion</button>
       </div>
     </div>
+<br>
+    <div id="description" class="row">
+      <div class="col">
+      <h2 class= "proploc" style="font-family: 'Poppins-light';">Description:</h2>
+    </div>
+    </div>
+    <div class="row" >
+     
+      <div class="col simple" style="text-align: justify; color: white;">
+        <div class="row">
+          <div class="col">
+            {{desc | safe}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+       
+                  <button class="s_bar_btn" style="border:hidden" onclick="readmore()" id="readmore">Read more</button>
+         
+          </div>
+        </div>
       </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col" >
+    <p class= "proploc" style="font-family: 'Poppins-light';">Property Type: {{result[28]}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" >
+    <p class= "proploc" style="font-family: 'Poppins-light';">Community: {{loc}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" >
+    <p class= "proploc" style="font-family: 'Poppins-light';">Sub Community: {{result[27]}}</p>
+    </div>
+    </div>
+<br>
+<div id="map" class="row">
+  <div class="col">
+  <h2 class="proploc" style="font-family: 'Poppins-light', sans-serif;">Map:</h2></div>
+</div>
+<br>
+<div class="row justify-content-center" id="map">
+  <div class="col" id="nearby">
+{{temp | safe}}
+  </div>
+</div>
 
+</div>
   <div class="col text-center">
     <div style="height: 100%; background-color: white; width: 2px;margin-left: 50%;" class="shadow">
 
@@ -166,13 +216,7 @@
       <div class="col text-center"><h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">BOOK A VIEWING</h2></div>
     </div>
   <div style="background-color:#001524; padding-bottom:10px; padding-top:10px; font-size: 8pt;">
-    <div class="row justify-content-center" >
-      <div class="col text-center">
-    <textarea rows="3" style="width: 90%;" type="text" name="message">Hello! The property '{{result[3]}}' with an ID of {{result[7]}} has caught my eye and I'm wondering when will it available for viewing? Thanks.
-    </textarea>
-    </div>
-    </div>
-    <br>
+
     <div class="row justify-content-center">
       <div class="col text-center">
     <textarea type="text" name="name" rows="1" style="width: 90%;" placeholder="Your Name" required></textarea>
@@ -188,6 +232,13 @@
     <textarea type="text" name="phonenumber" rows="1" style="width: 90%;"  placeholder="Phone/ Mobile Number" required></textarea>
     </div>
   </div>
+    <br>
+    <div class="row justify-content-center" >
+      <div class="col text-center">
+    <textarea rows="3" style="width: 90%;" type="text" name="message">Hello! The property '{{result[3]}}' with an ID of {{result[7]}} has caught my eye and I'm wondering when will it available for viewing? Thanks.
+    </textarea>
+    </div>
+    </div>
     <br>
     <div class="row">
       <div class="col text-center">
@@ -209,87 +260,68 @@
       <button onclick="suggestions()" class="s_bar_btn">Refresh</button>
     </div>
   </div>
+  
 </div>
+
+
+
+  <div class="row"  style="margin-top: 20px;">
+      <div class="col text-center">
+          <button onclick="loc('schools')" class="s_bar_btn" style="cursor: pointer; width: 100% !important;" >Schools near {{url}}</button>
       </div>
-
-
-
-
-
   </div>
-</div>
-
-</div>
-
-<div id="description" class="container">
-  <br><br>
-  <div class="row">
-    <div class="col">
-    <h2 class= "proploc" style="font-family: 'Poppins-light';">Description</h2>
+      <div class="row">
+          <div class="col" >
+              <div id = "schools" class="simple shadow">
+                  {% for item in schools %}
+                  <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
+                  {% endfor %} 
+              </div>
+          </div>
+  
+  
   </div>
-  </div>
+ 
+      <div class="row">
+          <div class="col text-center">
 
-
-  <br>
-    <div class="row" >
+              <button onclick="loc('hospitals')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Hospitals near {{url}}</button>
+          </div>
+      </div>
+          <div class="row">
+              <div class="col" >
+                <div id="hospitals"  class="simple shadow" >
+                      {% for item in hospitals %}
+                      <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
+                      {% endfor %} 
+                </div>
+              </div>
+      
+      
+      </div>
      
-      <div class="col simple" style="text-align: justify; color: white;">
-        <div class="row">
-          <div class="col">
-            {{desc | safe}}
+          <div class="row">
+              <div class="col text-center">
+                  <button onclick="loc('landmarks')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Landmarks near {{url}}</button>
+              </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-       
-                  <button class="s_bar_btn" style="border:hidden" onclick="readmore()" id="readmore">Read more</button>
-         
-          </div>
-        </div>
+              <div class="row">
+                  <div class="col" >
+                    <div id="landmarks" class="simple shadow">
+                          {% for item in landmarks %}
+                          <p class="ldec" style="display: block; text-align: center; color: white;">{{item}}</p>
+                          {% endfor %} 
+                    </div>
+                  </div>
+            </div>
       </div>
+  </div>
 
 
-    <div class="col-lg-5 col-md-5 col-sm-12">
-     <div class="row">
-       <div class="col">
-        <div class="s_bar_btn" style="width: 100% !important;"><p style="text-align:center;margin-top:5px;">Property Type</p></div>
-       </div>
-       <div class="col">
-        <div class="s_bar_btn" style="color: #686868;width: 100% !important;"><p style="text-align:center;margin-top:5px">{{result[28]}}</p></div>
-       </div>
-     </div>
-    <div class="row">
-      <div class="col">
-        <div class="s_bar_btn" style="width: 100% !important;"><p style="text-align:center;margin-top:5px">Community</p></div>
-      </div>
-      <div class="col">
-        <div class="s_bar_btn" style="color: #686868; width: 100% !important;"><p style="text-align:center;margin-top:5px">{{loc}}</p></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="s_bar_btn" style="width: 100% !important;" ><p style="text-align:center;margin-top:5px">Sub Community</p></div>
-      </div>
-      <div class="col">
-        <div class="s_bar_btn" style="color:  #686868;width: 100% !important;"><p style="text-align:center;margin-top:5px">{{result[27]}}</p></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="s_bar_btn" style="width: 100% !important;"><p style="text-align:center;margin-top:5px">Status</p></div>
-      </div>
-      <div class="col">
-        <div class="s_bar_btn" style="color: #686868;width: 100% !important;"><p style="text-align:center;margin-top:5px">Available</p></div>
-      </div>
-    </div>
 
-
-    </div>
-
-    </div>
-    
-
+  
 </div>
+
 
 
 <div id="amenities" class="container">
@@ -358,73 +390,7 @@
 
   
     <br><br>
-    <div id="map" class="row">
-      <div class="col">
-      <h2 class="proploc" style="font-family: 'Poppins-light', sans-serif;">Map</h2></div>
-    </div>
-    <br>
-    <div class="row justify-content-center" id="map">
-      <div class="col" id="nearby">
-    {{temp | safe}}
-      </div>
-</div>
-<div class="row p_mrg" >
-  <div class="col-4">
-  <div class="row">
-      <div class="col text-center">
-          <button onclick="loc('schools')" class="s_bar_btn" style="cursor: pointer; width: 100% !important;" >Schools near {{url}}</button>
-      </div>
-  </div>
-      <div class="row">
-          <div class="col" >
-              <div id = "schools" class="simple shadow">
-                  {% for item in schools %}
-                  <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
-                  {% endfor %} 
-              </div>
-          </div>
-  
-  
-  </div>
-  </div>
-  <div class="col-4">
-      <div class="row">
-          <div class="col text-center">
 
-              <button onclick="loc('hospitals')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Hospitals near {{url}}</button>
-          </div>
-      </div>
-          <div class="row">
-              <div class="col" >
-                <div id="hospitals"  class="simple shadow" >
-                      {% for item in hospitals %}
-                      <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
-                      {% endfor %} 
-                </div>
-              </div>
-      
-      
-      </div>
-      </div>
-      <div class="col-4">
-          <div class="row">
-              <div class="col text-center">
-                  <button onclick="loc('landmarks')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Landmarks near {{url}}</button>
-              </div>
-          </div>
-              <div class="row">
-                  <div class="col" >
-                    <div id="landmarks" class="simple shadow">
-                          {% for item in landmarks %}
-                          <p class="ldec" style="display: block; text-align: center; color: white;">{{item}}</p>
-                          {% endfor %} 
-                    </div>
-                  </div>
-          
-          
-          </div>
-          </div>
-  </div>
 </div>
 <!--vt-->
 {% if vt != "" %}
@@ -582,7 +548,7 @@ function shuffle(array) {
   
   function suggestions(){
   $('#display').empty();
-  c = shuffle(b).slice(0,1)
+  c = shuffle(b).slice(0,3)
   var data ='';
   $.each(c, function(key, value){
     var area = value.area;
