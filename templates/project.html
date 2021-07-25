@@ -118,7 +118,7 @@
 </div>
 </div>
     <div class="row">
-    <div class="col simple">
+    <div class="col simple" style="color: white;">
         <p style="text-align: justify;">{{overview | safe}}</p>
     </div>
     </div>
@@ -135,9 +135,9 @@
     </div>
         <div class="row">
           <div class="col">
-            <div class="project_details"><img class="p_icons" src="../../static/icons/select.png" alt=""><p class="simple" style="display: inline;">{{details[0]}}</p></div>
-            <div class="project_details"><img src="../../static/icons/calculator.png" class="p_icons" style="height: 25px;" alt=""><p class="simple" style="display: inline;">{{details[1]}}</p></div>
-            <div class="project_details"><img src="../../static/icons/unite.svg" class="p_icons" style="height: 25px;" alt=""><p class="simple" style="display: inline;">{{details[2]}}</p></div>
+            <div class="project_details"><img class="p_icons" src="../../static/icons/select.png" alt=""><p class="simple" style="display: inline;color: white;">{{details[0]}}</p></div>
+            <div class="project_details"><img src="../../static/icons/calculator.png" class="p_icons" style="height: 25px;" alt=""><p class="simple" style="display: inline; color: white;">{{details[1]}}</p></div>
+            <div class="project_details"><img src="../../static/icons/unite.svg" class="p_icons" style="height: 25px;" alt=""><p class="simple" style="display: inline; color: white;">{{details[2]}}</p></div>
         </div>
 </div>
 </div>
@@ -206,9 +206,9 @@
 </div>
     <div class="row">
         <div class="col" >
-            <div id = "schools" class="simple shadow">
+            <div id = "schools" class="simple shadow" >
                 {% for item in schools %}
-                <p class="ldec" style="display: block;">- {{item}}</p>
+                <p class="ldec" style="display: block; color: white; text-align: center;">{{item}}</p>
                 {% endfor %} 
             </div>
         </div>
@@ -226,7 +226,7 @@
             <div class="col" >
               <div id="hospitals"  class="simple shadow" >
                     {% for item in hospitals %}
-                    <p class="ldec" style="display: block;"> - {{item}}</p>
+                    <p class="ldec" style="display: block;  color: white; text-align: center;"> - {{item}}</p>
                     {% endfor %} 
               </div>
             </div>
@@ -244,7 +244,7 @@
                 <div class="col" >
                   <div id="landmarks" class="simple shadow">
                         {% for item in landmarks %}
-                        <p class="ldec" style="display: block;"> - {{item}}</p>
+                        <p class="ldec" style="display: block;  color: white; text-align: center;"> - {{item}}</p>
                         {% endfor %} 
                   </div>
                 </div>

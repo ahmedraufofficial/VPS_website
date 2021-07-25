@@ -277,16 +277,23 @@ header .navbar {
 }
 
 .carousel {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
 .carousel-nav {
-background-color:#001524;;
+background-color:#001524;
 margin-bottom: 10px;
 }
 
+.flickity-button {
+  background: none !important;
+}
+.flickity-prev-next-button .arrow {
+  fill: white !important;
+
+}
 
 header {
   transition: 0.5s;
@@ -313,7 +320,7 @@ width: 100%;
 .carousel-cell-image {
   display: block;
   max-height: 100%;
-  left:50%;  height:400px; width:600px;object-fit:cover;
+  left:50%;  height:400px; width:100%;object-fit:cover;
 }
 /* cell number */
 .carousel-cell:before {
