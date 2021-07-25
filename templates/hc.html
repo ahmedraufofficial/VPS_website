@@ -199,7 +199,7 @@
 
 <!--hotprop-->
 
-<section style="background-color: #001524; height:100%; padding-bottom: 12%;">
+<section style="background-color: #001524; height:100%; padding-bottom: 8%;">
   
   <div class="container">
   <div class="row">
@@ -217,6 +217,7 @@
     </div>
   </div>
 
+
 </div>
 <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);padding-top:4px;padding-bottom: 15px;margin-top: 20px;">
 <div class="container">
@@ -224,13 +225,19 @@
     
       
   </div>
+  
 </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center" style="margin-top: 20px;">
+    <a href="{{url_for('search', tag='hot')}}"><button class="s_bar_btn" style="width: 100px !important;">See All</button></a>
+  </div>
 </div>
 </section>
 
 <!--communities-->
 <section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-<div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+<div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);padding-bottom: 3%; ">
   <div class="container">
     <div class="row">
       <div class="col" style="text-align: center; margin-top: 10%;">
@@ -272,7 +279,7 @@
   </div>
   </div>
 
-<div class="row">
+<div class="row" style="margin-top: 2%; margin-bottom: 3%;">
   <div class="col-lg-6 col-md-6 col-6 d-flex justify-content-center">
     <img src="/static/communities/Yas Island.webp" class="imgres" alt="" >
     <a href="/communities/Yas-Island" style="z-index: 50;">
@@ -290,24 +297,23 @@
       </a>
   </div>
 </div>
-
+<div class="row justify-content-center">
+  <a href="/communities"><button class="s_bar_btn" style="width: 100px !important;">See All</button></a>
+</div>
 
   </div>
 </div>
-  
+
 </section>
 
 <!--Media-->
-<section style="background-color: #001524; background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%; padding-bottom: 12%;">
+<section style="background-color: #001524; background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%; padding-bottom: 10%;">
 
 <div class="container">
   <div class="row">
     <div class="col" style="text-align: center; margin-top: 10%;">
       <h2 id="window_footer" class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MEDIA</h2>
     </div>
-  </div>
-  <div class="row">
-    <div class="col" style="text-align: right; margin-bottom: 2%;"><a title="All Media" href="/media" class = "s_bar_btn">See More Videos</a></div>
   </div>
 </div>
 
@@ -334,7 +340,11 @@
 </div>
 </div>
 </section>
-
+<div class="container">
+  <div class="row justify-content-center" style="margin-top: 20px;">
+    <a href="/media"><button class="s_bar_btn" style="width: 100px !important;">See All</button></a>
+  </div>
+</div>
 </section>
 
 <script>
