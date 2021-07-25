@@ -76,9 +76,10 @@ text-transform: uppercase;
 
 .dropdown-menu {
   border-radius: 0px;
-  color: black;
-  font-size: 8pt;
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.5);
   letter-spacing: 2px;
+  backdrop-filter: blur(5px)
 }
 
 .s_bar_btn_key {
@@ -145,6 +146,10 @@ text-transform: uppercase;
   animation-delay: 0.5s;
 }
 
+.dropdown-item{
+  color: white !important;
+  font-size: 7pt !important;
+}
 
 
 .scrolled header.bg-dark:hover, header.bg-dark:hover {
