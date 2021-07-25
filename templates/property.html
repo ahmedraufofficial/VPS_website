@@ -132,6 +132,7 @@
       
     
     </div>
+    <div id="window_footer"></div>
     </div>
     </div>
     <div class="row">
@@ -203,6 +204,66 @@
   </div>
 </div>
 
+
+
+<div class="row"  style="margin-top: 20px;">
+  <div class="col text-center">
+      <button onclick="loc('schools')" class="s_bar_btn" style="cursor: pointer; width: 100% !important;" >Schools near {{url}}</button>
+  </div>
+</div>
+  <div class="row">
+      <div class="col" >
+          <div id = "schools" class="simple shadow">
+              {% for item in schools %}
+              <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
+              {% endfor %} 
+          </div>
+      </div>
+
+
+</div>
+
+  <div class="row">
+      <div class="col text-center">
+
+          <button onclick="loc('hospitals')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Hospitals near {{url}}</button>
+      </div>
+  </div>
+      <div class="row">
+          <div class="col" >
+            <div id="hospitals"  class="simple shadow" >
+                  {% for item in hospitals %}
+                  <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
+                  {% endfor %} 
+            </div>
+          </div>
+  
+  
+  </div>
+ 
+      <div class="row">
+          <div class="col text-center">
+              <button onclick="loc('landmarks')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Landmarks near {{url}}</button>
+          </div>
+      </div>
+          <div class="row">
+              <div class="col" >
+                <div id="landmarks" class="simple shadow">
+                      {% for item in landmarks %}
+                      <p class="ldec" style="display: block; text-align: center; color: white;">{{item}}</p>
+                      {% endfor %} 
+                </div>
+              </div>
+        </div>
+
+
+
+
+
+
+
+
+
 </div>
   <div class="col text-center">
     <div style="height: 100%; background-color: white; width: 2px;margin-left: 50%;" class="shadow">
@@ -265,55 +326,7 @@
 
 
 
-  <div class="row"  style="margin-top: 20px;">
-      <div class="col text-center">
-          <button onclick="loc('schools')" class="s_bar_btn" style="cursor: pointer; width: 100% !important;" >Schools near {{url}}</button>
-      </div>
-  </div>
-      <div class="row">
-          <div class="col" >
-              <div id = "schools" class="simple shadow">
-                  {% for item in schools %}
-                  <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
-                  {% endfor %} 
-              </div>
-          </div>
-  
-  
-  </div>
- 
-      <div class="row">
-          <div class="col text-center">
 
-              <button onclick="loc('hospitals')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Hospitals near {{url}}</button>
-          </div>
-      </div>
-          <div class="row">
-              <div class="col" >
-                <div id="hospitals"  class="simple shadow" >
-                      {% for item in hospitals %}
-                      <p class="ldec" style="display: block;text-align: center; color: white;">{{item}}</p>
-                      {% endfor %} 
-                </div>
-              </div>
-      
-      
-      </div>
-     
-          <div class="row">
-              <div class="col text-center">
-                  <button onclick="loc('landmarks')" class="s_bar_btn" style="cursor: pointer;width: 100% !important;">Landmarks near {{url}}</button>
-              </div>
-          </div>
-              <div class="row">
-                  <div class="col" >
-                    <div id="landmarks" class="simple shadow">
-                          {% for item in landmarks %}
-                          <p class="ldec" style="display: block; text-align: center; color: white;">{{item}}</p>
-                          {% endfor %} 
-                    </div>
-                  </div>
-            </div>
       </div>
   </div>
 
@@ -514,7 +527,7 @@
     wrapAround: true,
     contain: true,
     imagesLoaded: true,
-    pageDots: true,
+    pageDots: false,
     prevNextButtons: true
   }); 
   </script>

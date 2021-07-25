@@ -76,19 +76,11 @@
         <li class="nav-item active">
           <a title="Communities" href="{{url_for('communities')}}" class="nav-link" >Communities</a>
         </li>
-        <li class="nav-item dropdown active">
-          <a title="All Media"  class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item active">
+          <a title="All Media"  class="nav-link" href="{{url_for('media')}}" id="navbarDropdownMenuLink">
             Media
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a title="Company Videos" class="dropdown-item" href={{url_for('media')}}>Videos</a>
-            <a title="Newsletter" class="dropdown-item" href="/newsletter">Newsletter</a>
-          </div>
         </li>
-        <li class="nav-item active">
-          <a title="Blogs" class="nav-link" href="https://blogs.uhpae.com">Blog</a>
-        </li>
-  
         <li class="nav-item dropdown active">
           <a title="About Us" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             About Us
@@ -291,7 +283,24 @@ $(window).on('load', function() {
       image.src = "/static/images/alt_property.jpg";
       return true;}
   </script>
-  
+  <script>
+var element = document.getElementById("header");
+window.onscroll = (function() {
+   var hT = $('#window_footer').offset().top,
+       hH = $('#window_footer').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+   if (wS > (hT+hH-wH)){
+    element.classList.remove("bg-dark");
+    element.classList.add("bg-dark-const");
+   }
+   else {
+    element.classList.remove("bg-dark-const");
+    element.classList.add("bg-dark");
+   }
+});
+
+  </script>
 <script>
 var pageLink = window.location.href;
 var pageTitle = String(document.title).replace(/\&/g, '%26');
