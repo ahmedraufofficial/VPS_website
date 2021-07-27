@@ -7,7 +7,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="container" style="margin-top:40px;">
+<section style="background-image: url(/static/images/office.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+    <div class="container ">
+      <div class="row" style="padding-top: 90px" >
+        <div class="col">
+        <h2 class="nfont" ><b>CAREERS</b></h2>
+          </div>
+
+            
+</div>
+</div>
+<div class="container">
     <div class="row">
       <div class="col">
         <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('careers')}}"> Careers </a>
@@ -19,24 +30,23 @@
     
    <div class="container-fluid" style=" margin-top: 20px;">
     <div class="container" style="padding-top: 25px; padding-bottom: 25px;">
-    <h2 class="nfont">CAREERS</h2>
-    <p class="simple">Send in Your resumes by clicking the 'Apply Now' button</p>
+    <p class="proploc">Send in Your resumes by clicking the 'Apply Now' button</p>
     </div>
 </div>
 <br>
 
 <div class="container">
-<h4 class="nfont">JOIN OUR TEAM</h4>
+<p class="proploc">JOIN OUR TEAM</p>
 <div class="row">
     <div class="col">
-        <div class="card">
-            <h5 class="card-header" style="font-family: Poppins; color: #A57D2D;">SALES POSITION</h5>
+        <div class="card" style="background-color: rgba(0, 0, 0, 0.6);">
+            <h5 class="card-header proploc">SALES POSITION</h5>
             <div class="card-body">
               <!--h5 class="card-title" style="font-family: Poppins; color: #A57D2D;">Desired Position</h5-->
-              <p class="card-text simple">“The award winning Abu Dhabi based Unique Homes Worldwide Properties LLC is looking for qualified candidates to join our professional Sales team. Candidates with real estate experience has the advantage.</p>
+              <p class="card-text simple" style="color: white;">“The award winning Abu Dhabi based Unique Homes Worldwide Properties LLC is looking for qualified candidates to join our professional Sales team. Candidates with real estate experience has the advantage.</p>
               <div class="row">
                   <div class="col" style="text-align: right;">
-                    <button type="button" class="btn btn-secondary simple" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="s_bar_btn" data-toggle="modal" data-target="#exampleModal">
                       Read All/ Apply
                     </button>
               </div>
@@ -55,22 +65,23 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title simple" id="exampleModalLabel">Apply Now</h5>
+    <div class="modal-content"  style="background-color: rgba(0, 0, 0, 0.6); border-radius: 0px; border: 1px solid #4b4b4b;">
+      <div class="modal-header" style="border: none;">
+        <h5 class="modal-title simple" id="exampleModalLabel"><a href="mailto:hr@uhpae.com?subject=Sales%20Position%20application
+          &body=Attach%20CV%20and%20Write%20cover%20below" style="color: white;">Apply Now</a></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p class="simple">
+        <p class="simple" style="color: white;">
         The candidate for this position will excel at creating and closing new opportunities. By using a consultative approach to selling, this person will use their expertise to identify and qualify leads, leading to sales opportunities with both new and existing customers. 
 </p>
  
-<p class="simple">
+<p class="simple" style="color: white;">
   Responsibilities
 </p>
-<ul class="simple">
+<ul class="simple" style="color: white;">
   <li>
     Meet and exceed sales targets
   </li>
@@ -84,10 +95,10 @@
     Build rapport and establish long term relationships with customers
   </li>
  </ul>
-<p class="simple">
+<p class="simple" style="color: white;">
 Qualifications
 </p>
-<ul class="simple">
+<ul class="simple" style="color: white;">
   <li>
     2-5 years' quota carrying sales experience
     </li>
@@ -101,10 +112,10 @@ Qualifications
     Strong written and verbal communication skills
   </li>   
   </ul>
-  <p class="simple">
+  <p class="simple" style="color: white;">
    <b>Other requirements:</b>
     </p>
-    <ul class="simple">
+    <ul class="simple" style="color: white;">
       <li>
         Own car and driving license
         </li>
@@ -123,13 +134,14 @@ Qualifications
 
 
   </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary simple" data-dismiss="modal">Close</button>
+      <div class="modal-footer" style="border: none;">
         <a href="mailto:hr@uhpae.com?subject=Sales%20Position%20application
-        &body=Attach%20CV%20and%20Write%20cover%20below" class="simple">Apply</a>
+        &body=Attach%20CV%20and%20Write%20cover%20below"><button class="s_bar_btn"> Apply</button></a>
       </div>
     </div>
   </div>
 </div>
 
+</div>
+</section>
 {% endblock %}

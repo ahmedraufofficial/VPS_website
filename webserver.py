@@ -163,7 +163,7 @@ def about():
 
 @app.route('/team')
 def team():
-    return render_template("team.html")
+    return render_template("team.html", total = '11')
 
 @app.route('/careers')
 def careers():
@@ -293,6 +293,7 @@ def search():
     z = 0
     pl = []
     pl1 = []
+    tp = 'You'
     if not request.args:
         conn = sqlite3.connect('main.db')
         c =   conn.cursor()
@@ -324,7 +325,9 @@ def search():
             else:
                 args_rec += (' AND ref_no MATCH '+'"'+request.args.get(i)+'"')
             continue
-
+        
+        if i == 'units':
+            tp = request.args.get(i)
         
         if z == 0:
             args_rec += (i+'='+'"'+request.args.get(i)+'"')
@@ -336,7 +339,7 @@ def search():
             pl1.append(str(request.args.get(i))+ ' Bed')
             continue
         pl1.append(request.args.get(i))
-
+        
     conn = sqlite3.connect('main.db')
     c =   conn.cursor()
     c.row_factory = sqlite3.Row  
@@ -348,7 +351,7 @@ def search():
         a.append(r)
     conn.close()
     a = a[:20]
-    return render_template("search.html", queryRes=a,meta = '', search='Properties for '+",".join(pl1), url = '',pl = pl)
+    return render_template("search.html", queryRes=a,meta = '', search='Properties for '+tp, url = '',pl = pl, args = " | ".join(pl1))
 
 
 

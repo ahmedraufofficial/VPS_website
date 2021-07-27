@@ -25,19 +25,33 @@
 .nav-item {
   font-size: 9pt;  text-transform: uppercase; font-family: "Poppins-light"; letter-spacing: 2px;
 }
-.card:hover .card-content {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,1));
-  width:16rem; margin-left:-20px; height:160px; margin-top: -20px;
-  position: relative;
+.card-content:hover {
+  opacity: 1;
 }
- 
+
+.card-content {
+  position: relative;
+  width:16rem;
+  margin-left:-20px;
+  height:160px;
+  margin-top: -20px;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+}
+
+.modal-backdrop {
+  background-color: rgba(0,0,0,0.1);
+  opacity: 1 !important;
+  backdrop-filter: blur(20px);
+}
 a:hover{
   text-decoration: none !important;
 }
 .card:hover .viewmore{
   display: block;
   margin: 0 auto;
-  margin-top: 25%;
+  margin-top: 23%;
   left: 0;
   right: 0;
   position: absolute;
@@ -51,14 +65,16 @@ color: white;
 letter-spacing: 1px;
 padding: 6px;
 font-size: 8pt;
-width: 16rem;
+width: 14rem;
 text-align: center;
 text-transform: uppercase;
+-webkit-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
  }
 
 .viewmore:hover{
   color: white;
-
 }
 
 .s_bar_btn {
@@ -127,7 +143,7 @@ text-transform: uppercase;
 .bg-dark {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(156, 114, 114, 0) 100%) !important;
   transition: .8s;
-  backdrop-filter: blur(20px)
+  backdrop-filter: blur(100px)
 }
 
 .fixed-top {
@@ -141,7 +157,7 @@ text-transform: uppercase;
 .bg-dark-const {
   background-color: rgba(0, 0, 0, 0.5) !important;
   transition: .8s;
-  backdrop-filter: blur(20px)
+  backdrop-filter: blur(100px)
 }
 
 .dropdown-item{
@@ -316,9 +332,9 @@ header {
 
 .search_transparent_bg {
   background-color: rgba(0, 0, 0, 0.5);
-   position: absolute;
+  
     width: 100%;
-    margin-top: 43vh;
+    
 }
 
 .carousel-cell {
@@ -596,15 +612,14 @@ footer a:hover {
 .close {
   position: absolute;
   top: 0;
-  right: 14px;
-  font-size: 42px;
-  transform: rotate(90deg);
+  right: 2px;
+  font-size: 30px;
   cursor: pointer;
   transition: all 1s ease;
+  color: white;
 }
-
 .close:hover {
-  transform: rotate(135deg);
+  transform: rotate(180deg);
   cursor: pointer;
  
 }
@@ -814,10 +829,22 @@ select:active, select:hover {
 
 .logoname {
   
-  width:70px;
+  width:60px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.logoname:hover{
+  -webkit-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+}
+.nav-item:hover{
+  -webkit-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+}
+
+
 
 .propcap{
 font-size: 22pt;
@@ -1237,10 +1264,6 @@ width: 17rem;
    }
 
 
-   .search_transparent_bg {
-      margin-top: 41vh;
-  }
-  
 
 #footercopyu{
   margin-bottom: 10px;
