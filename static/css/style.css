@@ -213,8 +213,15 @@ transition: 0.5s;
   opacity: 1;
   transition: 0.5s;
 }
-
-
+.pagenumber{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.pagenumber::after{
+  background-color: #4b4b4b;
+}
+.pagenumber:focus{
+  background-color: #4b4b4b;
+}
 .hero-screen{
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
             height: calc(var(--vh, 1vh) * 100);
@@ -833,6 +840,7 @@ select:active, select:hover {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
 .logoname:hover{
   -webkit-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
@@ -843,7 +851,11 @@ select:active, select:hover {
   -moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
   box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
 }
-
+.hotbtn:hover{
+  -webkit-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+}
 
 
 .propcap{

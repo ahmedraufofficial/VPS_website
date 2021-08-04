@@ -161,18 +161,17 @@
 <div class="container">
   <div class="row justify-content-center" style="margin-top: 20px;">
     
-      
+      <input id="current_page" type="hidden" value="1">
         <ul class="pagination">
-          <li class="page-item"><button style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="myFunction('1')" class="page-link" >Prev</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('1')" class="page-link" >1</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('2')" class="page-link" >2</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('3')" class="page-link" >3</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('4')" class="page-link" >4</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('5')" class="page-link" >5</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('6')" class="page-link" >6</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: rgba(0, 0, 0, 0.5); font-size: 9pt;border-color: white;"  class="btn btn-info" onclick="myFunction('7')" class="page-link" >7</button></li>
-          <li class="page-item"><button style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="myFunction('1')" class="page-link" >Next</button></li>
-         
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="prev()" class="page-link" >Prev</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('1')" >1</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('2')" >2</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('3')" >3</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('4')" >4</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('5')" >5</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('6')" >6</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('7')" >7</button></li>
+          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="next()" class="page-link" >Next</button></li>
         </ul>
       
    
@@ -271,9 +270,21 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
 </script>
 
 <script>
-    
-    
+  function prev(){
+    cp = $("#current_page").val();
+    cp = parseInt(cp) - 1;
+    if (cp != 0){
+      myFunction(cp)
+    }
+  }
+  function next(){
+    cp = $("#current_page").val();
+    cp = parseInt(cp) + 1;
+    myFunction(cp)
+  }
+  
   function myFunction(x){
+      $("#current_page").val(x)
       units = $("#units").val();
       propertytype = $("#type").val();
       pricefrom = $("#price").val();
