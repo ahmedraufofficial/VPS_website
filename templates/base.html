@@ -133,26 +133,92 @@
 {% block content %}{% endblock %}
 
 <div style="height: auto;width: 100%;background-color: #001524">
-<section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;padding-bottom: 10%;">
-  <div class="container ">
+<section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;padding-bottom: 5%;">
+  <div class="container" style="margin-bottom: 5%; padding-top: 5%;">
+   
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 5%;">
+
     <div class="row">
-      <div class="col" style="text-align: center; margin-top: 10%; margin-bottom: 10%;">
-        <h2 id="window_footer" class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">UHP & OUR PARTNERS</h2>
+      <div class="col" style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
+        <h2 id="window_footer" class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MORTGAGE CALCULATOR</h2>
       </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-10 col-sm-12">
+        <div class="row">
+      <div class="col-md-8 col-lg-8 col-sm-12">
+        <div class="row">
+          <div class="col-md-4 col-lg-4 col-sm-12">
+            <input type="text" class="s_bar_btn_default" id="pv">
+            <label class="label_default">Property Value</label>
+          </div>
+          <div class="col-md-4 col-lg-4 col-sm-12">
+            <input type="text" class="s_bar_btn_default" id="dp" min="0" max="100">
+            <label class="label_default">Downpayment (%)</label>
+          </div>
+          <div class="col-md-4 col-lg-4 col-sm-12">
+            <input type="text" class="s_bar_btn_default" disabled id="p">
+            <label class="label_default">Loan Amount</label>
+          </div>
+        </div>
+        <div class="row mortgagemrg">
+          <div class="col-md-6 col-lg-6 col-sm-12">
+            <input type="text" class="s_bar_btn_default" id="n">
+            <label class="label_default">Loan Term (Years)</label>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-12">
+            <input type="text" class="s_bar_btn_default" id="r" min="0" max="100">
+            <label class="label_default">Interest Rate (%)</label>
+          </div>
+        </div>
+    
+      </div>
+      <div class="col text-center">
+        <div class="mortgagepad" style="background-color:rgba(0, 0, 0, 0.5);">
+          <div class="row justify-content-center">
+
+              <h2 id="mortgage" class="nfont" style="background-color: transparent; border: none;letter-spacing: 3px; font-family: 'Poppins-bold';"></h2>
+
+          </div>
+          <div class="row justify-content-center">
+
+              <p class="subfooterheader">Installment per Month</p>
+
+          </div>
+          </div>
+      </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+  </div>
+
+  <div class="container ">
+    <div class="row" >
+      <div class="col">
+        <h4 id="window_footer" class="footerheader">UHP AND OUR PARTNER</h4>
+    </div>
     </div>
     </div>
     <div class="container">
     <div  class="row justify-content-between">
-      
+      <div class="col">
         <a href="{{url_for('aldar')}}"><img class="partners" src="/static/images/aldar.png" alt=""></a>
-    
+    </div>
+    <div class="col text-center">
         <a href="{{url_for('bloom')}}"><img class="partners" src="/static/images/bloom.png"  alt=""></a>
-  
+    </div>
+        <div class="col text-center">
         <a href="{{url_for('aldar')}}"><img class="partners" src="/static/images/standalon_logo.png" alt=""></a>
-
+      </div>
+      <div class="col text-center">
         <a  href="{{url_for('imkan')}}"><img class="partners" src="/static/images/imkan.png"   alt=""></a>
-
+      </div>
+      <div class="col text-right">
         <a href="{{url_for('emaar')}}"><img class="partners" src="/static/images/emaar.png" alt=""></a>
+      </div>
       </div>
     </div>
     
@@ -162,7 +228,7 @@
 
   </div>
 
-  <div class="container" style="margin-top: 50px;">
+  <div class="container" style="margin-top: 5%;">
     <div class="row">
       
       <div class="col">
@@ -222,19 +288,8 @@
     <div class="col">
       
       <p style=" text-align: center;" class="subfooterheader" >&copy; Copyright 2020 - Unique Homes Properties.  All rights reserved.</p>
-      <!--ul style="display: inline; float: right; margin-top: -30px; margin-bottom: 1px;" class="list-unstyled">    
-      <li>
-          <a title="UHPAE Facebook" href="https://www.facebook.com/UHPAE/?ref=py_c"><img src="{{url_for('static', filename='icons/fb.jpg')}}" class="iconhover" style="z-index: 100;"></a>
-          <a title="UHPAE Instagram" href="https://www.instagram.com/uhpae/"><img src="{{url_for('static', filename='icons/insta.jpg')}}" class ="iconhover"></a>
-          <a title="UHPAE Linkedin" href="https://ae.linkedin.com/in/uhp"><img src="{{url_for('static', filename='icons/linkedin.jpg')}}" class ="iconhover"></a>
-          <a title="UHPAE SnapChat" href="https://www.snapchat.com/add/uhpae"><img src="{{url_for('static', filename='icons/sc.jpg')}}" class ="iconhover"></a>       
-          <a title="UHPAE Youtube Channel" href="https://www.youtube.com/channel/UC5Df3cOKL60FJaej0P9E3pg"><img src="{{url_for('static', filename='icons/utube.jpg')}}" class ="iconhover"></a>
-        </li>
-       </ul-->
-
     </div>
   </div>
-</div>
 </div>
 
 
@@ -244,6 +299,21 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<script>
+
+  $( ".s_bar_btn_default" ).keyup(function(){
+    var p = $("#pv").val() - (($("#dp").val()/100)*$("#pv").val())
+    $("#p").val(p)
+    var n = $("#n").val()*12
+    var r = $("#r").val()/(12*100)
+    var mth = (p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1)
+    $("#mortgage").empty()
+    $("#mortgage").append("AED "+ Math.round(mth))
+  })
+  window.onload = $("#mortgage").append("AED "+ "----")
+</script>
+
 
 
 <script>
