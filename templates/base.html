@@ -71,7 +71,7 @@
           </a>
         </li>
         <li class="nav-item active">
-          <a title="Property Listing" class="nav-link" href="{{url_for('listing')}}">Property Listing</a>
+          <a title="Property Listing" class="nav-link" href="{{url_for('listing')}}">Property-Listing</a>
         </li>
         <li class="nav-item active">
           <a title="Communities" href="{{url_for('communities')}}" class="nav-link" >Communities</a>
@@ -80,6 +80,9 @@
           <a title="All Media"  class="nav-link" href="{{url_for('media')}}" id="navbarDropdownMenuLink">
             Media
           </a>
+        </li>
+        <li class="nav-item active">
+          <a title="Mortgage Calculator" id="mortgagescrollto"  class="nav-link" href="#">Mortgage-Calculator</a>
         </li>
         <li class="nav-item dropdown active">
           <a title="About Us" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,15 +135,15 @@
 
 {% block content %}{% endblock %}
 
-<div style="height: auto;width: 100%;background-color: #001524">
+<div  id="mortgagescroll" style="height: auto;width: 100%;background-color: #001524">
 <section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;padding-bottom: 5%;">
-  <div class="container" style="margin-bottom: 5%; padding-top: 5%;">
+  <div class="container" style="margin-bottom: 5%; padding-top: 6%;">
    
     <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 5%;">
 
     <div class="row">
       <div class="col" style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
-        <h2 id="window_footer" class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MORTGAGE CALCULATOR</h2>
+        <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MORTGAGE CALCULATOR</h2>
       </div>
     </div>
 
@@ -312,6 +315,11 @@
     $("#mortgage").append("AED "+ Math.round(mth))
   })
   window.onload = $("#mortgage").append("AED "+ "----")
+  $("#mortgagescrollto").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#mortgagescroll").offset().top
+    }, 1500);
+});
 </script>
 
 
