@@ -91,6 +91,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a title="Our Message" class="dropdown-item" href={{url_for('about')}}>Our Message</a>
             <a title="Our Team" class="dropdown-item" href={{url_for('team')}}>Our Team</a>
+            <a title="Awards" id="awardscroll" class="dropdown-item" href="#">Awards</a>
             <a title="Careers" class="dropdown-item" href={{url_for('careers')}}>Careers</a>
             <a title="CRM LOGIN" class="dropdown-item" href={{url_for('careers')}}>CRM LOGIN</a>
           </div>
@@ -139,55 +140,64 @@
 <section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;padding-bottom: 5%;">
   <div class="container" style="margin-bottom: 5%; padding-top: 6%;">
    
-    <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 5%;">
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 3%;backdrop-filter: blur(20px);">
 
-    <div class="row">
-      <div class="col" style="text-align: center; margin-top: 5%; margin-bottom: 5%;">
-        <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MORTGAGE CALCULATOR</h2>
-      </div>
-    </div>
+
 
     <div class="row justify-content-center">
       <div class="col-lg-10 col-md-10 col-sm-12">
         <div class="row">
-      <div class="col-md-8 col-lg-8 col-sm-12">
+      <div class="col-md-9 col-lg-9 col-sm-12">
         <div class="row">
-          <div class="col-md-4 col-lg-4 col-sm-12">
-            <input type="text" class="s_bar_btn_default" id="pv">
-            <label class="label_default">Property Value</label>
+          <div class="col" style="text-align: center; margin-top: 7.5%; ">
+            <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MORTGAGE CALCULATOR</h2>
           </div>
-          <div class="col-md-4 col-lg-4 col-sm-12">
-            <input type="text" class="s_bar_btn_default" id="dp" min="0" max="100">
-            <label class="label_default">Downpayment (%)</label>
-          </div>
-          <div class="col-md-4 col-lg-4 col-sm-12">
-            <input type="text" class="s_bar_btn_default" disabled id="p">
-            <label class="label_default">Loan Amount</label>
+        </div>
+
+        <div class="row ">
+          <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+            <input type="text" class="s_bar_btn_default" style="width: 49% !important; display:inline;" id="pv" placeholder="Property Value">
+            <!--label class="label_default">Property Value</label-->
+
+            <input type="text" class="s_bar_btn_default" style="width: 49% !important; display: inline;" id="dp" min="0" max="100" placeholder="Downpayment (%)">
+            <!--label class="label_default">Downpayment (%)</label-->
           </div>
         </div>
         <div class="row mortgagemrg">
-          <div class="col-md-6 col-lg-6 col-sm-12">
-            <input type="text" class="s_bar_btn_default" id="n">
-            <label class="label_default">Loan Term (Years)</label>
-          </div>
-          <div class="col-md-6 col-lg-6 col-sm-12">
-            <input type="text" class="s_bar_btn_default" id="r" min="0" max="100">
-            <label class="label_default">Interest Rate (%)</label>
+          <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+            <input type="text" class="s_bar_btn_default"  style="width: 49% !important; display: inline;" id="n" placeholder="Loan Term (Years)">
+            <!--label class="label_default">Loan Term (Years)</label-->
+
+            <input type="text" class="s_bar_btn_default"  style="width: 49% !important; display: inline;" id="r" min="0" max="100" placeholder="Interest Rate (%)">
+            <!--label class="label_default">Interest Rate (%)</label-->
           </div>
         </div>
     
       </div>
-      <div class="col text-center">
-        <div class="mortgagepad" style="background-color:rgba(0, 0, 0, 0.5);">
+      <div class="col text-center" style=" margin-top: 3%;">
+        <div style="-webkit-box-shadow: 0px 10px 19px 4px #000000; box-shadow: 0px 10px 19px 4px #000000; padding-bottom: 2%;">
           <div class="row justify-content-center">
 
-              <h2 id="mortgage" class="nfont" style="background-color: transparent; border: none;letter-spacing: 3px; font-family: 'Poppins-bold';"></h2>
+              <h2 id="mortgage" class="nfont" style="background-color: transparent; border: none;letter-spacing: 3px; font-family: 'Poppins-bold'; font-size: 22pt;margin-top: 5px;"></h2>
 
           </div>
           <div class="row justify-content-center">
 
-              <p class="subfooterheader">Installment per Month</p>
+              <p class="subfooterheader" style="margin-top: -5px;">Installment per Month</p>
+              
+          </div>
+        <div class="row justify-content-center">
+          <div style="border-bottom: 1px solid white; width: 80%;"></div>
+        </div>
+          <div class="row justify-content-center">
 
+            <h3 id="p" class="nfont" style="background-color: transparent; border: none;letter-spacing: 3px; font-family: 'Poppins-bold'; font-size: 17pt;margin-top: 5px;"></h3>
+
+        </div>
+          <div class="row justify-content-center">
+
+            <p class="subfooterheader" style="margin-top: -5px;">Total Loan Amount</p>
+          
           </div>
           </div>
       </div>
@@ -198,7 +208,102 @@
 
   </div>
 
-  <div class="container ">
+
+  <div class="container " id="award">
+    <div class="row" >
+      <div class="col">
+        <h4 class="footerheader">AWARDS AND ACHIEVEMENTS</h4>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+     
+      
+     
+      <div class="row">
+
+
+        <div class="col text-center awardmrg" >
+        <div  style="background-color: rgba(0, 0, 0, 0.5);padding-top: 50px;padding-bottom: 50px; ">
+          <div class="row">
+            <div class="col-lg-4 col-sm-12 col-md-4 text-center">
+              <img src="/static/award/trophy2.png" alt="" style="width:75%;-webkit-box-shadow: 0px 10px 19px 4px #000000; box-shadow: 0px 10px 19px 4px #000000; ">
+            </div>
+          <div class="col awardborder">
+
+            <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold'; margin-top: 20px;">ALDAR HONOUR AWARDS</h2>
+            <p class="footerheader" style="text-align: justify;padding:15px;">We are the proud recipient of AlDar honours awards 2020 for "Best Improved Agency". Unique Homes Worldwide Properties LLC was nominated for "Best Customer Service". This wouldn't have been achieved without the hard work & commitment of our team, as well as the support of our clients and partners. </p>
+          
+          
+          </div>
+          </div>
+        </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-lg-4 col-md-4 col-sm-12">
+
+         <div class="row">
+          
+         
+         
+          <div class="block">
+            <div class="cube">
+              <div class="face front"><img src="/static/award/award7.jpg" alt="" style="width: 100%;"></div>
+              <div class="face back"><img src="/static/award/award5.jpg" alt="" style="width: 100%;"></div>
+              <div class="face right"><img src="/static/award/award3.jpg" alt="" style="width: 100%;"></div>
+              <div class="face left"><img src="/static/award/award4.jpg" alt="" style="width: 100%;"></div>
+              <div class="face top"><img src="/static/award/award2.jpg" alt="" style="width: 100%;"></div>
+              <div class="face bottom"><img src="/static/award/award6.jpg" alt="" style="width: 100%;"></div>
+            </div>
+        </div>
+
+        
+        </div>
+
+        <div class="row">
+        <div class="block1">
+
+
+          <div class="cube1">
+            <div class="face1 top1"><img src="/static/award/shadow.png" alt="" style="width: 100%;opacity: 0.2; filter: invert(0.5); backdrop-filter: blur(20px);"></div>
+          </div>
+
+      </div>
+      </div>
+  
+
+
+      </div>
+
+      
+
+ 
+    
+    </div>
+
+ 
+</div>
+   
+ 
+  
+  <div style="margin-top: 20px;border-bottom: 1px solid rgba(255,255,255,.25);">
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="container" style="margin-top: 5%;">
     <div class="row" >
       <div class="col">
         <h4 id="window_footer" class="footerheader">UHP AND OUR PARTNER</h4>
@@ -305,19 +410,35 @@
 
 <script>
 
+function mortgagecheck(){
+  if ($("#r").val() > 100 || $("#dp").val() > 100){
+      alert("Choose a value below 100 for Downpayment and Interest Rate")
+    }
+}
+
+
+
   $( ".s_bar_btn_default" ).keyup(function(){
     var p = $("#pv").val() - (($("#dp").val()/100)*$("#pv").val())
-    $("#p").val(p)
+    $("#p").empty()
+    $("#p").append("AED "+ p)
     var n = $("#n").val()*12
     var r = $("#r").val()/(12*100)
+    mortgagecheck();
     var mth = (p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1)
     $("#mortgage").empty()
     $("#mortgage").append("AED "+ Math.round(mth))
   })
   window.onload = $("#mortgage").append("AED "+ "----")
+  window.onload = $("#p").append("AED "+ "----")
   $("#mortgagescrollto").click(function() {
     $([document.documentElement, document.body]).animate({
         scrollTop: $("#mortgagescroll").offset().top
+    }, 1500);
+});
+$("#awardscroll").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#award").offset().top-100
     }, 1500);
 });
 </script>

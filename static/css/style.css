@@ -19,6 +19,103 @@
   font-weight: 300;
   font-display: swap;
 }
+
+
+.block {
+  width: 124px;
+  height: 124px;
+  perspective: 600px;
+  margin: 100px auto 0;
+  margin-bottom: 0px;
+  margin-top: 80px;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(255, 255, 255,0.3);
+ box-shadow: 0px 0px 22px -2px rgba(255,255,255,0.3);
+ -webkit-box-shadow: 0px 0px 22px -2px rgba(255,255,255,0.3);
+ -moz-box-shadow: 0px 0px 22px -2px rgba(255,255,255,0.3);
+}
+.top {
+  transform: rotateX(90deg) translateZ(62px);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(62px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(62px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(62px);
+}
+
+.front {
+  transform: rotateX(0deg) translateZ(62px);
+}
+.back {
+  transform: rotateX(-180deg) translateZ(62px);
+}
+@keyframes spin {
+  from {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+  to {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
+
+.cube {
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: spin 10s infinite linear;
+}
+
+.block1 {
+  width: 150px;
+  height: 150px;
+  perspective: 600px;
+  margin: 100px auto 0;
+  margin-top: -45px;
+}
+.face1 {
+  position: absolute;
+  width: 100%;
+  height:0;
+}
+.top1 {
+  transform: rotateX(-90deg) translateY(-75px) translateZ(75px);
+}
+
+
+@keyframes spin1 {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+
+.cube1 {
+  margin-top: 50px;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: spin1 10s infinite linear;
+}
+
+
+.awardborder {
+  border-left: 1px solid white;
+}
+
+
 .viewmore {
   display: none;
 }
@@ -97,13 +194,14 @@ box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
   width: 99% !important;
   height: 30px;
   margin: 2px;
-  background-color: white;
-  color: black;
+  background-color: transparent;
+  color: white;
   font-size: 8pt;
-  letter-spacing: 2px;
-  text-align: right;
+  border: 1px solid white;
   position: relative;
-  padding-right: 8px;
+  padding-left: 8px;
+  -webkit-box-shadow: inset 0px 2px 19px 4px #000000; 
+box-shadow: inset 0px 2px 19px 4px #000000;
 }
 
 .label_default{
@@ -127,7 +225,7 @@ box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
 }
 
 .mortgagemrg{
-  margin-top: 25px;
+  margin-top: 5px;
 }
 .mortgagepad{
   padding-bottom: 12px;
@@ -594,9 +692,9 @@ opacity: 0.5;
 }
 
 .shadow {
-  -webkit-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
-  box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px -19px 48px -20px rgba(0,0,0,1) !important;
+  -webkit-box-shadow: 0px -19px 48px -20px rgba(0,0,0,1) !important;
+  -moz-box-shadow: 0px -19px 48px -20px rgba(0,0,0,1) !important;
   font-size: 11pt;
 }
 .darkshadow{
@@ -1314,6 +1412,9 @@ h4 {
 width: 17rem;
    }
 
+   .awardborder {
+    border-left:none;
+  }
 
 
 #footercopyu{
