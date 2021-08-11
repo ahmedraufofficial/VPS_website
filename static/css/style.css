@@ -27,7 +27,7 @@
   perspective: 600px;
   margin: 100px auto 0;
   margin-bottom: 0px;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 .face {
   position: absolute;
@@ -115,6 +115,10 @@
   border-left: 1px solid white;
 }
 
+.awardmrg2{
+  padding-top:50px;
+  padding-bottom:50px;
+}
 
 .viewmore {
   display: none;
@@ -1415,7 +1419,10 @@ width: 17rem;
    .awardborder {
     border-left:none;
   }
-
+  .awardmrg2{
+    padding-bottom:0px;
+    padding-top: 20px;
+  }
 
 #footercopyu{
   margin-bottom: 10px;
