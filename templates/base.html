@@ -426,13 +426,13 @@ function mortgagecheck(){
   $( ".s_bar_btn_default" ).keyup(function(){
     var p = $("#pv").val() - (($("#dp").val()/100)*$("#pv").val())
     $("#p").empty()
-    $("#p").append("AED "+ p)
+    $("#p").append("AED "+ p.toLocaleString())
     var n = $("#n").val()*12
     var r = $("#r").val()/(12*100)
     mortgagecheck();
     var mth = (p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1)
     $("#mortgage").empty()
-    $("#mortgage").append("AED "+ Math.round(mth))
+    $("#mortgage").append("AED "+ Math.round(mth).toLocaleString())
   })
   window.onload = $("#mortgage").append("AED "+ "----")
   window.onload = $("#p").append("AED "+ "----")
