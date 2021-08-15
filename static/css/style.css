@@ -19,6 +19,17 @@
   font-weight: 300;
   font-display: swap;
 }
+.partnersgap{
+  margin-top:130px;
+}
+
+.partners1{
+  left: 25%;right: 25%;
+  width: 135px;
+}
+.partners2{
+right: 0;
+}
 
 
 .block {
@@ -1091,8 +1102,8 @@ font-size: 8pt;
   margin-top: 50px;
 }
 .footerheader{
-  font-size: 9pt;
-  font-family: 'Poppins-light';
+  font-size: 8pt;
+  font-family: 'Poppins-bold';
   color: white;
   text-align: left;
 }
@@ -1424,6 +1435,15 @@ width: 17rem;
     padding-top: 20px;
   }
 
+
+  .partners1{
+    width: 50px;
+  }
+  .partners2{
+    left: 25%;right: 25%;
+  }
+  
+
 #footercopyu{
   margin-bottom: 10px;
 }
@@ -1639,9 +1659,10 @@ display: none;
     font-size: 10pt;
   }
   .partnersgap{
-    margin-top: 10px;
+    margin-top:60px;
   }
   .partners{
+
     width: 50px;
   }
   

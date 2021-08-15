@@ -107,7 +107,9 @@ def hotproperties():
     c.execute('''SELECT rowid,* FROM properties WHERE title MATCH ?''',['{}'.format('hot')])
     result = c.fetchall()
     for r in result:
-        queryRes.append(dict(r))
+        newdict = dict(r)
+        newdict['price'] = "{:,}".format(newdict['price'])
+        queryRes.append(newdict)
     conn.commit()
     conn.close()
     random.shuffle(queryRes)
@@ -239,10 +241,10 @@ def prop(area,propertyname,propertyid):
     c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=? AND price BETWEEN ? AND ?',(result[4], result[30],result[28], price_range[0], price_range[1]))
     suggest = c.fetchall()
     for r in suggest:
-        r = dict(r)
-        a.append(r)
+        newdict = dict(r)
+        newdict['price'] = "{:,}".format(newdict['price'])
+        a.append(newdict)
     suggestions = a
-
     conn.commit()
     conn.close()
 
@@ -301,8 +303,9 @@ def search():
         c.execute('SELECT rowid, * FROM properties')
         result = c.fetchall()
         for r in result:
-            r = dict(r)
-            a.append(r)
+            newdict = dict(r)
+            newdict['price'] = "{:,}".format(newdict['price'])
+            a.append(newdict)
         conn.close()
         return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')   
     
@@ -347,8 +350,9 @@ def search():
     c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec+';')
     result = c.fetchall()
     for r in result:
-        r = dict(r)
-        a.append(r)
+        newdict = dict(r)
+        newdict['price'] = "{:,}".format(newdict['price'])
+        a.append(newdict)
     conn.close()
     a = a[:20]
     return render_template("search.html", queryRes=a,meta = '', search='Properties for '+tp, url = '',pl = pl, args = " | ".join(pl1))
@@ -411,8 +415,9 @@ def livesearch():
         c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec)
         result = c.fetchall()
         for r in result:
-            r = dict(r)
-            a.append(r)
+            newdict = dict(r)
+            newdict['price'] = "{:,}".format(newdict['price'])
+            a.append(newdict)
         a = a[sp:ep]
         conn.close()
         return jsonify(queryres=a)

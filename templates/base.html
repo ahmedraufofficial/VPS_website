@@ -137,7 +137,7 @@
 {% block content %}{% endblock %}
 
 <div  id="mortgagescroll" style="height: auto;width: 100%;background-color: #001524">
-<section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;padding-bottom: 5%;">
+<section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;">
   <div class="container" style="margin-bottom: 5%; padding-top: 6%;">
    
     <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 3%;backdrop-filter: blur(20px);">
@@ -290,15 +290,6 @@
 </div>
    
  
-  
-  <div style="margin-top: 20px;border-bottom: 1px solid rgba(255,255,255,.25);">
-
-  </div>
-
-
-
-
-
 
 
 
@@ -309,49 +300,58 @@
         <h4 id="window_footer" class="footerheader">UHP AND OUR PARTNER</h4>
     </div>
     </div>
-    </div>
-    <div class="container">
-    <div  class="row justify-content-between">
+    <div class="row">
       <div class="col">
-        <a href="{{url_for('aldar')}}"><img class="partners" src="/static/images/aldar.png" alt=""></a>
+          
+  <div style="border-bottom: 1px solid rgba(255,255,255,.25);">
+
+  </div>
+
+      </div>
     </div>
-    <div class="col text-center">
-        <a href="{{url_for('bloom')}}"><img class="partners" src="/static/images/bloom.png"  alt=""></a>
     </div>
-        <div class="col text-center">
-        <a href="{{url_for('aldar')}}"><img class="partners" src="/static/images/standalon_logo.png" alt=""></a>
+    <div class="container partnersgap">
+    <div  class="row justify-content-between">
+      <div class="col"  style="position: relative;">
+        <a href="{{url_for('aldar')}}"><img  style="position: absolute;bottom: 0;" class="partners" src="/static/images/aldar2.png" alt=""></a>
+    </div>
+    <div class="col" style="position: relative;">
+        <a href="{{url_for('bloom')}}" ><img style="position: absolute;bottom: 0;" class="partners" src="/static/images/bloom.png"  alt=""></a>
+    </div>
+        <div class="col" style="position: relative;">
+        <a href="{{url_for('aldar')}}"><img style="position: absolute;bottom: 0; " class="partners1" src="/static/images/standalon_logo.png" alt=""></a>
       </div>
-      <div class="col text-center">
-        <a  href="{{url_for('imkan')}}"><img class="partners" src="/static/images/imkan.png"   alt=""></a>
+      <div class="col" style="position: relative;">
+        <a href="{{url_for('emaar')}}"><img style="position: absolute;bottom: 0;" class="partners partners2" src="/static/images/emaar.png" alt=""></a>
       </div>
-      <div class="col text-right">
-        <a href="{{url_for('emaar')}}"><img class="partners" src="/static/images/emaar.png" alt=""></a>
+      <div class="col" style="position: relative;">
+        <a  href="{{url_for('imkan')}}"><img style="position: absolute;bottom: 0;" class="partners partners2" src="/static/images/imkan.png"   alt=""></a>
       </div>
+
       </div>
     </div>
     
  
   
-  <div style="margin-top: 20px;border-bottom: 1px solid rgba(255,255,255,.25);">
+  <div style="margin-top: 20px;background-color: rgba(0, 0, 0, 0.2); padding-top: 1%;">
 
-  </div>
-
-  <div class="container" style="margin-top: 5%;">
+  <div class="container" style="margin-top: 1%; margin-bottom: 1%;">
     <div class="row">
       
       <div class="col">
         <div class="row">
           <div class="col">
-            <h4 class="footerheader">SUBSCRIBE</h4>
+            <h6 class="footerheader">Subscribe</h6>
         </div>
         </div>
         
         <div class="row">
-        <div class="col" >
+        <div class="col">
 
-        <form method="post" autocomplete="off" name="base"  style="background-color: rgba(0, 0, 0, 0.75); padding:5px;">
-          <input type="text" name="email" class="s_bar_btn" style="width: 150px !important;" placeholder="Email" required>
-          <input type="submit" value="Submit" class="s_bar_btn" style="width: 80px !important; background-color:#4b4b4b;color: white;">
+        <form method="post" autocomplete="off" name="base"  style="background-color: rgba(0, 0, 0, 1); padding:5px;margin-top: 16px;">
+          <p class="subfooterheader" style=" margin-bottom: 0px !important;">Get the latest property alerts!</p>
+          <input type="text" name="email" class="s_bar_btn" style="width: 150px !important; height: 20px !important; font-size: 6pt;" placeholder="Email" required>
+          <input type="submit" value="Submit" class="s_bar_btn" style="width: 80px !important;height: 20px !important; background-color:#4b4b4b;color: white; font-size: 6pt;">
         </form>   
         
         </div>
@@ -361,7 +361,7 @@
     
     <div class="col text-center">
       <ul class="list-unstyled">
-        <li class="footerheader"><a>ABOUT UHP</a></li>
+        <li class="footerheader"><a>About UHP</a></li>
         <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('about')}}">Our Story</a></li>
         <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('team')}}">Meet our team</a></li>
         <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('listing')}}">Why choose us</a></li>
@@ -371,7 +371,7 @@
     </div>
     <div class="col text-center">
       <ul class="list-unstyled">
-        <li class="footerheader"><a>CONTACT US</a></li>
+        <li class="footerheader"><a>Contact Us</a></li>
         <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: white;" href="#">Phone - +97126439099</a></li>
         <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="#">Email - welcome@uhpae.com</a></li>
         <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('careers')}}" style="z-index: 100;">Careers</a></li>
@@ -379,7 +379,7 @@
     </div>
     <div class="col text-center">
       <ul class="list-unstyled">
-        <li class="footerheader"><a>VISIT US</a></li>
+        <li class="footerheader"><a>Visit Us</a></li>
         <li style="margin-top: 10px;" class="subfooterheader"><a style="font-family:'Poppins-light';text-decoration: none; color: white;" href="#">Office No. 1101, P.O.Box 29204 A.D University Tower, Al Nahyan</a></li>
         </ul>
     </div>
@@ -388,17 +388,22 @@
     </div>
   </div>
 
-</section>
 
-<div style="border-bottom: 1px solid rgba(255,255,255,.25);"></div>
-<div class="container"style="padding-top: 10px;">
-  <div class="row">
-    <div class="col">
-      
-      <p style=" text-align: center;" class="subfooterheader" >&copy; Copyright 2020 - Unique Homes Properties.  All rights reserved.</p>
+  <div style="border-bottom: 1px solid rgba(255,255,255,.25);"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+
+        
+        <p style="margin: auto;padding-top: 15px; padding-bottom: 15px;" class="subfooterheader" >&copy; Copyright 2020 - Unique Homes Properties.  All rights reserved.</p>
+   
     </div>
   </div>
+  
+  
+
 </div>
+
+</section>
 
 
 
