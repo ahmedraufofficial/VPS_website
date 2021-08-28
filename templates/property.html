@@ -12,47 +12,6 @@
 <section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
   <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
 
-<div id="scrdisp" style="width: 100%;border-bottom: 1px solid #000;position: fixed; top: 10%;z-index: 100; background-color: white;">
-  <div class="container">
-<br>
-    <div class="row">
-      <div class="col">
-      <h2 style="font-family: 'Poppins'; color: #144A86;font-size: 12pt;"><b>{{result[27]}}</b></h2>
-      </div>
-      <div class="col">
-      <h2 style="font-family: 'Poppins'; color: #144A86;font-size: 12pt; margin-left: auto;"><b>AED {{result[29]}}</b></h2>
-        </div>
-    </div>
-    
-    <div class="row">
-      <div class="col">
-      <h2 style="font-family: 'Poppins-light', sans-serif; font-size: 11pt;"><u>{{result[3]}}</u></h2>
-     </div>
-     <div class="col">
-     <button onclick="drop()" style="background-color:  #0e4e88;; color: white; 
-      border: hidden; width: 120px; height: 20px; font-family: 'Poppins-light'; border-radius: 5px; margin-left: auto; margin-right: 10px; margin-top: 2px;font-size: 10pt;">Book Viewing</button>
-  <button onclick="mapdrop()" style="background-color:  #0e4e88;; color: white; 
-  border: hidden; width: 120px; height: 20px; font-family: 'Poppins-light'; border-radius: 5px;margin-top: 2px; font-size: 10pt;">Find Location</button>
-  </div>  
-  </div>
-  <div class="row"><div class="col"><p style = "font-family: 'Poppins-light', sans-serif; font-size: 11pt;">{{result[2]}}</p></div>
-  </div>
-</div>
-<div class="container" >
-  <div class="row">
-    <div class="col-11"></div>
-    <div class="col-1">
-      <div  style="position: fixed; bottom: 0;z-index: 50; margin-bottom: 20px;">
-        <div class="row" style="margin-bottom: 7px; ">
-  <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20"><img class = "ikon2" style="cursor: pointer;" src="/static/icons/003-whatsapp.svg"></a>
-  </div><div class="row">
-  <a href="tel:+97126439099"><img class="ikon2" style="cursor: pointer; background-color: white; border-radius: 25px;" src="/static/icons/001-phone-call.svg"></a>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 
 
@@ -118,11 +77,7 @@
         </div>
       </div>
     </div>
-  <!--div class="col text-right">
-    
-    <a href="tel:+97126439099" class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif; display: inline; "><img style="width: 15px; margin-right: 2px;" src="/static/icons/phonecall.png">Contact</a>
-        <a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20{{result[7]}}%20property%20for%20sale.%20Link-http://uhpae.com/property/{{result[7]}}%20" class="saaa3" style="margin-left:5px;color: #8e8a8a;font-family: 'Poppins-light', sans-serif; display: inline;  "><img style="width: 15px; margin-right: 2px;" src="/static/icons/whatsapp.png">Whatsapp</a>
-</div-->
+
 </div>
 
       <div class="row">
@@ -516,7 +471,7 @@
     var elmnt = document.getElementById("drop");
     elmnt.scrollIntoView();
   }
-  document.getElementById('scrdisp').style.display="none";
+  
     var all = []
     var x = {{images|tojson}}
     var imagedata = '';

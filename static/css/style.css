@@ -30,6 +30,21 @@
 .partners2{
 right: 0;
 }
+.tv{
+  box-shadow: 25px 3px 33px 3px rgba(0,0,0,1);
+  -webkit-box-shadow: 25px 3px 33px 3px rgba(0,0,0,1);
+  -moz-box-shadow: 25px 3px 33px 3px rgba(0,0,0,1);
+  border: 2px solid rgb(0, 0, 0);
+  height: 23%;
+  width: 17%;
+  margin: auto;
+  left: 0;
+  right: 0; 
+  top: 0; 
+  bottom: 0; 
+  margin-top: 12.8%; 
+  position: absolute;
+}
 
 
 .block {
@@ -39,6 +54,7 @@ right: 0;
   margin: 100px auto 0;
   margin-bottom: 0px;
   margin-top:55px;
+  margin-left: 50px;
 }
 .face {
   position: absolute;
@@ -91,7 +107,8 @@ right: 0;
   height: 150px;
   perspective: 600px;
   margin: 100px auto 0;
-  margin-top: -45px;
+  margin-top: -25px;
+  margin-left:30px;
 }
 .face1 {
   position: absolute;
@@ -100,16 +117,6 @@ right: 0;
 }
 .top1 {
   transform: rotateX(-90deg) translateY(-75px) translateZ(75px);
-}
-
-
-@keyframes spin1 {
-  from {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  to {
-    transform: rotateX(0deg) rotateY(360deg);
-  }
 }
 
 .cube1 {
@@ -121,6 +128,37 @@ right: 0;
   animation: spin1 10s infinite linear;
 }
 
+@keyframes spin1 {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}
+
+.face2 {
+  position: absolute;
+  width: 99%;
+  height:auto;
+  
+}
+
+.back2 {
+  transform:  rotateX(0deg) ;
+
+}
+
+.teamtext {
+  margin-top: -20px;opacity: 0.9; font-family: 'Poppins';text-transform: uppercase;
+}
+
+.teamshadow{
+  box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
+  -webkit-box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
+  width: 80% !important;
+}
 
 .awardborder {
   border-left: 1px solid white;
@@ -131,6 +169,9 @@ right: 0;
   padding-bottom:50px;
 }
 
+.awardmrg {
+  width: 96.5%;
+}
 .viewmore {
   display: none;
 }
@@ -217,6 +258,10 @@ box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
   padding-left: 8px;
   -webkit-box-shadow: inset 0px 2px 19px 4px #000000; 
 box-shadow: inset 0px 2px 19px 4px #000000;
+}
+
+.teamdesc{
+  width: 80%; text-align: justify;
 }
 
 .label_default{
@@ -613,56 +658,16 @@ opacity: 0.5;
 }
 
 
-
-
-
-.adhd h6{
-  opacity: 0;
-  transition: 0.8s;
-  transform: translate(-50%, -50%);
-}
-.adhd:hover h6{
-  opacity: 1;
-}
-
 .searchbg{
   background-color: rgba(0, 0, 0, 0.5); position: absolute; width: auto; height: auto; padding-top: 20px; padding-bottom: 20px; margin-top: 10%;
 }
 
 
-.flap {
-  display: block;
-  height: auto;
+
+.overlay:hover, .overlay1:hover {
+  opacity: 1; 
 }
 
-.ok:hover{
-  background-position: right center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  
-}
-
-
-
-
-.overlay2 {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 94.8%;
-  margin-left: 5.2%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(165,125,45,0.5);
-  
-}
-
-.overlay:hover, .overlay1:hover, .overlay2:hover{
-  opacity: 1;
-  
-}
 .texty1 {
   color: white;
   font-size: 30px;
@@ -676,29 +681,6 @@ opacity: 0.5;
   text-align: center;
 }
 
-
-.mediabtngold{
-  border-radius: 0px;  font-family: 'Poppins'; font-size: 14pt; font-weight: bold; border-top: hidden; border-right: hidden;border-bottom: hidden; border-left: 4px solid #A57D2D;color:#0e4e88;
-  background: linear-gradient(to right, #A57D2D 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all .5s ease-out;
-}
-.mediabtngold:hover {
-  background-position: left bottom;
-}
-
-.mediabtnblue{
-  border-radius: 0px;  font-family: 'Poppins'; font-size: 14pt; font-weight: bold; border-top: hidden; border-right: hidden;border-bottom: hidden; border-left: 4px solid #0e4e88;color:#A57D2D;
-  background: linear-gradient(to right, #0e4e88 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all .5s ease-out;
-  
-}
-.mediabtnblue:hover {
-  background-position: left bottom;
-}
 
 .navbar {
   font-family: 'Poppins-light', sans-serif !important;
@@ -729,8 +711,6 @@ body { font-family: sans-serif; }
 
 footer {
   background: white;
-  /*background: -webkit-linear-gradient(59deg, #A57D2D);
-  background: linear-gradient(59deg, #A57D2D);*/
   color: white;
   margin-top:100px;
 }
@@ -758,13 +738,6 @@ footer a:hover {
   background-color: white;
 }
 
-
-.card-img-caption {
-  border-top-left-radius: calc(.25rem - 1px);
-  border-top-right-radius: calc(.25rem - 1px);
-  border-radius: 20% !important;
-}
-  
 
 .close {
   position: absolute;
@@ -864,19 +837,8 @@ color: white;
   width: 15px;
 }
 
-
-.card-font{
-  font-family: 'Poppins';
-}
-
 .btn-primary{
-  
   border: 0px;
-}
-
-.wfont{
-  font-family: Poppins;
-  color: white;
 }
 
 .card-desc  {
@@ -885,16 +847,8 @@ color: white;
   font-size: 11pt;
 }
 
-
 html {
   scroll-behavior: smooth;
-}
-
-.parallax{
-  /*background: url('../images/bg1.jpeg') repeat fixed 100%;*/
-
-  background-size: cover;
-
 }
 
 .nice{
@@ -902,75 +856,14 @@ html {
   font-family: 'Poppins-light', sans-serif;
 }
 
-
-
 .simple{
 font-family: 'Poppins-light';
 color: #4b4b4b;
 font-size: 9pt;
 }
 
-
-.nice-white{
-  color: black;
-  font-size: 12pt;
-  font-family: 'Poppins-light', sans-serif;
-}
-
-.nice-white:hover {
-  color: white;
-  cursor: pointer;
-  -webkit-transition: color 1s ease-out;
-  -moz-transition: color 1s ease-out;
-  -o-transition: color 1s ease-out;
-  transition: color 1s ease-out;
-}
-
-
-
-
-
 select:active, select:hover {
   outline-color: white
-}
-
-
- .saaa {
-   font-family: 'Poppins-light';
-   font-size: 10pt ;
-   display: inline;
- }
-
- .btn-info1 {
-  font-size: 12pt ;
-}
-
- .saaa2 {
-  font-size: 12pt ;
-}
- .caption 
-{
-  font-size: 14pt ;
-}
-
-.moni{
-  font-style: bold;
-  margin-left:15px;
-}
-
-.imgcover {
- width: 100%;
- height: 300px;
- object-fit: cover;
- object-position: bottom;
-}
-
-
-.imgcover {
- width: 100%;
- height: 200px;
- object-fit: cover;
- object-position: bottom;
 }
 
 .ikon {
@@ -1021,49 +914,18 @@ font-family: 'Poppins-light';
 font-size: 8pt;
 }
 
-.ikon2{
-  width: 40px;
-}
 
 .mrg {
   margin-right:100px;
 }
-.fimg {
-  height: 400px;
-  margin-bottom: -550px;
-}
-.searchfont{
-  font-size: 12pt; width: 180px; font-family: 'Poppins-light';
-}
+
 .searchfont2{
   font-size: 12pt; font-family: 'Poppins-light';
 }
-.srchbtn {
-  width: 120px; height: 40px; font-size: 12pt;
-}
 
-.smol{
-  font-size: 12pt;
-}
-.form_move {
-  margin-top: -250px;
-}
-.form_move2 {
-  margin-top: -250px;
-}
 
-.saadiyat{
-  width: 400px;
-}
-.picontainer{
-  margin-top: -560px;
-  margin-bottom: 400px;
-}
 .arabic { font-family: 'myFirstFont'; font-size: 40pt;}
-.npricevalue {font-size: 12pt;margin-top: 30px;}
-.pricevalue {font-size: 40pt;}
-.npricevalue1 {font-size: 20pt; }
-.mediaimg {  width: 600px; margin-top: -100px;}
+
 
 .searchrow {
   margin-top: -230px; 
@@ -1075,26 +937,10 @@ font-size: 8pt;
   box-shadow: 0px 6px 6px -6px rgba(0,0,0,0.75);
 }
 
-.wantobtn{
-  height: 70px; font-family: 'Poppins-light'; border-radius: 50px; background-color: #f8f8f8; border: hidden; width: 150px; font-size: 12pt;color: #707070;
-}
-
-.keysearch {
-  height: 40px; border: hidden; margin-left: 10px; font-family: 'Poppins-light'; font-size: 12pt;color: #707070; padding-right: 290px;
-}
-
 .filterbtn {
   background-color: white;border: hidden;font-family: 'Poppins-light'; font-size: 8pt; color: #0e4a88;
 }
 
-.searchbtn{position: absolute;
-  right: 0; margin-right: 7px;
-  font-family: 'Poppins-light'; font-size: 12pt;background-color: #0e4a88; color: white; border:hidden; border-radius: 50px; height: 57px; width: 125px;
-}
-.searchbtnar{position: absolute;
-  left: 0; margin-left: 7px;
-  font-family: 'Poppins-light'; font-size: 12pt;background-color: #0e4a88; color: white; border:hidden; border-radius: 50px; height: 57px; width: 125px;
-}
 .fltrimg {
   width: 60px;
 }
@@ -1122,31 +968,9 @@ font-size: 8pt;
   background-color: white !important;
   color: #0e4a88;
 }
-
-.dropsearchpos{
-left: -37.5% !important;
-background-color: rgba(0, 0, 0, 0.5);
-width: auto;
-padding: 0 !important;
-}
-.dropsearch {
-  width: 250px;
-}
+ 
 .dropmrg {
   margin-top: 15px;
-}
-
-.mrgfirstsection{
-  margin-top: 10px;
-}
-.mrgsecondsection{
-  margin-top: 100px;
-}
-.mrgfistsectioncaption{
-  margin-bottom: 0px;
-}
-.mrgthirdsection {
-  margin-top: 80px;
 }
 
 
@@ -1159,14 +983,20 @@ margin-bottom: 50px;
   width: 100px;
 }
 
-
+.teampagnumber {
+margin-top: 230px;
+}
 
 .hotbtn{
 
   font-size: 15pt;
 }
 .teamimg{
+  box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
+-webkit-box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
  width: 18rem;
+ margin-left: 105px;
 }
 
 .readmorebtn {
@@ -1211,13 +1041,6 @@ margin-bottom: 50px;
   -webkit-transform: scale(1.04);
 }
 
-.servimg{
-margin-top: -120px;
-}
-.servimgsize{
-  width: 250px;
-}
-
 .inpsize{
 
 height: 40px;
@@ -1246,34 +1069,19 @@ height: 40px;
   width: 70px;
   margin-bottom: 20px;
 }
-.listt{
-  font-size: 12pt;
-}
 
-.saaa3{ font-family: 'Poppins-light';
-  font-size: 12pt ;
-   display: inline;
-}
 .navarabic{
   margin-right: 100px !important; 
 }
 .listform{
   margin-top: 0px;
 }
-.basenavmrg{
-  margin-bottom: -10px;
-}
 
-.salebtn1{
-display: none;
-}
+
 .seeallbtn{
   font-family: 'Poppins-light';background-color: #144A86;padding: 5px; border-radius: 0px;color: white;
 }
 
-.carheight{
-  height: 300px;
-}
 .hotcardbtn{
   transform: rotate(45deg);background-color:red; color:white;width: 70px;padding:2px; text-align:center;clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 50%);
 }
@@ -1298,11 +1106,7 @@ font-family: 'Poppins-light';
 font-size: 18pt;
 font-weight: bold;
 }
-.p_subcap{
-  font-family: 'Poppins-light';
-  font-size: 14pt;
-  font-weight: bold;
-}
+
 .p_icons {
   width: 25px;
   margin-right: 10px;
@@ -1332,57 +1136,14 @@ font-weight: bold;
   visibility: visible;
   opacity: 1;
 }
-.adrectangle {
-  height: 180px;
-  width: 130px;
-  background-color: transparent;
-  border: hidden;
-}
-.adrow {
-  margin-top: -250px;
-}
-
-.modalthis{
-  background-color: white;
-  width: 40%;
-  height: 40%;
-  margin-top:-300px;
-}
 
 .modalclose{
   cursor: pointer;
 }
 
-.rbanner{
-  margin-left: -180px; position: relative;
-}
-
-.mbanner{
-  margin-left: 210px;position:relative;
-}
-
-.lbanner{
-  margin-left: 240px;position:relative;
-}
-.banner-rec{
-  width: 31vw; height: 500px;margin-top: -120px;background-color: transparent;
-}
-
 .thumbnail{
   margin-top: -21.7vw;
   cursor: pointer;
-}
-.ad_select{
-  background-color: transparent;  width: 200px; height: 150px;border: hidden;
-}
-.adrow_ad{
-  margin-top:-250px;
-}
-.adrectangle:active, .adrectangle:focus, .adrectangle:hover{
-  outline: none;
-}
-.ad_select:active, .ad_select:focus, .ad_select:hover{
-  outline: none;
 }
 
 .project_details {
@@ -1394,10 +1155,6 @@ font-weight: bold;
   color: #8e8a8a;
 }
 
-.propico {
-  margin-top: -2px;
-  width: 22px; height: 30px;
-}
 .vt {
   height: 500px;
 }
@@ -1412,6 +1169,10 @@ h4 {
   width: 18px;cursor: pointer;opacity: 0.85;
 }
 
+.tvimage{
+  width:100%;
+}
+
  @media only screen and (max-width: 500px) {
   .carousel-cell-image {
    height:300px; width:300px;
@@ -1422,7 +1183,29 @@ h4 {
   .card:hover .card-content{
     width: 18rem;
   }
-   
+    
+.tv {
+  margin-top: 80px;
+  width: 150px;
+  height: 90px;
+}
+
+.tvimage{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+  .teamshadow {
+    margin-left: 6.5%;
+  }
+  
+  .teamtext{
+    margin-left: 5px;
+    font-size: 7pt;
+  }
+  
    .viewmore {
 width: 17rem;
    }
@@ -1435,6 +1218,13 @@ width: 17rem;
     padding-top: 20px;
   }
 
+  .awardmrg {
+    width: 100%;
+  }
+  .awardesc {
+    padding-left: 15px;
+  }
+
 
   .partners1{
     width: 50px;
@@ -1443,6 +1233,14 @@ width: 17rem;
     left: 25%;right: 25%;
   }
   
+  .block {
+    margin: 100px auto 0;
+  }
+  .block1 {
+    margin: 100px auto 0;
+    margin-top: -40px;
+  }
+
 
 #footercopyu{
   margin-bottom: 10px;
@@ -1482,16 +1280,7 @@ h4 {
    .vt{
      height: 300px;
    }
-  .projnav{
-    text-align: center;
-  } 
-  .slimshady{ 
-    margin-top: -6px;
-    margin-left: -150px;
-   }
-   .propico {
-     width: 15px; height: 20px;
-   }
+
    .overview {
      display: none;
    }
@@ -1501,24 +1290,11 @@ h4 {
   }
 
 
-  .adrow_ad{
-    margin-top:-120px;
-    margin-left: 12px;
-  }
-  .ad_select{
-    width: 24vw; height: 22vw; margin-left: -12px !important;
-  }
-  .modalthis{
-    height: 80%;
-  }
+  
   .thumbnail {
     margin-top: -300px;
   }
-  .banner-rec{
-    width: 25vw; height: 100px;margin-top: -40px;
-    margin-left: 5px;
-  
-  }
+
   .w-75{
     width: 100% !important;
   }
@@ -1531,11 +1307,7 @@ h4 {
     height: 70px;
     margin-left: 6px;
   }
-  .modalthis{
-    width: 100%;
-    
-    margin-top: 0px;
-  }
+
   .p_header{
     font-size: 15pt;
   }
@@ -1558,49 +1330,17 @@ h4 {
    .p_overview{
      font-size: 12pt;
    }
-   .p_button{
-     font-size: 8pt;
-     margin-right: 0px;
-   }
-  .rbanner{font-size: 8pt;
-    margin-left: -60px; position: relative;
-  }
-  
-  .mbanner{font-size: 8pt;
-    margin-left: 0px;position:relative;
-  }
-  
-  .lbanner{font-size: 8pt;
-    margin-left:0px;position:relative;
-  }
 
-
- 
-.imgmrg{
-  margin-top: 80px;
-}
   .seeallbtn{
     font-size: 9pt;
   }
-  .salebtn{
-display: none;
-  }
-  .salebtn1{
+
+.teamimg{
   display: block;
-  padding: 10px;
-  margin: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-family: "Roboto"; text-decoration: none;border: hidden;border-left: 4px solid #A57D2D;border-right: 4px solid #A57D2D; color: black; text-shadow: 2px 2px #e8e8e8;
-  padding-left: 3px;
-  padding-right: 3px;
-  font-size: 8pt;
-
-}
-
-
-  .basenavmrg{
-  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-bottom: 10px;
 }
 
   .listform{
@@ -1609,13 +1349,7 @@ display: none;
   .navarabic{
     margin-right: 0px !important;
   }
-  .saaa3{
-    font-size: 8pt ;
-     
-  }
-  .listt{
-    font-size: 8pt;
-  }
+
   .teambtn{
     font-size: 8pt;
     margin-top: 5px;
@@ -1640,12 +1374,7 @@ display: none;
   .inpsize {
      height: 30px;
    }
-  .servimg{
-    margin-top: -80px;
-    }
-    .servimgsize{
-      width: 150px;
-    }
+
   .respbook{
     margin-top: 0px;
   }
@@ -1670,32 +1399,6 @@ display: none;
   width: 100%;
   }
   
-  .mrgfistsectioncaption{
-    margin-bottom: 0px;
-  }
-  .mrgfirstsection{
-    margin-top: 20px;
-  }
-  .mrgsecondsection{
-    margin-top: 20px;
-  }
-  .mrgthirdsection {
-    margin-top: 50px;
-    margin-bottom: 30px;
-  }
-  
-  .dropsearchpos{
-margin-right: -39%;
-
-  }
-  .sham{
-    margin-left: 20px;
-  }
-
-  .dropsearch {
-    width: auto;
-  }
-
   .dropmrg {
     margin-top: 0px;
   }
@@ -1714,28 +1417,8 @@ margin-right: -39%;
     height: 30px;
     width: 330px;
   }
-  .wantobtn{
-   width: 92px; font-size: 8pt;color: #707070;height: 30px;
-  }
-
-  .keysearch {
-    font-size: 8pt;color: #707070; padding-right: 0px;height: 30px;
-  }
-  .filterbtn span{
-    display: none;
-  }
-  .fltrimg {
-    width: 20px;
-  }
-  .searchbtn{
-    right: 0;margin-right: 0px;
-    font-size: 6pt;height: 30px; width: 40px
-  }
-
 
   .nfont{font-size: 12pt; font-weight: bold;}
-  .mediaimg{width: 300px; margin-top: 0px;}
-  .mediabtnblue, .mediabtngold { font-size: 10pt;}
 
   .texty, texty1{
     font-size: 12px;
@@ -1744,51 +1427,6 @@ margin-right: -39%;
 
 .shadow {font-size: 8pt;}
   .arabic {font-size: 12pt;}
-.npricevalue {font-size: 8pt;margin-top: 3px; margin-bottom: 10px;}
-.pricevalue {font-size: 15pt;}
-.npricevalue1 {font-size: 8pt; }
-  .picontainer{
-    margin-top: -170px;
-    margin-bottom: 40px;
-  }
-
-.saadiyat{
-  margin-top: 30px;
-  width:150px;
-}
-  .saaa {font-size: 9pt;
-    margin-top: 5px;
-    display: block;
-      width: 180px;
-      white-space: nowrap;
-      overflow: hidden !important;
-      text-overflow: ellipsis;
-    }
-    .saaa2 {font-size: 9pt;
-      margin-top: -18px;
-      display: inline-block;
-      width: 180px;
-      white-space: nowrap;
-      overflow: hidden !important;
-      text-overflow: ellipsis;}
-
-  .caption {font-size: 9pt ;}
-
- .btn-info1 {font-size: 9pt ;
-margin-top: 1px;
-background-color: transparent;}
-.btn-info2 {font-size: 9pt !important; 
-  margin-top: 2px;
-  background-color: transparent;}
-
-
-.move {
-  margin-top: -15px !important;
-}
-.moni {font-size: 7pt ;
-
-
-font-style: none;}
 
 .imgcover {
   width: 100%;
@@ -1796,7 +1434,10 @@ font-style: none;}
   object-fit: cover;
   object-position: bottom;
  }
-
+ .teamdesc {
+  width:100% !important;
+  text-align: center !important;
+}
  
  .logoname {
   width: 70px;
@@ -1830,10 +1471,7 @@ font-style: none;}
   .ikon2{
     width: 28px;
   }
-  .fimg {
-    height: 900px;
-    margin-bottom: -1000px;
-  }
+
   .ikon {
     margin-right: 5px;
   }
