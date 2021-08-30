@@ -14,6 +14,11 @@
   font-display: swap;
 }
 @font-face {
+  font-family: "Mongolian";
+  src: url("/static/css/Poppins/monbaiti.ttf") format("opentype");
+  font-display: swap;
+}
+@font-face {
   font-family: "Roboto";
   src: url("/static/css/Roboto/Roboto-Light.ttf") format("opentype");
   font-weight: 300;
@@ -46,6 +51,25 @@ right: 0;
   position: absolute;
 }
 
+.landingbtn {
+  background-color: #3b2640; color: white;
+}
+.landingbtn:hover {
+  background-color: #ffffff; color: #3b2640; border: 1px solid white;
+  box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.75);
+}
+.expandlanding{
+  width: 20%;  background-color: #3b2640;
+  transition: ease-in-out 1s
+}
+
+.landingbg:hover .expandlanding {
+  width: 85%;
+  
+  transition: ease-in-out 1s
+}
 
 .block {
   width: 124px;

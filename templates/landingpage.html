@@ -31,53 +31,109 @@
 
  
      <header class="bg-dark fixed-top">
-   <nav class="navbar navbar-expand-lg navbar-dark">
-     
-     <a href="{{url_for('home')}}" title="Home" class="" href="default.html" style="margin: auto;"><img src="{{url_for('static', filename='images/standalon_logo.png')}}" style="width:90px;"></a>
-
-   </nav>
+   <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 10px; padding-bottom: 10px;">
+     <div class="container">
+     <a href="{{url_for('home')}}" title="Home" class="" href="default.html"><img src="{{url_for('static', filename='images/standalon_logo.png')}}" style="width:90px; "></a>
+    </div>
+    </nav>
    </header>
 
-<section class="landingimg" style="background-image: url(/static/projects/yas_acres.jpg);background-size: cover; height: 100vh;">
-<div style="background-color: rgba(0, 0, 0, 0.5); height: 100%;">
-    <div class="container">
-        <div class="row" style="padding-top:80px;">
-            <div class="col">
-                <img src="/static/projects/magnolia.png" width="80px" style="background-color: white; border: 1px solid #3b2640; height: 80px;" alt="">
-            </div>
-            <div class="col text-right">
-                <img src="/static/projects/aldar.png" width="80px" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-8 col-md-12 col-sm-12" style="margin-top: 20vh; font-family: 'Poppins'; color: white !important;">           
-        <h1>
-            NEW AND LAST PHASE OF YAS ACRES
-        </h1>
-        <h1>
-            STARTING PRICE AED 2,500,000
-        </h1>
-        </div>
-        <div class="col" style="margin-top: 10vh; display: block;white-space: normal;">
+<section class="landingimg" style="background-image: url(/static/projects/yas_acres.jpg);background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%; ">
 
-            <form  method="post" autocomplete="off" name="google-sheet" style="width: 100%;margin:0 auto; font-family: 'Poppins';">
-                <input style="width: 100%; height: 50px;" type="text" class="form-control" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" id="email" name="email" placeholder="*Email">
-                <input style="margin-top: 20px;width: 100%; height: 50px;" type="tel"  class="form-control"  title='Phone Number (Format: +971009999999)' id="phonenumber" name="phonenumber" placeholder="*Number Format +971*********">
-                <input style="margin-top: 20px;width: 100%; height: 50px;" type="text" class="form-control" id="name" name="name" placeholder="*Name">
-                <input style="margin-top: 20px; width: 100%; height: 50px; background-color: #3b2640; color: white; border: 1px solid white;" type="submit" class="btn" value="Submit"></p>
-                <input type="hidden" id="strReferrer" name="strReferrer" />
-            </form>
- 
+    <div class="container" style="padding-top: 93px;">
+       
+            <div class="row justify-content-center">
+               
+                <div class="col-lg-6 col-md-6 col-sm-12 landingbg" style=" background-color: rgb(255, 255, 255,0.3); backdrop-filter: blur(20px); height: 100%;  padding-bottom:100px; ">
+
+                    <div class="row" style="padding-top:20px;">
+                        <div class="col text-center">
+                            <img src="/static/projects/magnolia.png" style="width: 50%;" alt="">
+                        </div>
+                    </div>
+                
+                    <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">
+                        <div class="expandlanding" style="height: 2px;">
+
+                        </div>
+                    </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-11 text-center" style="margin-top: 2vh;">           
+                <h4 style="font-family: 'Mongolian'; font-size: 17pt; color: #3b2640;">
+                    NEW AND LAST PHASE OF YAS ACRES
+                </h4>
+                <h4 style="font-family: 'Mongolian';  font-size: 17pt; color: #3b2640;">
+                    STARTING PRICE AED 2,500,000
+                </h4>
+                </div>
+                </div>
+        
+        
+        
+            <div class="row justify-content-center">
+        
+                <div class="col-11 text-center" style="margin-top: 2vh; display: block;white-space: normal;">
+        
+                    <form  method="post" autocomplete="off" name="google-sheet" style="width: 100%;margin:0 auto; font-family: 'Poppins';">
+                        <input style="width: 100%; height: 30px;border: 1px solid black; padding-left: 3px; font-size: 10pt;" type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" id="email" name="email" placeholder="Email:">
+                        <input style="margin-top: 20px;width: 100%; height: 30px;border: 1px solid black;padding-left: 3px;font-size: 10pt;" type="tel"  title='Phone Number (Format: +971009999999)' id="phonenumber" name="phonenumber" placeholder="Number:">
+                        <input style="margin-top: 20px;width: 100%; height: 30px; border: 1px solid black;padding-left: 3px;font-size: 10pt;" type="text"  id="name" name="name" placeholder="Name:">
+                        <input style="margin-top: 20px; width: 100px; height: 30px; border: none; font-size: 10pt; " class="landingbtn" type="submit" value="Book Now"></p>
+                        <input type="hidden" id="strReferrer" name="strReferrer" />
+                    </form>
+         
+                </div>
         </div>
-</div>
+
+        <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">
+            <div class="expandlanding" style="height: 2px;">
+
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-11 text-center" style="margin-top: 2vh;">
+                <h4 style="font-family: 'Mongolian';  font-size: 17pt; color: #3b2640;">
+                    2 - 6 BEDROOM VILLAS & TOWNHOUSES AVAILABLE
+                </h4>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-11">
+                <img src="/static/projects/plan.jpg" width="100%" style="  box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.75);
+                -webkit-box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.75);" alt="">
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="margin-top:50px;">
+            <div class="col text-center">
+                <img src="/static/projects/aldar.png" width="100px" alt="">
+            </div>
+        </div>
+
+
+
+
+                </div>
+
+
 
 </div>
 </div>
 
 </section>
-<section>
+
+
+
+
+
+
+
+<!--section>
 <div class="container">
 <div class="row">
     <div class="col text-center" style="font-family: 'Poppins'; color: #3b2640 !important; margin-top: 10vh;">
@@ -96,25 +152,7 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col text-center">
-        <h1 class="p_overview" style="font-family: 'Poppins'; color: rgba(0, 0, 0, 1);margin-top:80px;margin-bottom: 30px;"> Minutes away from world-class attractions and events</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3">
-        <img src="/static/icons/yas1.jpg" width="100%" height="120px" alt="">
-    </div>
-    <div class="col-3">
-        <img src="/static/icons/yas2.jpg" width="100%" height="120px" alt="">
-    </div>
-    <div class="col-3">
-        <img src="/static/icons/yas3.jpg" width="100%" height="120px" alt="">
-    </div>
-    <div class="col-3">
-        <img src="/static/icons/yas4.jpg" width="100%"  height="120px"alt="">
-    </div>
-</div>
+
 <div class="row">
     <div class="col text-center">
         <h1 class="p_overview" style="font-family: 'Poppins'; color: rgba(0, 0, 0, 1);margin-top: 80px;margin-bottom: 30px;"> Community Features</h1>
@@ -193,7 +231,25 @@
         <p style="font-family: 'Poppins';color: rgba(0, 0, 0, 1); font-size: 12pt;margin-top: 20px;">10% Down Payment</p>
     </div>
 </div>
-
+<div class="row">
+    <div class="col text-center">
+        <h1 class="p_overview" style="font-family: 'Poppins'; color: rgba(0, 0, 0, 1);margin-top:80px;margin-bottom: 30px;"> Minutes away from world-class attractions and events</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <img src="/static/icons/yas1.jpg" width="100%" height="120px" alt="">
+    </div>
+    <div class="col-3">
+        <img src="/static/icons/yas2.jpg" width="100%" height="120px" alt="">
+    </div>
+    <div class="col-3">
+        <img src="/static/icons/yas3.jpg" width="100%" height="120px" alt="">
+    </div>
+    <div class="col-3">
+        <img src="/static/icons/yas4.jpg" width="100%"  height="120px"alt="">
+    </div>
+</div>
 <div  class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">
 
     <div class="col-2 text-center">
@@ -219,7 +275,7 @@
 </div>
 
 
-</section>
+</section-->
 
 </body>
 
