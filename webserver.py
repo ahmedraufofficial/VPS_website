@@ -323,10 +323,10 @@ def search():
 
         if i == 'keyword':
             if z == 0:
-                args_rec += (' ref_no MATCH '+'"'+request.args.get(i)+'"')
+                args_rec += (' properties MATCH '+'"'+request.args.get(i)+'"')
                 z = 1
             else:
-                args_rec += (' AND ref_no MATCH '+'"'+request.args.get(i)+'"')
+                args_rec += (' AND properties MATCH '+'"'+request.args.get(i)+'"')
             continue
         
         if i == 'units':
