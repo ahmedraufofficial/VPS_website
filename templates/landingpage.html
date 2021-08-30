@@ -33,45 +33,59 @@
      <header class="bg-dark fixed-top">
    <nav class="navbar navbar-expand-lg navbar-dark">
      
-     <a href="{{url_for('home')}}" title="Home" class="" href="default.html" style="margin: auto;"><img src="{{url_for('static', filename='images/logo.png')}}" style="width:70px;"></a>
+     <a href="{{url_for('home')}}" title="Home" class="" href="default.html" style="margin: auto;"><img src="{{url_for('static', filename='images/standalon_logo.png')}}" style="width:90px;"></a>
 
    </nav>
    </header>
 
-<section class="landingimg" style="background-image: url(/static/images/landing.jpg);background-size: cover;">
-<div class="container">
+<section class="landingimg" style="background-image: url(/static/projects/yas_acres.jpg);background-size: cover; height: 100vh;">
+<div style="background-color: rgba(0, 0, 0, 0.5); height: 100%;">
+    <div class="container">
+        <div class="row" style="padding-top:80px;">
+            <div class="col">
+                <img src="/static/projects/magnolia.png" width="80px" style="background-color: white; border: 1px solid #3b2640; height: 80px;" alt="">
+            </div>
+            <div class="col text-right">
+                <img src="/static/projects/aldar.png" width="80px" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-8 col-md-12 col-sm-12" style="margin-top: 50vh; font-family: 'Poppins'; color: rgba(0, 0, 0, 1) !important;">           
+        <div class="col-lg-8 col-md-8 col-md-12 col-sm-12" style="margin-top: 20vh; font-family: 'Poppins'; color: white !important;">           
         <h1>
-            BUY A FLAT IN ABU DHABI
+            NEW AND LAST PHASE OF YAS ACRES
         </h1>
         <h1>
-            IN THE HEART OF YAS ISLAND
+            STARTING PRICE AED 2,500,000
         </h1>
         </div>
-        <div class="col" style="margin-top: 40vh; display: block;white-space: normal;">
+        <div class="col" style="margin-top: 10vh; display: block;white-space: normal;">
 
             <form  method="post" autocomplete="off" name="google-sheet" style="width: 100%;margin:0 auto; font-family: 'Poppins';">
                 <input style="width: 100%; height: 50px;" type="text" class="form-control" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" id="email" name="email" placeholder="*Email">
-                <input style="margin-top: 20px;width: 100%; height: 50px;" type="tel" pattern='[\+]\d{3}\d{2}\d{7}' class="form-control"  title='Phone Number (Format: +971009999999)' id="phonenumber" name="phonenumber" placeholder="*Number Format +971*********">
+                <input style="margin-top: 20px;width: 100%; height: 50px;" type="tel"  class="form-control"  title='Phone Number (Format: +971009999999)' id="phonenumber" name="phonenumber" placeholder="*Number Format +971*********">
                 <input style="margin-top: 20px;width: 100%; height: 50px;" type="text" class="form-control" id="name" name="name" placeholder="*Name">
-                <input style="margin-top: 20px; width: 100%; height: 50px;" type="submit" class="btn btn-dark" value="Submit"></p>
+                <input style="margin-top: 20px; width: 100%; height: 50px; background-color: #3b2640; color: white; border: 1px solid white;" type="submit" class="btn" value="Submit"></p>
+                <input type="hidden" id="strReferrer" name="strReferrer" />
             </form>
  
         </div>
 </div>
 
 </div>
+</div>
+
 </section>
 <section>
 <div class="container">
 <div class="row">
-    <div class="col text-center" style="font-family: 'Poppins'; color: rgba(0, 0, 0, 1) !important; margin-top: 10vh;">
-        <h1 class="p_overview">
-            BUY STUDIOS TO THREE BEDROOM FLATS IN ABU DHABI
+    <div class="col text-center" style="font-family: 'Poppins'; color: #3b2640 !important; margin-top: 10vh;">
+        <h1 class="p_overview" >
+            2 - 6 BEDROOM VILLAS & TOwNHOUSES AVAILABLE
         </h1>
         <h1  class="p_overview">
-            Luxury flats in Water Edge at the heart of Yas Island.
+           2% DISCOUNT | 10% DOWNPAYMENT | 60/40 PAYMENT PLAN
         </h1>
     </div>
 </div>
@@ -81,53 +95,7 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col">
-    <h1 class="p_overview" style="font-family: 'Poppins'; color: rgba(0, 0, 0, 1);text-align: center;">About Water Edge</h1>
-   
-    <p class="p_overview" style="color: rgba(0, 0, 0, 1); font-size: 12pt;text-align: center; margin-bottom: 80px;">Water’s Edge is ideally situated on its own canal and 800m promenade, in the heart of Yas Island. From modern studios to spacious three-bedroom apartments, with beautiful views over the canal and beyond.
-    Yas at affordable prices, with beautiful views over the canal and beyond.
-    
-    The destination will feature landscaped gardens, fully equipped gyms, pools and a jogging track. Residents can also enjoy a waterfront boardwalk lined with cafes, restaurants and shops.
-    All of the waterfront apartments are designed around private courtyards with pools. Just steps away is Yas Park, were residents can find the perfect shaded spot for picnics and barbecues.</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6 col-md-6 col-md-12 col-sm-12">
-        <img src="/static/images/landing2.jpg" style="width:100%" alt="">
-    </div>
-    <div class="col" >
-        <ul class="p_overview" style="color: rgba(0, 0, 0, 1); font-size: 12pt;">
-            <li style="margin-top: 20px;">
-                1,2,3-bedroom flats for sale
-            </li>
-            <li style="margin-top: 20px;">
-                Invest in luxury flats in UAE 
-            </li>
-            <li style="margin-top: 20px;">
-                Investment opens for expats & Internationals.
-            </li>
-            <li style="margin-top: 20px;">
-                10% down payment and 10% in July
-            </li>
-            <li style="margin-top: 20px;">
-                80% on handover Nov this year
-            </li>
-            <li style="margin-top: 20px;">
-                Free registration fees
-            </li>
-            <li style="margin-top: 20px;">
-                Free service charges for 2 years
-            </li>
-            <li style="margin-top: 20px;">
-                0 Commission
-            </li>
-            <li style="margin-top: 20px;">
-                2% Abu Dhabi Municipality waiver
-            </li>
-        </ul>
-    </div>
-</div>
+
 <div class="row">
     <div class="col text-center">
         <h1 class="p_overview" style="font-family: 'Poppins'; color: rgba(0, 0, 0, 1);margin-top:80px;margin-bottom: 30px;"> Minutes away from world-class attractions and events</h1>
@@ -216,10 +184,10 @@
 </div>
 <div  class="row justify-content-center">
     <div class="col-4 text-center">
-        <p  style="font-family: 'Poppins';color: rgba(0, 0, 0, 1); font-size: 12pt;margin-top: 20px;">850,000 STARTING PRICE / ILS</p>
+        <p  style="font-family: 'Poppins';color: rgba(0, 0, 0, 1); font-size: 12pt;margin-top: 20px;">2,500,000 STARTING PRICE </p>
     </div>
     <div class="col-4 text-center">
-        <p style="font-family: 'Poppins';color: rgba(0, 0, 0, 1); font-size: 12pt;margin-top: 20px;">8.3% Return on Investment </p>
+        <p style="font-family: 'Poppins';color: rgba(0, 0, 0, 1); font-size: 12pt;margin-top: 20px;">60/40 Payment Plan</p>
     </div>
     <div class="col-4 text-center">
         <p style="font-family: 'Poppins';color: rgba(0, 0, 0, 1); font-size: 12pt;margin-top: 20px;">10% Down Payment</p>
