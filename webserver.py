@@ -45,6 +45,7 @@ def site_map_html():
 @app.route('/landing')
 def landingpage():
     return render_template('landingpage.html')
+    
 @app.route('/privacy-policy')
 def privacypolicy():
     return render_template('privacypolicy.html')
@@ -118,6 +119,11 @@ def hotproperties():
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
+
+@app.route('/map')
+def map():
+   
+    return render_template('map.html')
 
 @app.route('/register')
 def register():

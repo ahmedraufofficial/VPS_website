@@ -17,10 +17,54 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.1/dist/flickity.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <meta name="robots" content="noodp" />
-  <meta name ="robots" content="index"/>
+  <meta name ="robots" content="index, follow"/>
 
-
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",         "name": "https://www.uhpae.com",        
+      "potentialAction": {
+      "@type": "SearchAction",
+      "target": "http://https://www.uhpae.com/search?keyword={search_term}",
+      "query-input": "required name=search_term"
+    }, "url": "https://www.uhpae.com"
+    }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Unique Homes Worldwide Properties",
+    "url": "https://www.uhpae.com",
+    "logo": "https://www.uhpae.com/static/images/logo.jpg",
+    "alternateName": "UHPAE",
+    "sameAs": [
+      "https://www.instagram.com/uhpae/"
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+971549981998",
+        "contactType": "sales",
+        "email": "bayut@uhpae.com",
+        "areaServed": [
+          "AE",
+          "SA",
+          "QA",
+          "KW",
+          "US",
+          "CA",
+          "GB",
+          "BH"
+        ],
+        "availableLanguage": [
+          "en",
+          "ar"
+        ]
+      }
+    ]
+  }
+  </script>
 
 
 
