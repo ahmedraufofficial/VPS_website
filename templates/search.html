@@ -22,6 +22,18 @@
 <meta property="og:url" content={{url}}>
 <meta property="og:title" content="{{meta[0]}}">
 <meta property="og:description" content="{{meta[1]}}">
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",         "name": "https://www.uhpae.com",        
+    "potentialAction": {
+    "@type": "SearchAction",
+    "target": "http://https://www.uhpae.com/search?keyword={search_term}",
+    "query-input": "required name=search_term"
+  }, "url": "https://www.uhpae.com"
+  }
+</script>
+
 {% endif %}
 {% endblock %}
 {% block content %}
