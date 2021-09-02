@@ -611,9 +611,9 @@ def bloom():
 def imkan():
     return render_template("imkan.html")
 
-@app.route('/google304a7093592194f2.html')
+@app.route('/googlef7ae2afa38ca93ff.html')
 def googleverfication():
-    return render_template("google304a7093592194f2.html")
+    return render_template("googlef7ae2afa38ca93ff.html")
 
 def get_community(name, project):
     sale = []
