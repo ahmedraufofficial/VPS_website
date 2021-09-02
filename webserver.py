@@ -611,7 +611,7 @@ def bloom():
 def imkan():
     return render_template("imkan.html")
 
-@app.route('googleverfication/googlef7ae2afa38ca93ff.html')
+@app.route('/googleverification/')
 def googleverfication():
     return render_template("googlef7ae2afa38ca93ff.html")
 
