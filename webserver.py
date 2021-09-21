@@ -42,9 +42,9 @@ def site_map():
 @app.route('/sitemap.html')
 def site_map_html():
     return render_template('sitemap.html')
-@app.route('/landing')
+@app.route('/landing/yas-acres/the-magnolias')
 def landingpage():
-    return render_template('landingpage.html')
+    return render_template('themagnolias.html')
     
 @app.route('/privacy-policy')
 def privacypolicy():
