@@ -444,7 +444,7 @@ transition: 0.5s;
 .hero-screen{
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
             height: calc(var(--vh, 1vh) * 100);
-            background-image: url(/static/images/mainbg.JPG);
+            background-image: url(/static/images/mainbg.jpg);
             background-repeat: no-repeat;
             background-position: 77% 0;
             background-size: cover;
