@@ -4,6 +4,13 @@ import json
 import re
 import sqlite3
 
+with open('map_photos.json', 'w') as f:
+    data = {}
+    data['map_photos'] = {}
+    json.dump(data, f)
+
+
+
 url = "http://xml.propspace.com/feed/xml.php?cl=3386&pid=8245&acc=8807"
 
 response = requests.get(url)
@@ -94,6 +101,16 @@ for entry in soup.find_all("listing"):
     for image in entry.find('images'):
         property_images.append(image.text)
     property_images = ",".join(property_images)
+
+    with open('map_photos.json','r+') as file:
+
+        columns = json.load(file)
+        columns["map_photos"].update({ref_no:property_images})
+        file.seek(0)
+        json.dump(columns, file,indent=4)
+        file.truncate()
+
+
 
     balcony = ''
     basement_parking = ''
