@@ -11,9 +11,16 @@ import os.path
 from os import path
 from flask_compress import Compress
 from flask_caching import Cache
+from flask_assets import Environment, Bundle
+from assets import bundles
+
+
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 
 app = Flask(__name__)
+assets = Environment(app)
+assets.register(bundles)
+
 Compress(app)
 cache.init_app(app)
 
@@ -107,16 +114,24 @@ def home():
 def hotproperties():
     conn = sqlite3.connect('main.db')
     queryRes = []
+    we = []
     c = conn.cursor()
     c.row_factory = sqlite3.Row
-    c.execute('''SELECT rowid,* FROM properties WHERE title MATCH ?''',['{}'.format('hot')])
+    c.execute('''SELECT rowid,* FROM properties WHERE property="Water'S Edge" OR property="Al Ghadeer 2" OR property="Mamsha Al Saadiyat" OR property="Marina Square" OR property="Yas Acres" OR property="Mayan 1"''')
     result = c.fetchall()
+    c = 0
     for r in result:
         newdict = dict(r)
         newdict['price'] = "{:,}".format(newdict['price'])
-        queryRes.append(newdict)
+        if newdict['property'] == "Water'S Edge":
+            we.append(newdict)
+            continue
+        if newdict['image'] != "":
+            queryRes.append(newdict)
     conn.commit()
     conn.close()
+    random.shuffle(we)
+    queryRes = we[:10] + queryRes
     random.shuffle(queryRes)
     return jsonify(queryRes)
 
