@@ -124,7 +124,8 @@ def hotproperties():
         newdict = dict(r)
         newdict['price'] = "{:,}".format(newdict['price'])
         if newdict['property'] == "Water'S Edge":
-            we.append(newdict)
+            if newdict['image'] != "":
+                we.append(newdict)
             continue
         if newdict['image'] != "":
             queryRes.append(newdict)
