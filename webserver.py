@@ -49,6 +49,7 @@ def site_map():
 @app.route('/sitemap.html')
 def site_map_html():
     return render_template('sitemap.html')
+
 @app.route('/landing/yas-acres/the-magnolias')
 def magnoliaslandingpage():
     return render_template('themagnolias.html')
@@ -56,6 +57,10 @@ def magnoliaslandingpage():
 @app.route('/landing/al-ghadeer/phase-2')
 def ghadeerphase2landingpage():
     return render_template('alghadeer.html')
+
+@app.route('/landing/yas-island/waters-edge')
+def watersedgelandingpage():
+    return render_template('watersedge.html')
     
 @app.route('/privacy-policy')
 def privacypolicy():
