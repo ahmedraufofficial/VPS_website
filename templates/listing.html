@@ -62,15 +62,16 @@
         </div>
     </div>
     <div class="row">
+        <div id="window_footer"></div>
+
+</div>
+
         <div class="col">
             <p class="simple" style="text-align: justify; color: white;">Unique Homes Worldwide Properties (UHP) was established in 2018 to continue to be an active member and one of the leading real estate companies in the UAE.
                 Committed to provide diverse and complete real estate solutions, equipped with the knowledge and skills in many different dimensions including but not limited to Off-Plan properties (Land, Villas & Apartments), Ready Properties (Commercial & Residential), and Resale in Abu Dhabi & Dubai.
                 Maintaining the growth level over years, created new opportunities to undertake in multiple markets, and allowed us to provide new services to our clients.</p>
         </div>
     </div>
-<div id="window_footer"></div>
-
-</div>
 
 </div>
 
@@ -237,6 +238,10 @@
 {% endblock %}
 {% block scripts %}
 <script>
+    var elmnt = document.getElementById("window_footer");
+elmnt.scrollIntoView();
+
+
     let location_select = document.getElementById('building');
         $("#locationtext").change(function(){
     get_location();
