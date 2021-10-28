@@ -112,22 +112,37 @@
                       <input type="text" class="form-control inpsize simple" name="type" aria-describedby="emailHelp" placeholder="Property Type" required>
                     </div>
                     </div>
-                    <div class="row" style="margin-top: 20px;">
-                            <div class="col">
-                        <input type="text" class="form-control inpsize simple" name="location" placeholder="Location" required>
-                      </div></div>
-                    
-        
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col">
-                     <input type="date" class="form-control inpsize simple" name="meeting_date" required>
-                    </div>  
-                    </div>
-                    
+
+                    <div class="row" style="margin-top: 20px;"><div class="col">
+         <select class="form-control inpsize simple" id="locationtext" name="locationtext" required><option value="9999">Location</option><option value="03531">Abu Dhabi Gate City</option><option value="032610">Abu Dhabi Island</option><option value="09656">AbuDhabi-Al Ain (Highway)</option><option value="01457">Airport Road</option><option value="033533">Al Ajban</option><option value="031082">Al Aman</option><option value="01458">Al Aryam</option><option value="03532">Al Badaa</option><option value="03533">Al Bahia</option><option value="03534">Al Baraha</option><option value="01459">Al Barza</option><option value="03535">Al Bateen</option><option value="08489">Al Bateen Al Ain</option><option value="026139">Al Danah</option><option value="03536">Al Dhafrah</option><option value="031311">Al Fahid Island</option><option value="03537">Al Falah City</option><option value="029622">Al Faya</option><option value="03538">Al Ghadeer</option><option value="09620">Al Gurm West</option><option value="01460">Al Hosn</option><option value="03539">Al Hudayriat Island</option><option value="03540">Al Ittihad Road</option><option value="033301">Al Jubail Island</option><option value="03541">Al Karamah</option><option value="03542">Al Khaleej Al Arabi Street</option><option value="03543">Al Khalidiya</option><option value="033373">Al Khatim</option><option value="028706">Al Khazna</option><option value="031170">Al Khubeirah</option><option value="03544">Al Maffraq</option><option value="01461">Al Maha</option><option value="08139">Al Maharba</option><option value="03545">Al Manaseer</option><option value="03546">Al Manhal</option><option value="03547">Al Maqtaa</option><option value="027511">Al Marina</option><option value="01462">Al Markaz</option><option value="03548">Al Markaziyah</option><option value="026457">Al Maryah Island</option><option value="01463">Al Mina</option><option value="033363">Al Mirfa</option><option value="01464">Al Muneera</option><option value="09286">Al Muntazah</option><option value="03549">Al Mushrif</option><option value="03550">Al Nahda Abu Dhabi</option><option value="01465">Al Nahyan</option><option value="03551">Al Nahyan Camp</option><option value="03552">Al Najda Street</option><option value="05992">Al Nasr Street</option><option value="03553">Al Qurm</option><option value="01466">Al Raha</option><option value="03554">Al Raha Beach</option><option value="03555">Al Raha Gardens</option><option value="03556">Al Raha Golf Gardens</option><option value="03557">Al Rahba</option><option value="03558">Al Rawdah</option><option value="03559">Al Reef</option><option value="01467">Al Reef Villas</option><option value="03560">Al Reem Island</option><option value="01469">Al Rehhan</option><option value="033369">Al Rideem</option><option value="03561">Al Ruwais</option><option value="06675">Al Safarat District</option><option value="03562">Al Samha</option><option value="03563">Al Shahama</option><option value="03564">Al Shamkha</option><option value="034103">Al Shamkha South</option><option value="033352">Al Shawamekh</option><option value="033362">Al Sila</option><option value="03565">Al Sowwah</option><option value="028248">Al Taweelah</option><option value="030621">Al Tibbiya</option><option value="021512">AL Wahda</option><option value="03567">Al Wathba</option><option value="03568">Al Zaab</option><option value="025378">Al Zahraa</option><option value="01470">Arabian Village</option><option value="08585">Bain Al Jessrain</option><option value="03569">Baniyas</option><option value="03570">Between Two Bridges</option><option value="03571">Building Materials City</option><option value="08342">Capital Centre</option><option value="03572">City Downtown</option><option value="01472">Corniche</option><option value="03573">Corniche Area</option><option value="03574">Corniche Road</option><option value="03575">Danet Abu Dhabi</option><option value="03576">Defence Street</option><option value="01473">Delma Street</option><option value="03577">Desert Village</option><option value="03578">Eastern Road</option><option value="03579">Electra Street</option><option value="08945">Firdous Street</option><option value="03580">Ghantoot</option><option value="033368">Ghiyathi</option><option value="03581">Grand Mosque District</option><option value="01474">Hamdan Street</option><option value="030762">Happiness Island</option><option value="028622">Happiness Island</option><option value="03582">Hydra Village</option><option value="03583">Jawazat Street</option><option value="01475">Khalidia</option><option value="01476">Khalifa City (all)</option><option value="01477">Khalifa City A</option><option value="01478">Khalifa City B</option><option value="01479">Khalifa City C</option><option value="031448">Khalifa Park</option><option value="03584">Khalifa Street</option><option value="033354">Liwa</option><option value="08301">Liwa Street</option><option value="03585">Lulu Island</option><option value="033856">Madinat Al Riyad</option><option value="03586">Madinat Zayed</option><option value="032338">Madinat Zayed (Western Region)</option><option value="033406">Mafraq Industrial Area</option><option value="03587">Marina Village</option><option value="03588">Masdar City</option><option value="01480">Mbz</option><option value="033404">Mina Zayed</option><option value="03589">Mohamed Bin Zayed City</option><option value="03590">Muroor Area</option><option value="01481">Musaffah Industrial Area</option><option value="03591">Mussafah</option><option value="028527">Nareel Island</option><option value="033365">New Al Marfa</option><option value="01483">New Khalifa City</option><option value="03592">Nurai Island</option><option value="05678">Officers Club Area</option><option value="03593">Saadiyat Island</option><option value="03594">Salam Street</option><option value="03595">Sas Al Nakhl</option><option value="027931">Shakhbout City</option><option value="031954">Sheikh Zayed Bin Sultan St.</option><option value="03596">Tourist Club Area</option><option value="08110">World Trade Center</option><option value="03597">Yas Island</option><option value="032670">Zayed City</option><option value="03598">Zayed Military City</option><option value="07501">Zayed Sports City</option>
+        </select>
+            </div></div>
+            <div class="row" style="margin-top: 20px;"><div class="col">
+            <select class="form-control inpsize simple" name="building" id="building">
+                <option value="">Community</option>
+            </select>
+                </div>
+                </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col">
+            <select class="form-control inpsize simple" name="beds" id="beds">
+                <option value="">Bedrooms</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6+">6+</option>
+            </select>
+  </div>
+</div>
+
+   
                     <div class="row" style="margin-top: 20px;">
                         <div class="col">
                             <select name="time" class="custom-select inpsize simple" required>
-                                <option value="">Available Time</option>
+                                <option value="">Available Time to contact</option>
                                 <option value="8am">8:00 AM</option>
                                 <option value="9am">9:00 AM</option>
                                 <option value="10am">10:00 AM</option>
@@ -138,7 +153,16 @@
                               </select>
                     </div>  
                     </div>
-        
+                 
+                         
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col">
+                     <input type="date" class="form-control inpsize simple" name="meeting_date" required>
+                    </div>  
+                    </div>
+                    
+                    <input type="hidden" class="form-control inpsize simple" name="location" placeholder="Location" id="loc" >
+
                     <div class="row justify-content-center" style="margin-top: 20px;">
                         <div class="col-lg-2 col-md-2 col-sm-6" style="text-align: center;">
                             <input type="hidden" id="strReferrer" name="strReferrer" />
@@ -213,6 +237,26 @@
 {% endblock %}
 {% block scripts %}
 <script>
+    let location_select = document.getElementById('building');
+        $("#locationtext").change(function(){
+    get_location();
+    });
+        function get_location(){
+        var location = $("#locationtext").val();
+        console.log(location)
+        fetch('/community/' + location).then(function(response){
+            response.json().then(function(data){
+                let optionHTML = '';
+                for (let location of data.locations){
+           
+                
+                        optionHTML += '<option value="'+location[0]+'">'+location[1]+'</option>';
+                    
+                }
+                location_select.innerHTML = optionHTML;
+            })
+        })   
+    }
     document.getElementById('strReferrer').value = window.location.href;
 
    </script>
@@ -222,6 +266,8 @@
   const form = document.forms['google-sheet']
 
   form.addEventListener('submit', e => {
+    document.getElementById('loc').value = $( "#locationtext option:selected" ).text() + ", " + document.getElementById('building').value + ", " + document.getElementById('beds').value
+
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))

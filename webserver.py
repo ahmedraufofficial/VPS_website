@@ -40,6 +40,25 @@ mail = Mail(app)
 @app.route('/robots.txt')
 def robots_txt():
     return render_template("robots.txt")
+
+
+@app.route('/community/<location>',methods = ['GET','POST'])
+def community(location):
+    a = location
+    f = open('sublocation.json')
+    file_data = json.load(f)
+    a = str(int(a))
+    try:
+        locs = file_data[a]
+    except:
+        locs = {"9998":"None"}
+    locs = list(locs.values())
+    locations = []
+    for i in locs:
+        locations.append((i,i))
+    return jsonify({'locations':locations})
+
+
 @app.route('/sitemap.xml')
 def site_map():
     response= make_response(render_template("sitemap.xml"))
