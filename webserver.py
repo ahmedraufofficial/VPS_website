@@ -16,6 +16,7 @@ from flask_assets import Environment, Bundle
 from assets import bundles
 from werkzeug.utils import secure_filename
 from collections import defaultdict
+from logging import FileHandler, WARNING
 
 a = os.getcwd()
 UPLOAD_FOLDER = os.path.join(a+'/static', 'abudhabi')
@@ -26,7 +27,9 @@ cache = Cache(config={'CACHE_TYPE': 'simple'})
 app = Flask(__name__)
 assets = Environment(app)
 assets.register(bundles)
-
+file_handler = FileHandler('errorlog.txt')
+file_handler.setLevel(WARNING)
+app.logger.addHandler(file_handler)
 Compress(app)
 cache.init_app(app)
 
