@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block metacontent %}
-<meta name="title" content="Commercial Properties For You">
-<meta name="description" content="Find properties in Reem Island, Yas Island, Saadiyat, Al Reef and many more!">
+<meta name="title" content="">
+<meta name="description" content="">
 <meta name="keywords" content="reem, saadiyat, yas, Raha, Island, Al reef, Al Ghadeer,buy, sell, rent, communities, real estate">
- <title>Commercial Properties For You</title>
+ <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
 <meta property="og:image" content="https://www.uhpae.com/static/images/highlight.jpeg" /> 
 <meta property="og:url" content="https://www.uhpae.com/communities">
-<meta property="og:title" content="Commercial Properties For You">
-<meta property="og:description" content="Find properties in Reem Island, Yas Island, Saadiyat, Al Reef and many more!">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
 {% endblock %}
 {% block content %}
-<section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+<section style="background-image: url(/static/images/mainbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
   <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
   <div class="container ">
     <div class="row" style="padding-top: 90px" >
@@ -26,23 +26,40 @@
 
 <div class="container" >
 
-  <div class="row">
     <div id="window_footer"></div>
     {% for item in x %}
-    <div class="col-3" style="margin-bottom: 15px; margin-top: 15px;">
-      <div class="content">
-         <a href="/communities/{{item}}">
-              <div class="content-overlay"></div> 
-              <img class="content-image" style="height: 200px;width: 100%;" src="/static/communities/{{item}}.jpg" onerror="imgErrorcomm(this);">
-              <div class="content-details fadeIn-bottom">
-                  <h6 class="content-title" style="font-family: 'Poppins-light';">{{ item | replace('-',' ') }}</h6>
-                  <p class="content-text"><i class="fa fa-map-marker"></i> ^</p>
-              </div>
-          </a> 
-        </div>
-  </div>
+    <div class="row" style="margin-top: 5rem;">
+      <div class="col-lg-4 col-sm-12 col-md-4">
+        <img src="{{item[3]}}" style="width: 100%;height: 20rem; object-fit: cover;" alt="{{item[0]}}">
+      </div>
+      <div class="col" style="position: relative;">
+          <div class="row">
+            <div class="col">
+              <h2 class="caption">{{item[0]}}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h4 class="subcaption text-right">- {{item[1]}}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p  class="simple" style="color: white; text-align: justify;">{{item[2]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" style=" position: absolute;bottom: 0;">
+              <a href="/communities/{{item[0]|replace(' ','-')}}" ><button class="search_info" style="width: 100%; text-align: center;">View Properties</button></a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
     {% endfor %}
-  </div>
+
+  
 
 </div>
 </div>

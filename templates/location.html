@@ -1,0 +1,307 @@
+{% extends "base.html" %}
+{% block metacontent %}
+<meta name="title" content="{{result[0]}}, Abu Dhabi | UHPAE">
+<meta name="description" content="{{result[5]}}">
+<meta name="keywords" content="{{result[0]}},Abu Dhabi,community, real estate">
+ <title>{{result[0]}}, Abu Dhabi | UHPAE </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta property="og:image" content="https://www.uhpae.com{{result[1]}}" /> 
+<meta property="og:url" content="https://www.uhpae.com/communities/{{result[0]|replace(' ','-')}}">
+<meta property="og:title" content="{{result[0]}}, Abu Dhabi | UHPAE ">
+<meta property="og:description" content="{{result[0]}}, {{result[5]}}, look around existing properites, locations and submit enquiries!">
+{% endblock %}
+{% block content %}
+<!--section style="background-image: url({{result[1]}}); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;"-->
+  <div style="height: 100%;width: 100%;background-color: rgb(255, 255, 255); padding-bottom: 12%; position: relative;">
+ 
+
+  <div class="square">
+
+  </div>
+
+
+
+ 
+<div class="container ">
+
+
+  <div class="row">
+    <div class="col">
+    <div class="row" style="padding-top: 120px" >
+      <div class="col text-left">
+      <h2 class="nfont caption"><b>{{result[0]}}</b></h2>
+        </div>      
+      </div>
+
+      <div class="row descgap" >
+    <div class="col text-right">
+      <h4 class="subcaption">- {{result[5]}}</h4> 
+      </div>
+    </div>
+    <div class="row descgap">
+      <div class="col text-justify">
+        <p class="simple" style=" color: black;">
+          {{result[6]}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2 class="location_header" id="location"  >
+          Location
+        </h2>
+      </div>
+    </div>
+
+<div class="row">
+  <div class="col">
+    {{result[7]|replace("600","100%")|replace("450","300")|safe}}
+  </div>
+</div>
+
+    </div>
+    <div class="col-lg-6 col-sm-12" style="padding-top: 50px;">
+    <div style="background-image: url({{result[1]}});" class="location_img"></div>
+    </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 id="gallery" class="location_header" >
+        Gallery
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      
+<div id="imgcarousel">
+  
+
+</div>
+
+</div>
+
+</div>
+<div id="window_footer"></div>
+
+{% if sub_community.items()|length > 0 %}
+<div class="row">
+  <div class="col">
+    <h2 id="communities" class="location_header" >
+      {{result[0]}} Communities
+    </h2>
+  </div>
+</div>
+
+{% for key, value in sub_community.items() %}
+  <div class="row">
+    <div class="col">
+      <h2 class="sub_community">{{key}}</h2>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 2.5rem;">
+  {% for i in value %}
+  <div class="col-lg-3 col-md-3">
+    <div class="box">
+      <a href="/communities/{{i[0]|replace(' ','-')}}/{{i[1]|replace(' ','-')}}">
+        <figure class="snip1193 content">
+          <img src="{{i[2]}}" alt="{{i[1]}}" title="{{i[1]}}" style="object-fit: cover;">
+          <figcaption>
+          <h4 class="imgtext">{{i[8]}}</h4>
+          <p>-SEE MORE-</p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+{% endfor %}
+{% endif %}
+
+
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 id="properties" class="location_header">
+        PROPERTIES
+      </h2>
+    </div>
+  </div>
+  <div class="row justify-content-center" id="display">
+
+  </div>
+  <div class="row justify-content-center" style="margin-top: 20px;">
+    <input id="current_page" type="hidden" value="1">
+      <ul class="pagination">
+        <button class="page_move" id="previous" onclick="prev()"></button>
+        <button class="page_current" disableds id="current"></button>
+        <button class="page_move" id="next" onclick="next()"></button>
+      </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<!--/section-->
+
+<script>
+  $("#current_page").val(1);
+  document.getElementById("current").innerHTML = $("#current_page").val();
+  document.getElementById("previous").innerHTML = "{{ start_page }}"
+  document.getElementById("next").innerHTML = "{{ end_page }}"
+  window.addEventListener('load', (event) => {
+    myFunction(1);
+  });
+  
+  function prev(){
+    cp = $("#current_page").val();
+    cp = parseInt(cp) - 1;
+    if (cp != 0){
+      myFunction(cp)
+    }
+  }
+  function next(){
+    cp = $("#current_page").val();
+    cp = parseInt(cp) + 1;
+    myFunction(cp)
+  }
+  
+  function myFunction(x){
+      $("#current_page").val(x);
+      page = x
+          $.ajax({
+              method:"post",
+              url:"/livesearch",
+              data:{property:"{{result[0]}}", page:page},
+              success:function(res){
+                document.getElementById("current").innerHTML = $("#current_page").val();
+                document.getElementById("previous").innerHTML = res.start_page;
+                document.getElementById("next").innerHTML = res.end_page;
+                $("#current_page").val()
+                $('#display').empty();
+                  var data ='';
+                  $.each(res.queryres, function(key, value){
+                    var area = value.area;
+                    var newarea = area.replace(/\s/g, '-')
+                    var property = value.property;
+                    var newproperty = property.replace(/\s/g, '-')
+                    if (value.units == "rent"){
+                      var units = "Rent";
+                      var cosmo = "Discover";
+                      var x = "background-color: #0e4a88 !important;";
+                      var y =  "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var color = "gold-"; 
+                    }
+                  else if (value.units == "buy"){
+                      var units = "Buy";
+                      var cosmo = "Details"
+                      var x = "background-color: #A57D2D !important;";
+                      var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var color = "";
+                      }
+
+                      if (value.beds == "ST"){
+                    beds = ''}
+                  else {
+                    beds = ' Bed'
+                  }
+                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="container_foto">'
+                  data += '<div class="ver_mas text-center">'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '</div>'
+                  data += '<article class="text-left">'
+                  data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
+                  data += '<h4 class="card_desc">'+value.property+'<br>'+value.type+', '+value.area+'</h4>'
+                  data += '</article>'
+                  data += '<img src="'+value.image+'" alt="">'
+                  data += '</div>'
+                  data += '</div>'
+                  data += '</div>'
+                  
+              })
+                 
+                  $('#display').append(data);
+           
+              }
+          })
+  }
+
+ 
+</script>
+
+
+<script>
+    
+    var all = []
+    var x = {{images|tojson}}
+    var imagedata = '';
+    imagedata += '<div class="carousel  carousel-main" data-flickity>'
+    for (i = 0; i < x.length; i++) {
+      imagedata += '<div class="carousel-cell" style="height:auto; border:1px solid white;">'
+      imagedata += '<img class="carousel-cell-gallery" src="' + x[i] + '">'
+      imagedata += '</div>'
+      all.push(x[i])  
+    }
+      imagedata += '</div>'
+      $('#imgcarousel').append(imagedata);
+      
+  function imgErrorcomm(image) {
+    image.onerror = "";
+    image.src = "/static/images/alt_community.jpg";
+    return true;}
+</script>
+
+
+<script>
+  window.addEventListener('scroll', function() {
+	var element = document.getElementById("location");
+  var element2 = document.getElementById("gallery");
+  try{
+    var element3 = document.getElementById("communities");
+    var position3 = element3.getBoundingClientRect();
+    if(position3.top >= 0 && position3.bottom <= window.innerHeight) {
+    element3.classList.add("appear");
+	}
+  }
+  catch(e){
+    console.log(e)
+  }
+  
+  var element4 = document.getElementById("properties");
+	var position = element.getBoundingClientRect();
+  var position2 = element2.getBoundingClientRect();
+  var position4 = element4.getBoundingClientRect();
+	if(position.top >= 0 && position.bottom <= window.innerHeight) {
+    element.classList.add("appear");
+	}
+  if(position2.top >= 0 && position2.bottom <= window.innerHeight) {
+    element2.classList.add("appear");
+	}
+  if(position4.top >= 0 && position4.bottom <= window.innerHeight) {
+    element4.classList.add("appear");
+	}
+});
+</script>
+
+{% endblock %}

@@ -31,7 +31,9 @@
   font-display: swap;
 }
 
-
+.flickity-page-dots {
+  bottom:25px !important;
+}
 
 .partnersgap{
   margin-top:130px;
@@ -325,6 +327,7 @@ box-shadow: inset 0px 2px 19px 4px #000000;
   padding-top: 12px;
 }
 
+
 .s_bar_btn_key {
   font-family: 'Poppins-light';
   border-radius: 0px;
@@ -369,9 +372,11 @@ box-shadow: inset 0px 2px 19px 4px #000000;
 }
 
 .bg-dark {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(156, 114, 114, 0) 100%) !important;
-  transition: .8s;
-  backdrop-filter: blur(100px)
+  background: white !important;
+}
+
+.nav-link {
+  color: black !important;
 }
 
 .fixed-top {
@@ -382,15 +387,10 @@ box-shadow: inset 0px 2px 19px 4px #000000;
   z-index: 1031;
 }
 
-.bg-dark-const {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  transition: .8s;
-  backdrop-filter: blur(100px)
-}
-
 .dropdown-item{
   color: white !important;
-  font-size: 7pt !important;
+  font-size: 8pt !important;
+  text-transform: uppercase;
 }
 
 .dropdown-item:hover{
@@ -399,16 +399,8 @@ box-shadow: inset 0px 2px 19px 4px #000000;
 }
 
 
-.scrolled header.bg-dark:hover, header.bg-dark:hover {
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  transition: .8s;
-}
 
-.scrolled header.bg-dark-const:hover, header.bg-dark-const:hover {
-  background-color: rgba(0, 0, 0, 0.6) !important;
-  transition: .8s;
-}
-
+/*
 header .navbar {
   max-width: calc(100% - 170px);
   padding-left: 15px;
@@ -420,12 +412,7 @@ header .navbar {
   transition: 0.5s;
   position: unset;
 }
-
-.scrolled header.bg-dark * {
-
-    animation-delay: 0.5s;
-
-}
+*/
 
 .scroll-bottom {
 height: 85px;width: 100%;background-color: rgba(0, 0, 0, 0.5); position: absolute;bottom: 0;
@@ -441,15 +428,7 @@ transition: 0.5s;
   opacity: 1;
   transition: 0.5s;
 }
-.pagenumber{
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.pagenumber::after{
-  background-color: #4b4b4b;
-}
-.pagenumber:focus{
-  background-color: #4b4b4b;
-}
+
 .hero-screen{
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
             height: calc(var(--vh, 1vh) * 100);
@@ -458,8 +437,10 @@ transition: 0.5s;
             background-position: 77% 0;
             background-size: cover;
             position: relative;
+            
 }
 
+/*
 header .navbar {
 
     max-width: calc(100% - 170px);
@@ -488,7 +469,7 @@ header .navbar {
   justify-content: space-between;
   padding: 0 1rem;
 }
-
+*/
 .imgres{
   margin-top: 10px;
   width: 100%;
@@ -585,6 +566,7 @@ width: 100%;
   display: block;
   max-height: 100%;
   left:50%;  height:400px; width:100%;object-fit:cover;
+  object-position: right bottom;
 }
 /* cell number */
 .carousel-cell:before {
@@ -777,12 +759,13 @@ opacity: 0.5;
 .mediabtnblue:hover {
   background-position: left bottom;
 }
-
+/*
 .navbar {
   font-family: 'Poppins-light', sans-serif !important;
   font-size: 12pt !important;
   color: #000 !important;
 }
+*/
 
 .shadow {
   box-shadow: 0px -19px 48px -20px rgba(0,0,0,1) !important;
@@ -870,8 +853,10 @@ footer a:hover {
 }
 
 .flickity-page-dots .dot.is-selected {
-  background: #A57D2D;
+  background: #ffffff;
 }
+
+
 
 .flickity-prev-next-button {
   width: 100px;
@@ -1238,7 +1223,7 @@ margin-bottom: 50px;
 }
 
 .teampagnumber {
-margin-top: 230px;
+margin-top: 20px;
 }
 
 .hotbtn{
@@ -1501,6 +1486,12 @@ h4 {
 }
 
  @media only screen and (max-width: 500px) {
+
+.bg_sub {
+  background: transparent !important;
+}
+
+
   .carousel-cell-image {
    height:300px; width:300px;
   }
@@ -1995,5 +1986,6 @@ font-style: none;}
     margin-bottom: -130px;
   }
 }
+
 
 

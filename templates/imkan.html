@@ -8,37 +8,75 @@
 {% endblock %}
 {% block content %}
 
-
-
-<div class="container" style="margin-top: 20px;">
-    <div class="row">
-        <div class="col">
-            <p class="nfont" style="display: inline; margin-left: 20px;"><b>IMKAN</b></p>
-        </div>
+<section style="background-image:url({{thumbnail}});background-repeat: no-repeat;background-position: top center, top center, bottom center; background-size: cover;">
+  <div class="container" style="padding-top: 100px;">
+      <div class="row">
+          <div class="col">
+              <h2 class="developer">
+                  IMKAN - {{status}}
+                </h2>  
+          </div>
         <div class="col text-right">
-            <img class="partners" src="/static/images/imkan.jpg" alt="" style="display: inline; ">
+            <img class="partners" src="/static/images/imkan.png" alt=""  >
         </div>
     </div>
 </div>
 
-<div class="container" style="margin-top: 50px">
+<div class="container" style="padding-bottom: 10%;">
     <div class="row justify-content-center">
-        <div class="col shadow" style="text-align: justify;"><p class="simple">Imkan residential, retail, hospitality and commercial projects all have something in common. They aspire to stimulate immediate surroundings and enrich the lives of the people that interact with them. By collaborating, engaging, and enriching; Imkan purpose is to feed the soul, foster innovation, and cultivate an organic sense of community within each and every one of Imkan projects.
+        <div class="col shadow" style="text-align: justify; background-color: rgba(255, 255, 255, 0.8);">
+          <br>
+          <p class="simple">Imkan residential, retail, hospitality and commercial projects all have something in common. They aspire to stimulate immediate surroundings and enrich the lives of the people that interact with them. By collaborating, engaging, and enriching; Imkan purpose is to feed the soul, foster innovation, and cultivate an organic sense of community within each and every one of Imkan projects.
             With a strong Research and Development platform at Imkan core, Imkan team of dedicated researchers work to help articulate, initiate, develop and facilitate creative solutions at every stage of the Property Development cycle. Imkan mission is to contribute to the environment, ecosystem and community of every property we develop so we can raise the overall standard of living. Imkan are driven by the team – because it’s the people that make us what we are today and will ensure we deliver on our promise.
             Imkan has developments in 3 Continents,  6 Countries, and 26 Projects. With total of 30 Million Square Meters of Land. Imkan has a Global Perspective with Local Insight.
             </p>
-            <ul class='simple'><b>Imkan Projects</b> 
-                <li>
-                    Pixel Al Reem Island</li>
-                    <li> Al Jurf Al Reem Island</li><li>Nudra Saadiyat Island</li><li>The Artery Al Reem Island</li><li>Makers District Al Reem Island</li><li>Shiekha Fatima Park Khalidiyah Abu Dhabi</li>
-                   
-                    
-                    
-                    
-                    
-                
-            </ul>
+
     </div>
     </div>
     </div>
+
+</section>
+
+<div class="container">
+    {% if sub_community.items()|length > 0 %}
+<div class="row">
+  <div class="col">
+    <h2 style="color: black;" class="location_header" >
+      Imkan {{status}} Communities
+    </h2>
+  </div>
+</div>
+
+{% for key, value in sub_community.items() %}
+  <div class="row">
+    <div class="col">
+      <h2 class="sub_community">{{key}}</h2>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 2.5rem;">
+  {% for i in value %}
+  <div class="col-lg-3 col-md-3">
+    <div class="box">
+      <a href="/communities/{{i[0]|replace(' ','-')}}/{{i[1]|replace(' ','-')}}">
+        <figure class="snip1193 content">
+          <img src="{{i[2]}}" alt="{{i[1]}}" title="{{i[1]}}" style="object-fit: cover;">
+          <figcaption>
+          <h4 class="imgtext">{{i[8]}}</h4>
+          <p>-SEE MORE-</p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+{% endfor %}
+{% endif %}
+</div>
+
+
+
 {% endblock %}
+
+
+

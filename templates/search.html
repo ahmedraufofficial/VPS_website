@@ -12,16 +12,16 @@
 <meta property="og:title" content="Search for your ideal home">
 <meta property="og:description" content="buying, selling, renting, ammenities,units, communities, real estate, buy, rent, discover,details">
 {% else %}
-<meta name="title" content="{{meta[0]}}">
-<meta name="description" content="{{meta[1]}}">
-<meta name="keywords" content="{{meta[2][0]}} , {{meta[2][1]}} , {{meta[2][2]}} , property in abu dhabi">
+<meta name="title" content="{{meta[1]}}">
+<meta name="description" content="{{meta[2]}}">
+<meta name="keywords" content="{{meta[0]}}">
 <meta property="og:image" content="https://www.uhpae.com/static/images/logo.png" /> 
-<title>{{meta[0]}}</title>
+<title>{{meta[1]}}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
 <meta property="og:url" content={{url}}>
-<meta property="og:title" content="{{meta[0]}}">
-<meta property="og:description" content="{{meta[1]}}">
+<meta property="og:title" content="{{meta[1]}}">
+<meta property="og:description" content="{{meta[2]}}">
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -45,116 +45,67 @@
   <section style="background-image: url(/static/images/scaledbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
     <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);">
   
-
-<div class="search_transparent_bg" style=" margin-top: 0px;position: relative; padding-bottom: 4px;">
-  <div class="container">
-
-      <form id="my-form-id" class="form-inline" style="padding-top: 80px;position: relative;">
-      <div class="row justify-content-between">
-          <div class="col-lg-3 col-md-3 col-sm-12 text-center">
-          <select style="width: 100%;" id="units" name="units" class="custom-select s_bar_btn_drop"  style="text-align: center; margin-left: 0;">
-            <option value="" disabled selected>Buy / Sell</option>
-            <option value="buy">Buy</option>
-            <option value="rent">Rent</option>
-          </select>
-          </div>
-<div class="col-lg-3 col-md-3 col-sm-12 text-center">
-          <select id="contract" name="contract" class="custom-select s_bar_btn_drop" style="width: 100%;">
-            <option value="" disabled selected>Status</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
-            </select>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-12 text-center">
-            <select style="width: 100%;" id="city" name="city" class="custom-select s_bar_btn_drop">
-              <option value="" disabled selected>Emirate</option>
-              <option value="Abu Dhabi">Abu Dhabi</option>
-              <option value="Dubai">Dubai</option>
-              <option value="Alain">Al ain</option>
-              </select>
-    
-</div>
-<div class="col-lg-3 col-md-3 col-sm-12 text-center">
-          <select style="width: 100%;" id="area" name="area" class="custom-select s_bar_btn_drop" >
-            <option value="" disabled selected>Location</option>
-            <option value="Al Reem Island">Reem Island</option>
-            <option value="Yas Island">Yas Island</option>
-            <option value="Al Raha Beach">Al Raha</option>
-            <option value="Saadiyat Island">Al Saadiyat</option>
-            <option value="Al Reef">Al Reef</option>
-            <option value="Khalifa City A">Khalifa City</option>
-            </select>
-        </div>
-      </div>
-        <div class="row justify-content-center" >
-         
-          <div class="col-lg-3 col-md-3 col-sm-12 text-center">
-            
-          <select style="width: 100%;" id="price" name="price" class="custom-select s_bar_btn_drop">
-            <option value="" disabled selected>Max Price</option>
-            <option value="0">50,000</option>
-            <option value="1">100,000</option>
-            <option value="2">200,000</option>
-            <option value="3">300,000</option>
-            <option value="4">400,000</option>
-            <option value="5">+400,000</option>
-          </select>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-12 text-center">
-    <select style="width: 100%;" id="beds" name="beds" class="custom-select s_bar_btn_drop" >
-      <option value="" disabled selected>Beds</option>
-      <option value="ST">Studio</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-      <option value="4">Four</option>
-      <option value="5">Five</option>
-      <option value="6">Six</option>
-      </select>
-    
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-12 text-center">
-        <select style="width: 100%;" id="type" name="propertytype" class="custom-select s_bar_btn_drop" >
-        <option value="" disabled selected>Type</option>
-        <option value="Apartment">Apartment</option>
-        <option value="Villa">Villa</option>
-        <option value="Compound">Compound</option>
-        <option value="Townhouse">Townhouse</option>
-        <option value="Land Residential">Land Residential</option>
-        <option value="Penthouse">Penthouse</option>
-        <option value="Office">Office</option>
+<form autocomplete="off" id="my-form-id" style="padding-top: 80px;position: relative;">
+    <div class="container">
+    <div style="display: flex;justify-content: space-between; flex-wrap: wrap;">
+            <input id="keyword" name="keyword" type="text" class="typeahead search_community searchwidth" style="background-color: rgb(0, 0, 0,0.7); margin-top: 10px;margin-bottom: 10px;" data-provide="typeahead" placeholder="Community or Location" />
+            <script>
+              var data = {{ search_list|tojson }}
+              var $input = $(".typeahead");
+              $input.typeahead({
+                  source: data,
+                  autoSelect: true,
+              });
+              $input.change(function () {
+                  var current = $input.typeahead("getActive");
+                  matches = [];
+                  if (current) {
+                      if (current.name == $input.val()) {
+                          matches.push(current.name);
+                      }
+                  }
+              });
+            </script>
+        <select id="units" name="units" class="search_option"  style="color: black;margin-top: 10px;margin-bottom: 10px;">
+          <option value="" disabled selected>Buy / Sell</option>
+          <option value="Sale">Buy</option>
+          <option value="Rent">Rent</option>
         </select>
-    </div> 
-    <div class="col-lg-3 col-md-3 col-sm-12 text-center"> 
-      <button style="width: 100%; background-color: #001524;color: white;" type="button" class="s_bar_btn_drop" onclick="myFunction('1')" formmethod="get|post">Search</button>
-        </div>
-    
-    
 
-        
-        </div>
-    
-        
-        </form>
-    
-    
- 
-  
-    </div>
-    </div>
-  
+        <select id="beds" name="beds" class="search_option" style="color: black;margin-top: 10px;margin-bottom: 10px;">
+          <option value="" disabled selected>Beds</option>
+          <option value="ST">Studio</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+          <option value="4">Four</option>
+          <option value="5">Five</option>
+          <option value="6">Six</option>
+          </select>
 
-<div class="container">
-  <div class="row">
-    <div class="col" style="text-align: center; margin-top: 2%; margin-bottom: 2%;">
-      <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold'; text-transform: uppercase;">{{search}}</h2>
-    </div>
-  </div>
+            <select id="type" name="propertytype" class="search_option" style="color: black;margin-top: 10px;margin-bottom: 10px;" >
+            <option value="" disabled selected>Type</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+            <option value="Compound">Compound</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Land Residential">Land Residential</option>
+            <option value="Penthouse">Penthouse</option>
+            <option value="Office">Office</option>
+            </select>
 </div>
+<div style="display: flex; justify-content: left">
+  <button class="search_option" style="background-color: #001524; text-align: center; margin-top: 10px;margin-bottom: 10px;" type="button"  onclick="myFunction('1')" formmethod="get|post">Search</button>
+ </div> 
+</div>
+
+</form>
+
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <p class="simple" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;">Searched for: {{args}}</p>
+      <p class="simple" style="color: #8e8a8a; font-size: 20px; text-transform: capitalize;font-family: 'Poppins-light',sans-serif; padding-top: 25px;">Searched for: {{meta[1]}}</p>
     </div>
   </div>
 </div>
@@ -173,21 +124,12 @@
 </div>
 <div class="container">
   <div class="row justify-content-center" style="margin-top: 20px;">
-    
       <input id="current_page" type="hidden" value="1">
         <ul class="pagination">
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="prev()" class="page-link" >Prev</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('1')" >1</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('2')" >2</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('3')" >3</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('4')" >4</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('5')" >5</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('6')" >6</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px;  font-size: 9pt;border-color: white;" onclick="myFunction('7')" >7</button></li>
-          <li class="page-item"><button class = "pagenumber  btn btn-info" style="border-radius:0px; background-color: #4b4b4b; font-size: 9pt;border-color: #4b4b4b;"  class="btn btn-info" onclick="next()" class="page-link" >Next</button></li>
+          <button class="page_move" id="previous" onclick="prev()"></button>
+          <button class="page_current" disableds id="current"></button>
+          <button class="page_move" id="next" onclick="next()"></button>
         </ul>
-      
-   
   </div>
 
 </div>
@@ -202,20 +144,26 @@
 
 {% for item in pl %}
 <script>
+
 document.getElementById('{{item[0]}}').value='{{item[1]}}' 
 </script>
 {% endfor %}
 
 
 <script>
-
+  var args = JSON.parse('{{ search_args | tojson }}') 
+  for (const [key, value_] of Object.entries(args)) {
+    document.getElementById(key).value = value_
+  }
+    document.getElementById("current").innerHTML = $("#current_page").val();
+    document.getElementById("previous").innerHTML = "{{ start_page }}"
+    document.getElementById("next").innerHTML = "{{ end_page }}"
     var b = JSON.parse('{{ queryRes | tojson | safe}}');
     var data ='';
     var data_list = '';
     var script_properties = '';
     var cardid = 1;
     var pagebtn = ''
-    console.log(b)
     $.each(b, function(key, value){
       var area = value.area;
       var newarea = area.replace(/\s/g, '-')
@@ -247,15 +195,17 @@ document.getElementById('{{item[0]}}').value='{{item[1]}}'
                   else {
                     beds = ' Bed'
                   }
-                  data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 15px;margin-top:15px;">'
-                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
-                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
-                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
-                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
-                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
-                  data += '</a></div>'
+                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="container_foto">'
+                  data += '<div class="ver_mas text-center">'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '</div>'
+                  data += '<article class="text-left">'
+                  data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
+                  data += '<h4 class="card_desc">'+value.property+'<br>'+value.type+', '+value.area+'</h4>'
+                  data += '</article>'
+                  data += '<img src="'+value.image+'" onerror="imgError(this);" alt="">'
+                  data += '</div>'
                   data += '</div>'
                   data += '</div>'
                   
@@ -297,23 +247,22 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
   }
   
   function myFunction(x){
-      $("#current_page").val(x)
+      $("#current_page").val(x);
       units = $("#units").val();
       propertytype = $("#type").val();
-      pricefrom = $("#price").val();
-      textinlivebox = $("#city").val();
-      textinlocation = $("#area").val();
-      select = $("#beds").val();
-      contract = $("#contract").val();
+      beds = $("#beds").val();
+      keyword = $("#keyword").val();
       page = x
           $.ajax({
               method:"post",
               url:"/livesearch",
-              data:{units:units,text:textinlivebox, location:textinlocation, 
-              selectbox:select, contract:contract,
-              pricefrom:pricefrom,  page:page,
-              propertytype:propertytype},
+              data:{units:units,keyword:keyword, propertytype:propertytype, 
+              beds:beds, page:page},
               success:function(res){
+                document.getElementById("current").innerHTML = $("#current_page").val();
+                document.getElementById("previous").innerHTML = res.start_page;
+                document.getElementById("next").innerHTML = res.end_page;
+                $("#current_page").val()
                 $('#display').empty();
                   var data ='';
                   $.each(res.queryres, function(key, value){
@@ -341,18 +290,20 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
                   else {
                     beds = ' Bed'
                   }
-                  data += '<div class="col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center" style="margin-bottom: 15px;margin-top:15px;">'
-                  data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
-                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
-                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
-                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
-                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
-                  data += '</a></div>'
+                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="container_foto">'
+                  data += '<div class="ver_mas text-center">'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '</div>'
+                  data += '<article class="text-left">'
+                  data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
+                  data += '<h4 class="card_desc">'+value.property+'<br>'+value.type+', '+value.area+'</h4>'
+                  data += '</article>'
+                  data += '<img src="'+value.image+'" onerror="imgError(this);" alt="">'
                   data += '</div>'
                   data += '</div>'
-   
+                  data += '</div>'
+                  
               })
                  
                   $('#display').append(data);

@@ -1,0 +1,456 @@
+{% extends "base.html" %}
+{% block metacontent %}
+<meta name="title" content="{{result[1]}}, {{result[0]}}">
+<meta name="description" content="{{result[10].split('.')[0]}}">
+<meta name="keywords" content="{{result[1]}}, {{result[0]}}, {% for item in result[12].split(',') %}{{item.split(':')[1]}}, {% endfor %}
+ Abu Dhabi, {{result[9]}},buy, sell, rent, communities, real estate">
+
+
+<title>{{result[1]}}, {{result[0]}}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta property="og:image" content="https://www.uhpae.com{{thumbnail}}" /> 
+<meta property="og:url" content="https://www.uhpae.com/communities/{{result[0]|replace(' ','-')}}/{{result[1]|replace(' ','-')}}">
+<meta property="og:title" content="{{result[1]}}, {{result[0]}}">
+<meta property="og:description" content="{{result[10].split('.')[0]}}">
+{% endblock %}
+{% block content %}
+<section style="background-image: url({{thumbnail}}); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.45); padding-bottom: 12%;">
+  <div class="container ">
+    <div class="row" style="padding-top: 90px" >
+      <div class="col text-left">
+ 
+          
+    <img class="sub_img" src="{{result[5]}}" style="width: 15%; min-width: 50px;background-color: rgba(255, 255, 255, 0.2); font-family: 'Poppins-light'; color: white; padding: 3px; text-transform: uppercase; letter-spacing: 2px;" alt="{{ result[1] }}">
+
+
+        </div>  
+        <div class="col text-right">
+          <img src="{{dev_img}}" style="width: 15%;min-width: 50px;" >
+        </div>
+        
+</div>
+
+<div class="row">
+    <div class="col text-center">
+      <h2 class="sub_caption" ><b>{{result[9]}}</b></h2>
+    </div>
+    <script>
+      $(document).ready(function () {
+    var $horizontal = $('.sub_caption');
+    var startPosition = $horizontal.position().left;
+    var speed = 14;
+    $(window).scroll(function () {
+        var st = $(this).scrollTop();
+        var newPos = String((st * (speed/100))+ 8) + "px";
+        $horizontal.css({
+            'letter-spacing': newPos,
+            'overflow':'hidden'
+        });
+    });
+});
+    </script>  
+</div>
+
+
+</div>
+<section class="bg_sub" style="background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(253,29,29,0) 50%, rgba(252,176,69,0) 100%)">
+<div class="container" >
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      
+<div id="imgcarousel">
+  
+
+</div>
+
+</div>
+
+
+<div class="col">
+  <form method="post" autocomplete="off" name="google-sheet" class="simple">
+
+  <div style="background-color: rgb(0, 0, 0, 0.5);padding-bottom:10px; padding-top:10px; font-size: 8pt; height: 400px;margin-top: 10px;">
+    <div class="row">
+      <div class="col text-center">
+      <h2 class="nfont" style="font-size: 14pt">
+        Let us help you <b>Book<b> or <b>Inquire<b>!
+      </h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+    <textarea type="text" name="name" rows="1" style="width: 90%;" placeholder="Your Name" required></textarea>
+    </div></div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+    <textarea type="text" name="email" rows="1" style="width: 90%;" placeholder="Email address" required></textarea>
+    </div></div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col text-center">
+    <textarea type="text" name="phonenumber" id="phonenumber" rows="1" style="width: 90%;"  placeholder="Phone/ Mobile Number" required></textarea>
+    </div>
+  </div>
+    <br>
+    <div class="row justify-content-center"  style="color: white;">
+      <div class="col text-center">
+        <p>Book Appointment</p>
+        <input type="radio" id="html" name="message" value="Booking">
+      </div>
+      <div class="col text-center">
+        <p>Get Inquiry/ Availability</p>
+        <input type="radio" id="html" name="message" value="Inquiry">
+      </div>
+      <div class="col text-center">
+        <p>Interested</p>
+        <input type="radio" id="html" name="message" value="Interested">
+      </div>
+
+    </div>
+    <br>
+    <div class="row">
+      <div class="col text-center">
+          <input type="submit" value="Submit" class="s_bar_btn">
+          <input type="hidden" id="strReferrer" name="strReferrer" />
+      </div>
+    </div>
+  </div>
+  </form>
+
+
+</div>
+</div>
+
+
+</div>
+</section>
+<div class="container">
+  <div id="window_footer"></div>
+<div class="row">
+  <div class="col" style="margin-top: 30px;">
+    <p class="simple" style="color:white;">
+      {{result[10]}}
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h2 class="nfont" style="font-size: 14pt; margin-top: 20px;" >
+      FLOORPLANS
+    </h2>
+    <p class="nfont" style="font-size: 9pt; font-family: Poppins-light;">
+      Click to enlarge
+    </p>
+  </div>
+</div>
+<div class="row">
+  {% for i in floorplans %}
+  <div class="floorplan col-lg-3 col-md-3 col-sm-6">
+    <img src="{{i[1]}}" onclick=fullfloorplan("{{i[2]}}") style="width: 100%;cursor:pointer;color: white;font-family: Poppins-light; height: 100px; object-fit: cover;" alt="Coming Soon!">
+    <div style="width: 100%; background-color: rgb(0, 0, 0, 0.7);">
+      <p class="simple" style="color:white;text-transform: uppercase; text-align: center;padding-top: 10px; padding-bottom: 10px;">
+        {{i[0]}}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% if floorplans[0][0] != "" %}
+<div class="row">
+  <div class="col text-center">
+    <button id="more_floor" class="page_move" onclick="show_floorplans()">+</button>
+  </div>
+</div>
+<script>
+  function show_floorplans(){
+    document.getElementById("more_floor").style.display = "none";
+    $('.floorplan').removeClass('floorplan');
+  }
+</script>
+{% endif %}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="nfont" style="font-size: 14pt; margin-top: 20px;" >
+        FEATURES
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped table-dark" style="font-family: 'Poppins-light'; font-size: 9pt;">
+        <tbody>
+          {% for item in result[12].split(',') %}
+          <tr>
+            <td>{{item.split(':')[0]}}</td>
+            <td>{{item.split(':')[1]}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="nfont" style="font-size: 14pt; margin-top: 20px;" >
+        LOCATION
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{result[11]|replace("600","100%")|safe}}
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="nfont" style="font-size: 14pt; margin-top: 20px;" >
+        PROPERTIES
+      </h2>
+    </div>
+  </div>
+  <div class="row justify-content-center" id="display">
+
+  </div>
+  <div class="row justify-content-center" style="margin-top: 20px;">
+    <input id="current_page" type="hidden" value="1">
+      <ul class="pagination">
+        <button class="page_move" id="previous" onclick="prev()"></button>
+        <button class="page_current" disableds id="current"></button>
+        <button class="page_move" id="next" onclick="next()"></button>
+      </ul>
+  </div>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<input type="hidden" id="displaypic" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content"  style="background-color: rgba(0, 0, 0, 0.9); border-radius: 0px; border: 1px solid #4b4b4b;">
+      <div class="modal-header" style="border: none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row justify-content-center">
+            <a  href="#carouselExampleControls" role="button" data-slide="prev" style="margin-right: 20px;">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a href="#carouselExampleControls" role="button" data-slide="next" style="margin-right: 20px;">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+ 
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" id="imgdiv">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<input type="hidden" id="displayfloorplan" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content"  style="background-color: rgba(0, 0, 0, 0.9); border-radius: 0px; border: 1px solid #4b4b4b;">
+      <div class="modal-header" style="border: none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col" id="floorplan">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $("#current_page").val(1);
+  document.getElementById("current").innerHTML = $("#current_page").val();
+  document.getElementById("previous").innerHTML = "{{ start_page }}"
+  document.getElementById("next").innerHTML = "{{ end_page }}"
+  window.addEventListener('load', (event) => {
+    myFunction(1);
+  });
+  
+  function prev(){
+    cp = $("#current_page").val();
+    cp = parseInt(cp) - 1;
+    if (cp != 0){
+      myFunction(cp)
+    }
+  }
+  function next(){
+    cp = $("#current_page").val();
+    cp = parseInt(cp) + 1;
+    myFunction(cp)
+  }
+  
+  function myFunction(x){
+      $("#current_page").val(x);
+      page = x
+          $.ajax({
+              method:"post",
+              url:"/livesearch",
+              data:{buildingname:"{{result[1]}}", page:page},
+              success:function(res){
+                document.getElementById("current").innerHTML = $("#current_page").val();
+                document.getElementById("previous").innerHTML = res.start_page;
+                document.getElementById("next").innerHTML = res.end_page;
+                $("#current_page").val()
+                $('#display').empty();
+                  var data ='';
+                  $.each(res.queryres, function(key, value){
+                    var area = value.area;
+                    var newarea = area.replace(/\s/g, '-')
+                    var property = value.property;
+                    var newproperty = property.replace(/\s/g, '-')
+                    if (value.units == "rent"){
+                      var units = "Rent";
+                      var cosmo = "Discover";
+                      var x = "background-color: #0e4a88 !important;";
+                      var y =  "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var color = "gold-"; 
+                    }
+                  else if (value.units == "buy"){
+                      var units = "Buy";
+                      var cosmo = "Details"
+                      var x = "background-color: #A57D2D !important;";
+                      var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var color = "";
+                      }
+
+                      if (value.beds == "ST"){
+                    beds = ''}
+                  else {
+                    beds = ' Bed'
+                  }
+                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="container_foto">'
+                  data += '<div class="ver_mas text-center">'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '</div>'
+                  data += '<article class="text-left">'
+                  data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
+                  data += '<h4 class="card_desc">'+value.property+'<br>'+value.type+', '+value.area+'</h4>'
+                  data += '</article>'
+                  data += '<img src="'+value.image+'" alt="">'
+                  data += '</div>'
+                  data += '</div>'
+                  data += '</div>'
+                  
+              })
+                 
+                  $('#display').append(data);
+           
+              }
+          })
+  }
+
+ 
+</script>
+
+
+<script>
+    document.getElementById('strReferrer').value = window.location.href;
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+    const form = document.forms['google-sheet']
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+        form.reset()
+      })
+
+
+    var all = []
+    var x = {{images|tojson}}
+    var imagedata = '';
+    imagedata += '<div class="carousel  carousel-main" data-flickity>'
+    for (i = 0; i < x.length; i++) {
+      imagedata += '<div class="carousel-cell" style="height:400px;">'
+      imagedata += '<img onclick=fullpic("'+ x[i] +'") class="carousel-cell-image" src="' + x[i] + '">'
+      imagedata += '</div>'
+      all.push(x[i])  
+    }
+      imagedata += '</div>'
+      $('#imgcarousel').append(imagedata);
+      
+  function imgErrorcomm(image) {
+    image.onerror = "";
+    image.src = "/static/images/alt_community.jpg";
+    return true;}
+
+    function fullpic(url){
+      var allimg = ''
+    for (i = 0; i < all.length; i++){
+      if (all[i] == url){
+        allimg += '<div class="carousel-item active"><img class="d-block w-100" src="'+all[i]+'"></div>'
+      }
+      else {
+        allimg += '<div class="carousel-item"><img class="d-block w-100" src="'+all[i]+'"></div>'
+      }
+    }
+      $("#imgdiv").html(allimg);
+      $("#displaypic").click();
+      }
+
+      function fullfloorplan(url){
+        $("#floorplan").empty();
+      var allimg = ''
+        allimg += '<img style="width:100%; cursor:pointer;" src="'+url+'"></div>'
+      $("#floorplan").append(allimg);
+      $("#displayfloorplan").click();
+      }
+
+
+</script>
+
+
+{% endblock %}

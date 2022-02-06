@@ -18,7 +18,7 @@
 <div class="container" style="padding-top: 90px;">
   <div class="row">
     <div class="col">
-      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light';"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', units='all')}}"> Abu Dhabi ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('communities')}}"> Communities ></a>
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light';"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', units='all')}}"> Abu Dhabi ></a>
     <a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="/communities/{{loc | replace (' ', '-')}}"> {{ loc }} ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', property = result[27] )}}"> {{result[27]}} ></a>
     <a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('search', beds = result[4], area=loc)}}">{{result[4]}} Bedroom APT></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="#"> Property ID {{result[7]}}</a></p>
   </div>
@@ -583,16 +583,17 @@ function shuffle(array) {
                   else {
                     beds = ' Bed'
                   }
-                  
-                  data += '<div class="col d-flex justify-content-center" style="margin-bottom: 10px;">'
-                    data += '<div class="card" style="width: 18rem; height: 15.5rem;  position:relative; border-radius:0px; border:none;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'"  onerror="imgError(this);" style="height: 160px; object-fit:cover;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><div class="card-content"><button class="viewmore">'+value.title+'</button></div></a></div>'
-                  data += '<div class="card-body" style="z-index:2; border-radius: 0px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'">'
-                  data += '<div class="row" style="margin-top: -10px;margin-bottom:5px;"><div class="col"><h5 class="card-title" style =  "'+ y +'font-size: 11pt;text-transform: uppercase;  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.property+'</h5></div></div>'
-                  data += '<div class="row" ><div class="col"><h5 class="card-title" style =  "'+ y +' font-size: 7.5pt;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">'+value.type+', '+value.area+'</h5></div><div class="col-3"><p class="card-text" style ="float:right;'+ y +'font-size: 7.5pt;">'+value.beds+beds+'</p></div></div>'
-                  data += '<div class="row" style="margin-top:-7px;"><div class="col"><p class="card-text" style ="'+ y +'font-size: 7.5pt;">Abu Dhabi</p></div><div class="col-5"><p style ="'+ y +'font-size: 7.5pt;float:right; margin-top:7px;" >AED '+value.price+'</p></div></div>'
-                  data += '</a></div>'
+                  data += '<div class="col-12" style="margin-top: 20px; margin-left:-10px">'
+                  data += '<div class="container_foto">'
+                  data += '<div class="ver_mas text-center">'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '</div>'
+                  data += '<article class="text-left">'
+                  data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
+                  data += '<h4 class="card_desc">'+value.property+'<br>'+value.type+', '+value.area+'</h4>'
+                  data += '</article>'
+                  data += '<img src="'+value.image+'" onerror="imgError(this);" alt="">'
+                  data += '</div>'
                   data += '</div>'
                   data += '</div>'
               })

@@ -10,21 +10,26 @@
 
 
 
-<div class="container" style="margin-top: 20px;">
-    <div class="row">
-        <div class="col">
-            <p class="nfont" style="display: inline; margin-left: 20px;"><b>BLOOM</b></p>
-        </div>
+<section style="background-image:url({{thumbnail}});background-repeat: no-repeat;background-position: top center, top center, bottom center; background-size: cover;">
+  <div class="container" style="padding-top: 100px;">
+      <div class="row">
+          <div class="col">
+              <h2 class="developer">
+                  BLOOM - {{status}}
+                </h2>  
+          </div>
+  
         <div class="col text-right">
-            <img class="partners" src="/static/images/bloom.jpg" alt="" style="display: inline; ">
+            <img class="partners" src="/static/images/bloom.png" alt=""  >
         </div>
     </div>
 </div>
 
-<div class="container" style="margin-top: 50px">
+<div class="container" style="padding-bottom: 10%;">
     <div class="row justify-content-center">
-        <div class="col shadow" style="text-align: justify;">
-            <p class="simple"><b>Growing together everyday</b></p>
+        <div class="col shadow" style="text-align: justify; background-color: rgba(255, 255, 255, 0.8);"">
+          <br>  
+          <p class="simple"><b>Growing together everyday</b></p>
             <p class="simple">
 As one of the UAE’s foremost companies, we are committed to developing premium real estate and enriching the lives of our customers through our excellence in managing and operating our communities, schools and hotels. Over the years, our team has grown and our strategies have evolved, yet an essential aspect remains unchanged – the driving force of our success: our people’s passion.
 Our transparent internal communication and strong sense of belonging naturally extends outward to our customers. We are keen to address your needs before they arise.
@@ -69,78 +74,48 @@ Caring
 
         </div>
     </div>
-    <div class="row" style="margin-top: 50px;">
-        <div class="col">
-            <h2 class="nfont"><b>Related Properties</b></h2>
-        </div>
-    </div>
+
 </div>
+
+</section>
+
 <div class="container">
-<div class="container-property" id="dispprop">
-
+    {% if sub_community.items()|length > 0 %}
+<div class="row">
+  <div class="col">
+    <h2 style="color: black;" class="location_header" >
+      Bloom {{status}} Communities
+    </h2>
+  </div>
 </div>
-</div>
 
+{% for key, value in sub_community.items() %}
+  <div class="row">
+    <div class="col">
+      <h2 class="sub_community">{{key}}</h2>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 2.5rem;">
+  {% for i in value %}
+  <div class="col-lg-3 col-md-3">
+    <div class="box">
+      <a href="/communities/{{i[0]|replace(' ','-')}}/{{i[1]|replace(' ','-')}}">
+        <figure class="snip1193 content">
+          <img src="{{i[2]}}" alt="{{i[1]}}" title="{{i[1]}}" style="object-fit: cover;">
+          <figcaption>
+          <h4 class="imgtext">{{i[8]}}</h4>
+          <p>-SEE MORE-</p>
+          </figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+{% endfor %}
+{% endif %}
+</div>
 
 
 
 {% endblock %}
-{% block scripts %}
-
-<script>
-    var b = JSON.parse('{{ queryRes | tojson | safe}}');
-    var data ='';
-    
-    
-    $.each(b, function(key, value){var area = value.area;
-      var newarea = area.replace(/\s/g, '-')
-      var property = value.property;
-      var newproperty = property.replace(/\s/g, '-')
-                  if (value.units == "rent"){
-                      var units = "Rent";
-                      var cosmo = "Discover";
-                      var x = "background-color: #0e4a88 !important;";
-                      var y = "color: #0e4a88; font-family: 'Poppins-light'";
-                      var z = "#0e4a88";
-                      var color = "gold-"
-                      ;
-                      }
-                  else if (value.units == "buy"){
-                      var units = "Buy";
-                      var cosmo = "Details"
-                      var x = "background-color: #A57D2D !important;";
-                      var y = "color: #A57D2D; font-family: 'Poppins-light'";
-                      var z = "#A57D2D";
-                      var color = "";
-                      }
-                  else {var x = "" }
-                  data += '<div class="card" style="width: 18rem; margin: 5px; position:relative;">'
-                  data += '<img class="card-img-top1" src="'+value.image+'" alt="'+value.property+'" style="height: 250px;">'
-                  data += '<div class="card-img-overlay" style="z-index:0;"><div class="labeldesc" style=" background-color: '+z+'; width:20%; text-align:center; color:white;" >'+units+'</div></div>'
-                  data += '<div class="card-body" style="z-index:2">'
-                  data += '<h5 class="card-title" style =  "'+ y +'">'+value.property+'</h5>'
-                  data += '<p class="card-text card-desc" >'+value.type+', '+value.area+'</p>'
-                  data += '<p class="card-text card-desc" style="color: #8e8a8a !important;">'+value.title+'</p>'
-                  data += '<p class="card-text">'+'<img src="/static/icons/bed.svg" width="20px">'+'  '+value.beds+'  '+'<img  src="/static/icons/bath.svg" width="20px"  style="margin-left:7px;">'+'  '+value.baths+'  '+'<img  src="/static/icons/squares.svg" width="15px"  style="margin-left:7px;">'+'  '+value.size+' Sqft'+'</p>'
-                  data += '<div class="row"><p style = " margin-left:15px;'+ y +'" ><b>AED '+value.price+'</b></p></div>'
-                  data += '<div class="row" style="margin-left:3px;"><a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'" style="text-decoration: none;color:'+z+';border-radius: 25px; border: 1px solid '+z+'; height: 28px; width: 80px; margin-right: 5px; padding-right: 1px;padding-left: 1px;  font-size:10pt; text-align:center;"><p style="font-family:"Roboto";" >'+cosmo+'</p></a>'
-                   data += '<a href="tel:+97126439099"><img class="ikon" src="/static/icons/001-'+color+'phone-call.svg"></a>'
-                  data += '<a data-toggle="modal" data-id="'+value.ref_no+ '" title="Add this item" class="open-AddBookDialog" href="#addBookDialog"><img class="ikon" src="/static/icons/email.svg"></a>'
-                  data += '<a href="https://wa.me/+971565256226?text=Im%20interested%20in%20your%20'+value.ref_no+'%20property%20for%20sale.%20Link-%20http://uhpae.com/property/'+value.ref_no+'%20"><img class="ikon" src="/static/icons/003-whatsapp.svg"></a>'
-                  data += '</div>'
-                  data += '</div>'
-                  data += '</div>'
-                  
-    })
-    $('#dispprop').append(data);
-</script>
-<script>
-  
-    $(".container-property").flickity({
-      
-      contain: true,
-      imagesLoaded: true,
-      pageDots: true,
-      prevNextButtons: true,
-    }); 
-    </script>{% endblock %}

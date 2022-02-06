@@ -6,6 +6,7 @@ import random
 import os
 import re
 from bs4 import BeautifulSoup
+from matplotlib.image import thumbnail
 import requests
 import os.path
 from os import path
@@ -13,7 +14,12 @@ from flask_compress import Compress
 from flask_caching import Cache
 from flask_assets import Environment, Bundle
 from assets import bundles
+from werkzeug.utils import secure_filename
+from collections import defaultdict
 
+a = os.getcwd()
+UPLOAD_FOLDER = os.path.join(a+'/static', 'abudhabi')
+#https://docs.google.com/spreadsheets/d/1aEI1CiIKzGpKk3niAQo_FXGcr0D3CLsp2GWylpmHiOk/edit#gid=0
 
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 
@@ -58,6 +64,237 @@ def community(location):
         locations.append((i,i))
     return jsonify({'locations':locations})
 
+@app.route('/editor/<var>')
+def location(var):
+    print(var)
+    return render_template('sitemap.html')
+
+
+@app.route('/editor')
+def editor(): 
+    '''
+    conn = sqlite3.connect('properties.db')
+    c = conn.cursor()
+    c.execute(""" CREATE VIRTUAL TABLE area USING fts4 (
+        location text,
+        thumbnail text,
+        images text,
+        landmark text,
+        title text,
+        header text,
+        description text,
+        map text
+    )""")
+    
+
+    c.execute(""" CREATE VIRTUAL TABLE community USING fts4 (
+        location text,
+        building text,
+        thumbnail text,
+        images text,
+        floorplans text,
+        logo text,
+        developer text,
+        landmark text,
+        title text,
+        header text,
+        description text,
+        map text,
+        facts text
+            )""")
+    conn.commit()
+    conn.close()
+    '''
+    return render_template('editor.html')
+
+@app.route('/add_property', methods=['GET', 'POST'])
+def shortenurl():
+    if request.method == 'POST':
+        developer = request.form['developer']
+        
+        building = request.form['building']
+        if developer!='area':
+            sub_community = '/'+building.replace(" ","-")
+        else:
+            sub_community = ''
+        a = request.form['locationtext']
+        f = open('location.json')
+        file_data = json.load(f)["ABD"]
+        loc = file_data[0][a]
+        if not os.path.isdir(UPLOAD_FOLDER+'/'+loc.replace(" ","-")):
+            os.mkdir(UPLOAD_FOLDER+'/'+loc.replace(" ","-"))
+            os.mkdir(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+'/images')
+        if developer != "area":
+            os.mkdir(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community)
+            os.mkdir(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community+'/images')
+            os.mkdir(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community+'/floorplans')
+            try:
+                uploaded_logo = request.files['logo']
+                ext = os.path.splitext(secure_filename(uploaded_logo.filename))
+                uploaded_logo.save(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community+"/logo"+ext[1])
+                logo = "/static/abudhabi/"+loc.replace(" ","-")+sub_community+"/logo"+ext[1]
+            except:
+                logo = "none"
+        uploaded_file = request.files['thumbnail']
+        ext = os.path.splitext(secure_filename(uploaded_file.filename))
+        uploaded_file.save(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community+"/thumbnail"+ext[1])
+        thumbnail = "/static/abudhabi/"+loc.replace(" ","-")+sub_community+"/thumbnail"+ext[1]
+        files = request.files.getlist("all_files")
+        images = []
+        for file in files:
+            try:
+                file.save(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community+'/images/'+file.filename)
+                images.append("/static/abudhabi/"+loc.replace(" ","-")+sub_community+"/images/"+file.filename)
+            except:
+                pass
+        floorplans_ = []
+        if developer != "area":
+            facts = request.form['facts']
+            sub_communities = request.form['sub_communities']
+            floorplans = request.files.getlist("floorplans")
+            for file in floorplans:
+                try:
+                    file.save(UPLOAD_FOLDER+'/'+loc.replace(" ","-")+sub_community+'/floorplans/'+file.filename)
+                    floorplans_.append("/static/abudhabi/"+loc.replace(" ","-")+sub_community+"/floorplans/"+file.filename)
+                except:
+                    pass
+        area = loc
+        
+        title = request.form['title']
+        landmark = request.form['landmark']
+        desc = request.form['description']
+        header = request.form['header']
+        map_location = request.form['map_location']
+        images = ','.join(images)
+        floorplans_ = ','.join(floorplans_)
+        conn = sqlite3.connect('properties.db')
+        c = conn.cursor()
+        if developer != "area":
+            c.execute("INSERT INTO communities VALUES (:location,:building,:thumbnail,:images,:floorplans,:logo,:developer,:landmark,:title,:header,:description,:map,:facts,:sub_communities)",
+                {
+                "location" : area,
+                "building":building,
+                "thumbnail" : thumbnail,
+                "images" : images,
+                "floorplans":floorplans_,
+                "logo":logo,
+                "developer":developer,
+                "landmark" : landmark,
+                "title":title,
+                "header":header,
+                "description":desc,
+                "map":map_location,
+                "facts":facts,
+                "sub_communities":sub_communities
+                }
+                )
+        else:
+            c.execute("INSERT INTO area VALUES (:location,:thumbnail,:images,:landmark,:title,:header,:description,:map)",
+                {
+                "location" : area,
+                "thumbnail" : thumbnail,
+                "images" : images,
+                "landmark" : landmark,
+                "title":title,
+                "header":header,
+                "description":desc,
+                "map":map_location
+                }
+                )
+        conn.commit()
+        conn.close()
+        
+        return render_template('editor.html')
+
+@app.route('/locations', methods=['GET', 'POST'])
+def locations():
+    conn = sqlite3.connect('properties.db')
+    queryRes = []
+    we = []
+    c = conn.cursor()
+    c.row_factory = sqlite3.Row
+    c.execute('''SELECT rowid,* FROM area''')
+    result = c.fetchall()
+    #c.execute('''DELETE FROM area WHERE title = "YAS ISLAND";''' )
+
+    #url = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.4685294850037!2d54.40810161534275!3d24.53846618420674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e67d77059d465%3A0xf14feb90c98942eb!2sMamsha%20Al%20Saadiyat!5e0!3m2!1sen!2sae!4v1637757675144!5m2!1sen!2sae" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
+    #c.execute('''UPDATE community SET map = ? WHERE building = "Mamsha Al Saadiyat"''',['{}'.format(url)])    
+    #conn.commit()
+    #conn.close()
+
+    c = 0
+    for r in result:
+        newdict = dict(r)
+        queryRes.append(newdict)
+    return jsonify(queryRes[:8])
+    
+
+@app.route('/communities/<areaname>')
+def newdb(areaname):
+    areaname = areaname.replace("-"," ")
+    conn = sqlite3.connect('properties.db')
+    c = conn.cursor()
+    c.execute('''SELECT * FROM area WHERE location == ?''',['{}'.format(areaname)])
+    result = c.fetchone()
+    images = result[2].split(',')
+    c.execute('''SELECT * FROM communities WHERE location == ?''',['{}'.format(areaname)])
+    all_community = c.fetchall()
+    d = defaultdict(list)
+    for i in all_community:
+        d[i[13]].append(i)
+    return render_template("location.html", result=result, images = images, all_community = all_community, sub_community = d)
+
+
+@app.route('/communities/<areaname>/<buildingname>')
+def newdb1(areaname,buildingname):
+    if request.method == "GET":
+        areaname = areaname.replace("-"," ")
+        buildingname = buildingname.replace("-"," ")
+        conn = sqlite3.connect('properties.db')
+        c = conn.cursor()
+        c.execute('''SELECT * FROM communities WHERE building == ?''',['{}'.format(buildingname)])
+        result = c.fetchone()
+        images = result[3].split(',')
+        #images.reverse()
+        thumbnail = result[2].replace("'","\\'")
+        all_community = c.fetchone()
+        floorplans = []
+        for i in reversed(result[4].split(",")):
+            name = i.split('/')[-1].split('.')[0].replace("_"," ")
+            link = i
+            link2 = i.replace("'","\\'")
+            floorplans.append((name,link,link2))
+        if result[6] == "aldar":
+            dev_img = "/static/projects/aldar.png"
+        elif result[6] == "none":
+            dev_img = "/static/images/standalone2.png"
+        elif result[6] == "imkan":
+            dev_img = "/static/images/imkan.png"
+        elif result[6] == "mag properties":
+            dev_img = "/static/images/mag.png"
+        elif result[6] == "badie-group":
+            dev_img = "/static/images/badie.png"
+        elif result[6] == "eni":
+            dev_img = "/static/images/ENI.png"
+        elif result[6] == "hydra":
+            dev_img = "/static/images/hydra.png"
+        elif result[6] == "damac":
+            dev_img = "/static/images/damac.jpg"
+        elif result[6] == "ADCP":
+            dev_img = "/static/images/adcp.jpg"
+        conn.close()
+        return render_template("sub_location.html", thumbnail = thumbnail ,result=result, images = images, all_community = all_community, dev_img=dev_img, floorplans = floorplans)
+
+
+@app.route('/crm')
+def crm():
+    conn = sqlite3.connect('../revamped_crm/test.db')
+    c = conn.cursor()
+    c.execute('''SELECT * FROM properties''')
+    result = c.fetchone()
+    conn.close()
+    return str(result)
+
 
 @app.route('/sitemap.xml')
 def site_map():
@@ -91,66 +328,38 @@ def downloadreport (filename):
     path = a+"/reports/"+file_
     return send_file(path, as_attachment=True)
 
-@app.route('/newsletter')
-def newsletter():
-    return render_template('newsletter.html')
-
-@app.route('/newsletter/Reports-and-Trends')
-def campaign():
-    return render_template('campaign.html')
-
-@app.route('/newsletter/Aldar-Hounour-Awards')
-def campaign2():
-    return render_template('campaign2.html')
-
-
-
-@app.route('/abu-dhabi/property-market-insights' , methods=["POST", "GET"])
-def reports():
-    if request.method == 'POST':
-        x = request.form.get("x")
-        conn = sqlite3.connect('main.db')
-        c =   conn.cursor()
-        c.execute('SELECT area FROM properties where type = "{}"'.format(x))
-        new_l = []
-        result = c.fetchall()
-        for i in result:
-            new_l.append(i[0])
-        most_common_item = max(new_l, key = new_l.count)  
-        count = new_l.count(max(new_l))
-        return jsonify({ 'count': count, 'most_common_item': most_common_item})
-
-
-    return render_template('reports.html')
-
-@app.route('/ar/home')
-def home_ar():
-    return render_template('arabic.html')
-
 @app.route('/hc')
 def hc():
     return render_template("Home.html")
+
 @app.route('/')
 def home():
-    return render_template("hc.html")
+    search_list = []
+    conn = sqlite3.connect('properties.db')
+    c = conn.cursor()
+    c.execute('''SELECT location FROM area''')
+    result = c.fetchall()
+    for i in result:
+        search_list.append(i[0])
+    c.execute('''SELECT location,building FROM communities''')
+    all_community = c.fetchall()
+    for i in all_community:
+        search_list.append(",".join([i[1],i[0]]))
+    return render_template("hc.html", search_list = search_list)
 
 @app.route("/hotproperties", methods=["POST", "GET"]) 
 def hotproperties():
-    conn = sqlite3.connect('main.db')
+    conn = sqlite3.connect('main2.db')
     queryRes = []
     we = []
     c = conn.cursor()
     c.row_factory = sqlite3.Row
-    c.execute('''SELECT rowid,* FROM properties WHERE property="Water'S Edge" OR property="Al Ghadeer 2" OR property="Mamsha Al Saadiyat" OR property="Marina Square" OR property="Yas Acres" OR property="Mayan 1"''')
+    c.execute('''SELECT rowid,* FROM properties WHERE state = "Available"''')
     result = c.fetchall()
     c = 0
     for r in result:
         newdict = dict(r)
         newdict['price'] = "{:,}".format(newdict['price'])
-        if newdict['property'] == "Water'S Edge":
-            if newdict['image'] != "":
-                we.append(newdict)
-            continue
         if newdict['image'] != "":
             queryRes.append(newdict)
     conn.commit()
@@ -215,7 +424,7 @@ def about():
 
 @app.route('/team')
 def team():
-    return render_template("team.html", total = '11')
+    return render_template("team.html", total = '12')
 
 @app.route('/careers')
 def careers():
@@ -261,25 +470,25 @@ def upload_file():
 
 @app.route('/communities/<area>/<propertyname>/<propertyid>')
 def prop(area,propertyname,propertyid):
-    
-    conn = sqlite3.connect('main.db')
+    conn = sqlite3.connect('main2.db')
     c = conn.cursor()
     string = ('SELECT description, image, title, location, beds, baths, size, ref_no, agent, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area FROM properties WHERE ref_no=:ref_no')
     c.execute(string,{'ref_no':propertyid})
     result = c.fetchone()
-    conn.commit()
     conn.close()
+    print(result[3])
     loc = result[3].split(',')
     loc = loc[0]
     images = result[11]
-    images = images.split(',')
+    print(images)
+    images = images.split('|')
     features = []
     temp = []
     for i in range(12,27):
         features.append(result[i])
     features[:] = [x for x in features if x]
 
-    conn = sqlite3.connect('main.db')
+    conn = sqlite3.connect('main2.db')
     c = conn.cursor()
     string = ('SELECT description FROM dproperties WHERE ref_no=:ref_no')
     c.execute(string,{'ref_no':propertyid})
@@ -340,72 +549,149 @@ def developer():
 
 @app.route('/search', methods=["POST", "GET"])
 def search():
-    a = []
-    args_rec = ''
-    z = 0
-    pl = []
-    pl1 = []
-    tp = 'You'
-    if not request.args:
-        conn = sqlite3.connect('main.db')
-        c =   conn.cursor()
-        c.row_factory = sqlite3.Row
-        c.execute('SELECT rowid, * FROM properties')
+    search_list = []
+    conn = sqlite3.connect('properties.db')
+    c = conn.cursor()
+    c.execute('''SELECT location FROM area''')
+    result = c.fetchall()
+    for i in result:
+        search_list.append(i[0])
+    c.execute('''SELECT location,building FROM communities''')
+    all_community = c.fetchall()
+    for i in all_community:
+        search_list.append(",".join([i[1],i[0]]))
+    args = request.args.to_dict(flat=False)
+    if len(args.keys()) == 1 and "keyword" in args.keys(): 
+        a = request.args.get("keyword").split(',')
+        if a[0] == '':
+            conn = sqlite3.connect('properties.db')
+            queryRes = []
+            c = conn.cursor()
+            c.row_factory = sqlite3.Row
+            c.execute('''SELECT rowid,* FROM area''')
+            result = c.fetchall()
+            c = 0
+            for r in result:
+                newdict = dict(r)
+                queryRes.append((r["location"],r["header"],r["description"],r["thumbnail"]))
+            return render_template("communities.html", x = queryRes)
+        conn = sqlite3.connect('properties.db')
+        c = conn.cursor()
+        if len(a) == 1:
+            c.execute('''SELECT * FROM area WHERE location == ?''',['{}'.format(a[0])])
+            result = c.fetchone()
+            images = result[2].split(',')
+            c.execute('''SELECT * FROM communities WHERE location == ?''',['{}'.format(a[0])])
+            all_community = c.fetchall()
+            d = defaultdict(list)
+            for i in all_community:
+                d[i[13]].append(i)
+            return render_template("location.html", result=result, images = images, all_community = all_community, sub_community = d)
+        else:
+            c.execute('''SELECT * FROM communities WHERE building == ?''',['{}'.format(a[0])])
+            result = c.fetchone()
+            images = result[3].replace("%20"," ").split(',')
+            #images.reverse()
+            thumbnail = result[2].replace("'","\\'")
+            all_community = c.fetchone()
+            floorplans = []
+            for i in reversed(result[4].split(",")):
+                name = i.split('/')[-1].split('.')[0].replace("_"," ")
+                link = i
+                link2 = i.replace("'","\\'")
+                floorplans.append((name,link,link2))
+                if result[6] == "aldar":
+                    dev_img = "/static/projects/aldar.png"
+                elif result[6] == "none":
+                    dev_img = "/static/images/standalone2.png"
+                elif result[6] == "imkan":
+                    dev_img = "/static/images/imkan.png"
+            return render_template("sub_location.html", thumbnail = thumbnail ,result=result, images = images, all_community = all_community, dev_img=dev_img, floorplans = floorplans)
+    else:
+        keywords = ["property","Abu Dhabi"]
+        title = "properties "
+        description = "All Properties in Abu Dhabi. Search for a wide range of Properties for {} in Abu Dhabi and send enquiries to contact with agent."
+        url = "www.uhpae.com/search?"
+        args_rec = ''
+        first = True
+        second = True
+        keyword_exists = False
+        for key, value in args.items():
+            if second == False:
+                args_rec += ' AND '
+            if first:
+                args_rec += ' WHERE '
+                first = False    
+                second = False
+            if key == "keyword":
+                if value[0] != "":
+                    keyword_exists = True
+                    args_rec += 'properties MATCH '+'"'+value[0].split(',')[0]+'"'
+                    title += " in "+value[0]
+                    keywords.append(value[0].split(',')[0])
+                    url += key+"="+value[0].split(',')[0]
+                    if value[0].split(',')[1]:
+                        keywords.append(value[0].split(',')[1])
+            else:
+                args_rec += (key+'='+'"'+value[0]+'"')
+                if key == "units":
+                    title += " to " + value[0]
+                    if keyword_exists:
+                        url += "&"
+                        url += key+"="+value[0]
+                    else:
+                        keyword_exists = True
+                        url += key+"="+value[0]
+                    description = description.format(value[0])
+                    keywords.append(value[0])
+                if key == "type":
+                    title = value[0] +" "+ title
+                    if keyword_exists:
+                        url += "&"
+                        url += key+"="+value[0]
+                    else:
+                        keyword_exists = True
+                        url += key+"="+value[0]
+                    keywords.append(value[0])
+                if key == "beds":
+                    title += " for " + value[0] +" bedroom"
+                    if keyword_exists:
+                        url += "&"
+                        url += key+"="+value[0]
+                    else:
+                        keyword_exists = True
+                        url += key+"="+value[0]
+                    keywords.append(value[0]+ " bedroom")
+        if "Sale" not in keywords and "Rent" not in keywords:
+            keywords.append("Sale")
+            keywords.append("Rent")
+            description = description.format("Sale or Rent")
+        conn = sqlite3.connect('main2.db')
+        c = conn.cursor()
+        c.row_factory = sqlite3.Row  
+        try:
+            c.execute('SELECT rowid, * FROM properties'+ args_rec+';')
+        except:
+            c.execute('SELECT rowid, * FROM properties'+ " WHERE "+args_rec[11:]+';')
         result = c.fetchall()
+        a=[]
         for r in result:
             newdict = dict(r)
             newdict['price'] = "{:,}".format(newdict['price'])
             a.append(newdict)
         conn.close()
-        return render_template("search.html", queryRes=a,meta = '', search='Properties in Abu Dhabi ', url = '')   
-    
-    for i in request.args:
-        if i == 'price':
-            y = [(0,50000),(50000,100000),(100000,200000),(200000,300000),(300000,400000),(400000,10000000)]
-            z = int(request.args.get(i))
-            p = y[z]
-            if z == 0:
-                args_rec += (' price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
-                z = 1
-            else:
-                args_rec += (' AND price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
-            continue
-
-        if i == 'keyword':
-            if z == 0:
-                args_rec += (' properties MATCH '+'"'+request.args.get(i)+'"')
-                z = 1
-            else:
-                args_rec += (' AND properties MATCH '+'"'+request.args.get(i)+'"')
-            continue
-        
-        if i == 'units':
-            tp = request.args.get(i)
-        
-        if z == 0:
-            args_rec += (i+'='+'"'+request.args.get(i)+'"')
-            z = 1
-        else:
-            args_rec += (' AND '+i+'='+'"'+request.args.get(i)+'"')
-        pl.append((i,request.args.get(i)))
-        if i == "beds":
-            pl1.append(str(request.args.get(i))+ ' Bed')
-            continue
-        pl1.append(request.args.get(i))
-        
-    conn = sqlite3.connect('main.db')
-    c =   conn.cursor()
-    c.row_factory = sqlite3.Row  
-    print(args_rec)  
-    c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec+';')
-    result = c.fetchall()
-    for r in result:
-        newdict = dict(r)
-        newdict['price'] = "{:,}".format(newdict['price'])
-        a.append(newdict)
-    conn.close()
-    a = a[:20]
-    return render_template("search.html", queryRes=a,meta = '', search='Properties for '+tp, url = '',pl = pl, args = " | ".join(pl1))
+        page = 1
+        limit = 20
+        startIndex = (page - 1) * limit
+        endIndex = page * limit
+        start_page = "-"
+        end_page = "-"
+        if startIndex > 0:
+            start_page = page - 1    
+        if endIndex < len(a):
+            end_page = page + 1
+        a = a[startIndex:endIndex]
+        return render_template("search.html",queryRes=a, start_page = start_page, end_page = end_page, meta = [",".join(keywords),title,description], url = url,pl = [], search_args = args, args = " | ", search_list = search_list)
 
 
 
@@ -413,77 +699,125 @@ def search():
 def livesearch():
     if request.method == "POST":
         srch = []
-        a = []
+        args = {}
+        if 'property' in request.form:
+            if request.form['property'] != '':
+                conn = sqlite3.connect('main2.db')
+                c = conn.cursor()
+                c.row_factory = sqlite3.Row  
+                c.execute('SELECT rowid, * FROM properties WHERE area MATCH ?',['{}'.format(request.form['property'])])
+                props = c.fetchall()
+                a=[]
+                for r in props:
+                    newdict = dict(r)
+                    newdict['price'] = "{:,}".format(newdict['price'])
+                    a.append(newdict)
+                conn.close()
+                page = int(request.form['page'])
+                limit = 20
+                startIndex = (page - 1) * limit
+                endIndex = page * limit
+                start_page = "-"
+                end_page = "-"
+                if startIndex > 0:
+                    start_page = page - 1    
+                if endIndex < len(a):
+                    end_page = page + 1    
+                a = a[startIndex:endIndex]
+                return jsonify(queryres=a,end_page=end_page,start_page=start_page)
+
+        if 'buildingname' in request.form:
+            if request.form['buildingname'] != '':            
+                conn = sqlite3.connect('main2.db')
+                c = conn.cursor()
+                c.row_factory = sqlite3.Row  
+                c.execute("SELECT rowid, * FROM properties WHERE property MATCH ?",["{}".format(request.form["buildingname"].replace("&#39;","'"))])
+                props = c.fetchall()
+                a=[]
+                for r in props:
+                    newdict = dict(r)
+                    newdict['price'] = "{:,}".format(newdict['price'])
+                    a.append(newdict)
+                conn.close()
+                page = int(request.form['page'])
+                limit = 20
+                startIndex = (page - 1) * limit
+                endIndex = page * limit
+                start_page = "-"
+                end_page = "-"
+                if startIndex > 0:
+                    start_page = page - 1    
+                if endIndex < len(a):
+                    end_page = page + 1    
+                a = a[startIndex:endIndex]
+                return jsonify(queryres=a,end_page=end_page,start_page=start_page)
         
-        page = range(0,700,20)
-        if request.form['page'] != '':  
-            ep = page[int(request.form['page'])] 
-            sp = page[int(request.form['page'])-1]
+        
         if request.form['units'] != '':
-            srch.append(('units',request.form['units']))
-
+            args["units"] = [request.form['units']]
+        if request.form['keyword'] != '':
+            args["keyword"] = [request.form['keyword']]
         if request.form['propertytype'] != '':
-            srch.append(('type',request.form['propertytype']))
-
-        if request.form['pricefrom'] != '':
-            srch.append(('price',request.form['pricefrom']))
-
-        if request.form['text'] != '':
-            srch.append(('city',request.form['text']))
-
-        if request.form['location'] != '':
-            srch.append(('area',request.form['location']))
-
-        if request.form['selectbox'] != '':
-            srch.append(('beds',request.form['selectbox']))
-
-        if request.form['contract'] != '':
-            srch.append(('contract',request.form['contract']))
-
-   
+            args["type"] = [request.form['propertytype']]
+        if request.form['beds'] != '':
+            args["beds"] = [request.form['beds']]
         args_rec = ''
-        z=0
-        for i in srch:
-            if i[0] == 'price':
-                y = [(0,50000),(50000,100000),(100000,200000),(200000,300000),(300000,400000),(400000,10000000)]
-                p = y[int(i[1])]
-                if z == 0:
-                    args_rec += (' price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
-                    z = 1
-                else:
-                    args_rec += (' AND price BETWEEN '+str(p[0])+' and '+str(p[1])+' ')
-                continue
-            if z == 0:
-                args_rec += (i[0]+'='+'"'+i[1]+'"')
-                z = 1
+        first = True
+        second = True
+        for key, value in args.items():
+            if second == False:
+                args_rec += ' AND '
+            if first:
+                args_rec += ' WHERE '
+                first = False    
+                second = False
+            if key == "keyword":
+                if value[0] != "":
+                    args_rec += 'properties MATCH '+'"'+value[0].split(',')[0]+'"'
             else:
-                args_rec += (' AND '+i[0]+'='+'"'+i[1]+'"')
-    
-        conn = sqlite3.connect('main.db')
-        c =   conn.cursor()
+                args_rec += (key+'='+'"'+value[0]+'"')
+
+        conn = sqlite3.connect('main2.db')
+        c = conn.cursor()
         c.row_factory = sqlite3.Row  
-        c.execute('SELECT rowid, * FROM properties WHERE '+ args_rec)
+        try:
+            c.execute('SELECT rowid, * FROM properties'+ args_rec+';')
+        except:
+            c.execute('SELECT rowid, * FROM properties'+ " WHERE "+args_rec[11:]+';')
         result = c.fetchall()
+        a=[]
         for r in result:
             newdict = dict(r)
             newdict['price'] = "{:,}".format(newdict['price'])
             a.append(newdict)
-        a = a[sp:ep]
         conn.close()
-        return jsonify(queryres=a)
+        page = int(request.form['page'])
+        limit = 20
+        startIndex = (page - 1) * limit
+        endIndex = page * limit
+        start_page = "-"
+        end_page = "-"
+        if startIndex > 0:
+            start_page = page - 1    
+        if endIndex < len(a):
+            end_page = page + 1    
+        a = a[startIndex:endIndex]
+        return jsonify(queryres=a,end_page=end_page,start_page=start_page)
 
 
 @app.route('/communities')
 def communities():   
-    conn = sqlite3.connect('main.db')
-    c =   conn.cursor()
-    c.execute('SELECT DISTINCT area FROM community')
+    conn = sqlite3.connect('properties.db')
+    queryRes = []
+    c = conn.cursor()
+    c.row_factory = sqlite3.Row
+    c.execute('''SELECT rowid,* FROM area''')
     result = c.fetchall()
-    conn.close()
-    x = []
-    for i in result:
-        x.append(i[0].replace(' ','-'))
-    return render_template("communities.html", x = x)
+    c = 0
+    for r in result:
+        newdict = dict(r)
+        queryRes.append((r["location"],r["header"],r["description"],r["thumbnail"]))
+    return render_template("communities.html", x = queryRes)
 
 @app.route('/ar/communities')
 def communitiesar():   
@@ -521,139 +855,93 @@ def services(servicetype):
         image = 'managementsales.png'
     return render_template("servicepage.html", heading = heading, content = content, image = image)
 
-@app.route('/communities/<areaname>')
-def newdb(areaname):
-    areaname = areaname.replace("-"," ")
-    conn = sqlite3.connect('main.db')
+@app.route('/aldar/projects/<status>')
+def aldar(status):
+    conn = sqlite3.connect('properties.db')
     c = conn.cursor()
-    c.execute('''SELECT * FROM community WHERE area == ?''',['{}'.format(areaname)])
-    result = c.fetchall()
-    new_result = []
-    for item in result:
-        new_res = item[0].replace(" ","-")
-        new_res1 = item[1].replace(" ","-")
-        new_res2 = item[2]
-        new_result.append((new_res, new_res1, new_res2, item[0]))   
-    conn.close()
+    c.execute('''SELECT * FROM communities WHERE developer == "aldar"''')
+    all_community = c.fetchall()
+    d = defaultdict(list)
+    thumbnail = ""
+    for i in all_community:
+        if status == "offplan":
+            if "Offplan" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+        if status == "ready":
+            if "Ready" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+    return render_template("aldar.html", all_community = all_community, sub_community = d, status = status, thumbnail=thumbnail)
 
-    
-    conn = sqlite3.connect('main.db')
+
+@app.route('/emaar/projects/<status>')
+def emaar(status):
+    conn = sqlite3.connect('properties.db')
     c = conn.cursor()
-    list_of_rooms = []
-    list_of_rooms_rent = []
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%ST' AND area LIKE ? AND units = 'buy' ''',['{}'.format(areaname)])
-    st = c.fetchone()[0]
-    if st != 0:
-        list_of_rooms.append([st,'Studio Apt\'s ', 'ST'])
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%1%' AND area LIKE ? AND units = 'buy' ''',['{}'.format(areaname)])
-    one = c.fetchone()[0]
-    if one != 0:
-        list_of_rooms.append([one,'1 BR Apt\'s ', 1])
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%2%' AND area LIKE ? AND units = 'buy' ''',['{}'.format(areaname)])
-    two = c.fetchone()[0]
-    if two != 0:
-        list_of_rooms.append([two,'2 BR Apt\'s ', 2])
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%3%' AND area LIKE ? AND units = 'buy' ''',['{}'.format(areaname)])
-    three = c.fetchone()[0]
-    if three != 0:
-        list_of_rooms.append((three,'3 BR Apt\'s ', 3))
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%4%' AND area LIKE ? AND units = 'buy' ''',['{}'.format(areaname)])
-    four = c.fetchone()[0]
-    if four != 0:
-        list_of_rooms.append((four,'4 BR Apt\'s ', 4))
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%5%' AND area LIKE ? AND units = 'buy' ''',['{}'.format(areaname)])
-    five = c.fetchone()[0]
-    if five != 0:
-        list_of_rooms.append((five,'5 BR Apt\'s ', 5))
-    
-    #rent
+    c.execute('''SELECT * FROM communities WHERE developer == "emaar"''')
+    all_community = c.fetchall()
+    d = defaultdict(list)
+    try:
+        thumbnail = all_community[0][2]
+    except:
+        thumbnail = ""
+    for i in all_community:
+        if status == "offplan":
+            if "Offplan" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+        if status == "ready":
+            if "Ready" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+    return render_template("emaar.html", all_community = all_community, sub_community = d, status = status, thumbnail=thumbnail)
 
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%ST' AND area LIKE ? AND units = 'rent' ''',['{}'.format(areaname)])
-    st = c.fetchone()[0]
-    if st != 0:
-        list_of_rooms_rent.append([st,'Studio Apt\'s ', 'ST'])
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%1%' AND area LIKE ? AND units = 'rent' ''',['{}'.format(areaname)])
-    one = c.fetchone()[0]
-    if one != 0:
-        list_of_rooms_rent.append([one,'1 BR Apt\'s ', 1])
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%2%' AND area LIKE ? AND units = 'rent' ''',['{}'.format(areaname)])
-    two = c.fetchone()[0]
-    if two != 0:
-        list_of_rooms_rent.append([two,'2 BR Apt\'s ', 2])
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%3%' AND area LIKE ? AND units = 'rent' ''',['{}'.format(areaname)])
-    three = c.fetchone()[0]
-    if three != 0:
-        list_of_rooms_rent.append((three,'3 BR Apt\'s ', 3))
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%4%' AND area LIKE ? AND units = 'rent' ''',['{}'.format(areaname)])
-    four = c.fetchone()[0]
-    if four != 0:
-        list_of_rooms_rent.append((four,'4 BR Apt\'s ', 4))
-    c.execute('''SELECT COUNT(*) FROM properties WHERE beds LIKE '%5%' AND area LIKE ? AND units = 'rent' ''',['{}'.format(areaname)])
-    five = c.fetchone()[0]
-    if five != 0:
-        list_of_rooms_rent.append((five,'5 BR Apt\'s ', 5))
-
-    
-
-    conn.close()
-
-    return render_template("community_page.html", result = new_result, rooms=list_of_rooms, rent_rooms = list_of_rooms_rent, area = areaname )
-
-
-@app.route('/partners/aldar')
-def aldar():
-    queryRes = []
-    keyword = request.form.get("keyword")
-    conn = sqlite3.connect('main.db')
+@app.route('/bloom/projects/<status>')
+def bloom(status):
+    conn = sqlite3.connect('properties.db')
     c = conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('''SELECT rowid,* FROM properties WHERE description MATCH ?''',['{}'.format('aldar')])
-    result = c.fetchall()
-    for r in result:
-        queryRes.append(dict(r))
-    
-    conn.commit()
+    c.execute('''SELECT * FROM communities WHERE developer == "bloom"''')
+    all_community = c.fetchall()
+    d = defaultdict(list)
+    try:
+        thumbnail = all_community[0][2]
+    except:
+        thumbnail = ""
+    for i in all_community:
+        if status == "offplan":
+            if "Offplan" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+        if status == "ready":
+            if "Ready" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+    return render_template("bloom.html", all_community = all_community, sub_community = d, status = status, thumbnail=thumbnail)
 
-    conn.close()
-    return render_template("aldar.html", queryRes= queryRes)
 
-@app.route('/partners/emaar')
-def emaar():
-    queryRes = []
-    keyword = request.form.get("keyword")
-    conn = sqlite3.connect('main.db')
+@app.route('/imkan/projects/<status>')
+def imkan(status):
+    conn = sqlite3.connect('properties.db')
     c = conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('''SELECT rowid,* FROM properties WHERE description MATCH ?''',['{}'.format('emaar')])
-    result = c.fetchall()
-    for r in result:
-        queryRes.append(dict(r))
-    
-    conn.commit()
+    c.execute('''SELECT * FROM communities WHERE developer == "imkan"''')
+    all_community = c.fetchall()
+    d = defaultdict(list)
+    try:
+        thumbnail = all_community[0][2]
+    except:
+        thumbnail = ""
+    for i in all_community:
+        if status == "offplan":
+            if "Offplan" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+        if status == "ready":
+            if "Ready" in i[12]:  
+                d[i[13]].append(i)
+                thumbnail = i[2]
+    return render_template("imkan.html", all_community = all_community, sub_community = d, status = status, thumbnail=thumbnail)
 
-    conn.close()
-    return render_template("emaar.html", queryRes= queryRes)
-
-@app.route('/partners/bloom')
-def bloom():
-    queryRes = []
-    keyword = request.form.get("keyword")
-    conn = sqlite3.connect('main.db')
-    c = conn.cursor()
-    c.row_factory = sqlite3.Row
-    c.execute('''SELECT rowid,* FROM properties WHERE description MATCH ?''',['{}'.format('bloom')])
-    result = c.fetchall()
-    for r in result:
-        queryRes.append(dict(r))
-    
-    conn.commit()
-
-    conn.close()
-    return render_template("bloom.html", queryRes= queryRes)
-
-@app.route('/partners/imkan')
-def imkan():
-    return render_template("imkan.html")
 
 @app.route('/googleverification/')
 def googleverfication():
@@ -677,7 +965,7 @@ def get_community(name, project):
     conn.close()
     conn = sqlite3.connect('communities.db')
     c = conn.cursor()
-    c.execute('''SELECT * FROM community where community_name = ? ''',['{}'.format(name)])
+    c.execute('''SELECT * FROM communities where community_name = ? ''',['{}'.format(name)])
     result = c.fetchone()
     url = result[12]
     overview = result[1]
@@ -758,7 +1046,7 @@ def project(community, project):
         result = c.fetchall()
         for r in result:
             rent.append(dict(r))
-        c.execute('''SELECT * FROM community where property = ? ''',['{}'.format(project)])
+        c.execute('''SELECT * FROM communities where property = ? ''',['{}'.format(project)])
         result = c.fetchone()
         details = ['Abu Dhabi',community,project]
         amenities = []
