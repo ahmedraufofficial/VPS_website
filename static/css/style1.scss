@@ -815,7 +815,7 @@ padding-top: 120px;
   .searchbox {
     background-color: #ffffff;
     position: absolute;  
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 25px;
@@ -823,8 +823,8 @@ padding-top: 120px;
     width: 90%;
     border: 2px solid #001524;
     box-shadow: 0px 0px 10px 0px rgba(4,0,26,0.75);
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(4,0,26,0.75);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(4,0,26,0.75);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(4,0,26,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(4,0,26,0.75);
     transition: 1s;
   }
 
@@ -838,7 +838,7 @@ padding-top: 120px;
   }
   .hero-screen-2 {
     flex-direction: column-reverse;
-    height:75vh;
+    height:80vh;
   }
   .service_btn {
     font-size: 10pt;

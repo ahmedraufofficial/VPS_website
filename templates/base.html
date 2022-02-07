@@ -212,13 +212,11 @@
 
 {% block content %}{% endblock %}
 
-<div  id="mortgagescroll" style="height: auto;width: 100%;background-color: #001524">
+<div  id="mortgagescroll" style="height: auto;width: 100%;background-color: white; border-top: 1px solid #A57D2D;">
 <section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;">
   <div class="container" style="margin-bottom: 5%; padding-top: 6%;">
    
-    <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 3%;backdrop-filter: blur(20px);">
-
-
+    <div style="background-color: rgba(0, 0, 0, 0.9); padding-bottom: 3%;backdrop-filter: blur(20px);">
 
     <div class="row justify-content-center">
       <div class="col-lg-11 col-md-11 col-sm-12">
@@ -298,14 +296,12 @@
     </div>
     </div>
     <div class="container">
-     
-      
-     
+
       <div class="row">
 
 
         <div class="col text-center" >
-        <div class="awardmrg2 awardmrg" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="awardmrg2 awardmrg" style="background-color: rgba(0, 0, 0, 0.9);">
           <div class="row">
             <div class="col-lg-4 col-sm-12 col-md-4 text-lg-right text-md-right text-sm-center">
               <img src="/static/award/trophy2.png" alt="" style="width:78%;-webkit-box-shadow: 0px 10px 19px 4px #000000; box-shadow: 0px 10px 19px 4px #000000; ">
@@ -313,7 +309,7 @@
           <div class="col awardborder">
 
             <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold'; margin-top: 20px;">ALDAR HONOUR AWARDS</h2>
-            <p class="footerheader awardesc" style="text-align: justify; padding-bottom: 0; padding-top: 0; padding-right: 15px; font-family: 'Poppins-light' !important;">We are the proud recipient of AlDar honours awards 2020 for "Best Improved Agency". Unique Homes Worldwide Properties LLC was nominated for "Best Customer Service". This wouldn't have been achieved without the hard work & commitment of our team, as well as the support of our clients and partners. </p>
+            <p class="footerheader awardesc" style="text-align: justify; padding-bottom: 0; padding-top: 0; padding-right: 15px; font-family: 'Poppins-light' !important; color: white;">We are the proud recipient of AlDar honours awards 2020 for "Best Improved Agency". Unique Homes Worldwide Properties LLC was nominated for "Best Customer Service". This wouldn't have been achieved without the hard work & commitment of our team, as well as the support of our clients and partners. </p>
           
           
           </div>
@@ -370,11 +366,6 @@
  
 </div>
    
- 
-
-
-
-
   <div class="container" style="margin-top: 5%;">
     <div class="row" >
       <div class="col">
@@ -391,7 +382,8 @@
       </div>
     </div>
     </div>
-    <div class="container partnersgap">
+    <div style="margin-top: 20px;background-color: rgba(0, 0, 0, 0.5); padding-top: 1%;">
+    <div class="container partnersgap" style="padding-bottom: 2%;">
     <div  class="row justify-content-between">
       <div class="col"  style="position: relative;">
         <a href="#"><img  style="position: absolute;bottom: 0;" class="partners" src="/static/images/aldar2.png" alt=""></a>
@@ -411,12 +403,10 @@
 
       </div>
     </div>
-    
- 
-  
-  <div style="margin-top: 20px;background-color: rgba(0, 0, 0, 0.2); padding-top: 1%;">
+    </div>
 
-  <div class="container" style="margin-top: 1%; margin-bottom: 1%;">
+  <div style="background-color: rgba(0, 0, 0, 0.5);">
+  <div class="container" style="padding-top: 1%; padding-bottom: 1%;">
     <div class="row">
       
       <div class="col">
@@ -443,39 +433,39 @@
     <div class="col text-center">
       <ul class="list-unstyled">
         <li class="footerheader"><a>About UHP</a></li>
-        <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('about')}}">Our Story</a></li>
-        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('team')}}">Meet our team</a></li>
-        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('listing')}}">Why choose us</a></li>
-        <li class="subfooterheader"><a style="text-decoration: none; color: white;"href="{{url_for('site_map_html')}}">Site Map</a></li>
-        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('privacypolicy')}}">Privacy & Team Policy</a></li>
+        <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: black;" href="{{url_for('about')}}">Our Story</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: black;" href="{{url_for('team')}}">Meet our team</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: black;" href="{{url_for('listing')}}">Why choose us</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: black;"href="{{url_for('site_map_html')}}">Site Map</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: black;" href="{{url_for('privacypolicy')}}">Privacy & Team Policy</a></li>
       </ul>
     </div>
     <div class="col text-center">
       <ul class="list-unstyled">
         <li class="footerheader"><a>Contact Us</a></li>
-        <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: white;" href="#">Phone - +97126439099</a></li>
-        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="#">Email - welcome@uhpae.com</a></li>
-        <li class="subfooterheader"><a style="text-decoration: none; color: white;" href="{{url_for('careers')}}" style="z-index: 100;">Careers</a></li>
+        <li style="margin-top: 10px;" class="subfooterheader"><a style="text-decoration: none; color: black;" href="#">Phone - +97126439099</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: black;" href="#">Email - welcome@uhpae.com</a></li>
+        <li class="subfooterheader"><a style="text-decoration: none; color: black;" href="{{url_for('careers')}}" style="z-index: 100;">Careers</a></li>
       </ul>
     </div>
     <div class="col text-center">
       <ul class="list-unstyled">
         <li class="footerheader"><a>Visit Us</a></li>
-        <li style="margin-top: 10px;" class="subfooterheader"><a style="font-family:'Poppins-light';text-decoration: none; color: white;" title="P.O.BOX 29204, Office 244, Wafra Square Offices,Al Reem Island, Abu Dhabi, UAE" href="#">P.O.BOX 29204, Office 244, Wafra Square Offices,Al Reem Island, Abu Dhabi, UAE</a></li>
+        <li style="margin-top: 10px;" class="subfooterheader"><a style="font-family:'Poppins-light';text-decoration: none; color: black;" title="P.O.BOX 29204, Office 244, Wafra Square Offices,Al Reem Island, Abu Dhabi, UAE" href="#">P.O.BOX 29204, Office 244, Wafra Square Offices,Al Reem Island, Abu Dhabi, UAE</a></li>
         </ul>
     </div>
     
 
     </div>
   </div>
-
+</div>
 
   <div style="border-bottom: 1px solid rgba(255,255,255,.25);"></div>
   <div class="container">
     <div class="row justify-content-center">
 
         
-        <p style="margin: auto;padding-top: 15px; padding-bottom: 15px;" class="subfooterheader" >&copy; Copyright 2020 - Unique Homes Properties.  All rights reserved.</p>
+        <p style="margin: auto;padding-top: 15px; padding-bottom: 15px; color: #000000;" class="subfooterheader" >&copy; Copyright 2022 - Unique Homes Properties.  All rights reserved.</p>
    
     </div>
   </div>

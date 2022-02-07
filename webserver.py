@@ -6,7 +6,6 @@ import random
 import os
 import re
 from bs4 import BeautifulSoup
-from matplotlib.image import thumbnail
 import requests
 import os.path
 from os import path
@@ -228,7 +227,9 @@ def locations():
     c = 0
     for r in result:
         newdict = dict(r)
+        newdict["location"] = newdict["location"].replace(" ","-")
         queryRes.append(newdict)
+    print(newdict)
     return jsonify(queryRes[:8])
     
 
@@ -285,6 +286,8 @@ def newdb1(areaname,buildingname):
             dev_img = "/static/images/damac.jpg"
         elif result[6] == "ADCP":
             dev_img = "/static/images/adcp.jpg"
+        else: 
+            dev_img = "/static/images/standalone2.png"
         conn.close()
         return render_template("sub_location.html", thumbnail = thumbnail ,result=result, images = images, all_community = all_community, dev_img=dev_img, floorplans = floorplans)
 
