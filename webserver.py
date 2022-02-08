@@ -68,7 +68,6 @@ def community(location):
 
 @app.route('/editor/<var>')
 def location(var):
-    print(var)
     return render_template('sitemap.html')
 
 
@@ -229,7 +228,6 @@ def locations():
         newdict = dict(r)
         newdict["location"] = newdict["location"].replace(" ","-")
         queryRes.append(newdict)
-    print(newdict)
     return jsonify(queryRes[:8])
     
 
@@ -482,11 +480,9 @@ def prop(area,propertyname,propertyid):
     c.execute(string,{'ref_no':propertyid})
     result = c.fetchone()
     conn.close()
-    print(result[3])
     loc = result[3].split(',')
     loc = loc[0]
     images = result[11]
-    print(images)
     images = images.split('|')
     features = []
     temp = []
@@ -612,6 +608,20 @@ def search():
                     dev_img = "/static/images/standalone2.png"
                 elif result[6] == "imkan":
                     dev_img = "/static/images/imkan.png"
+                elif result[6] == "mag properties":
+                    dev_img = "/static/images/mag.png"
+                elif result[6] == "badie-group":
+                    dev_img = "/static/images/badie.png"
+                elif result[6] == "eni":
+                    dev_img = "/static/images/ENI.png"
+                elif result[6] == "hydra":
+                    dev_img = "/static/images/hydra.png"
+                elif result[6] == "damac":
+                    dev_img = "/static/images/damac.jpg"
+                elif result[6] == "ADCP":
+                    dev_img = "/static/images/adcp.jpg"
+                else: 
+                    dev_img = "/static/images/standalone2.png"
             return render_template("sub_location.html", thumbnail = thumbnail ,result=result, images = images, all_community = all_community, dev_img=dev_img, floorplans = floorplans)
     else:
         keywords = ["property","Abu Dhabi"]
@@ -636,7 +646,7 @@ def search():
                     title += " in "+value[0]
                     keywords.append(value[0].split(',')[0])
                     url += key+"="+value[0].split(',')[0]
-                    if value[0].split(',')[1]:
+                    if len(value[0].split(',')) == 2:
                         keywords.append(value[0].split(',')[1])
             else:
                 args_rec += (key+'='+'"'+value[0]+'"')
