@@ -325,6 +325,7 @@ def watersedgelandingpage():
 @app.route('/privacy-policy')
 def privacypolicy():
     return render_template('privacypolicy.html')
+
 @app.route('/download/<filename>')
 def downloadreport (filename):
     file_ = filename
@@ -332,11 +333,9 @@ def downloadreport (filename):
     path = a+"/reports/"+file_
     return send_file(path, as_attachment=True)
 
-@app.route('/hc')
-def hc():
-    return render_template("Home.html")
 
 @app.route('/')
+@cache.cached(timeout=50)
 def home():
     search_list = []
     conn = sqlite3.connect('properties.db')

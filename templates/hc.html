@@ -304,7 +304,7 @@
 
 
 
-    <div class="container">
+    <div class="container" id="adcommunities">
       <div class="row">
         <div class="col" style="text-align: center; margin-top: 10%;">
           <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">ABU DHABI COMMUNITIES</h2>
@@ -381,7 +381,7 @@
       <iframe style="width: 100%;height: 100%; margin-bottom: 10px; border: 2px solid #A57D2D;" src="https://www.youtube.com/embed/FdsduDOPYMk?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-lg-4 col-sm-12">
-      <iframe style="width: 100%;height: 100%; margin-bottom: 10px; border: 2px solid #A57D2D;" src="https://www.youtube.com/embed/qIcOlZrLVE41?autoplay=1" frameborder="0" allowfullscreen></iframe>
+      <iframe style="width: 100%;height: 100%; margin-bottom: 10px; border: 2px solid #A57D2D;" src="https://www.youtube.com/embed/j0CGEJkx8oo?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
   <div class="row justify-content-center" style="margin-top: 20px;">
@@ -525,16 +525,6 @@ document.getElementById("mhead").style.zIndex = 2;
 
 
 <script>
-  var body = document.body, html = document.documentElement;
-  var page_height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-  function scrolldown(){
-    var height = $(window).height();
-    window.scrollTo({top: height,behaviour:'smooth'})
-  }
-</script>
-
-
-<script>
   window.onload =  $('#dropbtn').removeClass( "flip" )
   window.onload  = $( ".s_bar_btn_drop" ).hide();
   function showdiv(){
@@ -544,9 +534,11 @@ document.getElementById("mhead").style.zIndex = 2;
 </script>
 
 <script>
-function kow(){
-  $('#locations').empty();
-$.ajax({
+
+  
+   window.onload = function kow(){
+   $('#locations').empty();
+    $.ajax({
                 method:"post",
                 url:"/locations",
                 data:{},
@@ -557,7 +549,7 @@ $.ajax({
                   data +='<div class="box">'
                   data +='<a href="/communities/'+value.location.replace(" ","-")+'">'
                   data +='<figure class="snip1193 content">'
-                  data +='<img src="'+value.thumbnail+'" style="object-fit: cover;" alt="sample69"/>'
+                  data +='<img src="'+value.thumbnail+'" style="object-fit: cover;" alt="'+value.thumbnail+'"/>'
                   data +='<figcaption>'
                   data += ' <h4 class="imgtext">'+value.title+'</h4>'
                   data +=  '<p>-SEE MORE-</p>'
@@ -571,10 +563,10 @@ $.ajax({
                 }     
         })
       }
-      kow()
+
 </script>
 <script>
-  function get_hp(){
+    function get_hp(){
      $.ajax({
                 method:"post",
                 url:"/hotproperties",
@@ -597,22 +589,6 @@ $.ajax({
                   { var f = "display:block;"}
                   else 
                   {var f = "display:none;"}
-
-                  if (value.units == "rent"){
-                      var units = "Rent";
-                      var cosmo = "Discover";
-                      var x = "background-color: #0e4a88 !important;";
-                      var y =  "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
-                      var color = "gold-"; 
-                      looper = looper + 1;  
-                    }
-                  else if (value.units == "buy"){
-                      var units = "Buy";
-                      var cosmo = "Details"
-                      var x = "background-color: #A57D2D !important;";
-                      var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
-                      var color = "";
-                      }
 
                   if (value.beds == "ST"){
                     beds = ''}
@@ -639,13 +615,9 @@ $.ajax({
     $('#hotproperties').append(data);}})}
     get_hp();
     setInterval(get_hp, 20000);
-</script>
 
 
-<script>
-  function cherry(){
-    modalbg.classList.add('bg-active');
-  }
 </script>
+
 
 {% endblock %}
