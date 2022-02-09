@@ -335,7 +335,7 @@ def downloadreport (filename):
 
 
 @app.route('/')
-@cache.cached(timeout=50)
+#@cache.cached(timeout=50)
 def home():
     search_list = []
     conn = sqlite3.connect('properties.db')
@@ -686,6 +686,7 @@ def search():
         c.row_factory = sqlite3.Row  
         try:
             c.execute('SELECT rowid, * FROM properties'+ args_rec+';')
+            print(args_rec)
         except:
             c.execute('SELECT rowid, * FROM properties'+ " WHERE "+args_rec[11:]+';')
         result = c.fetchall()

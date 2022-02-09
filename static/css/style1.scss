@@ -1,3 +1,13 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    transition: 0.5s;
+    outline: none;
+    border: 1px solid #A57D2D;
+}
+
+
 /* leaf animations */
 
 #leaves {position:relative;top:-50px;width:100%;text-align: right;}
@@ -474,9 +484,15 @@ url('data:image/gif;base64,R0lGODlhAQABAPAAAAAAAP///yH5BAAAAAAALAAAAAABAAEAAAICR
 }
 
 .search_info {
-  border: 1px solid #000000;
+  border: 1px solid #001524;
   color: white;
   background-color: #001524;
+  font-family: 'Poppins';
+  transition: 0.5s;
+  &:hover{
+    color: #001524;
+    background-color: white;
+  }
 }
 
 .search_tabs {
