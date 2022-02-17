@@ -254,9 +254,12 @@ def newdb1(areaname,buildingname):
         buildingname = buildingname.replace("-"," ")
         conn = sqlite3.connect('properties.db')
         c = conn.cursor()
-        c.execute('''SELECT * FROM communities WHERE building == ?''',['{}'.format(buildingname)])
+        c.execute('''SELECT * FROM communities WHERE building == ? AND location == ?''',['{}'.format(buildingname),'{}'.format(areaname)])
         result = c.fetchone()
-        images = result[3].split(',')
+        try:
+            images = result[3].split(',')
+        except:
+            images = ""
         #images.reverse()
         thumbnail = result[2].replace("'","\\'")
         all_community = c.fetchone()
@@ -479,68 +482,68 @@ def prop(area,propertyname,propertyid):
     c.execute(string,{'ref_no':propertyid})
     result = c.fetchone()
     conn.close()
-    loc = result[3].split(',')
-    loc = loc[0]
-    images = result[11]
-    images = images.split('|')
-    features = []
-    temp = []
-    for i in range(12,27):
-        features.append(result[i])
-    features[:] = [x for x in features if x]
+    if result != None:
+        loc = result[3].split(',')
+        loc = loc[0]
+        images = result[11]
+        images = images.split('|')
+        features = []
+        temp = []
+        for i in range(12,27):
+            features.append(result[i])
+        features[:] = [x for x in features if x]
+        conn = sqlite3.connect('main2.db')
+        c = conn.cursor()
+        string = ('SELECT description FROM dproperties WHERE ref_no=:ref_no')
+        c.execute(string,{'ref_no':propertyid})
+        desc = c.fetchone()
+        p = int(result[29])
+        price_range = [(p - (p*0.3)), (p + (p+0.3))]
+        a = []
+        c.row_factory = sqlite3.Row
+        c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=? AND price BETWEEN ? AND ?',(result[4], result[30],result[28], price_range[0], price_range[1]))
+        suggest = c.fetchall()
+        for r in suggest:
+            newdict = dict(r)
+            newdict['price'] = "{:,}".format(newdict['price'])
+            a.append(newdict)
+        suggestions = a
+        conn.commit()
+        conn.close()
 
-    conn = sqlite3.connect('main2.db')
-    c = conn.cursor()
-    string = ('SELECT description FROM dproperties WHERE ref_no=:ref_no')
-    c.execute(string,{'ref_no':propertyid})
-    desc = c.fetchone()
-    p = int(result[29])
-    price_range = [(p - (p*0.3)), (p + (p+0.3))]
-    a = []
-    c.row_factory = sqlite3.Row
-    c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=? AND price BETWEEN ? AND ?',(result[4], result[30],result[28], price_range[0], price_range[1]))
-    suggest = c.fetchall()
-    for r in suggest:
-        newdict = dict(r)
-        newdict['price'] = "{:,}".format(newdict['price'])
-        a.append(newdict)
-    suggestions = a
-    conn.commit()
-    conn.close()
+        with open("virtual_tour.json", "r") as x:
+            data = json.load(x)
+            try:
+                vt = data[result[27]]
+            except:
+                vt = ""
+            x.close()
 
-    with open("virtual_tour.json", "r") as x:
-        data = json.load(x)
-        try:
-            vt = data[result[27]]
-        except:
-            vt = ""
-        x.close()
-
-    with open("test.json", "r") as f:
-            data = json.load(f)
-            temp = ""
-            schools = []
-            hospitals = []
-            landmarks = []
-            for item in data:
-                if item['property'] == result[27]:
-                    try:
-                        temp = item['location']
-                        schools = item['schools']
-                        hospitals = item['clinic']
-                        landmarks = item['shops']
-                    except:
-                        temp = 'Not Available'
-    f.close()
-    r_all = len(desc[0])
-    r_half = r_all/2
-    overview = desc[0]
-    overview = overview[0:int(r_half)] + "<span id='dots'>...</span><span id='more'>" + overview[int(r_half):int(r_all)] + "</span>"
-    overview = overview.replace('<div class = "container">','')
-    overview = overview.replace("</div></span>",'</span>')
-    overview = overview.replace("h3",'p')
-    return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
-    
+        with open("test.json", "r") as f:
+                data = json.load(f)
+                temp = ""
+                schools = []
+                hospitals = []
+                landmarks = []
+                for item in data:
+                    if item['property'] == result[27]:
+                        try:
+                            temp = item['location']
+                            schools = item['schools']
+                            hospitals = item['clinic']
+                            landmarks = item['shops']
+                        except:
+                            temp = 'Not Available'
+        f.close()
+        r_all = len(desc[0])
+        r_half = r_all/2
+        overview = desc[0]
+        overview = overview[0:int(r_half)] + "<span id='dots'>...</span><span id='more'>" + overview[int(r_half):int(r_all)] + "</span>"
+        overview = overview.replace('<div class = "container">','')
+        overview = overview.replace("</div></span>",'</span>')
+        overview = overview.replace("h3",'p')
+        return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
+    return jsonify({'success':304})   
 
 
 @app.route('/developers')
