@@ -317,6 +317,10 @@ def site_map_html():
 def magnoliaslandingpage():
     return render_template('themagnolias.html')
 
+@app.route('/landing/yas-acres/yas-golf')
+def yasgolflandingpage():
+    return render_template('yasgolf.html')
+
 @app.route('/landing/al-ghadeer/phase-2')
 def ghadeerphase2landingpage():
     return render_template('alghadeer.html')
