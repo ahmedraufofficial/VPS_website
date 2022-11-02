@@ -321,6 +321,10 @@ def magnoliaslandingpage():
 def yasgolflandingpage():
     return render_template('yasgolf.html')
 
+@app.route('/landing/lagoons')
+def lagoonslandingpage():
+    return render_template('lagoons.html')
+
 @app.route('/landing/al-ghadeer/phase-2')
 def ghadeerphase2landingpage():
     return render_template('alghadeer.html')
