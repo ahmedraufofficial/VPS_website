@@ -15,6 +15,60 @@ label {
     top: 0;
     left: 0;
 }
+.peng {
+    width: 1200px;
+    height: 600px;
+}
+.firstcardfont {
+    font-size: 1.25rem;
+}
+.secondcardfont {
+    font-size: 1.25rem;
+}
+.firstcardimage {
+    width: 1.5rem;
+}
+.ameneties_text {
+    font-size: 1.25rem;
+    margin-top: 17px; 
+    float: right; 
+    margin-right: 2rem;
+}
+.ameneties_text01 {
+    font-size: 1.25rem;
+    margin-top: 27px; 
+    float: right; 
+    margin-right: 2rem;
+}
+.ameneties_text02 {
+    font-size: 1.25rem;
+    margin-top: 23px; 
+    float: right; 
+    margin-right: 2rem;
+}
+.ameneties_text03 {
+    font-size: 1.25rem;
+    margin-top: 7px; 
+    float: right; 
+    margin-right: 2rem;
+}
+.ameneties_20 {
+    width: 3rem;
+}
+.ameneties_21 {
+    width: 3rem;
+    margin-top: 0.4rem;
+}
+.bke {
+    margin-top: 5%; 
+}
+.jim {
+    margin-top: 5%;
+}
+.ameneties_22{
+    width: 3rem;
+    margin-bottom: 5%;
+}
 .formBG {
     border: 3px solid rgb(255, 255, 255);
     background-color: rgba(7, 110, 86, 0.3);
@@ -71,9 +125,12 @@ td{
   border: 2px solid rgb(255, 255, 255);
   color: white;
 }
-@media only screen and (max-width: 500px) {
+.pp_text {
+    font-size: 20px;
+}
+@media only screen and (max-width: 700px) {
     .img_aldar {
-    width:80%; 
+    width:30%; 
     padding:2%;
     float: right; 
 }
@@ -86,15 +143,71 @@ td{
     background-size: contain;
     position: relative;
     border-radius: 25px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 1px;
+    margin-left: 1px;
 }
 .zaparagraph {
-    font-size: 25px; 
+    font-size: 0.75rem; 
     color: rgb(255, 255, 255); 
     margin-top: 10px; 
     text-align: center; 
     font-family: 'Noto Naskh Arabic';
+}
+.firstcardfont {
+    font-size: 1.5rem;
+}
+.secondcardfont {
+    font-size: 0.6rem;
+}
+.firstcardimage {
+    width: 0.7rem;
+}
+.specialmargin{
+    margin-top: 7%;
+}
+.ameneties_20 {
+    width: 1.3rem;
+    margin-top: 0.7rem;
+}
+.ameneties_21 {
+    width: 1.3rem;
+    margin-top: 0.4rem;
+}
+.ameneties_22{
+    width: 1.3rem;
+    margin-bottom: 0.7rem;
+}
+.ameneties_text {
+    font-size: 0.7rem; 
+    margin-right: 0.3rem;
+}
+.ameneties_text01 {
+    font-size: 0.7rem;
+    margin-top: 17px; 
+    margin-right: 0.3rem;
+}
+.ameneties_text02 {
+    font-size: 0.7rem;
+    margin-top: 17px; 
+    margin-right: 0.3rem;
+}
+.ameneties_text03 {
+    font-size: 0.7rem;
+    margin-top: 5px;  
+    margin-right: 0.5rem;
+}
+.bke {
+    margin-top: 13px;
+}
+.pp_no {
+    font-size: 2rem;
+}
+.pp_text {
+    font-size: 0.8rem;
+}
+.peng {
+    width: 600px;
+    height: 600px;
 }
 
 }
@@ -197,7 +310,7 @@ td{
     <div class="container">
         <div class="row justify-content-center">
             
-                <div style="width: 1200px; height:600px; background-image:url('/static/images/penguin.jpg');">
+                <div class="peng" style="background-image:url('/static/images/penguin.jpg');">
                     <div style="width:100%; padding: 165 0 0 0">
                         <div class="row">
                             <div class="col">
@@ -274,19 +387,19 @@ td{
                         <div class="container" style="border: 2px solid rgb(255, 255, 255); margin-top: 25px; margin-left: 25px; margin-right: 25px; border-bottom: white; background-color: rgba(7, 110, 86, 0.5);">
                             <div class="row">
                                 <div class="col">
-                                    <b style="color: rgb(255, 255, 255); font-family: 'Noto Naskh Arabic'; font-size: 1.25rem;">
+                                    <b class="firstcardfont"  style="color: rgb(255, 255, 255); font-family: 'Noto Naskh Arabic';">
                                         بأسعار تبدأ من 6.2 مليون درهم 
                                     </b>
                                 </div>
                                 <div class="col">
-                                    <h6 style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; font-size: 1.5rem; float: right;">
+                                    <h6 class="firstcardfont" style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
                                         | المطور الدار العقارية   
                                     </h6>
                                     <span>
                                         <img src="/static/images/location.png" width="17rem" style="float: right; padding-right: 2px;"/>
                                     </span>
                                     <span>
-                                        <h6 style="font-size: 1.5rem; padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
+                                        <h6 class="firstcardfont"  style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
                                             جزيرة السعديات
                                         </h6>
                                     </span>
@@ -301,51 +414,51 @@ td{
                         <div class="container" style="border: 2px solid rgb(255, 255, 255); margin-bottom: 0px; margin-left: 25px; margin-right: 25px; border-top: white; background-color: rgba(7, 110, 86, 0.5);">
                             <div class="row">
                                 <div class="col">
-                                    <small style="font-size: 1.25rem; padding-right: 3px; margin-left: 20%; color: white; font-family: 'Noto Naskh Arabic';">
+                                    <small class="secondcardfont" style="padding-right: 3px; margin-left: 20%; color: white; font-family: 'Noto Naskh Arabic';">
                                         نوع العقار: فيلا
                                     </small>
                                     <span>
-                                        <img src="/static/images/Property.png" width="20rem"/>
+                                        <img class="firstcardimage"  src="/static/images/Property.png"/>
                                     </span>
                                 </div>
                                 <div class="col">
-                                    <small style="font-size: 1.25rem; padding-right: 3px; margin-left: 25%; color: white; font-family: 'Noto Naskh Arabic';">
+                                    <small class="secondcardfont"  style="padding-right: 3px; margin-left: 21%; color: white; font-family: 'Noto Naskh Arabic';">
                                     غرف نوم: 6,5,4   
                                     </small>
                                     <span style="float:center">
-                                        <img src="/static/images/bed1.png" width="20rem" style="float: center; padding-top: 1.5%;"/>
+                                        <img class="firstcardimage" src="/static/images/bed1.png" style="float: center; padding-top: 1.5%;"/>
                                     </span>                              
                                 </div>
                                 <div class="col">
-                                    <img src="/static/images/tape.png" width="20rem" style="float: right; padding-top: 2%;"/>
+                                    <img class="firstcardimage specialmargin" src="/static/images/tape.png" style="float: right; padding-top: 2%;"/>
                                     <span style="float:right;">
-                                        <small style="font-size: 1.25rem; padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic';">
-                                            المساحة: 464 - 591 متر مربع
+                                        <small class="secondcardfont"  style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic';">
+                                            المساحة: 464-591 متر مربع
                                         </small>
                                     </span>                              
                                 </div>             
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <small style="font-size: 1.25rem; padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; margin-left: 13%;">
+                                    <small class="secondcardfont" style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; margin-left: 11%;">
                                         الدفعة الأولى: %5
                                     </small>
                                     <span>
-                                        <img src="/static/images/Percentage.png" width="15rem"/>
+                                        <img class="firstcardimage" src="/static/images/Percentage.png"/>
                                     </span>
                                 </div>
                                 <div class="col">
-                                    <small style="font-size: 1.25rem; padding-right: 3px; margin-left: 5%; color: white; font-family: 'Noto Naskh Arabic';">
+                                    <small class="secondcardfont" style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic';">
                                         خطط الدفع: 40/60 - 60/40
                                     </small>
                                     <span style="float:center">
-                                        <img src="/static/images/cash.png" width="17rem" style="float: center;"/>
+                                        <img class="firstcardimage" src="/static/images/cash.png" style="float: center;"/>
                                     </span>                              
                                 </div>
                                 <div class="col">
-                                    <img src="/static/images/key.png" width="20rem" style="float: right; padding-top: 3.5%;"/>
+                                    <img class="firstcardimage specialmargin" src="/static/images/key.png" style="float: right; padding-top: 3.5%;"/>
                                     <span style="float:right">
-                                        <small style="font-size: 1.25rem; padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic';">
+                                        <small class="secondcardfont" style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic';">
                                             تاريخ التسليم: مارس - 2026
                                         </small>
                                     </span>                              
@@ -392,43 +505,43 @@ td{
             </h1>
 
               <div class="row justify-content-center">
-                <div class="container" style="margin-bottom: 0px; margin-left: 25px; margin-top: 15px; margin-right: 25px;">
+                <div class="container" style="margin-left: 25px; margin-top: 15px; margin-right: 25px;">
                     <div class="row">
                         <div class="col">           
-                            <img src="/static/images//Amen/kids.png" width="20%" style="filter: invert(); float: right; margin-right: 55px;"/>
-                            <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 17px;">
+                            <img class="ameneties_20" src="/static/images//Amen/kids.png" style="filter: invert(); float: right;"/>
+                            <h6 class="ameneties_text" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 مناطق لعب الأطفال
                             </h6>  
                         </div>
                         <div class="col">
-                            <img src="/static/images//Amen/linear.png" width="20%" style="filter: invert(); float: right; margin-top: 5px; margin-right: 50px;"/>
-                            <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 17px; margin-left: 40px;">
+                            <img class="ameneties_20" src="/static/images//Amen/linear.png" style="filter: invert(); float: right;"/>
+                            <h6 class="ameneties_text" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 حديقة طبيعية
                             </h6>
                         </div>  
                         <div class="col">
-                            <img src="/static/images//Amen/garden.png" width="20%" style="margin-top: 0%; filter: invert(); float: right"/>
-                            <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 17px; margin-left: 20px;">
+                            <img class="ameneties_20" src="/static/images//Amen/garden.png" style="filter: invert(); float: right"/>
+                            <h6 class="ameneties_text" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 مساحات خضراء واسعة
                             </h6>
                         </div>             
                     </div>
                     <div class="row">
                         <div class="col">
-                            <img src="/static/images//Amen/fountain.png" width="15%" style="margin-top: 15px; filter: invert(); float: right; margin-right: 70px;"/>
-                            <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 30px; margin-left: 30px;">
+                            <img  class="ameneties_21" src="/static/images//Amen/fountain.png" style="filter: invert(); float: right; margin-right: 3%;"/>
+                            <h6 class="ameneties_text01" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 نشاطات ثقافية
                             </h6>
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/bike.png" width="20%" style="margin-top: 20px; filter: invert(); float: right; margin-right: 45px;"/>
-                                <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 30px; margin-left: 25px;">
+                                <img class="ameneties_20 bke" src="/static/images//Amen/bike.png" style="filter: invert(); float: right;"/>
+                                <h6 class="ameneties_text01" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     الدراجات الهوائية
                                 </h6>                                  
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/gym.png" width="20%" style="margin-top: 20px; filter: invert(); float: right;"/>
-                                <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 30px; margin-left: 40px;">
+                                <img class="ameneties_20 jim" src="/static/images//Amen/gym.png" style="filter: invert(); float: right;"/>
+                                <h6 class="ameneties_text01" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     نادي رياضي خارجي
                                 </h6>
                         </div>                
@@ -440,40 +553,40 @@ td{
                 <div class="container" style="margin-bottom: 0px; margin-left: 25px; margin-right: 25px;">
                     <div class="row">
                         <div class="col">
-                            <img src="/static/images//Amen/climb1.png" width="15%" style="margin-top: 15px; filter: invert(); float: right; margin-right: 65px;"/>
-                            <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 30px; margin-left: 50px;">
+                            <img class="ameneties_20" src="/static/images//Amen/climb1.png" style="margin-top: 15px; filter: invert(); float: right;"/>
+                            <h6 class="ameneties_text02" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 جدران تسلق
                             </h6>     
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/school.png" width="17%" style="margin-top: 15px; filter: invert(); float: right; margin-right: 55px;"/>
-                                <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 30px; margin-left: 90px;">
+                                <img src="/static/images//Amen/school.png" width="17%" style="margin-top: 15px; filter: invert(); float: right;"/>
+                                <h6 class="ameneties_text02" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     مدارس   
                                 </h6>                            
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/shopping.png" width="20%" style="margin-top: 17px; filter: invert(); float: right;"/>
-                                <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 30px; margin-left: 100px;">
+                                <img class="ameneties_22" src="/static/images//Amen/shopping.png" style="margin-top: 17px; filter: invert(); float: right;"/>
+                                <h6 class="ameneties_text02" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     مراكز تسوق
                                 </h6>
                         </div>             
                     </div>
                     <div class="row">
                         <div class="col">
-                            <img src="/static/images//Amen/masjid.png" width="20%" style="padding-top: 1.5%; filter: invert(); float: right; margin-right: 60px;"/>
-                            <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 20px; margin-left: 80px;">
+                            <img class="ameneties_22" src="/static/images//Amen/masjid.png" style="filter: invert(); float: right;"/>
+                            <h6 class="ameneties_text03" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 مسجد
                             </h6>
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/masji.png" width="20%" style="padding-top: 1.5%; filter: invert(); float: right; margin-right: 50px;"/>
-                                <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 20px; margin-left: 90px;">
+                                <img class="ameneties_22" src="/static/images//Amen/masji.png" style="filter: invert(); float: right;"/>
+                                <h6 class="ameneties_text03" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     مجلس
                                 </h6>                      
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/skate.png" width="20%" style="padding-top: 1.5%; filter: invert(); float: right;"/>
-                                <h6 style="font-size: 20px; color: white; font-family: 'Noto Naskh Arabic'; margin-top: 20px; margin-left: 110px;">
+                                <img class="ameneties_22" src="/static/images//Amen/skate.png" style="filter: invert(); float: right;"/>
+                                <h6 class="ameneties_text03" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     منتزه تزلج
                                 </h6>                          
                         </div>                
@@ -557,36 +670,36 @@ td{
                 <div class="container" style="margin-bottom: 1px; margin-left: 50px; margin-right: 50px;">
                     <div class="row">
                         <div class="col">
-                            <h1 id="no.1" style="text-align: center; color: white;"></h1>
+                            <h1 class="pp_no" id="no.1" style="text-align: center; color: white;"></h1>
                         </div>
                         <div class="col">
-                            <h1 id="no.2" style="text-align: center; color: white;"></h1>                                 
+                            <h1 class="pp_no" id="no.2" style="text-align: center; color: white;"></h1>                                 
                         </div>
                         <div class="col">
-                            <h1 id="no.3" style="text-align: center; color: white;"></h1>                            
+                            <h1 class="pp_no" id="no.3" style="text-align: center; color: white;"></h1>                            
                         </div> 
                         <div class="col">
-                            <h1 id="no.4" style="text-align: center; color: white;"></h1>  
+                            <h1 class="pp_no" id="no.4" style="text-align: center; color: white;"></h1>  
                         </div>   
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 عند التوقيع
                             </h6>
                         </div>
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 عند بداية أعمال البناء
                             </h6>
                         </div>
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 50% استكمال المرافق العميقة
                             </h6> 
                         </div>           
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 50% اسكتمال البنية الفوقية
                             </h6>
                         </div>   
@@ -598,30 +711,30 @@ td{
                 <div class="container" style="margin-bottom: 15px; margin-left: 50px; margin-right: 50px;">
                     <div class="row">
                         <div class="col">
-                            <h1 id="no.5" style="text-align: center; color: white;"></h1>
+                            <h1 class="pp_no" id="no.5" style="text-align: center; color: white;"></h1>
                         </div>
                         <div class="col">
-                            <h1 id="no.6" style="text-align: center; color: white;"></h1>                                 
+                            <h1 class="pp_no" id="no.6" style="text-align: center; color: white;"></h1>                                 
                         </div>
                         <div class="col">
-                            <h1 id="no.7" style="text-align: center; color: white;"></h1>                            
+                            <h1 class="pp_no" id="no.7" style="text-align: center; color: white;"></h1>                            
                         </div> 
                     </div>
                     <div class="col">
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 100% اسكتمال البنية الفوقية
                             </h6>
                         </div>
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 100% استكمال الواجهة
                             </h6>
                         </div>
                         <div class="col">
-                            <h6 style="text-align: center; color: white; font-family: 'Noto Naskh Arabic'; font-size: 20px;">
+                            <h6 class="pp_text" style="text-align: center; color: white; font-family: 'Noto Naskh Arabic';">
                                 عند التسليم
                             </h6> 
                         </div>             
