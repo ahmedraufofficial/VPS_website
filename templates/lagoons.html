@@ -22,6 +22,13 @@ label {
 .firstcardfont {
     font-size: 1.25rem;
 }
+.firstcardfont01 {
+    font-size: 1.25rem;
+}
+.loc_img {
+    width: 1.2rem;
+
+}
 .secondcardfont {
     font-size: 1.25rem;
 }
@@ -54,10 +61,12 @@ label {
 }
 .ameneties_20 {
     width: 3rem;
+    float: right;
 }
 .ameneties_21 {
     width: 3rem;
     margin-top: 0.4rem;
+    float: right;
 }
 .bke {
     margin-top: 5%; 
@@ -68,6 +77,7 @@ label {
 .ameneties_22{
     width: 3rem;
     margin-bottom: 5%;
+    float: right;
 }
 .formBG {
     border: 3px solid rgb(255, 255, 255);
@@ -154,10 +164,13 @@ td{
     font-family: 'Noto Naskh Arabic';
 }
 .firstcardfont {
-    font-size: 1.5rem;
+    font-size: 0.7rem;
+}
+.firstcardfont01 {
+    font-size: 0.7rem;
 }
 .secondcardfont {
-    font-size: 0.6rem;
+    font-size: 0.3rem;
 }
 .firstcardimage {
     width: 0.7rem;
@@ -178,21 +191,22 @@ td{
     margin-bottom: 0.7rem;
 }
 .ameneties_text {
-    font-size: 0.7rem; 
+    font-size: 0.5rem; 
     margin-right: 0.3rem;
+    text-align: center;
 }
 .ameneties_text01 {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     margin-top: 17px; 
     margin-right: 0.3rem;
 }
 .ameneties_text02 {
-    font-size: 0.7rem;
-    margin-top: 17px; 
+    font-size: 0.5rem;
+    margin-top: 19px; 
     margin-right: 0.3rem;
 }
 .ameneties_text03 {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     margin-top: 5px;  
     margin-right: 0.5rem;
 }
@@ -200,14 +214,14 @@ td{
     margin-top: 13px;
 }
 .pp_no {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .pp_text {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
-.peng {
-    width: 600px;
-    height: 600px;
+.loc_img {
+    width: 0.7rem;
+
 }
 
 }
@@ -392,14 +406,14 @@ td{
                                     </b>
                                 </div>
                                 <div class="col">
-                                    <h6 class="firstcardfont" style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
+                                    <h6 class="firstcardfont01" style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
                                         | المطور الدار العقارية   
                                     </h6>
                                     <span>
-                                        <img src="/static/images/location.png" width="17rem" style="float: right; padding-right: 2px;"/>
+                                        <img class="loc_img" src="/static/images/location.png" style="float: right; padding-right: 2px;"/>
                                     </span>
                                     <span>
-                                        <h6 class="firstcardfont"  style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
+                                        <h6 class="firstcardfont01"  style="padding-right: 3px; color: white; font-family: 'Noto Naskh Arabic'; float: right;">
                                             جزيرة السعديات
                                         </h6>
                                     </span>
@@ -508,19 +522,19 @@ td{
                 <div class="container" style="margin-left: 25px; margin-top: 15px; margin-right: 25px;">
                     <div class="row">
                         <div class="col">           
-                            <img class="ameneties_20" src="/static/images//Amen/kids.png" style="filter: invert(); float: right;"/>
+                            <img class="ameneties_20" src="/static/images//Amen/kids.png" style="filter: invert();"/>
                             <h6 class="ameneties_text" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 مناطق لعب الأطفال
                             </h6>  
                         </div>
                         <div class="col">
-                            <img class="ameneties_20" src="/static/images//Amen/linear.png" style="filter: invert(); float: right;"/>
+                            <img class="ameneties_20" src="/static/images//Amen/linear.png" style="filter: invert();"/>
                             <h6 class="ameneties_text" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 حديقة طبيعية
                             </h6>
                         </div>  
                         <div class="col">
-                            <img class="ameneties_20" src="/static/images//Amen/garden.png" style="filter: invert(); float: right"/>
+                            <img class="ameneties_20" src="/static/images//Amen/garden.png" style="filter: invert();"/>
                             <h6 class="ameneties_text" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 مساحات خضراء واسعة
                             </h6>
@@ -528,19 +542,19 @@ td{
                     </div>
                     <div class="row">
                         <div class="col">
-                            <img  class="ameneties_21" src="/static/images//Amen/fountain.png" style="filter: invert(); float: right; margin-right: 3%;"/>
+                            <img  class="ameneties_21" src="/static/images//Amen/fountain.png" style="filter: invert(); margin-right: 3%;"/>
                             <h6 class="ameneties_text01" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 نشاطات ثقافية
                             </h6>
                         </div>
                         <div class="col">
-                                <img class="ameneties_20 bke" src="/static/images//Amen/bike.png" style="filter: invert(); float: right;"/>
+                                <img class="ameneties_20 bke" src="/static/images//Amen/bike.png" style="filter: invert();"/>
                                 <h6 class="ameneties_text01" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     الدراجات الهوائية
                                 </h6>                                  
                         </div>
                         <div class="col">
-                                <img class="ameneties_20 jim" src="/static/images//Amen/gym.png" style="filter: invert(); float: right;"/>
+                                <img class="ameneties_20 jim" src="/static/images//Amen/gym.png" style="filter: invert();"/>
                                 <h6 class="ameneties_text01" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     نادي رياضي خارجي
                                 </h6>
@@ -553,19 +567,19 @@ td{
                 <div class="container" style="margin-bottom: 0px; margin-left: 25px; margin-right: 25px;">
                     <div class="row">
                         <div class="col">
-                            <img class="ameneties_20" src="/static/images//Amen/climb1.png" style="margin-top: 15px; filter: invert(); float: right;"/>
+                            <img class="ameneties_20" src="/static/images//Amen/climb1.png" style="margin-top: 15px; filter: invert();"/>
                             <h6 class="ameneties_text02" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 جدران تسلق
                             </h6>     
                         </div>
                         <div class="col">
-                                <img src="/static/images//Amen/school.png" width="17%" style="margin-top: 15px; filter: invert(); float: right;"/>
+                                <img src="/static/images//Amen/school.png" width="15%" style="margin-top: 15px; filter: invert(); float: right;"/>
                                 <h6 class="ameneties_text02" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     مدارس   
                                 </h6>                            
                         </div>
                         <div class="col">
-                                <img class="ameneties_22" src="/static/images//Amen/shopping.png" style="margin-top: 17px; filter: invert(); float: right;"/>
+                                <img class="ameneties_22" src="/static/images//Amen/shopping.png" style="margin-top: 17px; filter: invert();"/>
                                 <h6 class="ameneties_text02" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     مراكز تسوق
                                 </h6>
@@ -573,19 +587,19 @@ td{
                     </div>
                     <div class="row">
                         <div class="col">
-                            <img class="ameneties_22" src="/static/images//Amen/masjid.png" style="filter: invert(); float: right;"/>
+                            <img class="ameneties_22" src="/static/images//Amen/masjid.png" style="filter: invert();"/>
                             <h6 class="ameneties_text03" style="color: white; font-family: 'Noto Naskh Arabic';">
                                 مسجد
                             </h6>
                         </div>
                         <div class="col">
-                                <img class="ameneties_22" src="/static/images//Amen/masji.png" style="filter: invert(); float: right;"/>
+                                <img class="ameneties_22" src="/static/images//Amen/masji.png" style="filter: invert();"/>
                                 <h6 class="ameneties_text03" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     مجلس
                                 </h6>                      
                         </div>
                         <div class="col">
-                                <img class="ameneties_22" src="/static/images//Amen/skate.png" style="filter: invert(); float: right;"/>
+                                <img class="ameneties_22" src="/static/images//Amen/skate.png" style="filter: invert();"/>
                                 <h6 class="ameneties_text03" style="color: white; font-family: 'Noto Naskh Arabic';">
                                     منتزه تزلج
                                 </h6>                          
