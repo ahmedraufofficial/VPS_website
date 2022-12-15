@@ -486,7 +486,7 @@ def upload_file():
 def prop(area,propertyname,propertyid):
     conn = sqlite3.connect('main2.db')
     c = conn.cursor()
-    string = ('SELECT description, image, title, location, beds, baths, size, ref_no, agent, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area FROM properties WHERE ref_no=:ref_no')
+    string = ('SELECT description, image, title, location, beds, baths, size, ref_no, agent, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area,agent_email  FROM properties WHERE ref_no=:ref_no')
     c.execute(string,{'ref_no':propertyid})
     result = c.fetchone()
     conn.close()

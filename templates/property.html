@@ -146,8 +146,15 @@
     <div class="col" >
     <p class= "proploc" style="font-family: 'Poppins-light';">Sub Community: {{result[27]}}</p>
     </div>
-    </div>
+  </div>
 <br>
+<div class="container row justify-content-center">
+  <div class="row">
+    <div >
+      <iframe style="width: 560px;height: 315px; margin-bottom: 10px; border: 2px solid #A57D2D;" src="{{result[32]}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 <div id="map" class="row">
   <div class="col">
   <h2 class="proploc" style="font-family: 'Poppins-light', sans-serif;">Map:</h2></div>
@@ -324,7 +331,7 @@
   {% if item == 'Covered parking' %}
   <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/indoor-parking.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
-  {% if item == 'Maids room' %}
+  {% if item == 'Maids Room' %}
   <div class="col-lg-4 col-xs-12" style="margin-bottom: 10px;"><img style="width: 22px;" src="/static/icons/maid.svg"><h4 class = "proptitle" style="display: inline; font-family: 'Poppins-light';margin-left: 10px; color: white; letter-spacing:0px;">{{item}}</h4></li></div>
   {% endif %}
   {% if item == 'Satellite/Cable TV' %}

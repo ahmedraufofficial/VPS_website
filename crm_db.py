@@ -64,9 +64,11 @@ for i in cursor:
                 size = str(int(i[13]))
             except:
                 size = 0
-            if i[29].split('|')[0] == "":
+            if i[29].split('|')[1] == "":
                 print("False")
-            else:    
+            else:
+                res = i[34].split("=")
+                embeddedUrl = "https://www.youtube.com/embed/"+res[1]
                 c.execute("INSERT INTO properties VALUES (:ref_no, :title, :contract, :property, :price,:location,:area,:beds,:baths,:size,:type,:units,:description,:image, :city, :state, :images, :agent, :agent_email, :agent_phone, :balcony, :basement_parking,:wardrobes,:central_air_condition,:central_heating ,:community_view,:covered_parking,:maids_room,:satellite_or_cable,:gymnasium ,:shared_pool,:furnished,:fitted_kitchen,:maintainence,:washing_room,:model,:tag)",
                     {"ref_no" :i[7],
                     "title" : i[8],
@@ -86,7 +88,7 @@ for i in cursor:
                     "state":  i[1],
                     "images": all_p_3,
                     "agent" : i[44],
-                    "agent_email" : "",
+                    "agent_email" : embeddedUrl,
                     "agent_phone" : "",
                     "balcony" : ame["balcony"],
                     "basement_parking" : ame["basement_parking"],
