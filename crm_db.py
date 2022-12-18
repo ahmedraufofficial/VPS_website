@@ -67,8 +67,11 @@ for i in cursor:
             if i[29].split('|')[1] == "":
                 print("False")
             else:
-                res = i[34].split("=")
-                embeddedUrl = "https://www.youtube.com/embed/"+res[1]
+                if i[34] != None:
+                    res = i[34].split("=")
+                    embeddedUrl = "https://www.youtube.com/embed/"+res[1]
+                else:
+                    embeddedUrl = ""
                 c.execute("INSERT INTO properties VALUES (:ref_no, :title, :contract, :property, :price,:location,:area,:beds,:baths,:size,:type,:units,:description,:image, :city, :state, :images, :agent, :agent_email, :agent_phone, :balcony, :basement_parking,:wardrobes,:central_air_condition,:central_heating ,:community_view,:covered_parking,:maids_room,:satellite_or_cable,:gymnasium ,:shared_pool,:furnished,:fitted_kitchen,:maintainence,:washing_room,:model,:tag)",
                     {"ref_no" :i[7],
                     "title" : i[8],
