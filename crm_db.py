@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('/home/ezzataljbour/crm.uhpae.com/test.db')
+conn = sqlite3.connect('test.db')
 
 connection = conn.cursor()
 cursor = connection.execute('select * from properties')
@@ -61,13 +61,27 @@ for i in cursor:
             except:
                 continue
             try:
+                all_f = []
+                for j in i[52].split('|'):
+                    all_f.append("https://www.crm.uhpae.com"+j) 
+                    all_f_2 = "|".join(all_f)
+            except:
+                continue
+            try:
+                all_m = []
+                for j in i[53].split('|'):
+                    all_m.append("https://www.crm.uhpae.com"+j) 
+                    all_m_2 = "|".join(all_m)
+            except:
+                continue
+            try:
                 size = str(int(i[13]))
             except:
                 size = 0
             if i[29].split('|')[1] == "":
                 print("False")
             else:
-                if i[34] != None:
+                if i[34] != None and i[34] != "":
                     res = i[34].split("=")
                     embeddedUrl = "https://www.youtube.com/embed/"+res[1]
                 else:
@@ -90,9 +104,9 @@ for i in cursor:
                     "city": i[2],
                     "state":  i[1],
                     "images": all_p_3,
-                    "agent" : i[44],
-                    "agent_email" : embeddedUrl,
-                    "agent_phone" : "",
+                    "agent" : all_m_2, #masterplan
+                    "agent_email" : embeddedUrl, #youtube video sent as agent email 
+                    "agent_phone" : all_f_2, #floorplan
                     "balcony" : ame["balcony"],
                     "basement_parking" : ame["basement_parking"],
                     "wardrobes" : ame["wardrobes"],

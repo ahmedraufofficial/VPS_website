@@ -90,24 +90,6 @@
     <div id="window_footer"></div>
     </div>
     </div>
-    <div class="row">
-      <div class="col d-flex justify-content-between">
-        <button onclick="scrolltodiv('description')" class="s_bar_btn" style="border: hidden;">Description</button>
-    
-        <button onclick="scrolltodiv('amenities')" class="s_bar_btn" style="border: hidden;">Amenities</button>
-     
-        <button onclick="scrolltodiv('map')" class="s_bar_btn" style="border: hidden;">Map</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex justify-content-between">
-        <button onclick="scrolltodiv('nearby')" class="s_bar_btn" style="border: hidden;">Nearby</button>
-
-        <button onclick="scrolltodiv('drop')" class="s_bar_btn" style="border: hidden;">Book Viewing</button>
-   
-        <button onclick="scrolltodiv('suggestion')" class="s_bar_btn" style="border: hidden;">Suggestion</button>
-      </div>
-    </div>
 <br>
     <div id="description" class="row">
       <div class="col">
@@ -148,6 +130,22 @@
     </div>
   </div>
 <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 style="color:white;">Floorplan</h4>
+      <div id="imgcarousel01"></div>
+    </div>
+    <div class="col">
+      <h4 style="color:white">Masterplan</h4>
+      <div id="imgcarousel02"></div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="container row justify-content-center">
   <div class="row">
     <div >
@@ -513,6 +511,69 @@
       }
     }
       $("#imgdiv").html(allimg);
+      $("#displaypic").click();
+      }
+
+
+
+    var all01 = []
+    var y = {{floorplan|tojson}}
+    var floorplandata = '';
+    floorplandata += '<div class="carousel  carousel-main" data-flickity>'
+    for (i = 0; i < y.length; i++) {
+      floorplandata += '<div class="carousel-cell" style="height:300px;">'
+      floorplandata += '<img onclick=fullpic01("'+ y[i] +'") width=300px height=200px src="' + y[i] + '">'
+      floorplandata += '</div>'
+      all01.push(y[i])  
+    }
+    floorplandata += '</div>'
+      
+      $('#imgcarousel01').append(floorplandata);
+  
+
+      function fullpic01(url){
+      var allimg01 = ''
+    for (i = 0; i < all01.length; i++){
+      if (all01[i] == url){
+        allimg01 += '<div class="carousel-item active"><img class="d-block w-100" src="'+all01[i]+'"></div>'
+      }
+      else {
+        allimg01 += '<div class="carousel-item"><img class="d-block w-100" src="'+all01[i]+'"></div>'
+      }
+    }
+      $("#imgdiv").html(allimg01);
+      $("#displaypic").click();
+      }
+
+
+
+
+    var all02 = []
+    var y = {{masterplan|tojson}}
+    var floorplandata = '';
+    floorplandata += '<div class="carousel  carousel-main" data-flickity>'
+    for (i = 0; i < y.length; i++) {
+      floorplandata += '<div class="carousel-cell" style="height:300px;">'
+      floorplandata += '<img onclick=fullpic03("'+ y[i] +'") width=300px height=200px src="' + y[i] + '">'
+      floorplandata += '</div>'
+      all02.push(y[i])  
+    }
+    floorplandata += '</div>'
+      
+      $('#imgcarousel02').append(floorplandata);
+  
+
+      function fullpic03(url){
+      var allimg02 = ''
+    for (i = 0; i < all02.length; i++){
+      if (all02[i] == url){
+        allimg02 += '<div class="carousel-item active"><img class="d-block w-100" src="'+all02[i]+'"></div>'
+      }
+      else {
+        allimg02 += '<div class="carousel-item"><img class="d-block w-100" src="'+all02[i]+'"></div>'
+      }
+    }
+      $("#imgdiv").html(allimg02);
       $("#displaypic").click();
       }
 

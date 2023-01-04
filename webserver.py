@@ -495,6 +495,10 @@ def prop(area,propertyname,propertyid):
         loc = loc[0]
         images = result[11]
         images = images.split('|')
+        floorplan = result[8]
+        floorplan = floorplan.split('|')
+        masterplan = result[9]
+        masterplan = masterplan.split('|')
         features = []
         temp = []
         for i in range(12,27):
@@ -550,7 +554,7 @@ def prop(area,propertyname,propertyid):
         overview = overview.replace('<div class = "container">','')
         overview = overview.replace("</div></span>",'</span>')
         overview = overview.replace("h3",'p')
-        return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt)
+        return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt, floorplan = floorplan, masterplan = masterplan)
     return jsonify({'success':304})   
 
 
