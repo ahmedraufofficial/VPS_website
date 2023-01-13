@@ -329,6 +329,10 @@ def lagoonslandingpage():
 def ghadeerphase2landingpage():
     return render_template('alghadeer.html')
 
+@app.route('/landing/sustainablecity')
+def sustainablecitylandingpage():
+    return render_template('sustainablecity.html')
+
 @app.route('/landing/yas-island/waters-edge')
 def watersedgelandingpage():
     return render_template('watersedge.html')

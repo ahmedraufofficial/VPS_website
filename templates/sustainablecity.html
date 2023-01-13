@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar">
+<style>
+.formBG {
+    border: 3px solid rgb(177, 196, 157);
+    background-position: top;
+    background-attachment: fixed;
+    background-size: contain;
+    position: relative;
+    border-radius: 25px;
+    margin-right: 35px;
+    margin-left: 35px;
+    padding: 10px;
+}
+.zaparagraph {
+    font-size: 15px; 
+    color: rgb(0, 0, 0); 
+    margin-top: 10px; 
+    text-align: center; 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+</style>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5WDP7BZ2E"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-X5WDP7BZ2E');
+    </script>
+    <!--End Global site tag-->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NM3F45G');</script>
+    <!-- End Google Tag Manager -->
+
+  <link rel="shortcut icon" type="image/jpg" href="{{url_for('static', filename='images/logo.jpg')}}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.1/dist/flickity.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta name="keywords" content="Sustainable City, UHPAE, aldar, unique, homes, worldwide, properties, sale, bedroom, rent, apartment, townhouses">
+  <meta name="url" content="https://uhpae.com/landing/al-ghadeer/phase-2">
+  <meta name="title" content="Introducing Al Ghadeer Phase 2 ideally located between Abu Dhabi and Dubai, just 7 minutes away from expo 2020!">
+  <meta name="type" content="website">
+  <meta name="description" content="Introducing Al Ghadeer Phase 2 ideally located between Abu Dhabi and Dubai, just 7 minutes away from expo 2020!">
+  <meta property="og:url" content="https://uhpae.com/landing/al-ghadeer/phase-2">
+  <meta property="og:title" content="Sustainable City">
+  <meta property="og:type" content="website">
+  <meta name ="robots" content="index, follow"/>
+  <meta name="robots" content="noodp " />
+  <title>Sustainable City</title>
+  <meta property="og:url" content="https://uhpae.com/landing/al-ghadeer/phase-2">
+  <meta property="og:title" content="Sustainable City">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.uhpae.com/static/projects/Al-Ghadeer.png" /> 
+  <meta property="og:description" content="Introducing Al Ghadeer Phase 2 ideally located between Abu Dhabi and Dubai, just 7 minutes away from expo 2020!">
+  <meta property="twitter:title" content="Sustainable City">
+  <meta property="twitter:description" content="Introducing Al Ghadeer Phase 2 ideally located between Abu Dhabi and Dubai, just 7 minutes away from expo 2020!">
+
+<meta name="google-site-verification" content="rsJLJJ1s0zZAryF182eOZOKr_6cmzuHNrKMFDa-bn_o" />
+</head>
+
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NM3F45G"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+     <header class="bg-dark fixed-top">
+   <nav class="navbar navbar-expand-lg navbar-dark" style="padding-top: 10px; padding-bottom: 10px;">
+     <div class="container">
+         <div>
+            <img src="/static/images/standalon_logo.png" width="100" style=" padding: 10px; filter: invert(); float: left;"/>
+         </div>
+         <div >
+            <img src="/static/images/sustainablecity/aldar.png" width="130" style="min-width: 35px; float: right;" alt="">
+         </div>
+     
+
+</div>
+    </nav>
+   </header>
+
+<section class="landingimg" style="background-image: url(/static/images/sustainablecity/bg.jpg);background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%; ">
+
+    <div class="container" style="padding-top: 7%;">
+       
+            <div class="row justify-content-center">
+               
+                <div class="col-lg-8 col-md-8 col-sm-12 landingbg" style=" background:linear-gradient(0deg, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%); height: 100%;  padding-bottom:100px; ">
+                    <div >
+                        <img src="/static/images/sustainablecity/sustain.png" style="width:60%; min-width: 35px; margin-left: auto; margin-right: auto; display: block; margin-top: 1%;" alt="">
+                     </div>
+                    <div class="row justify-content-center">
+                        <div class="col-7" style="margin-top: 2vh; display: block; white-space: normal;">
+                            <form  id="form01" method="post" autocomplete="off" name="google-sheet" class="formBG">
+                                <div class="darkBG">
+                                    <label style="font-family: 'Mongolian'; font-size: 17px; color: rgb(0, 0, 0); margin-top: 1px; text-align: left;">
+                                        Full Name
+                                    </label>
+                                    <input class="mb-3" style="width: 100%; height: 30px; border: 1px solid rgb(80, 64, 64);padding-left: 3px;font-size: 10pt; border-radius: 13px;" type="text"  id="name" name="name">
+                                    <label style="font-family: 'Mongolian'; font-size: 17px; color: rgb(0, 0, 0); margin-top: 3px; text-align: left;">
+                                        Email
+                                    </label>
+                                    <input class="mb-3" style="width: 100%; height: 30px;border: 1px solid rgb(80, 64, 64); padding-left: 3px; font-size: 10pt; border-radius: 13px;" type="text" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" id="email" name="email">
+                                    
+                                    <label style="font-family: 'Mongolian'; font-size: 17px; color: rgb(0, 0, 0); margin-top: 1px; text-align: left;">
+                                        Mobile
+                                    </label>
+                                    <input class="mb-3" style="width: 100%; height: 30px;border: 1px solid rgb(80, 64, 64);padding-left: 3px;font-size: 10pt; border-radius: 13px;" type="tel"  title='Phone Number (Format: +971009999999)' id="phonenumber" value="+971" name="phonenumber"> 
+                                    <input style="width: 100px; height: 30px; border: none; font-size: 10pt; background-color: rgb(10, 71, 10); border-radius: 13px;" class="landingbtn" type="submit" value="Submit" > 
+                                    <input type="hidden" id="strReferrer" name="strReferrer"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    
+
+
+
+
+
+
+                    <div class="col" style="margin-top: 3vh; display: block;white-space: normal;">
+                        <div class="row zaparagraph">
+                            <div class="col">
+                                <b>
+                                    A sustainable city is a place powered by clean energy, where natural resources are used intelligently. Be part of a renewed community in a self-sufficient city, where families are surrounded by wide green spaces, in addition, jogging and cycling paths and many different sports courts, as well as parks, lakes, equestrian facilities and  several swimming pools.
+                                </b> 
+                            </div>
+                        </div>
+                        <div class="row zaparagraph">
+                            <div class="col">
+                                <b>
+                                    Besides that, residents will also have access to a nursery, an autism center, a green and sustainable mosque, retail and F&B establishments, and other amenities inside the neighborhood.
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="container" style="margin-top: 3vh; width: 575px;">
+                        <div class="row" style="background-color: rgb(177, 196, 157); border-radius: 25px; padding: 1%;">
+                            <div class="col">
+                                    Total No. of units: 
+                            </div>
+                            <div class="col">
+                                    Starting Price from: 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"> 
+                                512 (Phase 1)          
+                            </div>
+                            <div class="col">
+                                AED 891K        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 3vh; width: 575px;">
+                        <div class="row" style="background-color: rgb(177, 196, 157); border-radius: 25px; padding: 1%;">
+                            <div class="col">
+                                Type of Units: 
+                            </div>
+                            <div class="col">
+                                GSA range from:  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"> 
+                                          
+                                <div>
+                                    1-3 Bed Condominiums
+                                </div>    
+                                <div>
+                                    3-4 Bed Townhouses
+                                </div>
+                            </div>
+                            <div class="col">
+                                  
+                                <div>
+                                    66.17 sqm - 144.47 sqm
+                                </div>    
+                                <div>
+                                    271.16 sqm - 312.38 sqm
+                                </div>       
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h1 style="color: rgb(0, 0, 0); text-align: center; font-family: 'Noto Naskh Arabic'; font-size: 30px; margin-top: 3vh;">
+                        <b>
+                            Gallery
+                        </b>            
+                    </h1>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c1.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c2.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c3.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c4.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c5.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c6.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c7.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c8.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c9.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c10.jpg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-75" style="margin: auto;" src="/static/images/sustainablecity/c11.jpg" alt="First slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span style="background-color: rgb(10, 71, 10); border-radius: 25px;" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span style="background-color: rgb(10, 71, 10); border-radius: 25px;" class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+
+
+                    <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">
+                        <div class="expandlanding" style="height: 2px;">
+                        </div>
+                    </div>
+                     <div style="margin-top: 2vh;">           
+                        <img src="/static/images/sustainablecity/amen.png" width="100%"/>
+                    </div>
+                    <div>           
+                        <img src="/static/images/sustainablecity/amen2.png" width="100%"/>
+                    </div>
+        
+        
+        
+
+        <div class="row justify-content-center" style="margin-top: 30px; margin-bottom: 30px;">
+            <div class="expandlanding" style="height: 2px;">
+
+            </div>
+        </div>
+
+        <h1 style="color: rgb(0, 0, 0); text-align: center; font-family: 'Noto Naskh Arabic'; font-size: 30px;">
+            <b>
+                Payment Plan
+            </b>
+        </h1>
+        <div class="row justify-content-center" style="margin-bottom: 10px; margin-top: 15px;" id="lesssgooo">
+            <div class="container" style="width: 500px;">
+                <div class="row">
+                    <div class="col" style="text-align: center; background-color: rgb(171, 200, 171); border-radius: 25px; font-size: 25px;">
+                        <b>
+                            35/65 
+                        </b>
+                    </div>
+                    <div class="col" style="text-align: center; background-color: rgb(171, 200, 171); border-radius: 25px; font-size: 25px;">
+                        <b>
+                            60/40
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+<footer style="background-color: rgba(0, 0, 0, 0.5); margin-top: 0%;">
+    <div class="row justify-content-center">
+        <div class="container" style="margin-left: 50px; margin-right: 50px;">
+            <div class="row">
+                <div class="col">
+                    <h6 style="color: rgb(255, 255, 255); margin-top: 0.25rem; text-align: center; font-size: 70%;">Copyright© 2023 UHPAE. All Rights Reserved</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </footer>
+
+</section>
+
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<script>
+    $('.carousel3').carousel({
+interval: 2000
+})
+
+</script>
+<script>
+
+document.getElementById('strReferrer').value = "Sustainable City";
+   </script>
+   
+
+<script>
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxjlxOWi7uR-44e6AmYexgQ7GQMlIEAJZGbpcHm-wxoYwYudL9U/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      var x = document.forms["google-sheet"]["email"].value;
+      var p = document.forms["google-sheet"]["phonenumber"].value;
+      var n = document.forms["google-sheet"]["name"].value;
+    if (x == "" || p == "" || n == "") {
+    alert("Kindly fill in your Email, Number, and Name then submit, so we can contact you!");
+    return false;}
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks For Your Submission! We Will Contact You Soon."))
+        .catch(error => console.error('Error!', error.message))
+    })
+
+  </script>
+
+
