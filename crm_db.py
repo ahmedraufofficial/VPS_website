@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('/home/ezzataljbour/crm.uhpae.com/test.db')
 
 connection = conn.cursor()
 cursor = connection.execute('select * from properties')
