@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('/home/ezzataljbour/crm.uhpae.com/test.db')
+conn = sqlite3.connect('test.db')
 
 connection = conn.cursor()
 cursor = connection.execute('select * from properties')
@@ -12,44 +12,83 @@ c = conn2.cursor()
 conn2.commit()
 import os
 print(os.getcwd())
-
+ref=0
 for i in cursor:
 
     if i[49]== "0":
         c.execute('''SELECT * FROM properties WHERE ref_no == ?''',['{}'.format(i[7])])
         result = c.fetchone()
         if result == None:
+            ref+=1
             try:
-                ame = {"balcony":'',"basement_parking":'',"wardrobes":'',"central_air_condition":'',"central_heating":'',"community_view":'',"covered_parking":'',"maids_room":'',"satellite_or_cable":'',"gymnasium":'',"shared_pool":'',"furnished":'',"fitted_kitchen":'',"maintainence":'',"washing_room":''}
+                ame = {"Maids Room":'',"Built in wardrobes": '',"Carpets": '',"Study":'',"Balcony":'',"Central air conditioning":'',"Heating":'',"Drivers room":'',"Fully fitted kitchen":'',"Gazebo":'',"Private Garden":'',"Private Pool":'',"Private Gym":'',"Private Jacuzzi":'',"Kitchen Appliances":'',"Marble floors":'',"Security":'',"Walk-in Closet":'',"View of Landmark":'',"Pets allowed":'',"Private garage":'',"Sauna":'',"Wood flooring":'',"Steam room":'',"Upgraded interior":'',"Garden view":'',"Maintenance":'',"Within a Compound":'',"Storage room":'',"Terrace":'',"Server room":'',"Pantry":'',"Conference room":''}
                 if i[27] !=None:
+                    if "Maids Room" in i[27]:
+                        ame["maids_room"] = "Maids Room"
+                    if "Built in wardrobes" in i[27]:
+                        ame["built_in_wardrobes"] = "Built in wardrobes"
+                    if "Carpets" in i[27]:
+                        ame["carpets"] = "Carpets"
+                    if "Study" in i[27]:
+                        ame["study"] = "Study"
                     if "Balcony" in i[27]:
                         ame["balcony"] = "Balcony"
-                    if "Covered Parking" in i[27]:
-                        ame["basement_parking"] = "Covered Parking"
-                    if "Built in Wardrobes" in i[27]:
-                        ame["wardrobes"] = "Built in Wardrobes"
-                    if "Central A/C & Heating" in i[27]:
-                        ame["central_air_condition"] = "Central A/C & Heating"
-                    if "Central A/C & Heating" in i[27]:
-                        ame["central_heating"] = "Central A/C & Heating"
+                    if "Central air conditioning" in i[27]:
+                        ame["central_air_conditioning"] = "Central air conditioning"
+                    if "Heating" in i[27]:
+                        ame["heating"] = "Heating"
+                    if "Drivers room" in i[27]:
+                        ame["drivers_room"] = "Drivers room"
+                    if "Fully fitted kitchen" in i[27]:
+                        ame["fully_fitted_kitchen"] = "Fully fitted kitchen"
+                    if "Gazebo" in i[27]:
+                        ame["gazebo"] = "Gazebo"
+                    if "Private Garden" in i[27]:
+                        ame["private_garden"] = "Private Garden"
+                    if "Private Pool" in i[27]:
+                        ame["private_pool"] = "Private Pool"
+                    if "Private Gym" in i[27]:
+                        ame["private_gym"] = "Private Gym"
+                    if "Private Jacuzzi" in i[27]:
+                        ame["private_jacuzzi"] = "Private Jacuzzi"
+                    if "Kitchen Appliances" in i[27]:
+                        ame["kitchen_appliances"] = "Kitchen Appliances"
+                    if "Marble floors" in i[27]:
+                        ame["marble_floors"] = "Marble floors"
+                    if "Security" in i[27]:
+                        ame["security"] = "Security"
+                    if "Walk-in Closet" in i[27]:
+                        ame["walk_in_closet"] = "Walk-in Closet"
                     if "View of Landmark" in i[27]:
-                        ame["community_view"] = "Community View"
-                    if "Covered Parking" in i[27]:
-                        ame["covered_parking"] = "Covered Parking"
-                    if "Maids" in i[27]:
-                        ame["maids_room"] = "Maid's Room"
-                    if "Concierge Service" in i[27]:
-                        ame["satellite_or_cable"] = "Concierge Services"
-                    if "Shared Gym" in i[27]:
-                        ame["Shared Gym"] = "Shared Gym"
-                    if "Shared Pool" in i[27]:
-                        ame["shared_pool"] = "Shared Pool"
-                    if "Built in Kitchen Appliances" in i[27]:
-                        ame["fitted_kitchen"] = "Built in Kitchen Appliances"
-                    if "Concierge Service" in i[27]:
-                        ame["maintainence"] = "Maintainence"
-                    if "Maid Service" in i[27]:
-                        ame["washing_room"] = "Washing Room"
+                        ame["view_of_landmark"] = "View of Landmark"
+                    if "Pets allowed" in i[27]:
+                        ame["pets_allowed"] = "Pets allowed"
+                    if "Private garage" in i[27]:
+                        ame["private_garage"] = "Private garage"
+                    if "Sauna" in i[27]:
+                        ame["sauna"] = "Sauna"
+                    if "Wood flooring" in i[27]:
+                        ame["wood_flooring"] = "Wood flooring"
+                    if "Steam room" in i[27]:
+                        ame["steam_room"] = "Steam room"
+                    if "Upgraded interior" in i[27]:
+                        ame["upgraded_interior"] = "Upgraded interior"
+                    if "Garden view" in i[27]:
+                        ame["garden_view"] = "Garden view"
+                    if "Maintenance" in i[27]:
+                        ame["maintenance"] = "Maintenance"
+                    if "Within a Compound" in i[27]:
+                        ame["within_a_compound"] = "Within a Compound"
+                    if "Storage room" in i[27]:
+                        ame["storage_room"] = "Storage room"
+                    if "Terrace" in i[27]:
+                        ame["terrace"] = "Terrace"
+                    if "Server room" in i[27]:
+                        ame["server_room"] = "Server room"
+                    if "Pantry" in i[27]:
+                        ame["pantry"] = "Pantry"
+                    if "Conference room" in i[27]:
+                        ame["conference_room"] = "Conference room"
                 try:
                     all_p = "https://www.crm.uhpae.com"+i[29].split('|')[0]
                 except:
@@ -154,6 +193,6 @@ for i in cursor:
         c.execute("DELETE FROM dproperties WHERE ref_no == ?",['{}'.format(i[7])])
         conn2.commit()
 
-
+print(ref)
 conn2.close()
 conn.close()
