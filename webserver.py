@@ -334,7 +334,7 @@ def ghadeerphase2landingpage():
 def sustainablecitylandingpage():
     return render_template('sustainablecity.html')
 
-@app.route('/landing/manarat')
+@app.route('/landing/manarat-living')
 def manaralandingpage():
     return render_template('manarat.html')
 
