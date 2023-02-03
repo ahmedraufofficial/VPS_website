@@ -1049,9 +1049,9 @@ select:active, select:hover {
 
 .logoname {
   
-  width:60px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  width:50px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .logoname:hover{

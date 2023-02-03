@@ -16,6 +16,7 @@ from assets import bundles
 from werkzeug.utils import secure_filename
 from collections import defaultdict
 from logging import FileHandler, WARNING
+import sass
 
 a = os.getcwd()
 UPLOAD_FOLDER = os.path.join(a+'/static', 'abudhabi')
@@ -332,6 +333,10 @@ def ghadeerphase2landingpage():
 @app.route('/landing/sustainablecity')
 def sustainablecitylandingpage():
     return render_template('sustainablecity.html')
+
+@app.route('/landing/manarat')
+def manaralandingpage():
+    return render_template('manarat.html')
 
 @app.route('/landing/yas-island/waters-edge')
 def watersedgelandingpage():
