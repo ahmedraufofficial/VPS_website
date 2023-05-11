@@ -279,20 +279,17 @@ box-shadow: 0px 6px 6px -7px rgba(0,0,0,0.75);
 }
 
 .s_bar_btn_default {
-  font-family: 'Poppins-light';
-  border-radius: 0px;
-  border: none;
+  font-family: 'Montserrat';
+  border-radius: 12px;
   width: 99% !important;
   height: 30px;
   margin: 2px;
-  background-color: transparent;
-  color: white;
+  background-color: rgb(211, 211, 211);
+  color: rgb(0, 0, 0);
   font-size: 8pt;
   border: 1px solid white;
   position: relative;
-  padding-left: 8px;
-  -webkit-box-shadow: inset 0px 2px 19px 4px #000000; 
-box-shadow: inset 0px 2px 19px 4px #000000;
+  padding-left: 5%;
 }
 
 .teamdesc{
@@ -1485,7 +1482,189 @@ h4 {
   width:100%;
 }
 
- @media only screen and (max-width: 500px) {
+.filter_add05 {
+  background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);text-align: center; font-family: 'Montserrat'; font-size: 10pt !important; border-radius: 12px !important; margin-top: 2px !important; padding: 5px !important; border: 1px solid rgb(211, 211, 211) !important;
+    }
+  
+.filter_add05:hover {
+  border: 1px solid #A57D2D !important
+ }
+
+.filter_add02 {
+  background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);width: 120px; text-align: center; font-family: 'Montserrat'; font-size: 10pt !important; border-radius: 12px !important; padding: 5px !important; border: 1px solid rgb(211, 211, 211) !important;
+}
+   
+.filter_add02:hover {
+  border: 1px solid #A57D2D !important
+}
+/*
+.slider {
+  -webkit-appearance: none;
+  width: 25%;
+  height: 7px;
+  border-radius: 7px;  
+  background: #573d0a;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  background: #A57D2D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #A57D2D;
+  cursor: pointer;
+}
+*/
+.slider {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  transform-style: preserve-3d;
+  animation: rotate 50s linear infinite;
+}
+
+@keyframes rotate {
+  0%{
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100%{
+    transform: perspective(1000px) rotateY(360deg);
+  }
+
+}
+
+.slider span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
+}
+
+.slider span img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 25px;
+  object-fit:cover;
+  transition: 2s;
+}
+
+.neon-light{
+  width: 15px;
+  height: 300px;
+  background: transparent;
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px 5px #fff,
+  inset 0 0 20px #fff,
+  0 0 160px 20px #660044,
+  inset 0 0 20px #660044,
+  0 0 320px 30px #660044,
+  inset 0 0 20px #660044;
+  animation: run 5s linear infinite;
+}
+
+.hover09 figure img {
+  -webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-filter: sepia(100%);
+	filter: sepia(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover09 figure:hover img {
+	-webkit-filter: sepia(0);
+	filter: sepia(0);
+  -webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@keyframes run {
+  0%{
+    left: 10%;
+    opacity: 0;;
+  }
+  2%{
+    left: 10%;
+    opacity: 1;
+  }
+  4%{
+    left: 10%;
+    opacity: 0;;
+  }
+  6%{
+    left: 10%;
+    opacity: 1;
+  }
+  8%{
+    left: 10%;
+    opacity: 0;
+  }
+  10%{
+    left: 10%;
+    opacity: 1;
+  }
+  100%{
+    left: 90%;
+    opacity: 1;
+  }
+}
+ @media only screen and (max-width: 700px) {
+
+.slider {
+  position: relative;
+  width: 150px;
+  height: 75px;
+  transform-style: preserve-3d;
+  animation: rotate 50s linear infinite;
+}
+
+@keyframes rotate {
+  0%{
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100%{
+    transform: perspective(1000px) rotateY(360deg);
+  }
+
+}
+.slider span {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i)*45deg)) translateZ(120px);
+}
+
+.slider span img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 75%;
+  border-radius: 25px;
+  object-fit:cover;
+  transition: 2s;
+}
 
 .bg_sub {
   background: transparent !important;
