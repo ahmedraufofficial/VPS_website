@@ -1678,21 +1678,21 @@ h4 {
 }
 .slider span {
   position: absolute;
-  width: 75%;
-  height: 75%;
+  width: 85%;
+  height: 80%;
   -webkit-transform-origin: center;
   transform-origin: center;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateY(calc(var(--i)*45deg)) translateZ(120px);
-  transform: rotateY(calc(var(--i)*45deg)) translateZ(120px);
+  -webkit-transform: rotateY(calc(var(--i)*45deg)) translateZ(160px);
+  transform: rotateY(calc(var(--i)*45deg)) translateZ(160px);
 }
 
 .slider span img {
   position: relative;
   top: 0;
   left: 0;
-  width: 75%;
+  width: 100%;
   border-radius: 25px;
   object-fit:cover;
   transition: 2s;
