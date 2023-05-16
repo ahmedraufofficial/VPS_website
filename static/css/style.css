@@ -1534,8 +1534,8 @@ h4 {
   height: 150px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-animation: rotate 50s linear infinite;
-  animation: rotate 50s linear infinite;
+  -webkit-animation: rotate 60s linear infinite;
+  animation: rotate 60s linear infinite;
 }
 
 @-webkit-keyframes rotate {
@@ -1567,8 +1567,8 @@ h4 {
   transform-origin: center;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
-  transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
+  -webkit-transform: rotateY(calc(var(--i)*30deg)) translateZ(390px);
+  transform: rotateY(calc(var(--i)*30deg)) translateZ(390px);
 }
 
 .slider span img {

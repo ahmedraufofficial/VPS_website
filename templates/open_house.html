@@ -58,10 +58,6 @@ figure {
 	overflow: hidden;
     border-radius: 25px 25px 0 0;
 }
-figure:hover+span {
-	bottom: -36px;
-	opacity: 1;
-}
 h5 {
     font-family: 'Century Gothic', sans-serif;
     color: white;
@@ -95,6 +91,12 @@ iframe {
 }
 .form_font {
     font-size: 15px;
+}
+.vids {
+    width: 40%;
+}
+video {
+    width: 100%;
 }
 @media only screen and (max-width: 700px) {
     .formBG {
@@ -174,7 +176,19 @@ h5 {
 .form_font {
     font-size: 9px;
 }
+.vids {
+    width: 80%;
+}
+video {
+    width: 100%;
+    height: 75%;
+}
 
+}
+@media only screen and (min-width: 1300px) {
+    .specialpadding {
+        height: 1100px;
+    }
 }
 </style>
 
@@ -251,7 +265,7 @@ h5 {
    </header>
 -->
 
-<section style="background-image: url(/static/images/openhouse/open_house_bg.png);background-repeat: no-repeat;background-size:cover;">
+<section style="background-image: url(/static/images/openhouse/bg.jpg);background-repeat: no-repeat;background-size:cover;">
 
     <div class="container-fluid specialpadding">
         <div class="container">
@@ -416,14 +430,18 @@ h5 {
     </h1>
     <div class="container" style="margin-top: 5%;">
         <div class="slider" style="margin-left: auto; margin-right: auto;">
-            <span style="--i:0;"><img src="/static/images/openhouse/agents/jbour.jpeg" alt=""></span>
-            <span style="--i:1;"><img src="/static/images/openhouse/agents/islam.jpeg" alt=""></span>
-            <span style="--i:2;"><img src="/static/images/openhouse/agents/sakher.jpeg" alt=""></span>
-            <span style="--i:3;"><img src="/static/images/openhouse/agents/jbour.jpeg" alt=""></span>
-            <span style="--i:4;"><img src="/static/images/openhouse/agents/islam.jpeg" alt=""></span>
-            <span style="--i:5;"><img src="/static/images/openhouse/agents/sakher.jpeg" alt=""></span>
-            <span style="--i:6;"><img src="/static/images/openhouse/agents/jbour.jpeg" alt=""></span>
-            <span style="--i:7;"><img src="/static/images/openhouse/agents/sakher.jpeg" alt=""></span>
+            <span style="--i:0;"><img src="/static/images/openhouse/agents/1-min.png" alt=""></span>
+            <span style="--i:11;"><img src="/static/images/openhouse/agents/2-min.png" alt=""></span>
+            <span style="--i:10;"><img src="/static/images/openhouse/agents/3-min.png" alt=""></span>
+            <span style="--i:9;"><img src="/static/images/openhouse/agents/4-min.png" alt=""></span>
+            <span style="--i:8;"><img src="/static/images/openhouse/agents/5-min.png" alt=""></span>
+            <span style="--i:7;"><img src="/static/images/openhouse/agents/6-min.png" alt=""></span>
+            <span style="--i:6;"><img src="/static/images/openhouse/agents/7-min.png" alt=""></span>
+            <span style="--i:5;"><img src="/static/images/openhouse/agents/8-min.png" alt=""></span>
+            <span style="--i:4;"><img src="/static/images/openhouse/agents/9-min.png" alt=""></span>
+            <span style="--i:3;"><img src="/static/images/openhouse/agents/10-min.png" alt=""></span>
+            <span style="--i:2;"><img src="/static/images/openhouse/agents/11-min.png" alt=""></span>
+            <span style="--i:1;"><img src="/static/images/openhouse/agents/12-min.png" alt=""></span>
         </div>
     </div>
     <!-- Google Tag Manager (noscript) 
@@ -466,6 +484,33 @@ h5 {
         </a>
       </div>
       -->
+    <h1 class="heading" style="color: rgb(255, 255, 255); text-align: center; font-family: 'century-gothic';">
+        <b style="font-family: 'Century Gothic', sans-serif">
+            Our Gallery
+        </b>            
+    </h1>
+      <div id="carouselExampleControls" class="carousel slide vids" data-ride="carousel" style="margin-left: auto; margin-right: auto;">
+        <div class="carousel-inner" style="border-radius: 25px;">
+          <div class="carousel-item active">
+            <video controls><source src="/static/images/openhouse/1.mp4" type="video/mp4"></video>
+          </div>
+          <div class="carousel-item">
+            <video controls><source src="/static/images/openhouse/2.mp4" type="video/mp4"></video>
+          </div>
+          <div class="carousel-item">
+            <video controls><source src="/static/images/openhouse/3.mp4" type="video/mp4"></video>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span style="border-radius: 25px;" class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span style="border-radius: 25px;" class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
     <h1 class="heading" style="color: rgb(255, 255, 255); text-align: center;">
         <b style="font-family: 'Century Gothic', sans-serif">
             Location
