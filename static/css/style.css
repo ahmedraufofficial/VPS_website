@@ -1654,8 +1654,8 @@ h4 {
   height: 75px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-animation: rotate 50s linear infinite;
-  animation: rotate 50s linear infinite;
+  -webkit-animation: rotate 60s linear infinite;
+  animation: rotate 60s linear infinite;
 }
 
 @-webkit-keyframes rotate {
@@ -1680,21 +1680,21 @@ h4 {
 }
 .slider span {
   position: absolute;
-  width: 85%;
+  width: 80%;
   height: 80%;
   -webkit-transform-origin: center;
   transform-origin: center;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateY(calc(var(--i)*45deg)) translateZ(160px);
-  transform: rotateY(calc(var(--i)*45deg)) translateZ(160px);
+  -webkit-transform: rotateY(calc(var(--i)*30deg)) translateZ(175px);
+  transform: rotateY(calc(var(--i)*30deg)) translateZ(175px);
 }
 
 .slider span img {
   position: relative;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 80%;
   border-radius: 25px;
   object-fit:cover;
   transition: 2s;
