@@ -1,5 +1,52 @@
 {% extends "base.html" %}
 {% block metacontent %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<style>
+.child {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  border-radius: 12px;
+  color: white;
+
+}
+
+.child01 {
+  display: inline-block;
+  padding: 5px;
+  vertical-align: middle;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 12px;
+  color: white;
+}
+
+.parrot {
+  border: transparent;
+  vertical-align: middle;
+  padding-top: 90px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  background-color: rgb(129, 129, 129);
+}
+.searchinputs::-webkit-input-placeholder { 
+font-family: FontAwesome;
+font-weight: normal;
+overflow: visible;
+vertical-align: top;
+display: inline-block !important;
+padding-left: 5px;
+padding-top: 2px;
+}
+::placeholder {
+  padding-left: 3%;
+  font-family: 'Montserrat'
+}
+</style>
+
 {% if meta == "" %}
 <meta name="title" content="Search for your ideal home">
 <meta name="description" content="Search Results of all the properties close to your liking">
@@ -39,79 +86,82 @@
 {% block content %}
 
 
+<section style="background-image: url(/static/images/dark_bg.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgb(34, 34, 34, 1.0));">
+    <div class="container-fluid parrot" style="text-align: center;">
+      <form autocomplete="off" id="my-form-id">
+      <div class="container">
+          <input id="keyword" name="keyword"  style="width: 20%; height: 70% !important; " type="text" class="filter_add05 typeahead search_community searchwidth" data-provide="typeahead" placeholder="Location, Community">
+          <script> // The search option with the dropdown menu
+            var data = {{ search_list|tojson }} 
+            var $input = $(".typeahead");
+            $input.typeahead({
+                source: data,
+                autoSelect: true,
+            });
+            $input.change(function () {
+                var current = $input.typeahead("getActive");
+                matches = [];
+                if (current) {
+                    if (current.name == $input.val()) {
+                        matches.push(current.name);
+                    }
+                }
+            });
+          </script>
 
-
-
-  <section style="background-image: url(/static/images/scaledbg.webp); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-    <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);">
-  
-<form autocomplete="off" id="my-form-id" style="padding-top: 80px;position: relative;">
-    <div class="container">
-    <div style="display: flex;justify-content: space-between; flex-wrap: wrap;">
-            <input id="keyword" name="keyword" type="text" class="typeahead search_community searchwidth" style="background-color: rgb(0, 0, 0,0.7); margin-top: 10px;margin-bottom: 10px;" data-provide="typeahead" placeholder="Community or Location" />
-            <script> // The search option with the dropdown menu
-              var data = {{ search_list|tojson }} 
-              var $input = $(".typeahead");
-              $input.typeahead({
-                  source: data,
-                  autoSelect: true,
-              });
-              $input.change(function () {
-                  var current = $input.typeahead("getActive");
-                  matches = [];
-                  if (current) {
-                      if (current.name == $input.val()) {
-                          matches.push(current.name);
-                      }
-                  }
-              });
-            </script>
-        <select id="units" name="units" class="search_option"  style="color: black;margin-top: 10px;margin-bottom: 10px;">
-          <option value="" disabled selected>Buy / Sell</option>
-          <option value="Sale">Buy</option>
+        <div class="child" style="margin-left: 0px;">
+        <select name="beds" id="beds" class="filter_add02" style="height: 80%;">
+          <option disabled selected hidden value="">Beds</i></option>
+          <option value="ST">Studio</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+        <select name="propertytype" id="type" class="filter_add02" style="height: 80%;">
+          <option selected="selected" value=''>Type</option>
+          <option value='Villa'>Villa</option>
+          <option value='Apartment'>Apartment</option>
+          <option value='Loft Apartment'>Loft Apartment</option>
+          <option value='Residential Floor'>Residential Floor</option>
+          <option value='Residential Plot'>Residential Plot</option>
+          <option value='Townhouse'>Townhouse</option>
+          <option value='Residential Building'>Residential Building</option>
+          <option value='Penthouse'>Penthouse</option>
+          <option value='Villa Compound'>Villa Compound</option>
+          <option value='Hotel Apartment'>Hotel Apartment</option>
+          <option value='Office'>Office</option>
+          <option value='Land'>Land</option>
+          <option value='Other'>Other</option>
+        </select>
+        <select name="units" id="units" class="filter_add02" style="height: 80%;">
+          <option selected="selected" value="">Purpose</option>
+          <option value="Sale">Sale</option>
           <option value="Rent">Rent</option>
         </select>
-
-        <select id="beds" name="beds" class="search_option" style="color: black;margin-top: 10px;margin-bottom: 10px;">
-          <option value="" disabled selected>Beds</option>
-          <option value="ST">Studio</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-          <option value="5">Five</option>
-          <option value="6">Six</option>
-          </select>
-
-            <select id="type" name="propertytype" class="search_option" style="color: black;margin-top: 10px;margin-bottom: 10px;" >
-            <option value="" disabled selected>Type</option>
-            <option value="Apartment">Apartment</option>
-            <option value="Villa">Villa</option>
-            <option value="Compound">Compound</option>
-            <option value="Townhouse">Townhouse</option>
-            <option value="Land Residential">Land Residential</option>
-            <option value="Penthouse">Penthouse</option>
-            <option value="Office">Office</option>
-            </select>
-
-            <input type="hidden" id="tag">
-</div>
-<div style="display: flex; justify-content: left">
-  <button class="search_option" style="background-color: #001524; text-align: center; margin-top: 10px;margin-bottom: 10px;" type="button"  onclick="myFunction('1')" formmethod="get|post">Search</button>
- </div> 
-</div>
-
-</form>
+      </div>
+      <div class="child">
+        <input type="number" name="minprice" id="minprice" class="filter_add02" placeholder="Min. Price" aria-label="minprice" style="height: 80%;">
+        <input type="number" name="maxprice" id="maxprice" class="filter_add02" placeholder="Max. Price" aria-label="maxprice" style="height: 80%;">
+      </div>
+      <button class="search_option" style="background-color: #000000; text-align: center; margin-bottom: 10px; border-radius: 15px; border: 1px solid #000000; width: 100px; padding: 0.2%;" type="button"  onclick="myFunction('1')" formmethod="get|post"><img style="width:13px; filter: invert(); margin-right: 5px; margin-left: 5px; margin-top: 0;" src="/static/images/magnifier.png"/><span style="font-size: 15px;">Search</span></button>
+      </div>
+    </form>
+    </div>
 
 
 <div class="container">
   <div class="row">
     <div class="col">
-      <p class="simple" style="color: #8e8a8a; font-size: 20px; text-transform: capitalize;font-family: 'Poppins-light',sans-serif; padding-top: 25px;">Searched for: {{meta[1]}}</p>
+      <p class="simple" id="statement" name="statement" style="color: #ffffff; font-size: 20px; text-transform: capitalize;font-family: 'Poppins-light',sans-serif; padding-top: 25px;"></p>
     </div>
   </div>
 </div>
-<div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75);padding-top:15px;padding-bottom: 15px;margin-top: 20px;">
+
+<div style="height: 100%;width: 100%; padding-top:15px;padding-bottom: 15px;margin-top: 20px;">
 <div class="container">
 
   <div id="window_footer"></div>
@@ -154,6 +204,7 @@ document.getElementById('{{item[0]}}').value='{{item[1]}}'
 
 <script>
   var args = JSON.parse('{{ search_args | tojson }}') 
+  console.log(args)
   for (const [key, value_] of Object.entries(args)) {
     document.getElementById(key).value = value_
   }
@@ -173,7 +224,7 @@ document.getElementById('{{item[0]}}').value='{{item[1]}}'
       if (value.property == "")
       {value.property = "no name"} 
       var newproperty = property.replace(/\s/g, '-')
-                   if (value.tag == "hot")
+                  if (value.tag == "hot")
                   { var f = "display:block;"}
                   else 
                   {var f = "display:none;"}
@@ -197,10 +248,10 @@ document.getElementById('{{item[0]}}').value='{{item[1]}}'
                   else {
                     beds = ' Bed'
                   }
-                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 20px; background-color: transparent";>'
                   data += '<div class="container_foto">'
                   data += '<div class="ver_mas text-center">'
-                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p style="font-size:15px; font-family: "Century Gothic", sans-serif;"><b>Preview</b></p></span></a>'
                   data += '</div>'
                   data += '<article class="text-left">'
                   data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
@@ -224,11 +275,6 @@ document.getElementById('{{item[0]}}').value='{{item[1]}}'
     
 
 
-        function Scrolldown() {
-     window.scroll(0,100); 
-}
-
-window.onload = Scrolldown;
 var script = $('<script type="application/ld+json">[ {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","name":"For '+window.location.href+'","item":" '+window.location.href+'","position":1}],"numberOfItems":1},'+script_properties.slice(0,-1)+']</' + 'script>').appendTo(document.head);
 
 
@@ -254,12 +300,36 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
       propertytype = $("#type").val();
       beds = $("#beds").val();
       keyword = $("#keyword").val();
+      minprice = $("#minprice").val();
+      maxprice = $("#maxprice").val();
+      if (propertytype != "")
+      {
+        statement = propertytype+" for "
+      } 
+      else
+      {
+        statement = "Properties for "
+      }
+      if (units != "" || unit != null)
+      {
+        statement += "Sale "
+      } 
+      if (keyword != '')
+      {
+        statement += "in "+keyword+" "
+      } 
+      if (beds != null)
+      {
+        statement += "with "+beds+" bedroom(s)"
+      } 
+      document.getElementById("statement").innerHTML = "Searched for: "+statement;
+      console.log(statement)
       page = x
           $.ajax({
               method:"post",
               url:"/livesearch",
               data:{units:units,keyword:keyword, propertytype:propertytype, 
-              beds:beds, page:page},
+              beds:beds,minprice:minprice,maxprice:maxprice, page:page},
               success:function(res){
                 document.getElementById("current").innerHTML = $("#current_page").val();
                 document.getElementById("previous").innerHTML = res.start_page;
@@ -292,10 +362,10 @@ var script = $('<script type="application/ld+json">[ {"@context":"https://schema
                   else {
                     beds = ' Bed'
                   }
-                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 20px;">'
                   data += '<div class="container_foto">'
                   data += '<div class="ver_mas text-center">'
-                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p style="font-size:15px; font-family: "Montserrat""><b>Preview</b></p></span></a>'
                   data += '</div>'
                   data += '<article class="text-left">'
                   data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'

@@ -341,6 +341,10 @@ def manaralandingpage():
 @app.route('/landing/yas-island/waters-edge')
 def watersedgelandingpage():
     return render_template('watersedge.html')
+
+@app.route('/landing/the-home-showdown')
+def openhouselandingpage():
+    return render_template('open_house.html')
     
 @app.route('/privacy-policy')
 def privacypolicy():
@@ -382,7 +386,7 @@ def hotproperties():
     c = 0
     for r in result:
         newdict = dict(r)
-        newdict['price'] = "{:,}".format(newdict['price'])
+        newdict['price'] = "{:,}".format(int(newdict['price']))
         if newdict['image'] != "":
             queryRes.append(newdict)
     conn.commit()
@@ -495,7 +499,7 @@ def upload_file():
 def prop(area,propertyname,propertyid):
     conn = sqlite3.connect('main2.db')
     c = conn.cursor()
-    string = ('SELECT description, image, title, location, beds, baths, size, ref_no, agent, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area,agent_email  FROM properties WHERE ref_no=:ref_no')
+    string = ('SELECT description, image, title, location, beds, baths, size, ref_no, type, agent_phone, agent_email, images, balcony, basement_parking, wardrobes, central_air_condition, central_heating, community_view, covered_parking, maids_room, satellite_or_cable, gymnasium, shared_pool, furnished, fitted_kitchen, maintainence, washing_room, property, type, price,units,area,agent_email  FROM properties WHERE ref_no=:ref_no')
     c.execute(string,{'ref_no':propertyid})
     result = c.fetchone()
     conn.close()
@@ -509,6 +513,8 @@ def prop(area,propertyname,propertyid):
         masterplan = result[9]
         masterplan = masterplan.split('|')
         features = []
+        f1 = (result[12]+result[13]).split(",")
+        features = f1
         temp = []
         for i in range(12,27):
             features.append(result[i])
@@ -522,11 +528,12 @@ def prop(area,propertyname,propertyid):
         price_range = [(p - (p*0.3)), (p + (p+0.3))]
         a = []
         c.row_factory = sqlite3.Row
-        c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=? AND price BETWEEN ? AND ?',(result[4], result[30],result[28], price_range[0], price_range[1]))
+        #c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=? AND price BETWEEN ? AND ?',(result[4], result[30],result[28], price_range[0], price_range[1]))
+        c.execute('SELECT rowid, * FROM properties WHERE beds=? AND units=? AND type=?',(result[4], result[30],result[28]))
         suggest = c.fetchall()
         for r in suggest:
             newdict = dict(r)
-            newdict['price'] = "{:,}".format(newdict['price'])
+            newdict['price'] = "{:,}".format(int(newdict['price']))
             a.append(newdict)
         suggestions = a
         conn.commit()
@@ -558,12 +565,14 @@ def prop(area,propertyname,propertyid):
         f.close()
         r_all = len(desc[0])
         r_half = r_all/2
+        prace = "{:,}".format(int(result[29]))
         overview = desc[0]
         overview = overview[0:int(r_half)] + "<span id='dots'>...</span><span id='more'>" + overview[int(r_half):int(r_all)] + "</span>"
-        overview = overview.replace('<div class = "container">','')
+        overview = overview.replace('<div class = "container" style="font-family: "Century Gothic", sans-serif;">','')
         overview = overview.replace("</div></span>",'</span>')
         overview = overview.replace("h3",'p')
-        return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt, floorplan = floorplan, masterplan = masterplan)
+        #features=['Balcony','Maids Room','Built in wardrobes', 'Carpets', 'Study', 'Central air conditioning', 'Heating', 'Fully fitted kitchen','Private Pool','Private Gym','Marble floors','Security','Walk-in Closet','Pets allowed','Private garage','Sauna','Wood flooring','Steam room','Maintenance','Terrace','Basement parking','Covered parking','Shared Gym','Shared swimming pool', 'Near school','Near hospital','Near mosque','Near supermarket','Near metro','Beach access','Public parks','Near restaurants','Near Golf','Near Hotel','Near airport','Spa','Maid Service','Children Play Area']
+        return render_template("property.html",queryRes = suggestions, result = result, images = images, loc=loc, features = features, desc = overview, temp = temp, schools = schools, hospitals = hospitals, landmarks = landmarks, vt=vt, floorplan = floorplan, masterplan = masterplan, prace=prace)
     return jsonify({'success':304})   
 
 
@@ -603,7 +612,7 @@ def search():
         conn = sqlite3.connect('properties.db')
         c = conn.cursor()
         if len(a) == 1:
-            c.execute('''SELECT * FROM area WHERE location == ?''',['{}'.format(a[0])])
+            c.execute('''SELECT * FROM area WHERE location         print("Wassup")== ?''',['{}'.format(a[0])])
             result = c.fetchone()
             images = result[2].split(',')
             c.execute('''SELECT * FROM communities WHERE location == ?''',['{}'.format(a[0])])
@@ -657,7 +666,8 @@ def search():
         keyword_exists = False
         for key, value in args.items():
             if second == False:
-                args_rec += ' AND '
+                if value[0] != "0" and value[0]!="": 
+                    args_rec += ' AND '
             if first:
                 args_rec += ' WHERE '
                 first = False    
@@ -672,8 +682,8 @@ def search():
                     if len(value[0].split(',')) == 2:
                         keywords.append(value[0].split(',')[1])
             else:
-                args_rec += (key+'='+'"'+value[0]+'"')
                 if key == "units":
+                    args_rec += (key+'='+'"'+value[0]+'"')
                     title += " to " + value[0]
                     if keyword_exists:
                         url += "&"
@@ -684,6 +694,7 @@ def search():
                     description = description.format(value[0])
                     keywords.append(value[0])
                 if key == "type":
+                    args_rec += (key+'='+'"'+value[0]+'"')
                     title = value[0] +" "+ title
                     if keyword_exists:
                         url += "&"
@@ -693,31 +704,38 @@ def search():
                         url += key+"="+value[0]
                     keywords.append(value[0])
                 if key == "beds":
-                    title += " for " + value[0] +" bedroom"
-                    if keyword_exists:
-                        url += "&"
-                        url += key+"="+value[0]
-                    else:
-                        keyword_exists = True
-                        url += key+"="+value[0]
-                    keywords.append(value[0]+ " bedroom")
+                    if value[0] != "0": 
+                        args_rec += (key+'='+'"'+value[0]+'"')
+                        title += " for " + value[0] +" bedroom"
+                        if keyword_exists:
+                            url += "&"
+                            url += key+"="+value[0]
+                        else:
+                            keyword_exists = True
+                            url += key+"="+value[0]
+                        keywords.append(value[0]+ " bedroom")
+                if key == "minprice":
+                    if value[0] != "":
+                        args_rec += (key[3:]+'>'+'"'+str(value[0])+'"')
+                if key == "maxprice":
+                    if value[0] != "":
+                        args_rec += (key[3:]+'<'+'"'+str(value[0])+'"')
         if "Sale" not in keywords and "Rent" not in keywords:
             keywords.append("Sale")
             keywords.append("Rent")
             description = description.format("Sale or Rent")
         conn = sqlite3.connect('main2.db')
         c = conn.cursor()
-        c.row_factory = sqlite3.Row  
+        c.row_factory = sqlite3.Row 
         try:
-            c.execute('SELECT rowid, * FROM properties'+ args_rec+';')
-            print(args_rec)
+            c.execute('SELECT rowid, * FROM properties'+args_rec+';')
         except:
             c.execute('SELECT rowid, * FROM properties'+ " WHERE "+args_rec[11:]+';')
         result = c.fetchall()
         a=[]
         for r in result:
             newdict = dict(r)
-            newdict['price'] = "{:,}".format(newdict['price'])
+            newdict['price'] = "{:,}".format(int(newdict['price']))
             a.append(newdict)
         conn.close()
         page = 1
@@ -750,7 +768,7 @@ def livesearch():
                 a=[]
                 for r in props:
                     newdict = dict(r)
-                    newdict['price'] = "{:,}".format(newdict['price'])
+                    newdict['price'] = "{:,}".format(int(newdict['price']))
                     a.append(newdict)
                 conn.close()
                 page = int(request.form['page'])
@@ -776,7 +794,7 @@ def livesearch():
                 a=[]
                 for r in props:
                     newdict = dict(r)
-                    newdict['price'] = "{:,}".format(newdict['price'])
+                    newdict['price'] = "{:,}".format(int(newdict['price']))
                     a.append(newdict)
                 conn.close()
                 page = int(request.form['page'])
@@ -792,7 +810,7 @@ def livesearch():
                 a = a[startIndex:endIndex]
                 return jsonify(queryres=a,end_page=end_page,start_page=start_page)
         
-        
+
         if request.form['units'] != '':
             args["units"] = [request.form['units']]
         if request.form['keyword'] != '':
@@ -801,6 +819,8 @@ def livesearch():
             args["type"] = [request.form['propertytype']]
         if request.form['beds'] != '':
             args["beds"] = [request.form['beds']]
+        minprice = [request.form['minprice']]
+        maxprice = [request.form['maxprice']]
         args_rec = ''
         first = True
         second = True
@@ -828,8 +848,21 @@ def livesearch():
         a=[]
         for r in result:
             newdict = dict(r)
-            newdict['price'] = "{:,}".format(newdict['price'])
-            a.append(newdict)
+            if minprice[0] != '' and maxprice[0] != '':
+                if int(newdict['price']) > int(minprice[0]) and int(newdict['price']) < int(maxprice[0]):
+                    newdict['price'] = "{:,}".format(int(newdict['price']))
+                    a.append(newdict)
+            elif maxprice[0] != "" and minprice[0] == '':
+                if int(newdict['price']) < int(maxprice[0]):
+                    newdict['price'] = "{:,}".format(int(newdict['price']))
+                    a.append(newdict)
+            elif maxprice[0] == "" and minprice[0] != '':
+                if int(newdict['price']) > int(minprice[0]):
+                    newdict['price'] = "{:,}".format(int(newdict['price']))
+                    a.append(newdict)
+            else:
+                newdict['price'] = "{:,}".format(int(newdict['price']))
+                a.append(newdict)
         conn.close()
         page = int(request.form['page'])
         limit = 20
@@ -1043,6 +1076,7 @@ def get_community(name, project):
 
 @app.route('/communities/<community>/<project>')
 def project(community, project):
+    print("Wassup")
     suggested_communities = ['Al-Reem-Island', 'Hydra-Village','Al-Reef-Villas', 'Al-Ghadeer', 'Yas-Island','Saadiyat-Island', 'Al-Raha-Gardens', 'Al-Raha-Golf-Gardens', 'Al-Reef', 'Al-Raha-Beach']
     with open("virtual_tour.json", "r") as x:
             data = json.load(x)
@@ -1088,6 +1122,7 @@ def project(community, project):
             rent.append(dict(r))
         c.execute('''SELECT * FROM communities where property = ? ''',['{}'.format(project)])
         result = c.fetchone()
+        print(result)
         details = ['Abu Dhabi',community,project]
         amenities = []
         

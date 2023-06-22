@@ -12,43 +12,38 @@
 <meta property="og:description" content="{{result[0]}}, {{result[5]}}, look around existing properites, locations and submit enquiries!">
 {% endblock %}
 {% block content %}
-<!--section style="background-image: url({{result[1]}}); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;"-->
-  <div style="height: 100%;width: 100%;background-color: rgb(255, 255, 255); padding-bottom: 12%; position: relative;">
- 
-
-  <div class="square">
-
-  </div>
-
-
-
- 
-<div class="container ">
-
-
+<style>
+  iframe
+  {
+    border-radius: 12px;
+    height: 200px;
+  }
+</style>
+<section style="background-image: url(/static/images/dark_bg.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgb(34, 34, 34, 1.0)); position: relative;">
+<div class="container" style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 3%;" >
   <div class="row">
     <div class="col">
     <div class="row" style="padding-top: 120px" >
       <div class="col text-left">
-      <h2 class="nfont caption"><b>{{result[0]}}</b></h2>
-        </div>      
-      </div>
-
-      <div class="row descgap" >
-    <div class="col text-right">
-      <h4 class="subcaption">- {{result[5]}}</h4> 
+        <h2 class="nfont caption" style="font-family: 'Century Gothic', sans-serif;"><b>{{result[0]}}</b></h2>
+      </div>      
+    </div>
+    <div class="row" >
+      <div class="col text-right">
+        <h4 class="subcaption" style="font-family: 'Century Gothic', sans-serif;">- {{result[5]}}</h4> 
       </div>
     </div>
-    <div class="row descgap">
+    <div class="row" style="margin-top: 25px;">
       <div class="col text-justify">
-        <p class="simple" style=" color: black;">
+        <p class="simple" style=" color: rgb(255, 255, 255); font-size: medium;">
           {{result[6]}}
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <h2 class="location_header" id="location"  >
+        <h2 class="location_header" style="font-family: 'Century Gothic', sans-serif;">
           Location
         </h2>
       </div>
@@ -69,10 +64,10 @@
 
 
 
-<div class="container">
+<div class="container" style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 1%;" >
   <div class="row">
     <div class="col">
-      <h2 id="gallery" class="location_header" >
+      <h2 id="gallery" class="location_header" style="font-family: 'Century Gothic', sans-serif;">
         Gallery
       </h2>
     </div>
@@ -93,7 +88,7 @@
 {% if sub_community.items()|length > 0 %}
 <div class="row">
   <div class="col">
-    <h2 id="communities" class="location_header" >
+    <h2 id="communities" class="location_header" style="color: white !important; margin-top: 50px;">
       {{result[0]}} Communities
     </h2>
   </div>
@@ -102,10 +97,10 @@
 {% for key, value in sub_community.items() %}
   <div class="row">
     <div class="col">
-      <h2 class="sub_community">{{key}}</h2>
+      <h2 class="sub_community" style="color: white !important; margin-top: 30px; font-family: 'Century Gothic', sans-serif;">{{key}}</h2>
     </div>
   </div>
-  <div class="row" style="margin-bottom: 2.5rem;">
+  <div class="row" style="margin-bottom: 0.5rem;">
   {% for i in value %}
   <div class="col-lg-3 col-md-3">
     <div class="box">
@@ -114,7 +109,7 @@
           <img src="{{i[2]}}" alt="{{i[1]}}" title="{{i[1]}}" style="object-fit: cover;">
           <figcaption>
           <h4 class="imgtext">{{i[8]}}</h4>
-          <p>-SEE MORE-</p>
+          <p style="font-family: 'Century Gothic', sans-serif; font-size: medium;">-See More-</p>
           </figcaption>
         </figure>
       </a>
@@ -130,7 +125,7 @@
 
 
 
-<div class="container">
+<div class="container" style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 7%;" >
   <div class="row">
     <div class="col">
       <h2 id="properties" class="location_header">
@@ -151,18 +146,8 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
 </div>
-<!--/section-->
+</section>
 
 <script>
   $("#current_page").val(1);
@@ -209,26 +194,25 @@
                       var units = "Rent";
                       var cosmo = "Discover";
                       var x = "background-color: #0e4a88 !important;";
-                      var y =  "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var y =  "color: #000; font-family: 'Century Gothic', sans-serif;font-size: 9pt;display: inline;";
                       var color = "gold-"; 
                     }
                   else if (value.units == "buy"){
                       var units = "Buy";
                       var cosmo = "Details"
                       var x = "background-color: #A57D2D !important;";
-                      var y = "color: #000; font-family: 'Poppins-light';font-size: 9pt;display: inline;";
+                      var y = "color: #000; font-family: 'Century Gothic', sans-serif; font-size: 9pt;display: inline;";
                       var color = "";
                       }
-
                       if (value.beds == "ST"){
                     beds = ''}
                   else {
                     beds = ' Bed'
                   }
-                  data += '<div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 20px;">'
+                  data += '<div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 20px;">'
                   data += '<div class="container_foto">'
                   data += '<div class="ver_mas text-center">'
-                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p>More Details</p></span></a>'
+                  data += '<a href="/communities/'+newarea+'/'+newproperty+'/'+value.ref_no+'"><span  class="lnr lnr-eye"><p style="font-size:15px; font-family: "Century Gothic", sans-serif;"><b>More Details</b></p></span></a>'
                   data += '</div>'
                   data += '<article class="text-left">'
                   data += '<h2>AED '+value.price+'<p style="float:right;">'+value.beds+beds+'</p></h2>'
@@ -258,8 +242,8 @@
     var imagedata = '';
     imagedata += '<div class="carousel  carousel-main" data-flickity>'
     for (i = 0; i < x.length; i++) {
-      imagedata += '<div class="carousel-cell" style="height:auto; border:1px solid white;">'
-      imagedata += '<img class="carousel-cell-gallery" src="' + x[i] + '">'
+      imagedata += '<div class="carousel-cell" style="height:auto; border:1px solid transparent;">'
+      imagedata += '<img class="carousel-cell-gallery" style="border-radius: 12px;" src="' + x[i] + '">'
       imagedata += '</div>'
       all.push(x[i])  
     }

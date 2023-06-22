@@ -12,40 +12,41 @@
 <meta property="og:description" content="">
 {% endblock %}
 {% block content %}
-<section style="background-image: url(/static/images/mainbg.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
+<section style="background-image: url(/static/images/dark_bg.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgb(34, 34, 34, 1.0));">
+  
+
+<div class="container" style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 7%;">
   <div class="container ">
     <div class="row" style="padding-top: 90px" >
       <div class="col text-center">
-      <h2 class="nfont" ><b>COMMUNITIES</b></h2>
+      <h2 class="nfont" style="font-family: 'Century Gothic', sans-serif; font-size: 45px;"><b>COMMUNITIES</b></h2>
         </div>
 
           
 </div>
 </div>
 
-<div class="container" >
-
     <div id="window_footer"></div>
     {% for item in x %}
     <div class="row" style="margin-top: 5rem;">
       <div class="col-lg-4 col-sm-12 col-md-4">
-        <img src="{{item[3]}}" style="width: 100%;height: 20rem; object-fit: cover;" alt="{{item[0]}}">
+        <img src="{{item[3]}}" style="width: 100%;height: 20rem; object-fit: cover; border-radius: 12px;" alt="{{item[0]}}">
       </div>
       <div class="col" style="position: relative;">
           <div class="row">
             <div class="col">
-              <h2 class="caption">{{item[0]}}</h2>
+              <h2 class="caption" style="font-family: 'Century Gothic', sans-serif;">{{item[0]}}</h2>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <h4 class="subcaption text-right">- {{item[1]}}</h4>
+              <h4 class="subcaption text-right" style="font-family: 'Century Gothic', sans-serif;">- {{item[1]}}</h4>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <p  class="simple" style="color: white; text-align: justify;">{{item[2]}}</p>
+              <p  class="simple" style="color: white; text-align: justify; font-size: 15px;" style="font-family: 'Century Gothic', sans-serif;">{{item[2]}}</p>
             </div>
           </div>
           <div class="row">
