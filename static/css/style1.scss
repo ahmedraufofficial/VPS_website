@@ -562,13 +562,14 @@ url('data:image/gif;base64,R0lGODlhAQABAPAAAAAAAP///yH5BAAAAAAALAAAAAABAAEAAAICR
 }
 
 .search_info {
-  border: 1px solid #001524;
+  border: 1px solid #b19157;
   color: white;
-  background-color: #001524;
-  font-family: 'Montserrat';
+  background-color: #b19157;
+  font-family: 'Century Gothic', sans-serif;
   transition: 0.5s;
+  border-radius: 12px;
   &:hover{
-    color: #001524;
+    color: #b19157;
     background-color: white;
   }
 }
@@ -793,20 +794,18 @@ video {
 
 .location_img {
   background-repeat: no-repeat;
-  background-size: cover; 
-  width:500px; height:700px;
+  background-size: contain; 
+  width:450px; height:100%;
   background-position-x: center;
 }
 
 .location_header {
-  padding: 50px 0px;
+  padding: 25px 0px;
   font-size:25pt; 
   color: white; 
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   text-align: center;
-  font-family: "Poppins-light";
-  transition: 2s ease-in-out;
 }
 
 .appear {
@@ -816,9 +815,8 @@ video {
 .carousel-cell-gallery {
   display: block;
   max-height: 100%;
-  left:50%;  height:35rem;
-  width:100%;
-  object-fit:cover;
+  left:50%;  height:500px;
+  width:900px;
   object-position: bottom;
 }
 .caption{
@@ -1055,9 +1053,9 @@ padding-top: 120px;
   .search_info {
     font-size: 9pt;
     border: none;
-    font-family: 'Montserrat';
+    font-family: 'Century Gothic', sans-serif;
     height: 30px;
-    border: 1px solid #000000;
+    border: 1px solid #b19157;
     width: 6rem;
   }
 
