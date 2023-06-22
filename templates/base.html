@@ -12,6 +12,65 @@
 		}(window, document, 'ttq');
 	</script>
 
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+main {
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(https://picsum.photos/1280/800) center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  font-size: 20vmin;
+  height: 2em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: screen;
+}
+.wrapper.invert span {
+  color: black;
+}
+.wrapper.invert span::before {
+  -webkit-text-stroke: 0.1em var(--color);
+}
+.wrapper span {
+  --color: #ffba11;
+  font-family: Impact, "Anton", Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  display: block;
+  position: absolute;
+  color: var(--color);
+  letter-spacing: -0.005em;
+}
+.wrapper span::before, .wrapper span::after {
+  content: attr(data-text);
+  display: block;
+  position: relative;
+  padding: 0 0.1em;
+  z-index: 1;
+}
+.wrapper span::before {
+  position: absolute;
+  -webkit-text-stroke: 0.1em black;
+  z-index: 0;
+}
+.wrapper span:first-child {
+  transform: translate(-0.255em, -0.25em);
+}
+.wrapper span:last-child {
+  --color: #b6acff;
+  transform: translate(0.255em, 0.25em);
+}
+
+</style>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- Old (Start)
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5WDP7BZ2E"></script>
@@ -40,6 +99,7 @@ gtag('config', 'AW-429364927');
   <!-- End Google Tag Manager -->
   
   <link rel="shortcut icon" type="image/jpg" href="{{url_for('static', filename='images/black_logo.png')}}"/>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -51,6 +111,7 @@ gtag('config', 'AW-429364927');
   {% assets "home_css" %}
   <link rel="stylesheet" href="{{ ASSET_URL }}">
   {% endassets %}
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 <script type="application/ld+json">
@@ -125,53 +186,78 @@ gtag('config', 'AW-429364927');
   <!-- End Google Tag Manager (noscript) -->
 
 <header id="header" class="bg-dark fixed-top">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-    <a href="{{url_for('home')}}" title="Home" class="navbar-brand" href="default.html"><img src="{{url_for('static', filename='images/black_logo.png')}}" class="logoname"></a>
+  <nav class="navbar navbar-expand-lg"  style="background-color: #000000;">
+    <div class="container-fluid">
+    <a href="{{url_for('home')}}" title="Home" class="navbar-brand" href="default.html"><img src="{{url_for('static', filename='images/black_logo.png')}}" style="filter: invert();" class="logoname"></a>
     <button class="navbar-toggler" style=" border: 1px solid black;" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-     <img src="../static/icons/menu.png" style="width: 25px;" alt=""> 
+     <img src="../static/icons/menu.png" style="width: 25px; filter: invert();" alt=""> 
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto" style="font-family: 'Poppins-light'; margin-right: -5px;">
-        <li class="nav-item dropdown active">
-          <a title="Buy Properties" class="nav-link" href="{{ url_for('search', units='Sale')}}">
-            Buy
-          </a>
-        </li>
-        <li class="nav-item dropdown active">
-          <a title="Rent Properties"  class="nav-link"  href="{{ url_for('search', units='Rent')}}">
-            Rent
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a title="Property Listing" class="nav-link" href="{{url_for('listing')}}">Property-Listing</a>
-        </li>
-        <li class="nav-item active">
-          <a title="Communities" href="{{url_for('communities')}}" class="nav-link" >Communities</a>
-        </li>
-        <li class="nav-item active">
-          <a title="All Media"  class="nav-link" href="{{url_for('media')}}" id="navbarDropdownMenuLink">
-            Media
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a title="Mortgage Calculator" id="mortgagescrollto"  class="nav-link" href="#">Mortgage-Calculator</a>
-        </li>
-        <li class="nav-item dropdown active">
-          <a title="About Us" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            About Us
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a title="Our Message" class="dropdown-item" href={{url_for('about')}}>Our Message</a>
-            <a title="Our Team" class="dropdown-item" href={{url_for('team')}}>Our Team</a>
-            <a title="Awards" id="awardscroll" class="dropdown-item" href="#">Awards</a>
-            <a title="Careers" class="dropdown-item" href={{url_for('careers')}}>Careers</a>
-            <a title="CRM LOGIN" class="dropdown-item" href={{url_for('careers')}}>CRM LOGIN</a>
-          </div>
-        </li>
-
+        <nav role="navigation" class="primary-navigation">
+          <ul class="navbar-nav ml-auto">
+            <li><a class="nav-link" href="#">Buy</a>
+                <ul class="dropdown dropdown-menu">
+                  <h6 style="margin-left: 15px;">Communities</h6>
+                  <li><a href="/search?keyword=Al+Reem+Island&units=Sale">Al Reem Island</a></li>
+                  <li><a href="/search?keyword=Yas+Island&units=Sale">Yas Island</a></li>
+                  <li><a href="/search?keyword=Saadiyat+Island&units=Sale">Saadiyat Island</a></li>
+                  <li><a href="/search?keyword=Al+Marina&units=Sale">Al Marina</a></li>
+                  <li><a href="/search?keyword=Al+Reef+Villas&units=Sale">Al Reef Villas</a></li>
+                  <li><a href="/search?keyword=Al+Ghadeer&units=Sale">Al Ghadeer</a></li>
+                  <li><a href="/search?units=Sale">View All</a></li>
+                </ul>
+                <ul class="dropdown dropdown-menu" style="margin-left: 250px;">
+                  <h6 style="margin-left: 15px;">Type</h6>
+                  <li><a href="/search?type=Apartment&units=Sale">Apartment</a></li>
+                  <li><a href="/search?type=Villa&units=Sale">Villa</a></li>
+                  <li><a href="/search?type=Compound&units=Sale">Compound</a></li>
+                  <li><a href="/search?type=Townhouse&units=Sale">Townhouse</a></li>
+                  <li><a href="/search?type=Office&units=Sale">Office</a></li>
+                  <li><a href="/search?type=Land&units=Sale">Land</a></li>
+                  <li><a href="/search?units=Sale">View All</a></li>
+                </ul>
+            </li>
+            <li><a class="nav-link" href="#">Rent</a>
+              <ul class="dropdown dropdown-menu">
+                <h6 style="margin-left: 15px;">Communities</h6>
+                <li><a href="/search?keyword=Al+Reem+Island&units=Rent">Al Reem Island</a></li>
+                <li><a href="/search?keyword=Yas+Island&units=Rent">Yas Island</a></li>
+                <li><a href="/search?keyword=Saadiyat+Island&units=Rent">Saadiyat Island</a></li>
+                <li><a href="/search?keyword=Al+Marina&units=Rent">Al Marina</a></li>
+                <li><a href="/search?keyword=Al+Reef+Villas&units=Rent">Al Reef Villas</a></li>
+                <li><a href="/search?keyword=Al+Ghadeer&units=Rent">Al Ghadeer</a></li>
+                <li><a href="/search?units=Rent">View All</a></li>
+              </ul>
+              <ul class="dropdown dropdown-menu" style="margin-left: 250px;">
+                <h6 style="margin-left: 15px;">Type</h6>
+                <li><a href="/search?type=Apartment&units=Rent">Apartment</a></li>
+                <li><a href="/search?type=Villa&units=Rent">Villa</a></li>
+                <li><a href="/search?type=Compound&units=Rent">Compound</a></li>
+                <li><a href="/search?type=Townhouse&units=Rent">Townhouse</a></li>
+                <li><a href="/search?type=Office&units=Rent">Office</a></li>
+                <li><a href="/search?type=Land&units=Rent">Land</a></li>
+                <li><a href="/search?units=Rent">View All</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="#">Communities</a>
+              <ul class="dropdown dropdown-menu">
+                <li><a href="/communities/Al-Reem-Island">Al Reem Island</a></li>
+                <li><a href="/communities/Yas-Island">Yas Island</a></li>
+                <li><a href="/communities/Saadiyat-Island">Saadiyat Island</a></li>
+                <li><a href="/communities/Al-Marina">Al Marina</a></li>
+                <li><a href="/communities/Al-Reef-Villas">Al Reef Villas</a></li>
+                <li><a href="/communities/Al-Ghadeer">Al Ghadeer</a></li>
+                <li><a href="/communities">View All</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="#">Developers</a>
+              <ul class="dropdown dropdown-menu">
+                <li><a href="#">View All</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
         
-        </ul>
     </div>
     </div>
   </nav>
@@ -221,82 +307,36 @@ gtag('config', 'AW-429364927');
 
 {% block content %}{% endblock %}
 
-<div  id="mortgagescroll" style="height: auto;width: 100%;background-color: #001524; border-top: 1px solid #A57D2D;">
-<section style="background-image: url(/static/images/world_map_2.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;">
+<div  id="mortgagescroll" style="height: auto;width: 100%">
+<section style="background-image: url(/static/images/footer_bg.jpeg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; background-position: center;height: 100%;">
+  <div style="background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.5), rgb(34, 34, 34));">
   <div class="container" style="margin-bottom: 5%; padding-top: 6%;">
-   
-    <div style="background-color: rgba(0, 0, 0, 0.5); padding-bottom: 3%;backdrop-filter: blur(20px);">
-
-    <div class="row justify-content-center">
-      <div class="col-lg-11 col-md-11 col-sm-12">
-        <div class="row">
-      <div class="col-md-9 col-lg-9 col-sm-12">
-        <div class="row">
-          <div class="col" style="text-align: center; margin-top: 7.5%; ">
-            <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Poppins-bold';">MORTGAGE CALCULATOR</h2>
-          </div>
-        </div>
-
-        <div class="row ">
-          <div class="col-md-12 col-lg-12 col-sm-12 text-center">
+    <h2 style="font-family: 'Montserrat'; text-align: center; color: white;"><b>MORTGAGE CALCULATOR</b></h2>
+    <div style="-webkit-box-shadow: 0px 10px 19px 4px #000000; box-shadow: 0px 10px 19px 4px #000000; padding-bottom: 2%; width: 250px; height: 250px; border-radius: 50%; margin-left: auto; margin-right: auto; margin-bottom: 2%; border: 7px solid #b19157;">
+      <div class="row justify-content-center">
+          <h2 id="mortgage" class="nfont" style="background-color: transparent; letter-spacing: 1px; font-family: 'Montserrat'; font-size: 30pt; margin-top: 30%; margin-bottom: 5%;"></h2>
+      </div>
+      <div class="row justify-content-center">
+        <h6 class="nfont" style="background-color: transparent; border: none;letter-spacing: 1px; font-family: 'Montserrat'; font-size: 15pt;">AED</h6>
+      </div>
+      <div class="row justify-content-center">
+          <p class="subfooterheader" style="font-family: 'Montserrat'; font-size: 9px;">Monthly Payment</p> 
+      </div>
+    </div>
+    <div style="background-color: transparent; padding-bottom: 3%;;">
+    <div class="row justify-content-center" style="margin-left: auto; margin-right: auto; width: 60%;">
+          <div class="col-md-12 col-lg-12 col-sm-12 text-center" style="background-color: white; border-radius: 12px; padding: 2%;">
             <input type="text" class="s_bar_btn_default" style="width: 49% !important; display:inline;" id="pv" placeholder="Property Value">
-
-
             <input type="text" class="s_bar_btn_default" style="width: 49% !important; display: inline;" id="dp" min="0" max="100" placeholder="Downpayment (%)">
-
-          </div>
-        </div>
-        <div class="row mortgagemrg">
-          <div class="col-md-12 col-lg-12 col-sm-12 text-center">
             <input type="text" class="s_bar_btn_default"  style="width: 49% !important; display: inline;" id="n" placeholder="Loan Term (Years)">
-    
             <input type="text" class="s_bar_btn_default"  style="width: 49% !important; display: inline;" id="r" min="0" max="100" placeholder="Interest Rate (%)">
-
           </div>
-        </div>
-    
-      </div>
-      <div class="col " style=" margin-top: 3%;">
-        <div class="row justify-content-center awardborder">
-        <div style="-webkit-box-shadow: 0px 10px 19px 4px #000000; box-shadow: 0px 10px 19px 4px #000000; padding-bottom: 2%; width: 85%;">
-
-
-          <div class="row justify-content-center">
-
-              <h2 id="mortgage" class="nfont" style="background-color: transparent; border: none;letter-spacing: 3px; font-family: 'Poppins-bold'; font-size: 22pt;margin-top: 5px;"></h2>
-
-          </div>
-          <div class="row justify-content-center">
-
-              <p class="subfooterheader" style="margin-top: -5px;">Installment per Month</p>
-              
-          </div>
-        <div class="row justify-content-center">
-          <div style="border-bottom: 1px solid white; width: 80%;"></div>
-        </div>
-          <div class="row justify-content-center">
-
-            <h3 id="p" class="nfont" style="background-color: transparent; border: none;letter-spacing: 3px; font-family: 'Poppins-bold'; font-size: 17pt;margin-top: 5px;"></h3>
-
-        </div>
-          <div class="row justify-content-center">
-
-            <p class="subfooterheader" style="margin-top: -5px;">Total Loan Amount</p>
-          
-          </div>
-
-
-</div>
-          </div>
-      </div>
-      </div>
       </div>
     </div>
 </div>
 
-  </div>
 
-
+<!--
   <div class="container " id="award">
     <div class="row" >
       <div class="col">
@@ -374,8 +414,10 @@ gtag('config', 'AW-429364927');
 
  
 </div>
-   
-  <div class="container" style="margin-top: 5%;">
+-->
+
+
+<div class="container" style="margin-top: 5%;">
     <div class="row" >
       <div class="col">
         <h4 id="window_footer" class="footerheader">UHP AND OUR PARTNER</h4>
@@ -385,31 +427,17 @@ gtag('config', 'AW-429364927');
       <div class="col">
           
   <div style="border-bottom: 1px solid rgba(255,255,255,.25);">
-
   </div>
 
       </div>
     </div>
     </div>
-    <div style="margin-top: 20px;background-color: rgba(0, 0, 0, 0.5); padding-top: 1%;">
-    <div class="container partnersgap" style="padding-bottom: 2%;">
+    <div style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="container" style="padding-bottom: 2%;">
     <div  class="row justify-content-between">
-      <div class="col"  style="position: relative;">
-        <a href="#"><img  style="position: absolute;bottom: 0;" class="partners" src="/static/images/aldar2.png" alt=""></a>
+      <div class="col" style="padding-top: 3%;">
+        <img  style="width: 100%;" class="partners" src="/static/images/partners(new).png" alt="">
     </div>
-    <div class="col" style="position: relative;">
-        <a href="#" ><img style="position: absolute;bottom: 0;" class="partners" src="/static/images/bloom.png"  alt=""></a>
-    </div>
-        <div class="col" style="position: relative;">
-        <a href="#"><img style="position: absolute;bottom: 0; " class="partners1" src="/static/images/standalon_logo.png" alt=""></a>
-      </div>
-      <div class="col" style="position: relative;">
-        <a href="#"><img style="position: absolute;bottom: 0;" class="partners partners2" src="/static/images/emaar.png" alt=""></a>
-      </div>
-      <div class="col" style="position: relative;">
-        <a  href="#"><img style="position: absolute;bottom: 0;" class="partners partners2" src="/static/images/imkan.png"   alt=""></a>
-      </div>
-
       </div>
     </div>
     </div>
@@ -479,11 +507,11 @@ gtag('config', 'AW-429364927');
     </div>
   </div>
   
-  
-
+  </div>
+</section>
 </div>
 
-</section>
+
 
 
 
@@ -512,10 +540,10 @@ function mortgagecheck(){
     mortgagecheck();
     var mth = (p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1)
     $("#mortgage").empty()
-    $("#mortgage").append("AED "+ Math.round(mth).toLocaleString())
+    $("#mortgage").append(Math.round(mth).toLocaleString())
   })
-  window.onload = $("#mortgage").append("AED "+ "----")
-  window.onload = $("#p").append("AED "+ "----")
+  window.onload = $("#mortgage").append("----")
+  window.onload = $("#p").append("----")
   $("#mortgagescrollto").click(function() {
     $([document.documentElement, document.body]).animate({
         scrollTop: $("#mortgagescroll").offset().top
