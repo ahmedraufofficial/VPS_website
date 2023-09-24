@@ -883,12 +883,13 @@ padding-top: 120px;
   text-align:justify;
   font-family: 'Montserrat';
   font-size: 11pt;  
-  color: #ffffff;
+  color: black;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  font-weight: 700;
 }
 .service_btn {
   color: white;

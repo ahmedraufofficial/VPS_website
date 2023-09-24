@@ -1162,15 +1162,17 @@ font-size: 8pt;
 }
 .footerheader{
   font-size: 8pt;
-  font-family: 'Poppins-bold';
+  font-family: 'Montserrat';
   color: rgb(255, 255, 255);
   text-align: left;
+  font-weight: 700;
 }
 .subfooterheader{
-  font-size: 6pt;
-  font-family: 'Poppins-light';
+  font-size: 8pt;
+  font-family: 'Montserrat';
   color: white;
   text-align: left;
+  font-weight: 700;
 }
 
 .btn-secondary:hover {
