@@ -6,23 +6,12 @@
 
 {% endblock %}
 {% block content %}
-<section style="background-image: url(/static/images/office.jpg); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-  <div style="height: 100%;width: 100%;background-color: rgba(0, 0, 0, 0.75); padding-bottom: 12%;">
-    <div class="container ">
-      <div class="row" style="padding-top: 90px" >
-        <div class="col text-center">
-        <h2 class="nfont" ><b>OUR TEAM</b></h2>
-          </div>
-  
-            
-  </div>
-  </div>
-  
-
-<div class="container" style="margin-top:40px;">
+<section style="background-image: url(/static/images/dark_bg.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
+  <div style="height: 100%;width: 100%; background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgb(34, 34, 34, 1.0)); padding-bottom: 12%;">
+<div class="container" style="padding-top:90px;">
   <div class="row">
     <div class="col">
-      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"   >Home ></a><a style="color: #8e8a8a;font-family: 'Poppins-light', sans-serif;"    href="{{url_for('team')}}"> Team </a>
+      <p class="simple"><a href="{{url_for('home')}}" style="color: #8e8a8a;font-family: 'Montserrat'; font-size: medium;">Home ></a><a style="color: #8e8a8a;font-family: 'Montserrat'; font-size: medium;"href="{{url_for('team')}}"> Team </a>
 </p>
   </div>
   </div>
@@ -32,8 +21,8 @@
   <div class="row">
     <div class="col">
     <br>
-    <h2 class="nfont">MEET OUR TEAM</h2>
-    <h6 class="simple" style="display: inline; color: white;">
+    <h2 class="nfont" style="font-family: 'Montserrat'; text-align: center; margin-bottom: 25px;"><b>MEET OUR TEAM</b></h2>
+    <h6 class="simple" style="display: inline; color: white; font-family: 'Montserrat'; font-size: medium;">
         Our strongest asset is the young, dynamic, professional team. Our clients need the best people,
          and new blood in the property market, to start driving your property forward. You need experts
           who can create focused real estate strategies that align with your goals, who can infuse their
@@ -41,7 +30,7 @@
            along the way. Staff commitment and passion have always been hallmarks of UHP, and we are delighted
             to continue bringing outstanding and diverse teams of dedicated experts on board, to deliver the 
             best for all parties involved.</h6>
-        <h6 class="simple" style="display: inline;color: white;">All Unique Homes Properties
+        <h6 class="simple" style="display: inline;color: white; font-family: 'Montserrat'; font-size: medium;">All Unique Homes Properties
          staff members are highly-educated professionals with a passion for real estate
          and a love of learning new skills. They embody our Core Values and are dedicated to helping our stake holders
           in every way possible, and continue to be at the forefront of the marketplace with advice from some of the
@@ -56,11 +45,11 @@
 <div class="container" style="margin-bottom: 40px;">
 <div class="row justify-content-center">
 
-<button class="teambtn" onclick="SenFunction()">Management Team</button>
-<button class="teambtn" onclick="MarFunction()">Marketing Team</button>
-<button class="teambtn" onclick="LisFunction()">Listing Team</button>
-<button class="teambtn" onclick="SalFunction()">Sales Team</button>
-<button class="teambtn" onclick="AdmFunction()">HR & Accounting Team</button>
+<button class="teambtn" onclick="SenFunction()"><b style="font-size: small; font-family: 'Montserrat';">Management Team</b></button>
+<button class="teambtn" onclick="MarFunction()"><b style="font-size: small; font-family: 'Montserrat';">Marketing Team</b></button>
+<button class="teambtn" onclick="LisFunction()"><b style="font-size: small; font-family: 'Montserrat';">Listing Team</b></button>
+<button class="teambtn" onclick="SalFunction()"><b style="font-size: small; font-family: 'Montserrat';">Sales Team</b></button>
+<button class="teambtn" onclick="AdmFunction()"><b style="font-size: small; font-family: 'Montserrat';">HR & Accounts Team</b></button>
 
 </div>
 </div>
@@ -93,352 +82,247 @@
 <div class="container" id="sen">
   <div class="row justify-content-around">
     <div class="col-12">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="teamimg"   src="../static/team/boss.jpg" alt="">
-                      </div>
-                      <div class="col-lg-1 col-md-1 col-sm-0">
-                        <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                        
-                        </div>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-
-                        <p class="teamdesc simple" style="color: white;" >Management</p>
-
-                        <p class="teamdesc simple" style="color: white;" >"Real estate is an inexhaustible asset that appreciates in value over time.
-                          It is the most reliable form of protection invented by human intellect.
-                          It is the foundation of all security and the only unbreakable security.”</p>
-                          
-                          <div class="face2 back2">
-                            <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                            <div style="position: absolute; top: 40px;left: 40px;">
-                              <p class="teamtext" style="color: rgb(240, 240, 240);">Mohammed Al Jbour</p>
-                            <p class="teamtext" style="color: #9e7b4f;">General Manager</p></div></div>
-         
-                      </div>
-
-                    </div>
-
-                    <div class="row teampagnumber">
-                      <div class="col text-center">
-                        <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">1 - {{total}}</h2>
-                      </div>
-                    </div>
-                  </div>
-
-
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <img class="teamimg" src="../static/team/boss.jpg" style="border-radius: 12px;" alt="">
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-0">
+            <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;"></div>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-12">
+            <p class="teamdesc simple" style="color: white; font-family: baskerville, serif; font-size: 13pt; padding-top: 5px; font-weight: 100;" >"Real estate is an inexhaustible asset that appreciates in value over time.
+              It is the most reliable form of protection invented by human intellect.
+              It is the foundation of all security and the only unbreakable security.”
+            </p>
+            <div class="face2 back2">
+              <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
+              <div style="position: absolute; top: 40px;left: 40px;">
+                <p class="teamtext" style="color: rgb(240, 240, 240);">Mohammed Al Jbour</p>
+                <p class="teamtext" style="color: #9e7b4f;">General Manager</p>
               </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            </div>
           </div>
         </div>
-        </div>
-</div> 
+      </div>
+    </div>
+  </div> 
 </div>
 
 <div class="container" id="mar">
 <div class="row justify-content-around">
 <div class="col-12">
-      <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                  <img class="teamimg" src="../static/team/samran.jpg" alt="">
-                </div>
-                <div class="col-lg-1 col-md-1 col-sm-0">
-                  <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                  
-                  </div>
-                </div>
-                <div class="col-lg-7 col-md-7 col-sm-12">
-
-                  <p class="teamdesc simple" style="color: white;" >Marketing</p>
-
-                  <p class="teamdesc simple" style="color: white;" > "Business leaders need to think like small-town shop owners as the social media revolution demands that they take the long view and avoid short-term goals to gauge success. They need to allow the personality, heart, and soul of the people at all levels of the organization to speak for itself."</p>
-                    
-                    <div class="face2 back2">
-                      <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                      <div style="position: absolute; top: 40px;left: 40px;">
-                        <p class="teamtext" style="color: rgb(240, 240, 240);">Samran Malik</p>
-                      <p class="teamtext" style="color: #9e7b4f;">Marketing Manager</p></div></div>
-   
-                </div>
-              </div>
-              <div class="row teampagnumber">
-                <div class="col text-center">
-                  <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">2 - {{total}}</h2>
-                </div>
-              </div>
-            </div>
-        </div>
-          <div class="carousel-item ">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-4 col-md-4 col-sm-12">
-                    <img class="teamimg" src="../static/team/mac.jpg" alt="">
-                  </div>
-                  <div class="col-lg-1 col-md-1 col-sm-0">
-                    <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                    
-                    </div>
-                  </div>
-                  <div class="col-lg-7 col-md-7 col-sm-12">
-
-                    <p class="teamdesc simple" style="color: white;" >Marketing</p>
-
-                    <p class="teamdesc simple" style="color: white;" >"Think about it: if individuals are enthusiastic about something, whether it's real estate or biochemistry, and that spark ignites in them, everyone in that zone is beautiful.” </p>
-                      
-                      <div class="face2 back2">
-                        <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                        <div style="position: absolute; top: 40px;left: 40px;">
-                          <p class="teamtext" style="color: rgb(240, 240, 240);">Mac Rome Galimba</p>
-                        <p class="teamtext" style="color: #9e7b4f;"> Senior Photographer & Graphic Designer</p></div></div>
-     
-                  </div>
-                </div>
-                <div class="row teampagnumber">
-                  <div class="col text-center">
-                    <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">3 - {{total}}</h2>
-                  </div>
-                </div>
-              </div>
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <div class="card" style="background-color: transparent; width: 300px !important">
+          <img class="teamimg" src="../static/team/ruba_mm.JPEG" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Ruba Thabet Dajani</b></h4>
+            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Marketing Manager</p>
           </div>
-          
-
+        </div>
       </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      <div class="col"></div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 3%;">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="background-color: transparent; width: 300px !important">
+          <img class="teamimg" src="../static/team/amjad.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Amjad Al Kattan</b></h4>
+            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Digital Marketing</p>
+          </div>
+        </div>
       </div>
+      <div class="col">
+        <div class="card" style="background-color: transparent; width: 300px !important">
+          <img class="teamimg" src="../static/team/shahin.jpeg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Shehin</b></h4>
+            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Content Specialist</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="background-color: transparent; width: 300px !important">
+          <img class="teamimg" src="../static/team/mahy.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mahy Sowelam</b></h4>
+            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Graphic Designer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </div>
 
 
 <div class="container" id="lis">
-  <div class="row justify-content-around">
-    <div class="col-12">
-          <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="teamimg" src="../static/team/islam.jpg" alt="">
-                      </div>
-                      <div class="col-lg-1 col-md-1 col-sm-0">
-                        <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                        
-                        </div>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-      
-                        <p class="teamdesc simple" style="color: white;" >Listing</p>
-      
-                        <p class="teamdesc simple" style="color: white;" >"Real estate is the best investment in the world since it is the one thing that they are no longer producing." </p>
-                          
-                          <div class="face2 back2">
-                            <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                            <div style="position: absolute; top: 40px;left: 40px;">
-                              <p class="teamtext" style="color: rgb(240, 240, 240);">Islam Roushdy</p>
-                            <p class="teamtext" style="color: #9e7b4f;">Listing Agent</p></div></div>
-         
-                      </div>
-
-                    </div>
-                    <div class="row teampagnumber">
-                      <div class="col text-center">
-                        <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">4 - {{total}}</h2>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            <div class="carousel-item">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                      <img class="teamimg" src="../static/team/april.jpg" alt="">
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-0">
-                      <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                      
-                      </div>
-                      </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-      
-                      <p class="teamdesc simple" style="color: white;" >Listing</p>
-    
-                      <p class="teamdesc simple" style="color: white;" >"Purchase on the outskirts and wait.
-                        Purchase land near a rapidly expanding metropolis!
-                        When other people want to sell, you should buy real estate.
-                        Keep what you've purchased!" </p>
-                        
-                        <div class="face2 back2">
-                          <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                          <div style="position: absolute; top: 40px;left: 40px;">
-                            <p class="teamtext" style="color: rgb(240, 240, 240);">April Grace</p>
-                          <p class="teamtext" style="color: #9e7b4f;">Listing Agent</p></div></div>
-       
-                    </div>
-
-                  </div>
-                  <div class="row teampagnumber">
-                    <div class="col text-center">
-                      <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">5 - {{total}}</h2>
-                    </div>
-                  </div>
-                </div>
+<div class="row justify-content-around">
+  <div class="col-12">
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/salwa.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Salwa AbdelFattah</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Manager</p>
             </div>
           </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="container" style="margin-top: 3%;">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/Suha.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Suha Abdul Rahim</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
+            </div>
           </div>
+        </div>
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/Islam.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Islam Roushdy</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/Khloud.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Khloud Ismail</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 3%;">
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/Essam.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Essam</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/Maria.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Maria Villanueva</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="background-color: transparent; width: 300px !important">
+            <img class="teamimg" src="../static/team/Reham.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Reham Mohammed</b></h4>
+              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+  </div>
+  </div>
 </div>
 
 <div class="container" id="sal">
   <div class="row justify-content-around">
     <div class="col-12">
-          <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item  active">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                      <img class="teamimg" src="../static/team/anas.jpg" alt="">
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-0">
-                      <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                      
-                      </div>
-                      </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-      
-                      <p class="teamdesc simple" style="color: white;" >Sales</p>
-    
-                      <p class="teamdesc simple" style="color: white;" >"Don't put off buying real estate; buy now and wait."</p>
-                        
-                        <div class="face2 back2">
-                          <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                          <div style="position: absolute; top: 40px;left: 40px;">
-                            <p class="teamtext" style="color: rgb(240, 240, 240);">Anas Zaghdoud</p>
-                          <p class="teamtext" style="color: #9e7b4f;">Sales Agent</p></div></div>
-       
-                    </div>
-                  </div>
-                  <div class="row teampagnumber">
-                    <div class="col text-center">
-                      <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">6 - {{total}}</h2>
-                    </div>
-                  </div>
-                </div>
-            </div>
-              <div class="carousel-item">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="teamimg" src="../static/team/doha.jpg" alt="">
-                      </div>
-                      <div class="col-lg-1 col-md-1 col-sm-0">
-                        <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                        
-                        </div>
-                        </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-        
-                        <p class="teamdesc simple" style="color: white;" >Sales</p>
-      
-                        <p class="teamdesc simple" style="color: white;" >"It's not about selling or purchasing a house in real estate.
-                          It's all about representing your client's most valuable asset to their benefit.
-                          "</p>
-                          
-                          <div class="face2 back2">
-                            <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                            <div style="position: absolute; top: 40px;left: 40px;">
-                              <p class="teamtext" style="color: rgb(240, 240, 240);">Doha Alami</p>
-                            <p class="teamtext" style="color: #9e7b4f;">Sales Agent</p></div></div>
-         
-                      </div>
-
-
-
-                    </div>
-                    <div class="row teampagnumber">
-                      <div class="col text-center">
-                        <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">7 - {{total}}</h2>
-                      </div>
-                    </div>
-                  </div>
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Ramzi.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Ramzi Abusida</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Sales Manager</p>
               </div>
-            <div class="carousel-item">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12" style="height: 400px;">
-                      <img class="teamimg" src="../static/team/laith.jpg" alt="No Image " >
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-0">
-                      <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                      
-                      </div>
-                      </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-      
-                      <p class="teamdesc simple" style="color: white;" >Sales</p>
-    
-                      <p class="teamdesc simple" style="color: white;" >"Know what you have and why you have it."</p>
-                        
-                        <div class="face2 back2">
-                          <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                          <div style="position: absolute; top: 40px;left: 40px;">
-                            <p class="teamtext" style="color: rgb(240, 240, 240);">Laith Alloush</p>
-                          <p class="teamtext" style="color: #9e7b4f;">Sales Agent</p></div></div>
-       
-                    </div>
-                  </div>
-                  <div class="row teampagnumber">
-                    <div class="col text-center">
-                      <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">8 - {{total}}</h2>
-                    </div>
-                  </div>
-                </div>
             </div>
-
-
           </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+          <div class="col"></div>
+        </div>
+      </div>
+      <div class="container" style="margin-top: 3%;">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Odeh.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Abu Odeh</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Team Leader</p>
+              </div>
+            </div>
           </div>
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Nawarah.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Nawarah</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Team Leader</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Baraa.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Baraa Yasser</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 3%;">
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Choib.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Abdalla Choib</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Hajar.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Hajar El Katti</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important">
+              <img class="teamimg" src="../static/team/Laith.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Laith Alloush</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     </div>
 </div>
@@ -446,89 +330,31 @@
 <div class="container" id="adm">
   <div class="row justify-content-around">
     <div class="col-12">
-          <div id="carouselExampleControls4" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12">
-                        <img class="teamimg" src="../static/team/efren.jpg" alt="">
-                      </div>
-                      <div class="col-lg-1 col-md-1 col-sm-0">
-                        <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                        
-                        </div>
-                        </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-        
-                        <p class="teamdesc simple" style="color: white;" >Human Resource</p>
-        
-                        <p class="teamdesc simple" style="color: white;" >"Nothing in the world is more common than unsuccessful people with talent."</p>
-                          
-                          <div class="face2 back2">
-                            <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                            <div style="position: absolute; top: 40px;left: 40px;">
-                              <p class="teamtext" style="color: rgb(240, 240, 240);">Efren Pajarillo</p>
-                            <p class="teamtext" style="color: #9e7b4f;">Human Resource</p></div></div>
-         
-                      </div>
-
-                    </div>
-                    <div class="row teampagnumber">
-                      <div class="col text-center">
-                        <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">11 - {{total}}</h2>
-                      </div>
-                    </div>
-                  </div>
+      <div class="container" style="margin-top: 3%;">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important; margin-left: auto; margin-right: auto;">
+              <img class="teamimg" src="../static/team/hr.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Ruba Al Jaber</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">HR Manager</p>
               </div>
-              <div class="carousel-item">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                      <img class="teamimg" src="../static/team/bahej.jpg" alt="">
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-0">
-                      <div style="width: 1px; height: 100%;background-color: white; text-align: center; margin-left: 90%;">
-                      
-                      </div>
-                      </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-      
-                      <p class="teamdesc simple" style="color: white;" >Accounting & Finances</p>
-      
-                      <p class="teamdesc simple" style="color: white;" >"Surround yourself with Assets, not Liabilities"</p>
-                        
-                        <div class="face2 back2">
-                          <img src="/static/team/cardback.jpeg" alt="" class="teamshadow" style="position: relative;">
-                          <div style="position: absolute; top: 40px;left: 40px;">
-                            <p class="teamtext" style="color: rgb(240, 240, 240);">Baheej Muringakkodan</p>
-                          <p class="teamtext" style="color: #9e7b4f;">Accountant</p></div></div>
-       
-                    </div>
-
-                  </div>
-                  <div class="row teampagnumber">
-                    <div class="col text-center">
-                      <h2 class = "proploc" style="font-family: 'Poppins-light', sans-serif;">12 - {{total}}</h2>
-                    </div>
-                  </div>
-                </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls4" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls4" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+          </div>
+          <div class="col">
+            <div class="card" style="background-color: transparent; width: 300px !important; margin-left: auto; margin-right: auto;">
+              <img class="teamimg" src="../static/team/baheej.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
+              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
+                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Baheej Muringakkodan</b></h4>
+                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Accountant</p>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-</div> 
-
-
-</div>
+      </div>
+      </div>
+    </div> 
+  </div>
 
 
 
