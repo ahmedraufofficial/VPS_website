@@ -342,9 +342,13 @@ def manaralandingpage():
 def watersedgelandingpage():
     return render_template('watersedge.html')
 
-@app.route('/landing/the-home-showdown')
-def openhouselandingpage():
-    return render_template('open_house.html')
+#@app.route('/landing/the-home-showdown')
+#def openhouselandingpage():
+#    return render_template('open_house.html')
+
+@app.route('/agent/sakher-ayman')
+def sakher_landing_barcode():
+    return render_template('agent_sakher_barcode.html')
     
 @app.route('/privacy-policy')
 def privacypolicy():
