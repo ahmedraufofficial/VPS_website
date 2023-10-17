@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, url_for,redirect, send_file, make_response
+from flask import Flask, render_template, request, jsonify, url_for,redirect, send_file, make_response, abort
 from flask_mail import Mail, Message
 import sqlite3
 import json
@@ -346,9 +346,41 @@ def watersedgelandingpage():
 #def openhouselandingpage():
 #    return render_template('open_house.html')
 
-@app.route('/agent/sakher-ayman')
-def sakher_landing_barcode():
-    return render_template('agent_sakher_barcode.html')
+@app.route('/agent/<agent_name>')
+def sakher_landing_barcode(agent_name):
+    if agent_name == 'sakher-ayman':
+        image_link = '/static/agent-barcodes/sakher_aymen.png'
+        name = 'Sakher Ayman'
+        number = '+971525284991'
+        email = 'sakher@uhpae.com'
+    elif agent_name == 'abdalchoib':
+        image_link = '/static/agent-barcodes/abdalchoib.png'
+        name = 'Abdal Choib'
+        number = '+971506656601'
+        email = 'abdalchoib@uhpae.com'
+    elif agent_name == 'm-youssef':
+        image_link = '/static/agent-barcodes/m.youssef.png'
+        name = 'Mohammed Youssef'
+        number = '+971506176109'
+        email = 'm.youssef@uhpae.com'
+    elif agent_name == 'tareq-abudaqqa':
+        image_link = '/static/agent-barcodes/tareq_abudaqqa.png'
+        name = 'Tareq Abudaqqa'
+        number = '+971528712509'
+        email = 'tareq@uhpae.com'
+    elif agent_name == 'm-adel':
+        image_link = '/static/agent-barcodes/m.adel.png'
+        name = 'Mohammed Adel'
+        number = '+971505071572'
+        email = 'm.adel@uhpae.com'
+    elif agent_name == 'm-ali':
+        image_link = '/static/agent-barcodes/m_ali.png'
+        name = 'Mohammed Nawarah'
+        number = '+971564132070'
+        email = 'm_ali@uhpae.com'
+    else:
+        return abort(404)
+    return render_template('agent_sakher_barcode.html', image_link = image_link, name = name, number = number, email = email)
     
 @app.route('/privacy-policy')
 def privacypolicy():
