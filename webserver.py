@@ -407,7 +407,51 @@ def sakher_landing_barcode(agent_name):
         image_link = '/static/agent-barcodes/salwa.png'
         name = 'Salwa AbdelFattah'
         number = '+971547914951'
-        email = 'salwa.a@uhpae.com'
+    elif agent_name == 'm-oudeh':
+        image_link = '/static/agent-barcodes/oudeh.png'
+        name = 'Mohammed Abu Oudeh'
+        number = '+971502776862'
+        email = 'm.odeh@uhpae.com'
+    elif agent_name == 'm-diab':
+        image_link = '/static/agent-barcodes/diab.png'
+        name = 'Mohammed Diab'
+        number = '+971503140708'
+        email = 'mhddiab@uhpae.com'
+    elif agent_name == 'ahmed-jaber':
+        image_link = '/static/agent-barcodes/jaber.png'
+        name = 'Ahmed Jaber'
+        number = '+971552901938'
+        email = 'ahmed.jaber@uhpae.com'
+    elif agent_name == 'm-otoum':
+        image_link = '/static/agent-barcodes/otoum.png'
+        name = 'Mohammed Outom'
+        number = '+971506130818'
+        email = 'm.otoum@uhpae.com'
+    elif agent_name == 'hamza-sabri':
+        image_link = '/static/agent-barcodes/sabri.png'
+        name = 'Hamza Sabri'
+        number = '+971551159617'
+        email = 'hamza_tmimi@uhpae.com'
+    elif agent_name == 'naima-rahem':
+        image_link = '/static/agent-barcodes/naima.png'
+        name = 'Naima Rahem'
+        number = '+971566664641'
+        email = 'naima.rahem@uhpae.com'
+    elif agent_name == 'lilia':
+        image_link = '/static/agent-barcodes/lilia.png'
+        name = 'Lilia Rozumana'
+        number = '+971507806125'
+        email = 'lilia_rozumna@uhpae.com'
+    elif agent_name == 'ahmed-walid':
+        image_link = '/static/agent-barcodes/walid.png'
+        name = 'Ahmed Walid'
+        number = '+971585810253'
+        email = 'ahmedwalid@uhpae.com'
+    elif agent_name == 'tmam':
+        image_link = '/static/agent-barcodes/tamam.png'
+        name = 'Tmam Esmaeel'
+        number = '+971545478064'
+        email = 'tmamesmael@uhpae.com'
     else:
         return abort(404)
     return render_template('agent_sakher_barcode.html', image_link = image_link, name = name, number = number, email = email)
