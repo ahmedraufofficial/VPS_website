@@ -407,6 +407,7 @@ def sakher_landing_barcode(agent_name):
         image_link = '/static/agent-barcodes/salwa.png'
         name = 'Salwa AbdelFattah'
         number = '+971547914951'
+        email = 'salwa.a@uhpae.com'
     elif agent_name == 'm-oudeh':
         image_link = '/static/agent-barcodes/oudeh.png'
         name = 'Mohammed Abu Oudeh'
