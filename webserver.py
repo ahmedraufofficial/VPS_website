@@ -376,7 +376,7 @@ def sakher_landing_barcode(agent_name):
     elif agent_name == 'm-ali':
         image_link = '/static/agent-barcodes/nawarah.png'
         name = 'Mohammed Nawarah'
-        number = '+971564132070'
+        number = '+971585966443'
         email = 'm_ali@uhpae.com'
     elif agent_name == 'hajar':
         image_link = '/static/agent-barcodes/hajar.png'
