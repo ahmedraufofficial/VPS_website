@@ -453,6 +453,11 @@ def sakher_landing_barcode(agent_name):
         name = 'Tmam Esmaeel'
         number = '+971545478064'
         email = 'tmamesmael@uhpae.com'
+    elif agent_name == 'rasha-adel':
+        image_link = '/static/agent-barcodes/rasha.png'
+        name = 'Rasha Adel'
+        number = '+971553610106'
+        email = 'rasha_adel@uhpae.com'
     else:
         return abort(404)
     return render_template('agent_sakher_barcode.html', image_link = image_link, name = name, number = number, email = email)
