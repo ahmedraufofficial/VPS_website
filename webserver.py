@@ -478,6 +478,36 @@ def sakher_landing_barcode(agent_name):
         name = 'Rizwan Ahmad'
         number = '+971543241153'
         email = 'rizwan_ahmad@uhpae.com'
+    elif agent_name == 'islam-roshdy':
+        image_link = '/static/agent-barcodes/islam-roshdy.png'
+        name = 'Islam Roushdy'
+        number = '+971565256226'
+        email = 'islam@uhpae.com'
+    elif agent_name == 'khloud-barakat':
+        image_link = '/static/agent-barcodes/khloud_bar.png'
+        name = 'Khloud Barakat'
+        number = '+971585396336'
+        email = 'khloud@uhpae.com'
+    elif agent_name == 'maria-alicia':
+        image_link = '/static/agent-barcodes/maria_vil.png'
+        name = 'Maria Alicia'
+        number = '+971565256336'
+        email = 'mariavillanueva@uhpae.com'
+    elif agent_name == 'm-essam':
+        image_link = '/static/agent-barcodes/m-essam.png'
+        name = 'Mohamed Essam'
+        number = '+971565112229'
+        email = 'mohamed.essam@uhpae.com'
+    elif agent_name == 'suha-rahim':
+        image_link = '/static/agent-barcodes/suha-rahim.png'
+        name = 'Suha Abdelrahim'
+        number = '+971565112226'
+        email = 'suha_abdelrahim@uhpae.com'
+    elif agent_name == 'el-mahdi':
+        image_link = '/static/agent-barcodes/el-mahdi.png'
+        name = 'El Mahdi Baziou'
+        number = '+971562714855'
+        email = 'elmahdi.baziou@uhpae.com'
     else:
         return abort(404)
     return render_template('agent_sakher_barcode.html', image_link = image_link, name = name, number = number, email = email)
