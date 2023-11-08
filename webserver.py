@@ -346,6 +346,22 @@ def watersedgelandingpage():
 #def openhouselandingpage():
 #    return render_template('open_house.html')
 
+@app.route('/m-aljbour')
+def ceo_landing_barcode():
+    image_link = '/static/agent-barcodes/jbour.png'
+    name = 'Mohammed Al Jbour'
+    number = '+971562267626'
+    email = 'm.aljbour@uhpae.com'
+    return render_template('mgmt_barcode.html', image_link = image_link, name = name, number = number, email = email)
+
+@app.route('/reception')
+def reception_landing_barcode():
+    image_link = '/static/agent-barcodes/reception.png'
+    name = 'Florien Moreno'
+    number = '+971549981998'
+    email = 'info@uhpae.com'
+    return render_template('mgmt_barcode.html', image_link = image_link, name = name, number = number, email = email)
+
 @app.route('/agent/<agent_name>')
 def sakher_landing_barcode(agent_name):
     if agent_name == 'sakher-ayman':
@@ -354,7 +370,7 @@ def sakher_landing_barcode(agent_name):
         number = '+971525284991'
         email = 'sakher@uhpae.com'
     elif agent_name == 'abdalchoib':
-        image_link = '/static/agent-barcodes/choib.png'
+        image_link = '/static/agent-barcodes/abdalchoib.png'
         name = 'Abdal Choib'
         number = '+971506656601'
         email = 'abdalchoib@uhpae.com'
@@ -508,6 +524,31 @@ def sakher_landing_barcode(agent_name):
         name = 'El Mahdi Baziou'
         number = '+971562714855'
         email = 'elmahdi.baziou@uhpae.com'
+    elif agent_name == 'suha-aljbour':
+        image_link = '/static/agent-barcodes/suha-jbour.png'
+        name = 'Suha Al Jbour'
+        number = '+971585326226'
+        email = 'soha.jbour@uhpae.com'
+    elif agent_name == 'aline-hasan':
+        image_link = '/static/agent-barcodes/aline-hasan.png'
+        name = 'Aline Hasan'
+        number = '+971549981990'
+        email = 'aline_hasan@uhpae.com'
+    elif agent_name == 'florien':
+        image_link = '/static/agent-barcodes/florien.png'
+        name = 'Florien'
+        number = '+971549981998'
+        email = 'florien@uhpae.com'
+    elif agent_name == 'baheej':
+        image_link = '/static/agent-barcodes/baheej.png'
+        name = 'Baheej'
+        number = '+971543086232'
+        email = 'accounts@uhpae.com'
+    elif agent_name == 'naira-amin':
+        image_link = '/static/agent-barcodes/naira-amin.png'
+        name = 'Naira Amin'
+        number = '+971585916336'
+        email = 'naira_amin@uhpae.com'
     else:
         return abort(404)
     return render_template('agent_sakher_barcode.html', image_link = image_link, name = name, number = number, email = email)
