@@ -454,11 +454,6 @@ def sakher_landing_barcode(agent_name):
         name = 'Naima Rahem'
         number = '+971566664641'
         email = 'naima.rahem@uhpae.com'
-    elif agent_name == 'lilia':
-        image_link = '/static/agent-barcodes/lilia.png'
-        name = 'Lilia Rozumana'
-        number = '+971507806125'
-        email = 'lilia_rozumna@uhpae.com'
     elif agent_name == 'ahmed-walid':
         image_link = '/static/agent-barcodes/walid.png'
         name = 'Ahmed Walid'
@@ -559,6 +554,41 @@ def sakher_landing_barcode(agent_name):
         name = 'Assef Ibrahim'
         number = '+971563331833'
         email = 'assef_ibrahim@uhpae.com'
+    elif agent_name == 'mouna-bourezak':
+        image_link = '/static/agent-barcodes/mouna.png'
+        name = 'Mouna Bourezak'
+        number = '+971563069092'
+        email = 'mouna_bourezak@uhpae.com'
+    elif agent_name == 'reham-habib':
+        image_link = '/static/agent-barcodes/reham_habib.png'
+        name = 'Reham Habib'
+        number = '+971545370339'
+        email = 'reham_habib@uhpae.com'
+    elif agent_name == 'hashim-zaid':
+        image_link = '/static/agent-barcodes/hashim_zaid.png'
+        name = 'Hashim Zaid'
+        number = '+971509643017'
+        email = 'hashim_zaid@uhpae.com'
+    elif agent_name == 'ali-mahmoud':
+        image_link = '/static/agent-barcodes/ali_mahmoud.png'
+        name = 'Ali Mahmoud'
+        number = '+971564132620'
+        email = 'ali_mahmoud@uhpae.com'
+    elif agent_name == 'odai-kamal':
+        image_link = '/static/agent-barcodes/odai_kamal.png'
+        name = 'Odai Kamal'
+        number = '+971523594357'
+        email = 'odai_kamal@uhpae.com'
+    elif agent_name == 'ghita':
+        image_link = '/static/agent-barcodes/ghita_hadda.png'
+        name = 'Ghita Hadda'
+        number = '+971544015143'
+        email = 'ghita_hadda@uhpae.com'
+    elif agent_name == 'mahmoud-mustafa':
+        image_link = '/static/agent-barcodes/mahmoud_mustafa.png'
+        name = 'Mahmoud Mustafa'
+        number = '+971554960930'
+        email = 'mahmoud_moustafa@uhpae.com'
     else:
         return abort(404)
     return render_template('agent_sakher_barcode.html', image_link = image_link, name = name, number = number, email = email)
