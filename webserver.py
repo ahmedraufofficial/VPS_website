@@ -346,6 +346,10 @@ def watersedgelandingpage():
 #def openhouselandingpage():
 #    return render_template('open_house.html')
 
+@app.route('/landing/qatar_event')
+def qatarlandingpage():
+    return render_template('qatar_event.html')
+
 @app.route('/m-aljbour')
 def ceo_landing_barcode():
     image_link = '/static/agent-barcodes/jbour.png'
