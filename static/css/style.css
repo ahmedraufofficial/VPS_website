@@ -1228,12 +1228,13 @@ margin-top: 20px;
 
   font-size: 15pt;
 }
-.teamimg{
-  box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
--webkit-box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
--moz-box-shadow: 0px 0px 13px 2px rgba(0,0,0,1);
- width: 18rem;
- margin-left: 105px;
+
+.teamimg {
+  box-shadow: 0 0 15px rgba(0,0,0,1);
+  -webkit-box-shadow: 0 0 15px rgba(0,0,0,1);
+  -moz-box-shadow: 0 0 15px rgba(0,0,0,1);
+  width: 18rem;
+  margin-left: 105px;
 }
 
 .readmorebtn {
@@ -1933,8 +1934,7 @@ display: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
-  margin-bottom: 10px;
+  width: 250px;
 }
 
   .basenavmrg{
