@@ -20,7 +20,7 @@
 {% endblock %}
 {% block content %}
 <style>
-  .searchinputs::-webkit-input-placeholder { 
+.searchinputs::-webkit-input-placeholder { 
 font-family: FontAwesome;
 font-weight: normal;
 overflow: visible;
@@ -37,6 +37,14 @@ iframe.instagram-media {
     max-width: 60% !important;
     width: 60% !important;
     min-width: auto !important;
+}
+.listing_info {
+  background-image: url(/static/images/laptop_mans.jpg);
+  background-size: cover;
+  width: 80px;
+  height: 300px;
+  background-repeat: no-repeat;
+  border-radius: 12px;
 }
 </style>
 
@@ -208,7 +216,7 @@ iframe.instagram-media {
 
 
 
-  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgb(34, 34, 34, 0.9));">
+  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.65), rgb(34, 34, 34, 0.65));">
     <div class="hero-screen-2" style="margin-top: 3%;">
       <!--
         <div style="flex: 1; background-color: #001524; position: relative; border: 1px solid #A57D2D;">
@@ -295,7 +303,7 @@ iframe.instagram-media {
 
 <!--hotprop-->
 <section style="background-image: url(/static/images/dark_bg.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.9), rgb(34, 34, 34, 1.0)); padding-bottom: 5%;">
+  <div style="height: 100%;width: 100%;background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.65), rgb(255, 255, 255)); padding-bottom: 5%;">
     <h2 id="window_footer" class="nfont" style="letter-spacing: 3px; font-family: 'Montserrat'; text-align: center;"><b>HOT PROPERTIES</b></h2>
     <div style="height: 100%;width: 100%;">
       <div class="container">
@@ -312,19 +320,19 @@ iframe.instagram-media {
 
 
 <!--services-->
-<section style="background-image: url(/static/images/dark_bg.png); background-repeat: no-repeat;background-attachment: fixed;background-size: cover; height: 100%;">
-  <div style="height: 100%;width: 100%;background-color: rgb(34, 34, 34); padding-bottom: 5%;">
+<section>
+  <div style="height: 100%;width: 100%;background-color: rgb(255, 255, 255); padding-bottom: 5%;">
      <div class="container">
       <div class="row">
         <div class="col" style="text-align: center; margin-bottom: -1%;">
-          <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Montserrat'; color: #A57D2D;"><b>OUR SERVICES</b></h2>
+          <h2 class="nfont" style="letter-spacing: 3px; font-family: 'Montserrat'; color: #A57D2D; font-weight: 700;"><b>OUR SERVICES</b></h2>
         </div>
       </div>
       <div class="row justify-content-between">
         <div class="col-sm-12 col-lg-4 col-md-4 text-center service_col">
         <br>
           <div class="service_card">
-            <img class="service_img" src="/static/icons/property_sale.png" style="filter: invert();" alt="">
+            <img class="service_img" src="/static/icons/property_sale.png" alt="">
           </div>
           <br>
           <h5 class="service_head">PROPERTY SALES</h5>
@@ -335,7 +343,7 @@ iframe.instagram-media {
         <div class="col-sm-12 col-lg-4 col-md-4 text-center service_col">
           <br>
             <div class="service_card">
-              <img class="service_img" src="/static/icons/property_lease.png" style="filter: invert();" alt="">
+              <img class="service_img" src="/static/icons/property_lease.png" alt="">
             </div>
             <br>
             <h5 class="service_head">PROPERTY LEASING</h5>
@@ -346,7 +354,7 @@ iframe.instagram-media {
           <div class="col-sm-12 col-lg-4 col-md-4 text-center service_col">
             <br>
               <div class="service_card">
-                <img class="service_img" src="/static/icons/property_listing.png" style="filter: invert();" alt="">
+                <img class="service_img" src="/static/icons/property_listing.png" alt="">
               </div>
               <br>
               <h5 class="service_head">PROPERTY LISTING</h5>
@@ -359,7 +367,7 @@ iframe.instagram-media {
         <div class="col-sm-12 col-lg-4 col-md-4 text-center service_col">
           <br>
             <div class="service_card">
-              <img class="service_img" src="/static/icons/digital-marketing.svg" style="filter: invert();" alt="">
+              <img class="service_img" src="/static/icons/digital-marketing.svg" alt="">
             </div>
             <br>
             <h5 class="service_head">PROPERTY MARKETING</h5>
@@ -370,7 +378,7 @@ iframe.instagram-media {
       <div class="col-sm-12 col-lg-4 col-md-4 text-center service_col">
         <br>
           <div class="service_card">
-            <img class="service_img" src="/static/icons/project-management.svg" style="filter: invert();" alt="">
+            <img class="service_img" src="/static/icons/project-management.svg" alt="">
           </div>
           <br>
           <h5 class="service_head">PROPERTY MANAGEMENT</h5>
@@ -381,7 +389,7 @@ iframe.instagram-media {
     <div class="col-sm-12 col-lg-4 col-md-4 text-center service_col">
       <br>
         <div class="service_card">
-          <img class="service_img" src="/static/icons/property_facilitate.png" style="filter: invert();" alt="">
+          <img class="service_img" src="/static/icons/property_facilitate.png" alt="">
         </div>
         <br>
         <h5 class="service_head">FACILITATION & ADVISORY</h5>
@@ -390,9 +398,12 @@ iframe.instagram-media {
       </div>
     </div>
   </div>
+<!--
+  <div class="container listing_info">
 
+  </div>
+-->
 
-<!--awards-->
   <div class="container" style="margin-top: 5%;">
     <div class="row">
       <div class="col" style="text-align: center; margin-bottom: -1%;">
@@ -401,7 +412,7 @@ iframe.instagram-media {
     </div>
     <div class="row">
       <div class="col" style="text-align: center; margin-bottom: -1%;">
-        <h2 class="nfont" style="font-family: 'Montserrat'; color: #ffffff; margin-bottom: 3%; font-size: 12pt;">At UHPAE , we strive for Excellence and We are proud of our Achievements. Here's a list of the Awards we've won recently.</h2>
+        <h2 class="nfont" style="font-family: 'Montserrat'; color: #000000; margin-bottom: 3%; font-size: 12pt;">At UHPAE , we strive for Excellence and We are proud of our Achievements. Here's a list of the Awards we've won recently.</h2>
       </div>
     </div>
     <div class="row justify-content-between">
@@ -426,6 +437,7 @@ iframe.instagram-media {
     <div class="row justify-content-between">
     </div>
   </div>
+
 </div>
 </section>
 

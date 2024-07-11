@@ -2,7 +2,22 @@
 
 {% block metacontent %}
 
- <title>UHPAE Team</title>
+<title>UHPAE Team</title>
+
+<style>
+  .image-container {
+      height: 450px; /* Set the desired height */
+      min-width: 350px;
+      overflow: hidden; /* Ensure the image doesn't overflow the container */
+      margin-bottom: 20px;
+      padding: 10px;
+  }
+  .image-container img {
+      height: 100%; /* Make the image height 100% of the container */
+      width: 100%; /* Make the image width 100% of the container */
+      object-fit: cover; /* Crop the image to fit the container */
+  }
+</style>
 
 {% endblock %}
 {% block content %}
@@ -46,7 +61,6 @@
 <div class="row justify-content-center">
 
 <button class="teambtn" onclick="SenFunction()"><b style="font-size: small; font-family: 'Montserrat';">Management Team</b></button>
-<button class="teambtn" onclick="MarFunction()"><b style="font-size: small; font-family: 'Montserrat';">Marketing Team</b></button>
 <button class="teambtn" onclick="LisFunction()"><b style="font-size: small; font-family: 'Montserrat';">Listing Team</b></button>
 <button class="teambtn" onclick="SalFunction()"><b style="font-size: small; font-family: 'Montserrat';">Sales Team</b></button>
 <button class="teambtn" onclick="AdmFunction()"><b style="font-size: small; font-family: 'Montserrat';">HR & Accounts Team</b></button>
@@ -109,59 +123,6 @@
   </div> 
 </div>
 
-<div class="container" id="mar">
-<div class="row justify-content-around">
-<div class="col-12">
-  <div class="container">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col">
-        <div class="card" style="background-color: transparent; width: 300px !important">
-          <img class="teamimg" src="../static/team/ruba_mm.JPEG" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Ruba Thabet Dajani</b></h4>
-            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Marketing Manager</p>
-          </div>
-        </div>
-      </div>
-      <div class="col"></div>
-    </div>
-  </div>
-  <div class="container" style="margin-top: 3%;">
-    <div class="row">
-      <div class="col">
-        <div class="card" style="background-color: transparent; width: 300px !important">
-          <img class="teamimg" src="../static/team/amjad.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Amjad Al Kattan</b></h4>
-            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Digital Marketing</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="background-color: transparent; width: 300px !important">
-          <img class="teamimg" src="../static/team/shahin.jpeg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Shehin</b></h4>
-            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Content Specialist</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="background-color: transparent; width: 300px !important">
-          <img class="teamimg" src="../static/team/mahy.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-          <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-            <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mahy Sowelam</b></h4>
-            <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Graphic Designer</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-
 
 <div class="container" id="lis">
 <div class="row justify-content-around">
@@ -169,75 +130,33 @@
     <div class="container">
       <div class="row">
         <div class="col"></div>
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/salwa.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Salwa AbdelFattah</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Manager</p>
-            </div>
-          </div>
+        <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/salwa.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
         <div class="col"></div>
       </div>
     </div>
     <div class="container" style="margin-top: 3%;">
       <div class="row">
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/Suha.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Suha Abdul Rahim</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
-            </div>
-          </div>
+        <div class="col image-container">
+          <img class="teamimg" src="../static/agent-barcodes/aline-hasan.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/Islam.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Islam Roushdy</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
-            </div>
-          </div>
+        <div class="col image-container">
+          <img class="teamimg" src="../static/agent-barcodes/islam-roshdy.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/Khloud.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Khloud Ismail</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
-            </div>
-          </div>
+        <div class="col image-container">
+          <img class="teamimg" src="../static/agent-barcodes/khloud_bar.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
       </div>
-      <div class="row" style="margin-top: 3%;">
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/Essam.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Essam</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col image-container">
+          <img class="teamimg" src="../static/agent-barcodes/m-essam.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/Maria.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Maria Villanueva</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
-            </div>
-          </div>
+        <div class="col image-container">
+          <img class="teamimg" src="../static/agent-barcodes/lama-khattab.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
-        <div class="col">
-          <div class="card" style="background-color: transparent; width: 300px !important">
-            <img class="teamimg" src="../static/team/Reham.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-            <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-              <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Reham Mohammed</b></h4>
-              <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Listing Agent</p>
-            </div>
-          </div>
+        <div class="col image-container">
+          <img class="teamimg" src="../static/agent-barcodes/rowan-ibrahim.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
         </div>
       </div>
     </div>
@@ -251,75 +170,81 @@
       <div class="container">
         <div class="row">
           <div class="col"></div>
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Ramzi.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Ramzi Abusida</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Sales Manager</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/ramzi.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
           <div class="col"></div>
         </div>
       </div>
       <div class="container" style="margin-top: 3%;">
         <div class="row">
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Odeh.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Abu Odeh</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Team Leader</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/m_ali.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Nawarah.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Mohammed Nawarah</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Team Leader</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/oudeh.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Baraa.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Baraa Yasser</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/assef_ibrahim.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
         </div>
         <div class="row" style="margin-top: 3%;">
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Choib.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Abdalla Choib</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/m.youssef.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Hajar.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Hajar El Katti</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/jaber.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important">
-              <img class="teamimg" src="../static/team/Laith.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Laith Alloush</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Property Consultant</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/meen-shesh.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+        </div>
+      </div>
+      <div class="container" style="margin-top: 3%;">
+        <div class="row">
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/sabri.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/reham_habib.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/tamam.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+        </div>
+        <div class="row" style="margin-top: 3%;">
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/ali_mahmoud.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/adel.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/mouna.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+        </div>
+      </div>
+      <div class="container" style="margin-top: 3%;">
+        <div class="row">
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/bassma.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/leen.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/bashar-abd.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+        </div>
+        <div class="row" style="margin-top: 3%;">
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/lojain.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/nozima.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/nada.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
         </div>
       </div>
@@ -332,24 +257,22 @@
     <div class="col-12">
       <div class="container" style="margin-top: 3%;">
         <div class="row">
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important; margin-left: auto; margin-right: auto;">
-              <img class="teamimg" src="../static/team/hr.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Ruba Al Jaber</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">HR Manager</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/baheej.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
-          <div class="col">
-            <div class="card" style="background-color: transparent; width: 300px !important; margin-left: auto; margin-right: auto;">
-              <img class="teamimg" src="../static/team/baheej.jpg" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px 12px 0 0; width: 298px; height: 250px;">
-              <div class="container" style="background-color: #9e7b4f; border-radius: 0 0 12px 12px;">
-                <h4 style="text-align: center; margin-top: 10px; font-family: 'Montserrat'; font-size: 15pt; font-weight: 900; letter-spacing: normal; margin-bottom: 0;"><b style="color: white;">Baheej Muringakkodan</b></h4>
-                <p style="color: white; text-align: center; font-family: 'Montserrat'; font-size: 13pt; margin-bottom: 5px;">Accountant</p>
-              </div>
-            </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/uzma.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
           </div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/suha-jbour.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+        </div>
+        <div class="row" style="margin-top: 3%;">
+          <div class="col"></div>
+          <div class="col image-container">
+            <img class="teamimg" src="../static/agent-barcodes/seetha.png" alt="" style="margin-left: auto; margin-right: auto; border-radius: 12px;">
+          </div>
+          <div class="col"></div>
         </div>
       </div>
       </div>
@@ -375,13 +298,11 @@
 {% block scripts %}
 
 <script>
-  document.getElementById('mar').style.display="none";
   document.getElementById('lis').style.display="none";
   document.getElementById('sal').style.display="none";
   document.getElementById('adm').style.display="none";
   document.getElementById('sen').style.display="";
   function SenFunction(){
-      document.getElementById('mar').style.display="none";
       document.getElementById('lis').style.display="none";
       document.getElementById('sal').style.display="none";
       document.getElementById('sen').style.display="";
@@ -389,28 +310,24 @@
   }
 
   function MarFunction(){
-      document.getElementById('mar').style.display="";
       document.getElementById('lis').style.display="none";
       document.getElementById('sal').style.display="none";
       document.getElementById('sen').style.display="none"; 
       document.getElementById('adm').style.display="none";  
   }
   function LisFunction(){
-      document.getElementById('mar').style.display="none";
       document.getElementById('lis').style.display="";
       document.getElementById('sal').style.display="none";
       document.getElementById('sen').style.display="none"; 
       document.getElementById('adm').style.display="none";    
   }
   function SalFunction(){
-      document.getElementById('mar').style.display="none";
       document.getElementById('lis').style.display="none";
       document.getElementById('sal').style.display="";
       document.getElementById('sen').style.display="none";
       document.getElementById('adm').style.display="none";
   }
   function AdmFunction(){
-      document.getElementById('mar').style.display="none";
       document.getElementById('lis').style.display="none";
       document.getElementById('sal').style.display="none";
       document.getElementById('sen').style.display="none";
