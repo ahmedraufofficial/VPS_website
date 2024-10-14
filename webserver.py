@@ -342,9 +342,9 @@ def manaralandingpage():
 def watersedgelandingpage():
     return render_template('watersedge.html')
 
-#@app.route('/landing/the-home-showdown')
-#def openhouselandingpage():
-#    return render_template('open_house.html')
+@app.route('/landing/road-show')
+def openhouselandingpage():
+    return render_template('open_house.html')
 
 @app.route('/landing/qatar_event')
 def qatarlandingpage():
