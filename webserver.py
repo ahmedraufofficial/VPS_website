@@ -403,11 +403,6 @@ def sakher_landing_barcode(agent_name):
         name = 'Hajar Alkatti'
         number = '+971507614672'
         email = 'hajar.katti@uhpae.com'
-    elif agent_name == 'zeina':
-        image_link = '/static/agent-barcodes/zeina.png'
-        name = 'Zeina Hassan'
-        number = '+971566622290'
-        email = 'zeina_hassan@uhpae.com'
     elif agent_name == 'laith':
         image_link = '/static/agent-barcodes/laith.png'
         name = 'Laith Alloush'
@@ -418,11 +413,6 @@ def sakher_landing_barcode(agent_name):
         name = 'Ramzi Abu Sada'
         number = '+971563383131'
         email = 'ramzi.a@uhpae.com'
-    elif agent_name == 'ruba_jaber':
-        image_link = '/static/agent-barcodes/ruba.png'
-        name = 'Ruba Al Jaber'
-        number = '+971506103735'
-        email = 'hr@uhpae.com'
     elif agent_name == 'salwa':
         image_link = '/static/agent-barcodes/salwa.png'
         name = 'Salwa AbdelFattah'
@@ -443,11 +433,6 @@ def sakher_landing_barcode(agent_name):
         name = 'Ahmed Jaber'
         number = '+971552901938'
         email = 'ahmed.jaber@uhpae.com'
-    elif agent_name == 'm-otoum':
-        image_link = '/static/agent-barcodes/otoum.png'
-        name = 'Mohammed Outom'
-        number = '+971506130818'
-        email = 'm.otoum@uhpae.com'
     elif agent_name == 'hamza-sabri':
         image_link = '/static/agent-barcodes/sabri.png'
         name = 'Hamza Sabri'
@@ -458,41 +443,16 @@ def sakher_landing_barcode(agent_name):
         name = 'Naima Rahem'
         number = '+971566664641'
         email = 'naima.rahem@uhpae.com'
-    elif agent_name == 'ahmed-walid':
-        image_link = '/static/agent-barcodes/walid.png'
-        name = 'Ahmed Walid'
-        number = '+971585810253'
-        email = 'ahmedwalid@uhpae.com'
     elif agent_name == 'tmam':
         image_link = '/static/agent-barcodes/tamam.png'
         name = 'Tmam Esmaeel'
         number = '+971545478064'
         email = 'tmamesmael@uhpae.com'
-    elif agent_name == 'rasha-adel':
-        image_link = '/static/agent-barcodes/rasha.png'
-        name = 'Rasha Adel'
-        number = '+971553610106'
-        email = 'rasha_adel@uhpae.com'
     elif agent_name == 'ruba-dajani':
         image_link = '/static/agent-barcodes/ruba-dajani.png'
         name = 'Ruba Al Dajani'
         number = '+971505837424'
         email = 'ruba.dajani@uhemedia.com'
-    elif agent_name == 'amjad-ali':
-        image_link = '/static/agent-barcodes/amjad_ali.png'
-        name = 'Amjad Al Kattan'
-        number = '+971553382055'
-        email = 'amjadosama@uhpae.com'
-    elif agent_name == 'm-shehin':
-        image_link = '/static/agent-barcodes/m_shehin.png'
-        name = 'Mohammed Shehin'
-        number = '+971525839168'
-        email = 'mohammedshehin@uhpae.com'
-    elif agent_name == 'rizwan-ah':
-        image_link = '/static/agent-barcodes/rizwan.png'
-        name = 'Rizwan Ahmad'
-        number = '+971543241153'
-        email = 'rizwan_ahmad@uhpae.com'
     elif agent_name == 'islam-roshdy':
         image_link = '/static/agent-barcodes/islam-roshdy.png'
         name = 'Islam Roushdy'
@@ -503,36 +463,16 @@ def sakher_landing_barcode(agent_name):
         name = 'Khloud Barakat'
         number = '+971585396336'
         email = 'khloud@uhpae.com'
-    elif agent_name == 'maria-alicia':
-        image_link = '/static/agent-barcodes/maria_vil.png'
-        name = 'Maria Alicia'
-        number = '+971565256336'
-        email = 'mariavillanueva@uhpae.com'
     elif agent_name == 'm-essam':
         image_link = '/static/agent-barcodes/m-essam.png'
         name = 'Mohamed Essam'
         number = '+971565112229'
         email = 'mohamed.essam@uhpae.com'
-    elif agent_name == 'suha-rahim':
-        image_link = '/static/agent-barcodes/suha-rahim.png'
-        name = 'Suha Abdelrahim'
-        number = '+971565112226'
-        email = 'suha_abdelrahim@uhpae.com'
-    elif agent_name == 'el-mahdi':
-        image_link = '/static/agent-barcodes/el-mahdi.png'
-        name = 'El Mahdi Baziou'
-        number = '+971562714855'
-        email = 'elmahdi.baziou@uhpae.com'
     elif agent_name == 'suha-aljbour':
         image_link = '/static/agent-barcodes/suha-jbour.png'
         name = 'Suha Al Jbour'
         number = '+971585326226'
         email = 'soha.jbour@uhpae.com'
-    elif agent_name == 'aline-hasan':
-        image_link = '/static/agent-barcodes/aline-hasan.png'
-        name = 'Aline Hasan'
-        number = '+971549981990'
-        email = 'aline_hasan@uhpae.com'
     elif agent_name == 'florien':
         image_link = '/static/agent-barcodes/florien.png'
         name = 'Florien'
@@ -548,56 +488,16 @@ def sakher_landing_barcode(agent_name):
         name = 'Naira Amin'
         number = '+971585916336'
         email = 'naira_amin@uhpae.com'
-    elif agent_name == 'sherine-ashraf':
-        image_link = '/static/agent-barcodes/sherin_ashraf.png'
-        name = 'Sherine Ashraf'
-        number = '+971555396166'
-        email = 'shreen_ashraf@uhpae.com'
-    elif agent_name == 'assef-ibrahim':
-        image_link = '/static/agent-barcodes/assef_ibrahim.png'
-        name = 'Assef Ibrahim'
-        number = '+971563331833'
-        email = 'assef_ibrahim@uhpae.com'
-    elif agent_name == 'mouna-bourezak':
-        image_link = '/static/agent-barcodes/mouna.png'
-        name = 'Mouna Bourezak'
-        number = '+971563069092'
-        email = 'mouna_bourezak@uhpae.com'
     elif agent_name == 'reham-habib':
         image_link = '/static/agent-barcodes/reham_habib.png'
         name = 'Reham Habib'
         number = '+971545370339'
         email = 'reham_habib@uhpae.com'
-    elif agent_name == 'hashim-zaid':
-        image_link = '/static/agent-barcodes/hashim_zaid.png'
-        name = 'Hashim Zaid'
-        number = '+971509643017'
-        email = 'hashim_zaid@uhpae.com'
-    elif agent_name == 'ali-mahmoud':
-        image_link = '/static/agent-barcodes/ali_mahmoud.png'
-        name = 'Ali Mahmoud'
-        number = '+971564132620'
-        email = 'ali_mahmoud@uhpae.com'
-    elif agent_name == 'odai-kamal':
-        image_link = '/static/agent-barcodes/odai_kamal.png'
-        name = 'Odai Kamal'
-        number = '+971523594357'
-        email = 'odai_kamal@uhpae.com'
-    elif agent_name == 'ghita':
-        image_link = '/static/agent-barcodes/ghita_hadda.png'
-        name = 'Ghita Hadda'
-        number = '+971544015143'
-        email = 'ghita_hadda@uhpae.com'
     elif agent_name == 'mahmoud-mustafa':
         image_link = '/static/agent-barcodes/mahmoud_mustafa.png'
         name = 'Mahmoud Mustafa'
         number = '+971554960930'
         email = 'mahmoud_moustafa@uhpae.com'
-    elif agent_name == 'mohammed-kalbouneh':
-        image_link = '/static/agent-barcodes/m-kalbouneh.png'
-        name = 'Mohammed Kalbouneh'
-        number = '+971503954235'
-        email = 'mohammed_kalbouneh@uhpae.com'
     elif agent_name == 'meenaallah-sheshtawy':
         image_link = '/static/agent-barcodes/meen-shesh.png'
         name = 'Meenaallah Sheshtawy'
@@ -608,11 +508,6 @@ def sakher_landing_barcode(agent_name):
         name = 'Lama Al Khattab'
         number = '+971501723316'
         email = 'lama_khattab@uhpae.com'
-    elif agent_name == 'mennaallah-mousa':
-        image_link = '/static/agent-barcodes/menn-mousa.png'
-        name = 'Mennaallah Mousa'
-        number = '+971542764462'
-        email = 'menna_mousa@uhpae.com'
     elif agent_name == 'rooh-saeed':
         image_link = '/static/agent-barcodes/rooh_saeed.png'
         name = 'Rooh Saeed'
